@@ -1,0 +1,593 @@
+Name: CHE OnshoreWind
+Date: 2022-10-13 11:23:59.823403
+Author: Marc Jaxa-Rozen, Xin Wen
+
+Country,Entity,Parameter,Year,Period,Value,Unit,Reference,Priority,Note
+CHE,OnshoreWind,Resource,1990,,OnshoreWindResource,,,,
+CHE,OnshoreWind,Resource,1991,,OnshoreWindResource,,,,
+CHE,OnshoreWind,Resource,1992,,OnshoreWindResource,,,,
+CHE,OnshoreWind,Resource,1993,,OnshoreWindResource,,,,
+CHE,OnshoreWind,Resource,1994,,OnshoreWindResource,,,,
+CHE,OnshoreWind,Resource,1995,,OnshoreWindResource,,,,
+CHE,OnshoreWind,Resource,1996,,OnshoreWindResource,,,,
+CHE,OnshoreWind,Resource,1997,,OnshoreWindResource,,,,
+CHE,OnshoreWind,Resource,1998,,OnshoreWindResource,,,,
+CHE,OnshoreWind,Resource,1999,,OnshoreWindResource,,,,
+CHE,OnshoreWind,Resource,2000,,OnshoreWindResource,,,,
+CHE,OnshoreWind,Resource,2001,,OnshoreWindResource,,,,
+CHE,OnshoreWind,Resource,2002,,OnshoreWindResource,,,,
+CHE,OnshoreWind,Resource,2003,,OnshoreWindResource,,,,
+CHE,OnshoreWind,Resource,2004,,OnshoreWindResource,,,,
+CHE,OnshoreWind,Resource,2005,,OnshoreWindResource,,,,
+CHE,OnshoreWind,Resource,2006,,OnshoreWindResource,,,,
+CHE,OnshoreWind,Resource,2007,,OnshoreWindResource,,,,
+CHE,OnshoreWind,Resource,2008,,OnshoreWindResource,,,,
+CHE,OnshoreWind,Resource,2009,,OnshoreWindResource,,,,
+CHE,OnshoreWind,Resource,2010,,OnshoreWindResource,,,,
+CHE,OnshoreWind,Resource,2011,,OnshoreWindResource,,,,
+CHE,OnshoreWind,Resource,2012,,OnshoreWindResource,,,,
+CHE,OnshoreWind,Resource,2013,,OnshoreWindResource,,,,
+CHE,OnshoreWind,Resource,2014,,OnshoreWindResource,,,,
+CHE,OnshoreWind,Resource,2015,,OnshoreWindResource,,,,
+CHE,OnshoreWind,Resource,2016,,OnshoreWindResource,,,,
+CHE,OnshoreWind,Resource,2017,,OnshoreWindResource,,,,
+CHE,OnshoreWind,Resource,2018,,OnshoreWindResource,,,,
+CHE,OnshoreWind,Resource,2019,,OnshoreWindResource,,,,
+CHE,OnshoreWind,Resource,2020,,OnshoreWindResource,,,,
+CHE,OnshoreWind,LF_min,1990,,0.05,,,,
+CHE,OnshoreWind,LF_min,1991,,0.05,,,,
+CHE,OnshoreWind,LF_min,1992,,0.05,,,,
+CHE,OnshoreWind,LF_min,1993,,0.05,,,,
+CHE,OnshoreWind,LF_min,1994,,0.05,,,,
+CHE,OnshoreWind,LF_min,1995,,0.05,,,,
+CHE,OnshoreWind,LF_min,1996,,0.05,,,,
+CHE,OnshoreWind,LF_min,1997,,0.05,,,,
+CHE,OnshoreWind,LF_min,1998,,0.05,,,,
+CHE,OnshoreWind,LF_min,1999,,0.05,,,,
+CHE,OnshoreWind,LF_min,2000,,0.05,,,,
+CHE,OnshoreWind,LF_min,2001,,0.05,,,,
+CHE,OnshoreWind,LF_min,2002,,0.05,,,,
+CHE,OnshoreWind,LF_min,2003,,0.05,,,,
+CHE,OnshoreWind,LF_min,2004,,0.05,,,,
+CHE,OnshoreWind,LF_min,2005,,0.05,,,,
+CHE,OnshoreWind,LF_min,2006,,0.05,,,,
+CHE,OnshoreWind,LF_min,2007,,0.05,,,,
+CHE,OnshoreWind,LF_min,2008,,0.05,,,,
+CHE,OnshoreWind,LF_min,2009,,0.05,,,,
+CHE,OnshoreWind,LF_min,2010,,0.05,,,,
+CHE,OnshoreWind,LF_min,2011,,0.05,,,,
+CHE,OnshoreWind,LF_min,2012,,0.05,,,,
+CHE,OnshoreWind,LF_min,2013,,0.05,,,,
+CHE,OnshoreWind,LF_min,2014,,0.05,,,,
+CHE,OnshoreWind,LF_min,2015,,0.05,,,,
+CHE,OnshoreWind,LF_min,2016,,0.05,,,,
+CHE,OnshoreWind,LF_min,2017,,0.05,,,,
+CHE,OnshoreWind,LF_min,2018,,0.05,,,,
+CHE,OnshoreWind,LF_min,2019,,0.05,,,,
+CHE,OnshoreWind,LF_min,2020,,0.05,,,,
+CHE,OnshoreWind,Peak_contr,1990,,0.205,,"Royal Academy of Engineering (2014) GB electricity capacity margin, table 1",,Average value
+CHE,OnshoreWind,Peak_contr,1991,,0.205,,,,
+CHE,OnshoreWind,Peak_contr,1992,,0.205,,,,
+CHE,OnshoreWind,Peak_contr,1993,,0.205,,,,
+CHE,OnshoreWind,Peak_contr,1994,,0.205,,,,
+CHE,OnshoreWind,Peak_contr,1995,,0.205,,,,
+CHE,OnshoreWind,Peak_contr,1996,,0.205,,,,
+CHE,OnshoreWind,Peak_contr,1997,,0.205,,,,
+CHE,OnshoreWind,Peak_contr,1998,,0.205,,,,
+CHE,OnshoreWind,Peak_contr,1999,,0.205,,,,
+CHE,OnshoreWind,Peak_contr,2000,,0.205,,,,
+CHE,OnshoreWind,Peak_contr,2001,,0.205,,,,
+CHE,OnshoreWind,Peak_contr,2002,,0.205,,,,
+CHE,OnshoreWind,Peak_contr,2003,,0.205,,,,
+CHE,OnshoreWind,Peak_contr,2004,,0.205,,,,
+CHE,OnshoreWind,Peak_contr,2005,,0.205,,,,
+CHE,OnshoreWind,Peak_contr,2006,,0.205,,,,
+CHE,OnshoreWind,Peak_contr,2007,,0.205,,,,
+CHE,OnshoreWind,Peak_contr,2008,,0.205,,,,
+CHE,OnshoreWind,Peak_contr,2009,,0.205,,,,
+CHE,OnshoreWind,Peak_contr,2010,,0.205,,,,
+CHE,OnshoreWind,Peak_contr,2011,,0.205,,,,
+CHE,OnshoreWind,Peak_contr,2012,,0.205,,,,
+CHE,OnshoreWind,Peak_contr,2013,,0.205,,,,
+CHE,OnshoreWind,Peak_contr,2014,,0.205,,,,
+CHE,OnshoreWind,Peak_contr,2015,,0.205,,,,
+CHE,OnshoreWind,Peak_contr,2016,,0.205,,,,
+CHE,OnshoreWind,Peak_contr,2017,,0.205,,,,
+CHE,OnshoreWind,Peak_contr,2018,,0.205,,,,
+CHE,OnshoreWind,Peak_contr,2019,,0.205,,,,
+CHE,OnshoreWind,Peak_contr,2020,,0.205,,,,
+CHE,OnshoreWind,Own_use,1990,,0,,Assumption,,
+CHE,OnshoreWind,Own_use,1991,,0,,Assumption,,
+CHE,OnshoreWind,Own_use,1992,,0,,Assumption,,
+CHE,OnshoreWind,Own_use,1993,,0,,Assumption,,
+CHE,OnshoreWind,Own_use,1994,,0,,Assumption,,
+CHE,OnshoreWind,Own_use,1995,,0,,Assumption,,
+CHE,OnshoreWind,Own_use,1996,,0,,Assumption,,
+CHE,OnshoreWind,Own_use,1997,,0,,Assumption,,
+CHE,OnshoreWind,Own_use,1998,,0,,Assumption,,
+CHE,OnshoreWind,Own_use,1999,,0,,Assumption,,
+CHE,OnshoreWind,Own_use,2000,,0,,Assumption,,
+CHE,OnshoreWind,Own_use,2001,,0,,Assumption,,
+CHE,OnshoreWind,Own_use,2002,,0,,Assumption,,
+CHE,OnshoreWind,Own_use,2003,,0,,Assumption,,
+CHE,OnshoreWind,Own_use,2004,,0,,Assumption,,
+CHE,OnshoreWind,Own_use,2005,,0,,Assumption,,
+CHE,OnshoreWind,Own_use,2006,,0,,Assumption,,
+CHE,OnshoreWind,Own_use,2007,,0,,Assumption,,
+CHE,OnshoreWind,Own_use,2008,,0,,Assumption,,
+CHE,OnshoreWind,Own_use,2009,,0,,Assumption,,
+CHE,OnshoreWind,Own_use,2010,,0,,Assumption,,
+CHE,OnshoreWind,Own_use,2011,,0,,Assumption,,
+CHE,OnshoreWind,Own_use,2012,,0,,Assumption,,
+CHE,OnshoreWind,Own_use,2013,,0,,Assumption,,
+CHE,OnshoreWind,Own_use,2014,,0,,Assumption,,
+CHE,OnshoreWind,Own_use,2015,,0,,Assumption,,
+CHE,OnshoreWind,Own_use,2016,,0,,Assumption,,
+CHE,OnshoreWind,Own_use,2017,,0,,Assumption,,
+CHE,OnshoreWind,Own_use,2018,,0,,Assumption,,
+CHE,OnshoreWind,Own_use,2019,,0,,Assumption,,
+CHE,OnshoreWind,Own_use,2020,,0,,Assumption,,
+CHE,OnshoreWind,Buildrates,1990,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for OnshoreWind in CHE, rounded up to 0.25GW"
+CHE,OnshoreWind,Buildrates,1991,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for OnshoreWind in CHE, rounded up to 0.25GW"
+CHE,OnshoreWind,Buildrates,1992,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for OnshoreWind in CHE, rounded up to 0.25GW"
+CHE,OnshoreWind,Buildrates,1993,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for OnshoreWind in CHE, rounded up to 0.25GW"
+CHE,OnshoreWind,Buildrates,1994,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for OnshoreWind in CHE, rounded up to 0.25GW"
+CHE,OnshoreWind,Buildrates,1995,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for OnshoreWind in CHE, rounded up to 0.25GW"
+CHE,OnshoreWind,Buildrates,1996,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for OnshoreWind in CHE, rounded up to 0.25GW"
+CHE,OnshoreWind,Buildrates,1997,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for OnshoreWind in CHE, rounded up to 0.25GW"
+CHE,OnshoreWind,Buildrates,1998,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for OnshoreWind in CHE, rounded up to 0.25GW"
+CHE,OnshoreWind,Buildrates,1999,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for OnshoreWind in CHE, rounded up to 0.25GW"
+CHE,OnshoreWind,Buildrates,2000,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for OnshoreWind in CHE, rounded up to 0.25GW"
+CHE,OnshoreWind,Buildrates,2001,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for OnshoreWind in CHE, rounded up to 0.25GW"
+CHE,OnshoreWind,Buildrates,2002,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for OnshoreWind in CHE, rounded up to 0.25GW"
+CHE,OnshoreWind,Buildrates,2003,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for OnshoreWind in CHE, rounded up to 0.25GW"
+CHE,OnshoreWind,Buildrates,2004,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for OnshoreWind in CHE, rounded up to 0.25GW"
+CHE,OnshoreWind,Buildrates,2005,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for OnshoreWind in CHE, rounded up to 0.25GW"
+CHE,OnshoreWind,Buildrates,2006,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for OnshoreWind in CHE, rounded up to 0.25GW"
+CHE,OnshoreWind,Buildrates,2007,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for OnshoreWind in CHE, rounded up to 0.25GW"
+CHE,OnshoreWind,Buildrates,2008,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for OnshoreWind in CHE, rounded up to 0.25GW"
+CHE,OnshoreWind,Buildrates,2009,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for OnshoreWind in CHE, rounded up to 0.25GW"
+CHE,OnshoreWind,Buildrates,2010,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for OnshoreWind in CHE, rounded up to 0.25GW"
+CHE,OnshoreWind,Buildrates,2011,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for OnshoreWind in CHE, rounded up to 0.25GW"
+CHE,OnshoreWind,Buildrates,2012,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for OnshoreWind in CHE, rounded up to 0.25GW"
+CHE,OnshoreWind,Buildrates,2013,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for OnshoreWind in CHE, rounded up to 0.25GW"
+CHE,OnshoreWind,Buildrates,2014,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for OnshoreWind in CHE, rounded up to 0.25GW"
+CHE,OnshoreWind,Buildrates,2015,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for OnshoreWind in CHE, rounded up to 0.25GW"
+CHE,OnshoreWind,Buildrates,2016,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for OnshoreWind in CHE, rounded up to 0.25GW"
+CHE,OnshoreWind,Buildrates,2017,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for OnshoreWind in CHE, rounded up to 0.25GW"
+CHE,OnshoreWind,Buildrates,2018,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for OnshoreWind in CHE, rounded up to 0.25GW"
+CHE,OnshoreWind,Buildrates,2019,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for OnshoreWind in CHE, rounded up to 0.25GW"
+CHE,OnshoreWind,Buildrates,2020,,2,GW,,,
+CHE,OnshoreWind,Lifetime,2010,,30,yr,,,
+CHE,OnshoreWind,Potential_annual,1990,,5.216605768,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_annual,1991,,5.216605768,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_annual,1992,,5.216605768,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_annual,1993,,5.216605768,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_annual,1994,,5.216605768,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_annual,1995,,5.216605768,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_annual,1996,,5.216605768,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_annual,1997,,5.216605768,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_annual,1998,,5.216605768,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_annual,1999,,5.216605768,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_annual,2000,,5.216605768,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_annual,2001,,5.216605768,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_annual,2002,,5.216605768,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_annual,2003,,5.216605768,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_annual,2004,,5.216605768,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_annual,2005,,5.216605768,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_annual,2006,,5.216605768,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_annual,2007,,5.216605768,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_annual,2008,,5.216605768,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_annual,2009,,5.216605768,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_annual,2010,,5.216605768,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_annual,2011,,5.216605768,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_annual,2012,,5.216605768,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_annual,2013,,5.216605768,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_annual,2014,,5.216605768,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_annual,2015,,5.216605768,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_annual,2016,,5.216605768,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_annual,2017,,5.216605768,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_annual,2018,,5.216605768,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_annual,2019,,5.216605768,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_annual,2020,,5.216605768,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100389,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_installed,1990,,3979.592927,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_installed,1991,,3979.592927,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_installed,1992,,3979.592927,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_installed,1993,,3979.592927,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_installed,1994,,3979.592927,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_installed,1995,,3979.592927,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_installed,1996,,3979.592927,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_installed,1997,,3979.592927,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_installed,1998,,3979.592927,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_installed,1999,,3979.592927,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_installed,2000,,3979.592927,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_installed,2001,,3979.592927,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_installed,2002,,3979.592927,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_installed,2003,,3979.592927,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_installed,2004,,3979.592927,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_installed,2005,,3979.592927,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_installed,2006,,3979.592927,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_installed,2007,,3979.592927,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_installed,2008,,3979.592927,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_installed,2009,,3979.592927,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_installed,2010,,3979.592927,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_installed,2011,,3979.592927,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_installed,2012,,3979.592927,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_installed,2013,,3979.592927,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_installed,2014,,3979.592927,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_installed,2015,,3979.592927,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_installed,2016,,3979.592927,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_installed,2017,,3979.592927,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_installed,2018,,3979.592927,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_installed,2019,,3979.592927,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Potential_installed,2020,,3979.592927,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for offshore wind
+CHE,OnshoreWind,Ramp_rate,1990,,10,,Assumption,,
+CHE,OnshoreWind,Ramp_rate,1991,,10,,Assumption,,
+CHE,OnshoreWind,Ramp_rate,1992,,10,,Assumption,,
+CHE,OnshoreWind,Ramp_rate,1993,,10,,Assumption,,
+CHE,OnshoreWind,Ramp_rate,1994,,10,,Assumption,,
+CHE,OnshoreWind,Ramp_rate,1995,,10,,Assumption,,
+CHE,OnshoreWind,Ramp_rate,1996,,10,,Assumption,,
+CHE,OnshoreWind,Ramp_rate,1997,,10,,Assumption,,
+CHE,OnshoreWind,Ramp_rate,1998,,10,,Assumption,,
+CHE,OnshoreWind,Ramp_rate,1999,,10,,Assumption,,
+CHE,OnshoreWind,Ramp_rate,2000,,10,,Assumption,,
+CHE,OnshoreWind,Ramp_rate,2001,,10,,Assumption,,
+CHE,OnshoreWind,Ramp_rate,2002,,10,,Assumption,,
+CHE,OnshoreWind,Ramp_rate,2003,,10,,Assumption,,
+CHE,OnshoreWind,Ramp_rate,2004,,10,,Assumption,,
+CHE,OnshoreWind,Ramp_rate,2005,,10,,Assumption,,
+CHE,OnshoreWind,Ramp_rate,2006,,10,,Assumption,,
+CHE,OnshoreWind,Ramp_rate,2007,,10,,Assumption,,
+CHE,OnshoreWind,Ramp_rate,2008,,10,,Assumption,,
+CHE,OnshoreWind,Ramp_rate,2009,,10,,Assumption,,
+CHE,OnshoreWind,Ramp_rate,2010,,10,,Assumption,,
+CHE,OnshoreWind,Ramp_rate,2011,,10,,Assumption,,
+CHE,OnshoreWind,Ramp_rate,2012,,10,,Assumption,,
+CHE,OnshoreWind,Ramp_rate,2013,,10,,Assumption,,
+CHE,OnshoreWind,Ramp_rate,2014,,10,,Assumption,,
+CHE,OnshoreWind,Ramp_rate,2015,,10,,Assumption,,
+CHE,OnshoreWind,Ramp_rate,2016,,10,,Assumption,,
+CHE,OnshoreWind,Ramp_rate,2017,,10,,Assumption,,
+CHE,OnshoreWind,Ramp_rate,2018,,10,,Assumption,,
+CHE,OnshoreWind,Ramp_rate,2019,,10,,Assumption,,
+CHE,OnshoreWind,Ramp_rate,2020,,10,,Assumption,,
+CHE,OnshoreWind,Fuel_efficiency,1990,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,OnshoreWind,Fuel_efficiency,1991,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,OnshoreWind,Fuel_efficiency,1992,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,OnshoreWind,Fuel_efficiency,1993,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,OnshoreWind,Fuel_efficiency,1994,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,OnshoreWind,Fuel_efficiency,1995,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,OnshoreWind,Fuel_efficiency,1996,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,OnshoreWind,Fuel_efficiency,1997,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,OnshoreWind,Fuel_efficiency,1998,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,OnshoreWind,Fuel_efficiency,1999,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,OnshoreWind,Fuel_efficiency,2000,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,OnshoreWind,Fuel_efficiency,2001,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,OnshoreWind,Fuel_efficiency,2002,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,OnshoreWind,Fuel_efficiency,2003,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,OnshoreWind,Fuel_efficiency,2004,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,OnshoreWind,Fuel_efficiency,2005,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,OnshoreWind,Fuel_efficiency,2006,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,OnshoreWind,Fuel_efficiency,2007,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,OnshoreWind,Fuel_efficiency,2008,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,OnshoreWind,Fuel_efficiency,2009,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,OnshoreWind,Fuel_efficiency,2010,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,OnshoreWind,Fuel_efficiency,2011,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,OnshoreWind,Fuel_efficiency,2012,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,OnshoreWind,Fuel_efficiency,2013,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,OnshoreWind,Fuel_efficiency,2014,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,OnshoreWind,Fuel_efficiency,2015,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,OnshoreWind,Fuel_efficiency,2016,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,OnshoreWind,Fuel_efficiency,2017,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,OnshoreWind,Fuel_efficiency,2018,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,OnshoreWind,Fuel_efficiency,2019,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,OnshoreWind,Fuel_efficiency,2020,,1,,,,
+CHE,OnshoreWind,Heat_to_electricity,1990,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,OnshoreWind,Heat_to_electricity,1991,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,OnshoreWind,Heat_to_electricity,1992,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,OnshoreWind,Heat_to_electricity,1993,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,OnshoreWind,Heat_to_electricity,1994,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,OnshoreWind,Heat_to_electricity,1995,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,OnshoreWind,Heat_to_electricity,1996,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,OnshoreWind,Heat_to_electricity,1997,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,OnshoreWind,Heat_to_electricity,1998,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,OnshoreWind,Heat_to_electricity,1999,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,OnshoreWind,Heat_to_electricity,2000,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,OnshoreWind,Heat_to_electricity,2001,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,OnshoreWind,Heat_to_electricity,2002,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,OnshoreWind,Heat_to_electricity,2003,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,OnshoreWind,Heat_to_electricity,2004,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,OnshoreWind,Heat_to_electricity,2005,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,OnshoreWind,Heat_to_electricity,2006,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,OnshoreWind,Heat_to_electricity,2007,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,OnshoreWind,Heat_to_electricity,2008,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,OnshoreWind,Heat_to_electricity,2009,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,OnshoreWind,Heat_to_electricity,2010,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,OnshoreWind,Heat_to_electricity,2011,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,OnshoreWind,Heat_to_electricity,2012,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,OnshoreWind,Heat_to_electricity,2013,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,OnshoreWind,Heat_to_electricity,2014,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,OnshoreWind,Heat_to_electricity,2015,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,OnshoreWind,Heat_to_electricity,2016,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,OnshoreWind,Heat_to_electricity,2017,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,OnshoreWind,Heat_to_electricity,2018,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,OnshoreWind,Heat_to_electricity,2019,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,OnshoreWind,Heat_to_electricity,2020,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,OnshoreWind,Inv,1990,,4531.950813,USD2020/kW,IRENA (2021) Renewable Power Generation Costs and IEA (2011) Wind Task 26 final report,,"Assumption: DEU time series from IRENA, plus 30% (difference of typical investment cost in CHE and DEU reported by IEA Wind Task 26 for 2008, chapter 3 and 7)"
+CHE,OnshoreWind,Inv,1991,,4486.05862,USD2020/kW,,,
+CHE,OnshoreWind,Inv,1992,,4229.215949,USD2020/kW,,,
+CHE,OnshoreWind,Inv,1993,,4113.023755,USD2020/kW,,,
+CHE,OnshoreWind,Inv,1994,,3809.314418,USD2020/kW,,,
+CHE,OnshoreWind,Inv,1995,,3216.859354,USD2020/kW,,,
+CHE,OnshoreWind,Inv,1996,,3081.036403,USD2020/kW,,,
+CHE,OnshoreWind,Inv,1997,,3052.442098,USD2020/kW,,,
+CHE,OnshoreWind,Inv,1998,,3181.116472,USD2020/kW,,,
+CHE,OnshoreWind,Inv,1999,,3026.055665,USD2020/kW,,,
+CHE,OnshoreWind,Inv,2000,,2992.693288,USD2020/kW,,,
+CHE,OnshoreWind,Inv,2001,,2952.990397,USD2020/kW,,,
+CHE,OnshoreWind,Inv,2002,,2986.275217,USD2020/kW,,,
+CHE,OnshoreWind,Inv,2003,,2955.969706,USD2020/kW,,,
+CHE,OnshoreWind,Inv,2004,,2966.756647,USD2020/kW,,,
+CHE,OnshoreWind,Inv,2005,,2933.762999,USD2020/kW,,,
+CHE,OnshoreWind,Inv,2006,,2877.591997,USD2020/kW,,,
+CHE,OnshoreWind,Inv,2007,,2869.666926,USD2020/kW,,,
+CHE,OnshoreWind,Inv,2008,,3096.991035,USD2020/kW,,,
+CHE,OnshoreWind,Inv,2009,,3038.113774,USD2020/kW,,,
+CHE,OnshoreWind,Inv,2010,,2987.884506,USD2020/kW,,,
+CHE,OnshoreWind,Inv,2011,,2987.884506,USD2020/kW,,,
+CHE,OnshoreWind,Inv,2012,,2714.487056,USD2020/kW,,,
+CHE,OnshoreWind,Inv,2013,,2681.593673,USD2020/kW,,,
+CHE,OnshoreWind,Inv,2014,,2645.521923,USD2020/kW,,,
+CHE,OnshoreWind,Inv,2015,,2596.248583,USD2020/kW,,,
+CHE,OnshoreWind,Inv,2016,,2546.7515,USD2020/kW,,,
+CHE,OnshoreWind,Inv,2017,,2546.354971,USD2020/kW,,,
+CHE,OnshoreWind,Inv,2018,,2504.450557,USD2020/kW,,,
+CHE,OnshoreWind,Inv,2019,,2318.223013,USD2020/kW,,,
+CHE,OnshoreWind,Inv,2020,,2307.743227,USD2020/kW,,,
+CHE,OnshoreWind,Fixed_OM_annual,1990,,,,,,
+CHE,OnshoreWind,Fixed_OM_annual,1991,,,,,,
+CHE,OnshoreWind,Fixed_OM_annual,1992,,,,,,
+CHE,OnshoreWind,Fixed_OM_annual,1993,,,,,,
+CHE,OnshoreWind,Fixed_OM_annual,1994,,,,,,
+CHE,OnshoreWind,Fixed_OM_annual,1995,,,,,,
+CHE,OnshoreWind,Fixed_OM_annual,1996,,,,,,
+CHE,OnshoreWind,Fixed_OM_annual,1997,,,,,,
+CHE,OnshoreWind,Fixed_OM_annual,1998,,,,,,
+CHE,OnshoreWind,Fixed_OM_annual,1999,,,,,,
+CHE,OnshoreWind,Fixed_OM_annual,2000,,,,,,
+CHE,OnshoreWind,Fixed_OM_annual,2001,,,,,,
+CHE,OnshoreWind,Fixed_OM_annual,2002,,,,,,
+CHE,OnshoreWind,Fixed_OM_annual,2003,,,,,,
+CHE,OnshoreWind,Fixed_OM_annual,2004,,,,,,
+CHE,OnshoreWind,Fixed_OM_annual,2005,,,,,,
+CHE,OnshoreWind,Fixed_OM_annual,2006,,,,,,
+CHE,OnshoreWind,Fixed_OM_annual,2007,,,,,,
+CHE,OnshoreWind,Fixed_OM_annual,2008,,,,,,
+CHE,OnshoreWind,Fixed_OM_annual,2009,,,,,,
+CHE,OnshoreWind,Fixed_OM_annual,2010,,,,,,
+CHE,OnshoreWind,Fixed_OM_annual,2011,,,,,,
+CHE,OnshoreWind,Fixed_OM_annual,2012,,,,,,
+CHE,OnshoreWind,Fixed_OM_annual,2013,,,,,,
+CHE,OnshoreWind,Fixed_OM_annual,2014,,,,,,
+CHE,OnshoreWind,Fixed_OM_annual,2015,,,,,,
+CHE,OnshoreWind,Fixed_OM_annual,2016,,,,,,
+CHE,OnshoreWind,Fixed_OM_annual,2017,,,,,,
+CHE,OnshoreWind,Fixed_OM_annual,2018,,50,CHF2017/kW,"PSI (2017) Potentials, costs and environmental assessment of electricity generation technologies",,Wind
+CHE,OnshoreWind,Fixed_OM_annual,2019,,,,,,
+CHE,OnshoreWind,Fixed_OM_annual,2020,,,,,,
+CHE,OnshoreWind,Variable_OM,1990,,,,,,
+CHE,OnshoreWind,Variable_OM,1991,,,,,,
+CHE,OnshoreWind,Variable_OM,1992,,,,,,
+CHE,OnshoreWind,Variable_OM,1993,,,,,,
+CHE,OnshoreWind,Variable_OM,1994,,,,,,
+CHE,OnshoreWind,Variable_OM,1995,,,,,,
+CHE,OnshoreWind,Variable_OM,1996,,,,,,
+CHE,OnshoreWind,Variable_OM,1997,,,,,,
+CHE,OnshoreWind,Variable_OM,1998,,,,,,
+CHE,OnshoreWind,Variable_OM,1999,,,,,,
+CHE,OnshoreWind,Variable_OM,2000,,,,,,
+CHE,OnshoreWind,Variable_OM,2001,,,,,,
+CHE,OnshoreWind,Variable_OM,2002,,,,,,
+CHE,OnshoreWind,Variable_OM,2003,,,,,,
+CHE,OnshoreWind,Variable_OM,2004,,,,,,
+CHE,OnshoreWind,Variable_OM,2005,,,,,,
+CHE,OnshoreWind,Variable_OM,2006,,,,,,
+CHE,OnshoreWind,Variable_OM,2007,,,,,,
+CHE,OnshoreWind,Variable_OM,2008,,,,,,
+CHE,OnshoreWind,Variable_OM,2009,,,,,,
+CHE,OnshoreWind,Variable_OM,2010,,,,,,
+CHE,OnshoreWind,Variable_OM,2011,,,,,,
+CHE,OnshoreWind,Variable_OM,2012,,,,,,
+CHE,OnshoreWind,Variable_OM,2013,,,,,,
+CHE,OnshoreWind,Variable_OM,2014,,,,,,
+CHE,OnshoreWind,Variable_OM,2015,,,,,,
+CHE,OnshoreWind,Variable_OM,2016,,,,,,
+CHE,OnshoreWind,Variable_OM,2017,,,,,,
+CHE,OnshoreWind,Variable_OM,2018,,0,CHF2017/MWh,"PSI (2017) Potentials, costs and environmental assessment of electricity generation technologies",,Wind
+CHE,OnshoreWind,Variable_OM,2019,,,,,,
+CHE,OnshoreWind,Variable_OM,2020,,,,,,
+CHE,OnshoreWind,Actual_capacity,1990,,0.1,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_capacity,1991,,0.1,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_capacity,1992,,0.1,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_capacity,1993,,0.1,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_capacity,1994,,0.1,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_capacity,1995,,0.1,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_capacity,1996,,1,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_capacity,1997,,2.1,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_capacity,1998,,2.8,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_capacity,1999,,2.8,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_capacity,2000,,2.8,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_capacity,2001,,4.5,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_capacity,2002,,5.3,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_capacity,2003,,5.4,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_capacity,2004,,8.7,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_capacity,2005,,11.6,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_capacity,2006,,11.6,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_capacity,2007,,11.6,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_capacity,2008,,13.6,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_capacity,2009,,17.6,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_capacity,2010,,42.3,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_capacity,2011,,45.5,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_capacity,2012,,49.4,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_capacity,2013,,60.3,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_capacity,2014,,60.3,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_capacity,2015,,60.3,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_capacity,2016,,75.4,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_capacity,2017,,75.4,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_capacity,2018,,75.4,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_capacity,2019,,75.4,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_new_capacity,1990,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_new_capacity,1991,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_new_capacity,1992,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_new_capacity,1993,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_new_capacity,1994,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_new_capacity,1995,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_new_capacity,1996,,0.9,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_new_capacity,1997,,1.1,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_new_capacity,1998,,0.7,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_new_capacity,1999,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_new_capacity,2000,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_new_capacity,2001,,1.7,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_new_capacity,2002,,0.8,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_new_capacity,2003,,0.1,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_new_capacity,2004,,3.3,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_new_capacity,2005,,2.9,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_new_capacity,2006,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_new_capacity,2007,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_new_capacity,2008,,2,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_new_capacity,2009,,4,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_new_capacity,2010,,24.7,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_new_capacity,2011,,3.2,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_new_capacity,2012,,3.9,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_new_capacity,2013,,10.9,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_new_capacity,2014,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_new_capacity,2015,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_new_capacity,2016,,15.1,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_new_capacity,2017,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_new_capacity,2018,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_new_capacity,2019,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_retired_capacity,1990,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_retired_capacity,1991,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_retired_capacity,1992,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_retired_capacity,1993,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_retired_capacity,1994,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_retired_capacity,1995,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_retired_capacity,1996,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_retired_capacity,1997,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_retired_capacity,1998,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_retired_capacity,1999,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_retired_capacity,2000,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_retired_capacity,2001,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_retired_capacity,2002,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_retired_capacity,2003,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_retired_capacity,2004,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_retired_capacity,2005,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_retired_capacity,2006,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_retired_capacity,2007,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_retired_capacity,2008,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_retired_capacity,2009,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_retired_capacity,2010,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_retired_capacity,2011,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_retired_capacity,2012,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_retired_capacity,2013,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_retired_capacity,2014,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_retired_capacity,2015,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_retired_capacity,2016,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_retired_capacity,2017,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_retired_capacity,2018,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_retired_capacity,2019,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_retired_capacity,2020,,,MW,,,Based on changes in net installed capacity
+CHE,OnshoreWind,Actual_generation,1990,,0.1,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_generation,1991,,0.1,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_generation,1992,,0.1,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_generation,1993,,0.1,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_generation,1994,,0.1,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_generation,1995,,0.1,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_generation,1996,,1,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_generation,1997,,2,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_generation,1998,,2.7,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_generation,1999,,3.3,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_generation,2000,,3,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_generation,2001,,4,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_generation,2002,,5.4,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_generation,2003,,5.2,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_generation,2004,,6.3,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_generation,2005,,8.4,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_generation,2006,,15.3,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_generation,2007,,16,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_generation,2008,,18.5,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_generation,2009,,22.6,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_generation,2010,,36.6,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_generation,2011,,70.1,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_generation,2012,,88.1,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_generation,2013,,89.5,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_generation,2014,,100.9,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_generation,2015,,110,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_generation,2016,,108.6,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_generation,2017,,132.6,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_generation,2018,,121.8,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Actual_generation,2019,,145.9,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,OnshoreWind,Learning_rate,1990,,145.5,,,,
+CHE,OnshoreWind,LF_max,1990,,1,,Assumption for testing,,
+CHE,OnshoreWind,LF_max,1991,,0.3,,,,
+CHE,OnshoreWind,LF_max,1992,,0.3,,,,
+CHE,OnshoreWind,LF_max,1993,,0.3,,,,
+CHE,OnshoreWind,LF_max,1994,,0.3,,,,
+CHE,OnshoreWind,LF_max,1995,,0.3,,,,
+CHE,OnshoreWind,LF_max,1996,,0.3,,,,
+CHE,OnshoreWind,LF_max,1997,,0.3,,,,
+CHE,OnshoreWind,LF_max,1998,,0.3,,,,
+CHE,OnshoreWind,LF_max,1999,,0.3,,,,
+CHE,OnshoreWind,LF_max,2000,,0.3,,,,
+CHE,OnshoreWind,LF_max,2001,,0.3,,,,
+CHE,OnshoreWind,LF_max,2002,,0.3,,,,
+CHE,OnshoreWind,LF_max,2003,,0.3,,,,
+CHE,OnshoreWind,LF_max,2004,,0.3,,,,
+CHE,OnshoreWind,LF_max,2005,,0.3,,,,
+CHE,OnshoreWind,LF_max,2006,,0.3,,,,
+CHE,OnshoreWind,LF_max,2007,,0.3,,,,
+CHE,OnshoreWind,LF_max,2008,,0.3,,,,
+CHE,OnshoreWind,LF_max,2009,,0.3,,,,
+CHE,OnshoreWind,LF_max,2010,,0.3,,,,
+CHE,OnshoreWind,LF_max,2011,,0.3,,,,
+CHE,OnshoreWind,LF_max,2012,,0.3,,,,
+CHE,OnshoreWind,LF_max,2013,,0.3,,,,
+CHE,OnshoreWind,LF_max,2014,,0.3,,,,
+CHE,OnshoreWind,LF_max,2015,,0.3,,,,
+CHE,OnshoreWind,LF_max,2016,,0.3,,,,
+CHE,OnshoreWind,LF_max,2017,,0.3,,,,
+CHE,OnshoreWind,LF_max,2018,,0.3,,,,
+CHE,OnshoreWind,LF_max,2019,,0.3,,,,
+CHE,OnshoreWind,LF_max,2020,,0.3,,,,
+CHE,OnshoreWind,Initial_retired_capacity,1990,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,OnshoreWind,Initial_retired_capacity,1991,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,OnshoreWind,Initial_retired_capacity,1992,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,OnshoreWind,Initial_retired_capacity,1993,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,OnshoreWind,Initial_retired_capacity,1994,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,OnshoreWind,Initial_retired_capacity,1995,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,OnshoreWind,Initial_retired_capacity,1996,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,OnshoreWind,Initial_retired_capacity,1997,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,OnshoreWind,Initial_retired_capacity,1998,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,OnshoreWind,Initial_retired_capacity,1999,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,OnshoreWind,Initial_retired_capacity,2000,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,OnshoreWind,Initial_retired_capacity,2001,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,OnshoreWind,Initial_retired_capacity,2002,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,OnshoreWind,Initial_retired_capacity,2003,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,OnshoreWind,Initial_retired_capacity,2004,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,OnshoreWind,Initial_retired_capacity,2005,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,OnshoreWind,Initial_retired_capacity,2006,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,OnshoreWind,Initial_retired_capacity,2007,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,OnshoreWind,Initial_retired_capacity,2008,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,OnshoreWind,Initial_retired_capacity,2009,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,OnshoreWind,Initial_retired_capacity,2010,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,OnshoreWind,Initial_retired_capacity,2011,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,OnshoreWind,Initial_retired_capacity,2012,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,OnshoreWind,Initial_retired_capacity,2013,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,OnshoreWind,Initial_retired_capacity,2014,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,OnshoreWind,Initial_retired_capacity,2015,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,OnshoreWind,Initial_retired_capacity,2016,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,OnshoreWind,Initial_retired_capacity,2017,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,OnshoreWind,Initial_retired_capacity,2018,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,OnshoreWind,Initial_retired_capacity,2019,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,OnshoreWind,Initial_retired_capacity,2020,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity

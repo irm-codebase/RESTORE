@@ -1,0 +1,577 @@
+Name: CHE Gas
+Date: 2022-10-13 11:23:59.753166
+Author: Marc Jaxa-Rozen, Xin Wen
+
+Country,Entity,Parameter,Year,Period,Value,Unit,Reference,Priority,Note
+CHE,Gas,Resource,1990,,GasResource,,,,
+CHE,Gas,Resource,1991,,GasResource,,,,
+CHE,Gas,Resource,1992,,GasResource,,,,
+CHE,Gas,Resource,1993,,GasResource,,,,
+CHE,Gas,Resource,1994,,GasResource,,,,
+CHE,Gas,Resource,1995,,GasResource,,,,
+CHE,Gas,Resource,1996,,GasResource,,,,
+CHE,Gas,Resource,1997,,GasResource,,,,
+CHE,Gas,Resource,1998,,GasResource,,,,
+CHE,Gas,Resource,1999,,GasResource,,,,
+CHE,Gas,Resource,2000,,GasResource,,,,
+CHE,Gas,Resource,2001,,GasResource,,,,
+CHE,Gas,Resource,2002,,GasResource,,,,
+CHE,Gas,Resource,2003,,GasResource,,,,
+CHE,Gas,Resource,2004,,GasResource,,,,
+CHE,Gas,Resource,2005,,GasResource,,,,
+CHE,Gas,Resource,2006,,GasResource,,,,
+CHE,Gas,Resource,2007,,GasResource,,,,
+CHE,Gas,Resource,2008,,GasResource,,,,
+CHE,Gas,Resource,2009,,GasResource,,,,
+CHE,Gas,Resource,2010,,GasResource,,,,
+CHE,Gas,Resource,2011,,GasResource,,,,
+CHE,Gas,Resource,2012,,GasResource,,,,
+CHE,Gas,Resource,2013,,GasResource,,,,
+CHE,Gas,Resource,2014,,GasResource,,,,
+CHE,Gas,Resource,2015,,GasResource,,,,
+CHE,Gas,Resource,2016,,GasResource,,,,
+CHE,Gas,Resource,2017,,GasResource,,,,
+CHE,Gas,Resource,2018,,GasResource,,,,
+CHE,Gas,Resource,2019,,GasResource,,,,
+CHE,Gas,LF_min,1990,,0.0,,Assumptions for testing,,
+CHE,Gas,LF_min,1991,,0.2,,,,
+CHE,Gas,LF_min,1992,,0.2,,,,
+CHE,Gas,LF_min,1993,,0.2,,,,
+CHE,Gas,LF_min,1994,,0.2,,,,
+CHE,Gas,LF_min,1995,,0.2,,,,
+CHE,Gas,LF_min,1996,,0.2,,,,
+CHE,Gas,LF_min,1997,,0.2,,,,
+CHE,Gas,LF_min,1998,,0.2,,,,
+CHE,Gas,LF_min,1999,,0.2,,,,
+CHE,Gas,LF_min,2000,,0.2,,,,
+CHE,Gas,LF_min,2001,,0.2,,,,
+CHE,Gas,LF_min,2002,,0.2,,,,
+CHE,Gas,LF_min,2003,,0.2,,,,
+CHE,Gas,LF_min,2004,,0.2,,,,
+CHE,Gas,LF_min,2005,,0.2,,,,
+CHE,Gas,LF_min,2006,,0.2,,,,
+CHE,Gas,LF_min,2007,,0.2,,,,
+CHE,Gas,LF_min,2008,,0.2,,,,
+CHE,Gas,LF_min,2009,,0.2,,,,
+CHE,Gas,LF_min,2010,,0.2,,,,
+CHE,Gas,LF_min,2011,,0.2,,,,
+CHE,Gas,LF_min,2012,,0.2,,,,
+CHE,Gas,LF_min,2013,,0.2,,,,
+CHE,Gas,LF_min,2014,,0.2,,,,
+CHE,Gas,LF_min,2015,,0.2,,,,
+CHE,Gas,LF_min,2016,,0.2,,,,
+CHE,Gas,LF_min,2017,,0.2,,,,
+CHE,Gas,LF_min,2018,,0.2,,,,
+CHE,Gas,LF_min,2019,,0.2,,,,
+CHE,Gas,LF_max,1990,,1.1,,Assumptions for testing,,
+CHE,Gas,LF_max,1991,,0.85,,,,
+CHE,Gas,LF_max,1992,,0.85,,,,
+CHE,Gas,LF_max,1993,,0.85,,,,
+CHE,Gas,LF_max,1994,,0.85,,,,
+CHE,Gas,LF_max,1995,,0.85,,,,
+CHE,Gas,LF_max,1996,,0.85,,,,
+CHE,Gas,LF_max,1997,,0.85,,,,
+CHE,Gas,LF_max,1998,,0.85,,,,
+CHE,Gas,LF_max,1999,,0.85,,,,
+CHE,Gas,LF_max,2000,,0.85,,,,
+CHE,Gas,LF_max,2001,,0.85,,,,
+CHE,Gas,LF_max,2002,,0.85,,,,
+CHE,Gas,LF_max,2003,,0.85,,,,
+CHE,Gas,LF_max,2004,,0.85,,,,
+CHE,Gas,LF_max,2005,,0.85,,,,
+CHE,Gas,LF_max,2006,,0.85,,,,
+CHE,Gas,LF_max,2007,,0.85,,,,
+CHE,Gas,LF_max,2008,,0.85,,,,
+CHE,Gas,LF_max,2009,,0.85,,,,
+CHE,Gas,LF_max,2010,,0.85,,,,
+CHE,Gas,LF_max,2011,,0.85,,,,
+CHE,Gas,LF_max,2012,,0.85,,,,
+CHE,Gas,LF_max,2013,,0.85,,,,
+CHE,Gas,LF_max,2014,,0.85,,,,
+CHE,Gas,LF_max,2015,,0.85,,,,
+CHE,Gas,LF_max,2016,,0.85,,,,
+CHE,Gas,LF_max,2017,,0.85,,,,
+CHE,Gas,LF_max,2018,,0.85,,,,
+CHE,Gas,LF_max,2019,,0.85,,,,
+CHE,Gas,Peak_contr,1990,,0.85,,"Royal Academy of Engineering (2014) GB electricity capacity margin, table 1",,
+CHE,Gas,Peak_contr,1991,,0.85,,,,
+CHE,Gas,Peak_contr,1992,,0.85,,,,
+CHE,Gas,Peak_contr,1993,,0.85,,,,
+CHE,Gas,Peak_contr,1994,,0.85,,,,
+CHE,Gas,Peak_contr,1995,,0.85,,,,
+CHE,Gas,Peak_contr,1996,,0.85,,,,
+CHE,Gas,Peak_contr,1997,,0.85,,,,
+CHE,Gas,Peak_contr,1998,,0.85,,,,
+CHE,Gas,Peak_contr,1999,,0.85,,,,
+CHE,Gas,Peak_contr,2000,,0.85,,,,
+CHE,Gas,Peak_contr,2001,,0.85,,,,
+CHE,Gas,Peak_contr,2002,,0.85,,,,
+CHE,Gas,Peak_contr,2003,,0.85,,,,
+CHE,Gas,Peak_contr,2004,,0.85,,,,
+CHE,Gas,Peak_contr,2005,,0.85,,,,
+CHE,Gas,Peak_contr,2006,,0.85,,,,
+CHE,Gas,Peak_contr,2007,,0.85,,,,
+CHE,Gas,Peak_contr,2008,,0.85,,,,
+CHE,Gas,Peak_contr,2009,,0.85,,,,
+CHE,Gas,Peak_contr,2010,,0.85,,,,
+CHE,Gas,Peak_contr,2011,,0.85,,,,
+CHE,Gas,Peak_contr,2012,,0.85,,,,
+CHE,Gas,Peak_contr,2013,,0.85,,,,
+CHE,Gas,Peak_contr,2014,,0.85,,,,
+CHE,Gas,Peak_contr,2015,,0.85,,,,
+CHE,Gas,Peak_contr,2016,,0.85,,,,
+CHE,Gas,Peak_contr,2017,,0.85,,,,
+CHE,Gas,Peak_contr,2018,,0.85,,,,
+CHE,Gas,Peak_contr,2019,,0.85,,,,
+CHE,Gas,Own_use,1990,,0.05,,Assumption,,
+CHE,Gas,Own_use,1991,,0.05,,Assumption,,
+CHE,Gas,Own_use,1992,,0.05,,Assumption,,
+CHE,Gas,Own_use,1993,,0.05,,Assumption,,
+CHE,Gas,Own_use,1994,,0.05,,Assumption,,
+CHE,Gas,Own_use,1995,,0.05,,Assumption,,
+CHE,Gas,Own_use,1996,,0.05,,Assumption,,
+CHE,Gas,Own_use,1997,,0.05,,Assumption,,
+CHE,Gas,Own_use,1998,,0.05,,Assumption,,
+CHE,Gas,Own_use,1999,,0.05,,Assumption,,
+CHE,Gas,Own_use,2000,,0.05,,Assumption,,
+CHE,Gas,Own_use,2001,,0.05,,Assumption,,
+CHE,Gas,Own_use,2002,,0.05,,Assumption,,
+CHE,Gas,Own_use,2003,,0.05,,Assumption,,
+CHE,Gas,Own_use,2004,,0.05,,Assumption,,
+CHE,Gas,Own_use,2005,,0.05,,Assumption,,
+CHE,Gas,Own_use,2006,,0.05,,Assumption,,
+CHE,Gas,Own_use,2007,,0.05,,Assumption,,
+CHE,Gas,Own_use,2008,,0.05,,Assumption,,
+CHE,Gas,Own_use,2009,,0.05,,Assumption,,
+CHE,Gas,Own_use,2010,,0.05,,Assumption,,
+CHE,Gas,Own_use,2011,,0.05,,Assumption,,
+CHE,Gas,Own_use,2012,,0.05,,Assumption,,
+CHE,Gas,Own_use,2013,,0.05,,Assumption,,
+CHE,Gas,Own_use,2014,,0.05,,Assumption,,
+CHE,Gas,Own_use,2015,,0.05,,Assumption,,
+CHE,Gas,Own_use,2016,,0.05,,Assumption,,
+CHE,Gas,Own_use,2017,,0.05,,Assumption,,
+CHE,Gas,Own_use,2018,,0.05,,Assumption,,
+CHE,Gas,Own_use,2019,,0.05,,Assumption,,
+CHE,Gas,Buildrates,1990,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Gas in CHE
+CHE,Gas,Buildrates,1991,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Gas in CHE
+CHE,Gas,Buildrates,1992,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Gas in CHE
+CHE,Gas,Buildrates,1993,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Gas in CHE
+CHE,Gas,Buildrates,1994,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Gas in CHE
+CHE,Gas,Buildrates,1995,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Gas in CHE
+CHE,Gas,Buildrates,1996,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Gas in CHE
+CHE,Gas,Buildrates,1997,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Gas in CHE
+CHE,Gas,Buildrates,1998,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Gas in CHE
+CHE,Gas,Buildrates,1999,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Gas in CHE
+CHE,Gas,Buildrates,2000,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Gas in CHE
+CHE,Gas,Buildrates,2001,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Gas in CHE
+CHE,Gas,Buildrates,2002,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Gas in CHE
+CHE,Gas,Buildrates,2003,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Gas in CHE
+CHE,Gas,Buildrates,2004,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Gas in CHE
+CHE,Gas,Buildrates,2005,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Gas in CHE
+CHE,Gas,Buildrates,2006,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Gas in CHE
+CHE,Gas,Buildrates,2007,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Gas in CHE
+CHE,Gas,Buildrates,2008,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Gas in CHE
+CHE,Gas,Buildrates,2009,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Gas in CHE
+CHE,Gas,Buildrates,2010,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Gas in CHE
+CHE,Gas,Buildrates,2011,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Gas in CHE
+CHE,Gas,Buildrates,2012,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Gas in CHE
+CHE,Gas,Buildrates,2013,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Gas in CHE
+CHE,Gas,Buildrates,2014,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Gas in CHE
+CHE,Gas,Buildrates,2015,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Gas in CHE
+CHE,Gas,Buildrates,2016,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Gas in CHE
+CHE,Gas,Buildrates,2017,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Gas in CHE
+CHE,Gas,Buildrates,2018,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Gas in CHE
+CHE,Gas,Buildrates,2019,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Gas in CHE
+CHE,Gas,Lifetime,2010,,30,yr,,,
+CHE,Gas,Potential_annual,1990,,,TWh,,,
+CHE,Gas,Potential_annual,1991,,,TWh,,,
+CHE,Gas,Potential_annual,1992,,,TWh,,,
+CHE,Gas,Potential_annual,1993,,,TWh,,,
+CHE,Gas,Potential_annual,1994,,,TWh,,,
+CHE,Gas,Potential_annual,1995,,,TWh,,,
+CHE,Gas,Potential_annual,1996,,,TWh,,,
+CHE,Gas,Potential_annual,1997,,,TWh,,,
+CHE,Gas,Potential_annual,1998,,,TWh,,,
+CHE,Gas,Potential_annual,1999,,,TWh,,,
+CHE,Gas,Potential_annual,2000,,,TWh,,,
+CHE,Gas,Potential_annual,2001,,,TWh,,,
+CHE,Gas,Potential_annual,2002,,,TWh,,,
+CHE,Gas,Potential_annual,2003,,,TWh,,,
+CHE,Gas,Potential_annual,2004,,,TWh,,,
+CHE,Gas,Potential_annual,2005,,,TWh,,,
+CHE,Gas,Potential_annual,2006,,,TWh,,,
+CHE,Gas,Potential_annual,2007,,,TWh,,,
+CHE,Gas,Potential_annual,2008,,,TWh,,,
+CHE,Gas,Potential_annual,2009,,,TWh,,,
+CHE,Gas,Potential_annual,2010,,,TWh,,,
+CHE,Gas,Potential_annual,2011,,,TWh,,,
+CHE,Gas,Potential_annual,2012,,,TWh,,,
+CHE,Gas,Potential_annual,2013,,,TWh,,,
+CHE,Gas,Potential_annual,2014,,,TWh,,,
+CHE,Gas,Potential_annual,2015,,,TWh,,,
+CHE,Gas,Potential_annual,2016,,,TWh,,,
+CHE,Gas,Potential_annual,2017,,,TWh,,,
+CHE,Gas,Potential_annual,2018,,,TWh,,,
+CHE,Gas,Potential_annual,2019,,,TWh,,,
+CHE,Gas,Potential_installed,1990,,,GW,,,
+CHE,Gas,Potential_installed,1991,,,GW,,,
+CHE,Gas,Potential_installed,1992,,,GW,,,
+CHE,Gas,Potential_installed,1993,,,GW,,,
+CHE,Gas,Potential_installed,1994,,,GW,,,
+CHE,Gas,Potential_installed,1995,,,GW,,,
+CHE,Gas,Potential_installed,1996,,,GW,,,
+CHE,Gas,Potential_installed,1997,,,GW,,,
+CHE,Gas,Potential_installed,1998,,,GW,,,
+CHE,Gas,Potential_installed,1999,,,GW,,,
+CHE,Gas,Potential_installed,2000,,,GW,,,
+CHE,Gas,Potential_installed,2001,,,GW,,,
+CHE,Gas,Potential_installed,2002,,,GW,,,
+CHE,Gas,Potential_installed,2003,,,GW,,,
+CHE,Gas,Potential_installed,2004,,,GW,,,
+CHE,Gas,Potential_installed,2005,,,GW,,,
+CHE,Gas,Potential_installed,2006,,,GW,,,
+CHE,Gas,Potential_installed,2007,,,GW,,,
+CHE,Gas,Potential_installed,2008,,,GW,,,
+CHE,Gas,Potential_installed,2009,,,GW,,,
+CHE,Gas,Potential_installed,2010,,,GW,,,
+CHE,Gas,Potential_installed,2011,,,GW,,,
+CHE,Gas,Potential_installed,2012,,,GW,,,
+CHE,Gas,Potential_installed,2013,,,GW,,,
+CHE,Gas,Potential_installed,2014,,,GW,,,
+CHE,Gas,Potential_installed,2015,,,GW,,,
+CHE,Gas,Potential_installed,2016,,,GW,,,
+CHE,Gas,Potential_installed,2017,,,GW,,,
+CHE,Gas,Potential_installed,2018,,,GW,,,
+CHE,Gas,Potential_installed,2019,,,GW,,,
+CHE,Gas,Ramp_rate,1990,,0.6,,"Parsons Brinckerhoff (2011) Powering the future, table A5.3.2.1 Average for hot or cold start",,
+CHE,Gas,Ramp_rate,1991,,0.6,,,,
+CHE,Gas,Ramp_rate,1992,,0.6,,,,
+CHE,Gas,Ramp_rate,1993,,0.6,,,,
+CHE,Gas,Ramp_rate,1994,,0.6,,,,
+CHE,Gas,Ramp_rate,1995,,0.6,,,,
+CHE,Gas,Ramp_rate,1996,,0.6,,,,
+CHE,Gas,Ramp_rate,1997,,0.6,,,,
+CHE,Gas,Ramp_rate,1998,,0.6,,,,
+CHE,Gas,Ramp_rate,1999,,0.6,,,,
+CHE,Gas,Ramp_rate,2000,,0.6,,,,
+CHE,Gas,Ramp_rate,2001,,0.6,,,,
+CHE,Gas,Ramp_rate,2002,,0.6,,,,
+CHE,Gas,Ramp_rate,2003,,0.6,,,,
+CHE,Gas,Ramp_rate,2004,,0.6,,,,
+CHE,Gas,Ramp_rate,2005,,0.6,,,,
+CHE,Gas,Ramp_rate,2006,,0.6,,,,
+CHE,Gas,Ramp_rate,2007,,0.6,,,,
+CHE,Gas,Ramp_rate,2008,,0.6,,,,
+CHE,Gas,Ramp_rate,2009,,0.6,,,,
+CHE,Gas,Ramp_rate,2010,,0.6,,,,
+CHE,Gas,Ramp_rate,2011,,0.6,,,,
+CHE,Gas,Ramp_rate,2012,,0.6,,,,
+CHE,Gas,Ramp_rate,2013,,0.6,,,,
+CHE,Gas,Ramp_rate,2014,,0.6,,,,
+CHE,Gas,Ramp_rate,2015,,0.6,,,,
+CHE,Gas,Ramp_rate,2016,,0.6,,,,
+CHE,Gas,Ramp_rate,2017,,0.6,,,,
+CHE,Gas,Ramp_rate,2018,,0.6,,,,
+CHE,Gas,Ramp_rate,2019,,0.6,,,,
+CHE,Gas,Fuel_efficiency,1990,,,,,,
+CHE,Gas,Fuel_efficiency,1991,,,,,,
+CHE,Gas,Fuel_efficiency,1992,,,,,,
+CHE,Gas,Fuel_efficiency,1993,,,,,,
+CHE,Gas,Fuel_efficiency,1994,,,,,,
+CHE,Gas,Fuel_efficiency,1995,,,,,,
+CHE,Gas,Fuel_efficiency,1996,,,,,,
+CHE,Gas,Fuel_efficiency,1997,,,,,,
+CHE,Gas,Fuel_efficiency,1998,,,,,,
+CHE,Gas,Fuel_efficiency,1999,,,,,,
+CHE,Gas,Fuel_efficiency,2000,,0.364551577,,IEA Electricity statistics,,
+CHE,Gas,Fuel_efficiency,2001,,,,,,
+CHE,Gas,Fuel_efficiency,2002,,,,,,
+CHE,Gas,Fuel_efficiency,2003,,,,,,
+CHE,Gas,Fuel_efficiency,2004,,,,,,
+CHE,Gas,Fuel_efficiency,2005,,,,,,
+CHE,Gas,Fuel_efficiency,2006,,,,,,
+CHE,Gas,Fuel_efficiency,2007,,,,,,
+CHE,Gas,Fuel_efficiency,2008,,,,,,
+CHE,Gas,Fuel_efficiency,2009,,,,,,
+CHE,Gas,Fuel_efficiency,2010,,,,,,
+CHE,Gas,Fuel_efficiency,2011,,,,,,
+CHE,Gas,Fuel_efficiency,2012,,,,,,
+CHE,Gas,Fuel_efficiency,2013,,,,,,
+CHE,Gas,Fuel_efficiency,2014,,0.564769648,,,,
+CHE,Gas,Fuel_efficiency,2015,,,,,,
+CHE,Gas,Fuel_efficiency,2016,,,,,,
+CHE,Gas,Fuel_efficiency,2017,,,,,,
+CHE,Gas,Fuel_efficiency,2018,,,,,,
+CHE,Gas,Fuel_efficiency,2019,,,,,,
+CHE,Gas,Heat_to_electricity,1990,,0.506577273,,IEA Electricity statistics,,"Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Gas,Heat_to_electricity,1991,,,,,,
+CHE,Gas,Heat_to_electricity,1992,,,,,,
+CHE,Gas,Heat_to_electricity,1993,,,,,,
+CHE,Gas,Heat_to_electricity,1994,,,,,,
+CHE,Gas,Heat_to_electricity,1995,,,,,,
+CHE,Gas,Heat_to_electricity,1996,,,,,,
+CHE,Gas,Heat_to_electricity,1997,,,,,,
+CHE,Gas,Heat_to_electricity,1998,,,,,,
+CHE,Gas,Heat_to_electricity,1999,,,,,,
+CHE,Gas,Heat_to_electricity,2000,,0.386520521,,IEA Electricity statistics,,"Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Gas,Heat_to_electricity,2001,,,,,,
+CHE,Gas,Heat_to_electricity,2002,,,,,,
+CHE,Gas,Heat_to_electricity,2003,,,,,,
+CHE,Gas,Heat_to_electricity,2004,,,,,,
+CHE,Gas,Heat_to_electricity,2005,,0.517288751,,IEA Electricity statistics,,"Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Gas,Heat_to_electricity,2006,,,,,,
+CHE,Gas,Heat_to_electricity,2007,,,,,,
+CHE,Gas,Heat_to_electricity,2008,,,,,,
+CHE,Gas,Heat_to_electricity,2009,,,,,,
+CHE,Gas,Heat_to_electricity,2010,,0.2935875,,IEA Electricity statistics,,"Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Gas,Heat_to_electricity,2011,,,,,,
+CHE,Gas,Heat_to_electricity,2012,,0.204823105,,IEA Electricity statistics,,"Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Gas,Heat_to_electricity,2013,,0.153569209,,IEA Electricity statistics,,"Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Gas,Heat_to_electricity,2014,,0.092251927,,IEA Electricity statistics,,"Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Gas,Heat_to_electricity,2015,,,,,,
+CHE,Gas,Heat_to_electricity,2016,,,,,,
+CHE,Gas,Heat_to_electricity,2017,,,,,,
+CHE,Gas,Heat_to_electricity,2018,,,,,,
+CHE,Gas,Heat_to_electricity,2019,,,,,,
+CHE,Gas,Inv,1990,,,,,,
+CHE,Gas,Inv,1991,,,,,,
+CHE,Gas,Inv,1992,,,,,,
+CHE,Gas,Inv,1993,,,,,,
+CHE,Gas,Inv,1994,,,,,,
+CHE,Gas,Inv,1995,,,,,,
+CHE,Gas,Inv,1996,,,,,,
+CHE,Gas,Inv,1997,,,,,,
+CHE,Gas,Inv,1998,,,,,,
+CHE,Gas,Inv,1999,,,,,,
+CHE,Gas,Inv,2000,,,,,,
+CHE,Gas,Inv,2001,,,,,,
+CHE,Gas,Inv,2002,,,,,,
+CHE,Gas,Inv,2003,,,,,,
+CHE,Gas,Inv,2004,,,,,,
+CHE,Gas,Inv,2005,,,,,,
+CHE,Gas,Inv,2006,,,,,,
+CHE,Gas,Inv,2007,,,,,,
+CHE,Gas,Inv,2008,,,,,,
+CHE,Gas,Inv,2009,,,,,,
+CHE,Gas,Inv,2010,,,,,,
+CHE,Gas,Inv,2011,,,,,,
+CHE,Gas,Inv,2012,,,,,,
+CHE,Gas,Inv,2013,,,,,,
+CHE,Gas,Inv,2014,,,,,,
+CHE,Gas,Inv,2015,,,,,,
+CHE,Gas,Inv,2016,,,,,,
+CHE,Gas,Inv,2017,,,,,,
+CHE,Gas,Inv,2018,,880,CHF2017/kW,"PSI (2017) Potentials, costs and environmental assessment of electricity generation technologies",,"Gas CHP, 1 MW; FOM/VOM from EC ASSET"
+CHE,Gas,Inv,2019,,,,,,
+CHE,Gas,Fixed_OM_annual,1990,,,,,,
+CHE,Gas,Fixed_OM_annual,1991,,,,,,
+CHE,Gas,Fixed_OM_annual,1992,,,,,,
+CHE,Gas,Fixed_OM_annual,1993,,,,,,
+CHE,Gas,Fixed_OM_annual,1994,,,,,,
+CHE,Gas,Fixed_OM_annual,1995,,,,,,
+CHE,Gas,Fixed_OM_annual,1996,,,,,,
+CHE,Gas,Fixed_OM_annual,1997,,,,,,
+CHE,Gas,Fixed_OM_annual,1998,,,,,,
+CHE,Gas,Fixed_OM_annual,1999,,,,,,
+CHE,Gas,Fixed_OM_annual,2000,,,,,,
+CHE,Gas,Fixed_OM_annual,2001,,,,,,
+CHE,Gas,Fixed_OM_annual,2002,,,,,,
+CHE,Gas,Fixed_OM_annual,2003,,,,,,
+CHE,Gas,Fixed_OM_annual,2004,,,,,,
+CHE,Gas,Fixed_OM_annual,2005,,,,,,
+CHE,Gas,Fixed_OM_annual,2006,,,,,,
+CHE,Gas,Fixed_OM_annual,2007,,,,,,
+CHE,Gas,Fixed_OM_annual,2008,,,,,,
+CHE,Gas,Fixed_OM_annual,2009,,,,,,
+CHE,Gas,Fixed_OM_annual,2010,,,,,,
+CHE,Gas,Fixed_OM_annual,2011,,,,,,
+CHE,Gas,Fixed_OM_annual,2012,,,,,,
+CHE,Gas,Fixed_OM_annual,2013,,,,,,
+CHE,Gas,Fixed_OM_annual,2014,,,,,,
+CHE,Gas,Fixed_OM_annual,2015,,,,,,
+CHE,Gas,Fixed_OM_annual,2016,,,,,,
+CHE,Gas,Fixed_OM_annual,2017,,,,,,
+CHE,Gas,Fixed_OM_annual,2018,,19,CHF2017/kW,"PSI (2017) Potentials, costs and environmental assessment of electricity generation technologies",,"Gas CHP, 1 MW; FOM/VOM from EC ASSET"
+CHE,Gas,Fixed_OM_annual,2019,,,,,,
+CHE,Gas,Variable_OM,1990,,,,,,
+CHE,Gas,Variable_OM,1991,,,,,,
+CHE,Gas,Variable_OM,1992,,,,,,
+CHE,Gas,Variable_OM,1993,,,,,,
+CHE,Gas,Variable_OM,1994,,,,,,
+CHE,Gas,Variable_OM,1995,,,,,,
+CHE,Gas,Variable_OM,1996,,,,,,
+CHE,Gas,Variable_OM,1997,,,,,,
+CHE,Gas,Variable_OM,1998,,,,,,
+CHE,Gas,Variable_OM,1999,,,,,,
+CHE,Gas,Variable_OM,2000,,,,,,
+CHE,Gas,Variable_OM,2001,,,,,,
+CHE,Gas,Variable_OM,2002,,,,,,
+CHE,Gas,Variable_OM,2003,,,,,,
+CHE,Gas,Variable_OM,2004,,,,,,
+CHE,Gas,Variable_OM,2005,,,,,,
+CHE,Gas,Variable_OM,2006,,,,,,
+CHE,Gas,Variable_OM,2007,,,,,,
+CHE,Gas,Variable_OM,2008,,,,,,
+CHE,Gas,Variable_OM,2009,,,,,,
+CHE,Gas,Variable_OM,2010,,,,,,
+CHE,Gas,Variable_OM,2011,,,,,,
+CHE,Gas,Variable_OM,2012,,,,,,
+CHE,Gas,Variable_OM,2013,,,,,,
+CHE,Gas,Variable_OM,2014,,,,,,
+CHE,Gas,Variable_OM,2015,,,,,,
+CHE,Gas,Variable_OM,2016,,,,,,
+CHE,Gas,Variable_OM,2017,,,,,,
+CHE,Gas,Variable_OM,2018,,2.2,CHF2017/MWh,"PSI (2017) Potentials, costs and environmental assessment of electricity generation technologies",,"Gas CHP, 1 MW; FOM/VOM from EC ASSET"
+CHE,Gas,Variable_OM,2019,,,,,,
+CHE,Gas,Actual_capacity,1990,,63,MW,"IEA Electricity statistics, natural gas net capacity",,
+CHE,Gas,Actual_capacity,1991,,63,MW,"IEA Electricity statistics, natural gas net capacity",,
+CHE,Gas,Actual_capacity,1992,,63,MW,"IEA Electricity statistics, natural gas net capacity",,
+CHE,Gas,Actual_capacity,1993,,63,MW,"IEA Electricity statistics, natural gas net capacity",,
+CHE,Gas,Actual_capacity,1994,,97,MW,"IEA Electricity statistics, natural gas net capacity",,
+CHE,Gas,Actual_capacity,1995,,146,MW,"IEA Electricity statistics, natural gas net capacity",,
+CHE,Gas,Actual_capacity,1996,,150,MW,"IEA Electricity statistics, natural gas net capacity",,
+CHE,Gas,Actual_capacity,1997,,157,MW,"IEA Electricity statistics, natural gas net capacity",,
+CHE,Gas,Actual_capacity,1998,,123,MW,"IEA Electricity statistics, natural gas net capacity",,
+CHE,Gas,Actual_capacity,1999,,127,MW,"IEA Electricity statistics, natural gas net capacity",,
+CHE,Gas,Actual_capacity,2000,,132,MW,"IEA Electricity statistics, natural gas net capacity",,
+CHE,Gas,Actual_capacity,2001,,134,MW,"IEA Electricity statistics, natural gas net capacity",,
+CHE,Gas,Actual_capacity,2002,,138,MW,"IEA Electricity statistics, natural gas net capacity",,
+CHE,Gas,Actual_capacity,2003,,185,MW,"IEA Electricity statistics, natural gas net capacity",,
+CHE,Gas,Actual_capacity,2004,,122,MW,"IEA Electricity statistics, natural gas net capacity",,
+CHE,Gas,Actual_capacity,2005,,136,MW,"IEA Electricity statistics, natural gas net capacity",,
+CHE,Gas,Actual_capacity,2006,,160,MW,"IEA Electricity statistics, natural gas net capacity",,
+CHE,Gas,Actual_capacity,2007,,156,MW,"IEA Electricity statistics, natural gas net capacity",,
+CHE,Gas,Actual_capacity,2008,,194,MW,"IEA Electricity statistics, natural gas net capacity",,
+CHE,Gas,Actual_capacity,2009,,199,MW,"IEA Electricity statistics, natural gas net capacity",,
+CHE,Gas,Actual_capacity,2010,,282,MW,"IEA Electricity statistics, natural gas net capacity",,
+CHE,Gas,Actual_capacity,2011,,226,MW,"IEA Electricity statistics, natural gas net capacity",,
+CHE,Gas,Actual_capacity,2012,,265,MW,"IEA Electricity statistics, natural gas net capacity",,
+CHE,Gas,Actual_capacity,2013,,266,MW,"IEA Electricity statistics, natural gas net capacity",,
+CHE,Gas,Actual_capacity,2014,,237,MW,"IEA Electricity statistics, natural gas net capacity",,
+CHE,Gas,Actual_capacity,2015,,239,MW,"IEA Electricity statistics, natural gas net capacity",,
+CHE,Gas,Actual_capacity,2016,,230,MW,"IEA Electricity statistics, natural gas net capacity",,
+CHE,Gas,Actual_capacity,2017,,228.011,MW,"IEA Electricity statistics, natural gas net capacity",,
+CHE,Gas,Actual_capacity,2018,,224.969,MW,"IEA Electricity statistics, natural gas net capacity",,
+CHE,Gas,Actual_capacity,2019,,224.969,MW,"IEA Electricity statistics, natural gas net capacity",,
+CHE,Gas,Actual_new_capacity,1990,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_new_capacity,1991,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_new_capacity,1992,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_new_capacity,1993,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_new_capacity,1994,,34,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_new_capacity,1995,,49,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_new_capacity,1996,,4,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_new_capacity,1997,,7,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_new_capacity,1998,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_new_capacity,1999,,4,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_new_capacity,2000,,5,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_new_capacity,2001,,2,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_new_capacity,2002,,4,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_new_capacity,2003,,47,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_new_capacity,2004,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_new_capacity,2005,,14,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_new_capacity,2006,,24,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_new_capacity,2007,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_new_capacity,2008,,38,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_new_capacity,2009,,5,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_new_capacity,2010,,83,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_new_capacity,2011,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_new_capacity,2012,,39,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_new_capacity,2013,,1,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_new_capacity,2014,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_new_capacity,2015,,2,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_new_capacity,2016,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_new_capacity,2017,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_new_capacity,2018,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_new_capacity,2019,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_retired_capacity,1990,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_retired_capacity,1991,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_retired_capacity,1992,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_retired_capacity,1993,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_retired_capacity,1994,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_retired_capacity,1995,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_retired_capacity,1996,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_retired_capacity,1997,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_retired_capacity,1998,,34,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_retired_capacity,1999,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_retired_capacity,2000,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_retired_capacity,2001,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_retired_capacity,2002,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_retired_capacity,2003,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_retired_capacity,2004,,63,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_retired_capacity,2005,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_retired_capacity,2006,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_retired_capacity,2007,,4,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_retired_capacity,2008,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_retired_capacity,2009,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_retired_capacity,2010,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_retired_capacity,2011,,56,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_retired_capacity,2012,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_retired_capacity,2013,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_retired_capacity,2014,,29,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_retired_capacity,2015,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_retired_capacity,2016,,9,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_retired_capacity,2017,,1.989,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_retired_capacity,2018,,3.042,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_retired_capacity,2019,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Based on changes in net installed capacity
+CHE,Gas,Actual_generation,1990,,330,GWh,IEA Electricity statistics,,
+CHE,Gas,Actual_generation,1991,,,GWh,IEA Electricity statistics,,
+CHE,Gas,Actual_generation,1992,,,GWh,IEA Electricity statistics,,
+CHE,Gas,Actual_generation,1993,,,GWh,IEA Electricity statistics,,
+CHE,Gas,Actual_generation,1994,,,GWh,IEA Electricity statistics,,
+CHE,Gas,Actual_generation,1995,,,GWh,IEA Electricity statistics,,
+CHE,Gas,Actual_generation,1996,,,GWh,IEA Electricity statistics,,
+CHE,Gas,Actual_generation,1997,,,GWh,IEA Electricity statistics,,
+CHE,Gas,Actual_generation,1998,,,GWh,IEA Electricity statistics,,
+CHE,Gas,Actual_generation,1999,,,GWh,IEA Electricity statistics,,
+CHE,Gas,Actual_generation,2000,,857,GWh,IEA Electricity statistics,,
+CHE,Gas,Actual_generation,2001,,,GWh,IEA Electricity statistics,,
+CHE,Gas,Actual_generation,2002,,,GWh,IEA Electricity statistics,,
+CHE,Gas,Actual_generation,2003,,,GWh,IEA Electricity statistics,,
+CHE,Gas,Actual_generation,2004,,,GWh,IEA Electricity statistics,,
+CHE,Gas,Actual_generation,2005,,870,GWh,IEA Electricity statistics,,
+CHE,Gas,Actual_generation,2006,,,GWh,IEA Electricity statistics,,
+CHE,Gas,Actual_generation,2007,,,GWh,IEA Electricity statistics,,
+CHE,Gas,Actual_generation,2008,,,GWh,IEA Electricity statistics,,
+CHE,Gas,Actual_generation,2009,,,GWh,IEA Electricity statistics,,
+CHE,Gas,Actual_generation,2010,,1028,GWh,IEA Electricity statistics,,
+CHE,Gas,Actual_generation,2011,,,GWh,IEA Electricity statistics,,
+CHE,Gas,Actual_generation,2012,,919,GWh,IEA Electricity statistics,,
+CHE,Gas,Actual_generation,2013,,769,GWh,IEA Electricity statistics,,
+CHE,Gas,Actual_generation,2014,,521,GWh,IEA Electricity statistics,,
+CHE,Gas,Actual_generation,2015,,,GWh,IEA Electricity statistics,,
+CHE,Gas,Actual_generation,2016,,,GWh,IEA Electricity statistics,,
+CHE,Gas,Actual_generation,2017,,,GWh,IEA Electricity statistics,,
+CHE,Gas,Actual_generation,2018,,,GWh,IEA Electricity statistics,,
+CHE,Gas,Actual_generation,2019,,,GWh,IEA Electricity statistics,,
+CHE,Gas,Learning_rate,1990,,8.3,,,,
+CHE,Gas,Initial_retired_capacity,1990,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Gas,Initial_retired_capacity,1991,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Gas,Initial_retired_capacity,1992,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Gas,Initial_retired_capacity,1993,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Gas,Initial_retired_capacity,1994,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Gas,Initial_retired_capacity,1995,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Gas,Initial_retired_capacity,1996,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Gas,Initial_retired_capacity,1997,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Gas,Initial_retired_capacity,1998,,10,MW,"IEA Electricity statistics, natural gas net capacity",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Gas,Initial_retired_capacity,1999,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Gas,Initial_retired_capacity,2000,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Gas,Initial_retired_capacity,2001,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Gas,Initial_retired_capacity,2002,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Gas,Initial_retired_capacity,2003,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Gas,Initial_retired_capacity,2004,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Gas,Initial_retired_capacity,2005,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Gas,Initial_retired_capacity,2006,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Gas,Initial_retired_capacity,2007,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Gas,Initial_retired_capacity,2008,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Gas,Initial_retired_capacity,2009,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Gas,Initial_retired_capacity,2010,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Gas,Initial_retired_capacity,2011,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Gas,Initial_retired_capacity,2012,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Gas,Initial_retired_capacity,2013,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Gas,Initial_retired_capacity,2014,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Gas,Initial_retired_capacity,2015,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Gas,Initial_retired_capacity,2016,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Gas,Initial_retired_capacity,2017,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Gas,Initial_retired_capacity,2018,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Gas,Initial_retired_capacity,2019,,0,MW,"IEA Electricity statistics, natural gas net capacity",,Follows actual retirements until cumulative sum reaches initial installed capacity

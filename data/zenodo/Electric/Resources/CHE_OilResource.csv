@@ -1,0 +1,65 @@
+﻿Name:,CHE OilResource,,,,,,,,
+Date:,2021-08-06 16:50:39.787488,,,,,,,,
+Author:,Marc Jaxa-Rozen,,,,,,,,
+,,,,,,,,,
+Country,Entity,Parameter,Year,Period,Value,Unit,Reference,Note,
+CHE,OilResource,Fuel_cost_fuel,1990,,7.456037781,CHF2010/GJ,"Bundesamt für Energie BFE, Schweizerische Gesamtenergiestatistik 2020",,Table 39 - assuming 9600 kcal/kg
+CHE,OilResource,Fuel_cost_fuel,1991,,7.610834413,CHF2010/GJ,"Bundesamt für Energie BFE, Schweizerische Gesamtenergiestatistik 2020",,Table 39 - assuming 9600 kcal/kg
+CHE,OilResource,Fuel_cost_fuel,1992,,6.501458549,CHF2010/GJ,"Bundesamt für Energie BFE, Schweizerische Gesamtenergiestatistik 2020",,Table 39 - assuming 9600 kcal/kg
+CHE,OilResource,Fuel_cost_fuel,1993,,6.062868092,CHF2010/GJ,"Bundesamt für Energie BFE, Schweizerische Gesamtenergiestatistik 2020",,Table 39 - assuming 9600 kcal/kg
+CHE,OilResource,Fuel_cost_fuel,1994,,5.030890544,CHF2010/GJ,"Bundesamt für Energie BFE, Schweizerische Gesamtenergiestatistik 2020",,Table 39 - assuming 9600 kcal/kg
+CHE,OilResource,Fuel_cost_fuel,1995,,4.489102332,CHF2010/GJ,"Bundesamt für Energie BFE, Schweizerische Gesamtenergiestatistik 2020",,Table 39 - assuming 9600 kcal/kg
+CHE,OilResource,Fuel_cost_fuel,1996,,5.985469775,CHF2010/GJ,"Bundesamt für Energie BFE, Schweizerische Gesamtenergiestatistik 2020",,Table 39 - assuming 9600 kcal/kg
+CHE,OilResource,Fuel_cost_fuel,1997,,6.733653497,CHF2010/GJ,"Bundesamt für Energie BFE, Schweizerische Gesamtenergiestatistik 2020",,Table 39 - assuming 9600 kcal/kg
+CHE,OilResource,Fuel_cost_fuel,1998,,4.979291667,CHF2010/GJ,"Bundesamt für Energie BFE, Schweizerische Gesamtenergiestatistik 2020",,Table 39 - assuming 9600 kcal/kg
+CHE,OilResource,Fuel_cost_fuel,1999,,5.959670337,CHF2010/GJ,"Bundesamt für Energie BFE, Schweizerische Gesamtenergiestatistik 2020",,Table 39 - assuming 9600 kcal/kg
+CHE,OilResource,Fuel_cost_fuel,2000,,10.91316256,CHF2010/GJ,"Bundesamt für Energie BFE, Schweizerische Gesamtenergiestatistik 2020",,Table 39 - assuming 9600 kcal/kg
+CHE,OilResource,Fuel_cost_fuel,2001,,9.777987263,CHF2010/GJ,"Bundesamt für Energie BFE, Schweizerische Gesamtenergiestatistik 2020",,Table 39 - assuming 9600 kcal/kg
+CHE,OilResource,Fuel_cost_fuel,2002,,8.359018135,CHF2010/GJ,"Bundesamt für Energie BFE, Schweizerische Gesamtenergiestatistik 2020",,Table 39 - assuming 9600 kcal/kg
+CHE,OilResource,Fuel_cost_fuel,2003,,9.210399611,CHF2010/GJ,"Bundesamt für Energie BFE, Schweizerische Gesamtenergiestatistik 2020",,Table 39 - assuming 9600 kcal/kg
+CHE,OilResource,Fuel_cost_fuel,2004,,10.96476144,CHF2010/GJ,"Bundesamt für Energie BFE, Schweizerische Gesamtenergiestatistik 2020",,Table 39 - assuming 9600 kcal/kg
+CHE,OilResource,Fuel_cost_fuel,2005,,15.60866041,CHF2010/GJ,"Bundesamt für Energie BFE, Schweizerische Gesamtenergiestatistik 2020",,Table 39 - assuming 9600 kcal/kg
+CHE,OilResource,Fuel_cost_fuel,2006,,17.64681606,CHF2010/GJ,"Bundesamt für Energie BFE, Schweizerische Gesamtenergiestatistik 2020",,Table 39 - assuming 9600 kcal/kg
+CHE,OilResource,Fuel_cost_fuel,2007,,17.49201943,CHF2010/GJ,"Bundesamt für Energie BFE, Schweizerische Gesamtenergiestatistik 2020",,Table 39 - assuming 9600 kcal/kg
+CHE,OilResource,Fuel_cost_fuel,2008,,23.2710937,CHF2010/GJ,"Bundesamt für Energie BFE, Schweizerische Gesamtenergiestatistik 2020",,Table 39 - assuming 9600 kcal/kg
+CHE,OilResource,Fuel_cost_fuel,2009,,14.21549072,CHF2010/GJ,"Bundesamt für Energie BFE, Schweizerische Gesamtenergiestatistik 2020",,Table 39 - assuming 9600 kcal/kg
+CHE,OilResource,Fuel_cost_fuel,2010,,18.36920035,CHF2010/GJ,"Bundesamt für Energie BFE, Schweizerische Gesamtenergiestatistik 2020",,Table 39 - assuming 9600 kcal/kg
+CHE,OilResource,Fuel_cost_fuel,2011,,21.61992962,CHF2010/GJ,"Bundesamt für Energie BFE, Schweizerische Gesamtenergiestatistik 2020",,Table 39 - assuming 9600 kcal/kg
+CHE,OilResource,Fuel_cost_fuel,2012,,23.32269257,CHF2010/GJ,"Bundesamt für Energie BFE, Schweizerische Gesamtenergiestatistik 2020",,Table 39 - assuming 9600 kcal/kg
+CHE,OilResource,Fuel_cost_fuel,2013,,22.44551166,CHF2010/GJ,"Bundesamt für Energie BFE, Schweizerische Gesamtenergiestatistik 2020",,Table 39 - assuming 9600 kcal/kg
+CHE,OilResource,Fuel_cost_fuel,2014,,22.88410212,CHF2010/GJ,"Bundesamt für Energie BFE, Schweizerische Gesamtenergiestatistik 2020",,Table 39 - assuming 9600 kcal/kg
+CHE,OilResource,Fuel_cost_fuel,2015,,17.54361831,CHF2010/GJ,"Bundesamt für Energie BFE, Schweizerische Gesamtenergiestatistik 2020",,Table 39 - assuming 9600 kcal/kg
+CHE,OilResource,Fuel_cost_fuel,2016,,16.69223683,CHF2010/GJ,"Bundesamt für Energie BFE, Schweizerische Gesamtenergiestatistik 2020",,Table 39 - assuming 9600 kcal/kg
+CHE,OilResource,Fuel_cost_fuel,2017,,18.85938968,CHF2010/GJ,"Bundesamt für Energie BFE, Schweizerische Gesamtenergiestatistik 2020",,Table 39 - assuming 9600 kcal/kg
+CHE,OilResource,Fuel_cost_fuel,2018,,23.01309931,CHF2010/GJ,"Bundesamt für Energie BFE, Schweizerische Gesamtenergiestatistik 2020",,Table 39 - assuming 9600 kcal/kg
+CHE,OilResource,Fuel_cost_fuel,2019,,22.0069212,CHF2010/GJ,"Bundesamt für Energie BFE, Schweizerische Gesamtenergiestatistik 2020",,Table 39 - assuming 9600 kcal/kg
+CHE,OilResource,CO2_generation,1990,,278.6,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Fuel oil,
+CHE,OilResource,CO2_generation,1991,,278.6,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Fuel oil,
+CHE,OilResource,CO2_generation,1992,,278.6,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Fuel oil,
+CHE,OilResource,CO2_generation,1993,,278.6,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Fuel oil,
+CHE,OilResource,CO2_generation,1994,,278.6,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Fuel oil,
+CHE,OilResource,CO2_generation,1995,,278.6,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Fuel oil,
+CHE,OilResource,CO2_generation,1996,,278.6,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Fuel oil,
+CHE,OilResource,CO2_generation,1997,,278.6,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Fuel oil,
+CHE,OilResource,CO2_generation,1998,,278.6,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Fuel oil,
+CHE,OilResource,CO2_generation,1999,,278.6,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Fuel oil,
+CHE,OilResource,CO2_generation,2000,,278.6,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Fuel oil,
+CHE,OilResource,CO2_generation,2001,,278.6,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Fuel oil,
+CHE,OilResource,CO2_generation,2002,,278.6,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Fuel oil,
+CHE,OilResource,CO2_generation,2003,,278.6,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Fuel oil,
+CHE,OilResource,CO2_generation,2004,,278.6,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Fuel oil,
+CHE,OilResource,CO2_generation,2005,,278.6,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Fuel oil,
+CHE,OilResource,CO2_generation,2006,,278.6,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Fuel oil,
+CHE,OilResource,CO2_generation,2007,,278.6,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Fuel oil,
+CHE,OilResource,CO2_generation,2008,,278.6,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Fuel oil,
+CHE,OilResource,CO2_generation,2009,,278.6,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Fuel oil,
+CHE,OilResource,CO2_generation,2010,,278.6,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Fuel oil,
+CHE,OilResource,CO2_generation,2011,,278.6,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Fuel oil,
+CHE,OilResource,CO2_generation,2012,,278.6,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Fuel oil,
+CHE,OilResource,CO2_generation,2013,,278.6,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Fuel oil,
+CHE,OilResource,CO2_generation,2014,,278.6,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Fuel oil,
+CHE,OilResource,CO2_generation,2015,,278.6,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Fuel oil,
+CHE,OilResource,CO2_generation,2016,,278.6,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Fuel oil,
+CHE,OilResource,CO2_generation,2017,,278.6,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Fuel oil,
+CHE,OilResource,CO2_generation,2018,,278.6,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Fuel oil,
+CHE,OilResource,CO2_generation,2019,,278.6,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Fuel oil,

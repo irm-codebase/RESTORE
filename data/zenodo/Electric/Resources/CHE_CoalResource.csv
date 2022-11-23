@@ -1,0 +1,65 @@
+﻿Name:,CHE CoalResource,,,,,,,
+Date:,2021-08-06 16:54:30.411410,,,,,,,
+Author:,Marc Jaxa-Rozen,,,,,,,
+,,,,,,,,
+Country,Entity,Parameter,Year,Period,Value,Unit,Reference,Note
+CHE,CoalResource,Fuel_cost_fuel,1990,,103.5,USD1990/toe,IEA Energy prices and taxes,Steam Coal Prices for Industry in US Dollars/toe
+CHE,CoalResource,Fuel_cost_fuel,1991,,100,USD1991/toe,IEA Energy prices and taxes,Steam Coal Prices for Industry in US Dollars/toe
+CHE,CoalResource,Fuel_cost_fuel,1992,,90.1,USD1992/toe,IEA Energy prices and taxes,Steam Coal Prices for Industry in US Dollars/toe
+CHE,CoalResource,Fuel_cost_fuel,1993,,76.5,USD1993/toe,IEA Energy prices and taxes,Steam Coal Prices for Industry in US Dollars/toe
+CHE,CoalResource,Fuel_cost_fuel,1994,,79.6,USD1994/toe,IEA Energy prices and taxes,Steam Coal Prices for Industry in US Dollars/toe
+CHE,CoalResource,Fuel_cost_fuel,1995,,101.5,USD1995/toe,IEA Energy prices and taxes,Steam Coal Prices for Industry in US Dollars/toe
+CHE,CoalResource,Fuel_cost_fuel,1996,,99.8,USD1996/toe,IEA Energy prices and taxes,Steam Coal Prices for Industry in US Dollars/toe
+CHE,CoalResource,Fuel_cost_fuel,1997,,84.5,USD1997/toe,IEA Energy prices and taxes,Steam Coal Prices for Industry in US Dollars/toe
+CHE,CoalResource,Fuel_cost_fuel,1998,,84.3,USD1998/toe,IEA Energy prices and taxes,Steam Coal Prices for Industry in US Dollars/toe
+CHE,CoalResource,Fuel_cost_fuel,1999,,78.7,USD1999/toe,IEA Energy prices and taxes,Steam Coal Prices for Industry in US Dollars/toe
+CHE,CoalResource,Fuel_cost_fuel,2000,,85.9,USD2000/toe,IEA Energy prices and taxes,Steam Coal Prices for Industry in US Dollars/toe
+CHE,CoalResource,Fuel_cost_fuel,2001,,98.1,USD2001/toe,IEA Energy prices and taxes,Steam Coal Prices for Industry in US Dollars/toe
+CHE,CoalResource,Fuel_cost_fuel,2002,,88.1,USD2002/toe,IEA Energy prices and taxes,Steam Coal Prices for Industry in US Dollars/toe
+CHE,CoalResource,Fuel_cost_fuel,2003,,107.5,USD2003/toe,IEA Energy prices and taxes,Steam Coal Prices for Industry in US Dollars/toe
+CHE,CoalResource,Fuel_cost_fuel,2004,,157.3,USD2004/toe,IEA Energy prices and taxes,Steam Coal Prices for Industry in US Dollars/toe
+CHE,CoalResource,Fuel_cost_fuel,2005,,157.2,USD2005/toe,IEA Energy prices and taxes,Steam Coal Prices for Industry in US Dollars/toe
+CHE,CoalResource,Fuel_cost_fuel,2006,,158.9,USD2006/toe,IEA Energy prices and taxes,Steam Coal Prices for Industry in US Dollars/toe
+CHE,CoalResource,Fuel_cost_fuel,2007,,208.4,USD2007/toe,IEA Energy prices and taxes,Steam Coal Prices for Industry in US Dollars/toe
+CHE,CoalResource,Fuel_cost_fuel,2008,,360.7,USD2008/toe,IEA Energy prices and taxes,Steam Coal Prices for Industry in US Dollars/toe
+CHE,CoalResource,Fuel_cost_fuel,2009,,229.8,USD2009/toe,IEA Energy prices and taxes,Steam Coal Prices for Industry in US Dollars/toe
+CHE,CoalResource,Fuel_cost_fuel,2010,,258.9,USD2010/toe,IEA Energy prices and taxes,Steam Coal Prices for Industry in US Dollars/toe
+CHE,CoalResource,Fuel_cost_fuel,2011,,334.4,USD2011/toe,IEA Energy prices and taxes,Steam Coal Prices for Industry in US Dollars/toe
+CHE,CoalResource,Fuel_cost_fuel,2012,,254.2,USD2012/toe,IEA Energy prices and taxes,Steam Coal Prices for Industry in US Dollars/toe
+CHE,CoalResource,Fuel_cost_fuel,2013,,205.9,USD2013/toe,IEA Energy prices and taxes,Steam Coal Prices for Industry in US Dollars/toe
+CHE,CoalResource,Fuel_cost_fuel,2014,,187.1,USD2014/toe,IEA Energy prices and taxes,Steam Coal Prices for Industry in US Dollars/toe
+CHE,CoalResource,Fuel_cost_fuel,2015,,164.5,USD2015/toe,IEA Energy prices and taxes,Steam Coal Prices for Industry in US Dollars/toe
+CHE,CoalResource,Fuel_cost_fuel,2016,,151.4,USD2016/toe,IEA Energy prices and taxes,Steam Coal Prices for Industry in US Dollars/toe
+CHE,CoalResource,Fuel_cost_fuel,2017,,160.9,USD2017/toe,IEA Energy prices and taxes,Steam Coal Prices for Industry in US Dollars/toe
+CHE,CoalResource,Fuel_cost_fuel,2018,,195.1,USD2018/toe,IEA Energy prices and taxes,Steam Coal Prices for Industry in US Dollars/toe
+CHE,CoalResource,Fuel_cost_fuel,2019,,159,USD2019/toe,IEA Energy prices and taxes,Steam Coal Prices for Industry in US Dollars/toe
+CHE,CoalResource,CO2_generation,1990,,353.88,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Anthracite
+CHE,CoalResource,CO2_generation,1991,,353.88,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Anthracite
+CHE,CoalResource,CO2_generation,1992,,353.88,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Anthracite
+CHE,CoalResource,CO2_generation,1993,,353.88,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Anthracite
+CHE,CoalResource,CO2_generation,1994,,353.88,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Anthracite
+CHE,CoalResource,CO2_generation,1995,,353.88,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Anthracite
+CHE,CoalResource,CO2_generation,1996,,353.88,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Anthracite
+CHE,CoalResource,CO2_generation,1997,,353.88,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Anthracite
+CHE,CoalResource,CO2_generation,1998,,353.88,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Anthracite
+CHE,CoalResource,CO2_generation,1999,,353.88,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Anthracite
+CHE,CoalResource,CO2_generation,2000,,353.88,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Anthracite
+CHE,CoalResource,CO2_generation,2001,,353.88,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Anthracite
+CHE,CoalResource,CO2_generation,2002,,353.88,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Anthracite
+CHE,CoalResource,CO2_generation,2003,,353.88,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Anthracite
+CHE,CoalResource,CO2_generation,2004,,353.88,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Anthracite
+CHE,CoalResource,CO2_generation,2005,,353.88,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Anthracite
+CHE,CoalResource,CO2_generation,2006,,353.88,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Anthracite
+CHE,CoalResource,CO2_generation,2007,,353.88,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Anthracite
+CHE,CoalResource,CO2_generation,2008,,353.88,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Anthracite
+CHE,CoalResource,CO2_generation,2009,,353.88,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Anthracite
+CHE,CoalResource,CO2_generation,2010,,353.88,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Anthracite
+CHE,CoalResource,CO2_generation,2011,,353.88,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Anthracite
+CHE,CoalResource,CO2_generation,2012,,353.88,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Anthracite
+CHE,CoalResource,CO2_generation,2013,,353.88,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Anthracite
+CHE,CoalResource,CO2_generation,2014,,353.88,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Anthracite
+CHE,CoalResource,CO2_generation,2015,,353.88,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Anthracite
+CHE,CoalResource,CO2_generation,2016,,353.88,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Anthracite
+CHE,CoalResource,CO2_generation,2017,,353.88,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Anthracite
+CHE,CoalResource,CO2_generation,2018,,353.88,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Anthracite
+CHE,CoalResource,CO2_generation,2019,,353.88,tonne/GWh,"IPCC 2006 Guidelines for National Greenhouse Gas Inventories, http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol2.html",Anthracite

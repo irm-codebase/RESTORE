@@ -1,0 +1,65 @@
+Name: CHE UraniumResource,,,,,,,,,
+Date: 2021-08-06 16:52:26.836271,,,,,,,,,
+Author: Marc Jaxa-Rozen,,,,,,,,,
+,,,,,,,,,
+Country,Entity,Parameter,Year,Period,Value,Unit,Reference,Priority,Note
+CHE,UraniumResource,Fuel_cost_fuel,1990,,,,,,Fuel cost per MWh of generation - thermal efficiency should be set to 100%. Average of reported values
+CHE,UraniumResource,Fuel_cost_fuel,1991,,,,,,Fuel cost per MWh of generation - thermal efficiency should be set to 100%. Average of reported values
+CHE,UraniumResource,Fuel_cost_fuel,1992,,,,,,Fuel cost per MWh of generation - thermal efficiency should be set to 100%. Average of reported values
+CHE,UraniumResource,Fuel_cost_fuel,1993,,,,,,Fuel cost per MWh of generation - thermal efficiency should be set to 100%. Average of reported values
+CHE,UraniumResource,Fuel_cost_fuel,1994,,,,,,Fuel cost per MWh of generation - thermal efficiency should be set to 100%. Average of reported values
+CHE,UraniumResource,Fuel_cost_fuel,1995,,2.1,USD1995/MWh,Wenger (1995) Cost Effectiveness at Beznau,,Fuel cost per MWh of generation - thermal efficiency should be set to 100%. Average of reported values
+CHE,UraniumResource,Fuel_cost_fuel,1996,,,,,,Fuel cost per MWh of generation - thermal efficiency should be set to 100%. Average of reported values
+CHE,UraniumResource,Fuel_cost_fuel,1997,,,,,,Fuel cost per MWh of generation - thermal efficiency should be set to 100%. Average of reported values
+CHE,UraniumResource,Fuel_cost_fuel,1998,,,,,,Fuel cost per MWh of generation - thermal efficiency should be set to 100%. Average of reported values
+CHE,UraniumResource,Fuel_cost_fuel,1999,,,,,,Fuel cost per MWh of generation - thermal efficiency should be set to 100%. Average of reported values
+CHE,UraniumResource,Fuel_cost_fuel,2000,,,,,,Fuel cost per MWh of generation - thermal efficiency should be set to 100%. Average of reported values
+CHE,UraniumResource,Fuel_cost_fuel,2001,,,,,,Fuel cost per MWh of generation - thermal efficiency should be set to 100%. Average of reported values
+CHE,UraniumResource,Fuel_cost_fuel,2002,,,,,,Fuel cost per MWh of generation - thermal efficiency should be set to 100%. Average of reported values
+CHE,UraniumResource,Fuel_cost_fuel,2003,,,,,,Fuel cost per MWh of generation - thermal efficiency should be set to 100%. Average of reported values
+CHE,UraniumResource,Fuel_cost_fuel,2004,,,,,,Fuel cost per MWh of generation - thermal efficiency should be set to 100%. Average of reported values
+CHE,UraniumResource,Fuel_cost_fuel,2005,,,,,,Fuel cost per MWh of generation - thermal efficiency should be set to 100%. Average of reported values
+CHE,UraniumResource,Fuel_cost_fuel,2006,,,,,,Fuel cost per MWh of generation - thermal efficiency should be set to 100%. Average of reported values
+CHE,UraniumResource,Fuel_cost_fuel,2007,,,,,,Fuel cost per MWh of generation - thermal efficiency should be set to 100%. Average of reported values
+CHE,UraniumResource,Fuel_cost_fuel,2008,,,,,,Fuel cost per MWh of generation - thermal efficiency should be set to 100%. Average of reported values
+CHE,UraniumResource,Fuel_cost_fuel,2009,,,,,,Fuel cost per MWh of generation - thermal efficiency should be set to 100%. Average of reported values
+CHE,UraniumResource,Fuel_cost_fuel,2010,,,,,,Fuel cost per MWh of generation - thermal efficiency should be set to 100%. Average of reported values
+CHE,UraniumResource,Fuel_cost_fuel,2011,,,,,,Fuel cost per MWh of generation - thermal efficiency should be set to 100%. Average of reported values
+CHE,UraniumResource,Fuel_cost_fuel,2012,,,,,,Fuel cost per MWh of generation - thermal efficiency should be set to 100%. Average of reported values
+CHE,UraniumResource,Fuel_cost_fuel,2013,,,,,,Fuel cost per MWh of generation - thermal efficiency should be set to 100%. Average of reported values
+CHE,UraniumResource,Fuel_cost_fuel,2014,,,,,,Fuel cost per MWh of generation - thermal efficiency should be set to 100%. Average of reported values
+CHE,UraniumResource,Fuel_cost_fuel,2015,,,,,,Fuel cost per MWh of generation - thermal efficiency should be set to 100%. Average of reported values
+CHE,UraniumResource,Fuel_cost_fuel,2016,,,,,,Fuel cost per MWh of generation - thermal efficiency should be set to 100%. Average of reported values
+CHE,UraniumResource,Fuel_cost_fuel,2017,,,,,,Fuel cost per MWh of generation - thermal efficiency should be set to 100%. Average of reported values
+CHE,UraniumResource,Fuel_cost_fuel,2018,,,,,,Fuel cost per MWh of generation - thermal efficiency should be set to 100%. Average of reported values
+CHE,UraniumResource,Fuel_cost_fuel,2019,,,,,,Fuel cost per MWh of generation - thermal efficiency should be set to 100%. Average of reported values
+CHE,UraniumResource,CO2_generation,1990,,0,,Assumption,,
+CHE,UraniumResource,CO2_generation,1991,,0,,Assumption,,
+CHE,UraniumResource,CO2_generation,1992,,0,,Assumption,,
+CHE,UraniumResource,CO2_generation,1993,,0,,Assumption,,
+CHE,UraniumResource,CO2_generation,1994,,0,,Assumption,,
+CHE,UraniumResource,CO2_generation,1995,,0,,Assumption,,
+CHE,UraniumResource,CO2_generation,1996,,0,,Assumption,,
+CHE,UraniumResource,CO2_generation,1997,,0,,Assumption,,
+CHE,UraniumResource,CO2_generation,1998,,0,,Assumption,,
+CHE,UraniumResource,CO2_generation,1999,,0,,Assumption,,
+CHE,UraniumResource,CO2_generation,2000,,0,,Assumption,,
+CHE,UraniumResource,CO2_generation,2001,,0,,Assumption,,
+CHE,UraniumResource,CO2_generation,2002,,0,,Assumption,,
+CHE,UraniumResource,CO2_generation,2003,,0,,Assumption,,
+CHE,UraniumResource,CO2_generation,2004,,0,,Assumption,,
+CHE,UraniumResource,CO2_generation,2005,,0,,Assumption,,
+CHE,UraniumResource,CO2_generation,2006,,0,,Assumption,,
+CHE,UraniumResource,CO2_generation,2007,,0,,Assumption,,
+CHE,UraniumResource,CO2_generation,2008,,0,,Assumption,,
+CHE,UraniumResource,CO2_generation,2009,,0,,Assumption,,
+CHE,UraniumResource,CO2_generation,2010,,0,,Assumption,,
+CHE,UraniumResource,CO2_generation,2011,,0,,Assumption,,
+CHE,UraniumResource,CO2_generation,2012,,0,,Assumption,,
+CHE,UraniumResource,CO2_generation,2013,,0,,Assumption,,
+CHE,UraniumResource,CO2_generation,2014,,0,,Assumption,,
+CHE,UraniumResource,CO2_generation,2015,,0,,Assumption,,
+CHE,UraniumResource,CO2_generation,2016,,0,,Assumption,,
+CHE,UraniumResource,CO2_generation,2017,,0,,Assumption,,
+CHE,UraniumResource,CO2_generation,2018,,0,,Assumption,,
+CHE,UraniumResource,CO2_generation,2019,,0,,Assumption,,

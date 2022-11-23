@@ -1,0 +1,577 @@
+Name: CHE Biomass
+Date: 2022-10-13 11:23:59.938942
+Author: Marc Jaxa-Rozen, Xin Wen
+
+Country,Entity,Parameter,Year,Period,Value,Unit,Reference,Priority,Note
+CHE,Biomass,Resource,1990,,BiomassResource,,,,
+CHE,Biomass,Resource,1991,,BiomassResource,,,,
+CHE,Biomass,Resource,1992,,BiomassResource,,,,
+CHE,Biomass,Resource,1993,,BiomassResource,,,,
+CHE,Biomass,Resource,1994,,BiomassResource,,,,
+CHE,Biomass,Resource,1995,,BiomassResource,,,,
+CHE,Biomass,Resource,1996,,BiomassResource,,,,
+CHE,Biomass,Resource,1997,,BiomassResource,,,,
+CHE,Biomass,Resource,1998,,BiomassResource,,,,
+CHE,Biomass,Resource,1999,,BiomassResource,,,,
+CHE,Biomass,Resource,2000,,BiomassResource,,,,
+CHE,Biomass,Resource,2001,,BiomassResource,,,,
+CHE,Biomass,Resource,2002,,BiomassResource,,,,
+CHE,Biomass,Resource,2003,,BiomassResource,,,,
+CHE,Biomass,Resource,2004,,BiomassResource,,,,
+CHE,Biomass,Resource,2005,,BiomassResource,,,,
+CHE,Biomass,Resource,2006,,BiomassResource,,,,
+CHE,Biomass,Resource,2007,,BiomassResource,,,,
+CHE,Biomass,Resource,2008,,BiomassResource,,,,
+CHE,Biomass,Resource,2009,,BiomassResource,,,,
+CHE,Biomass,Resource,2010,,BiomassResource,,,,
+CHE,Biomass,Resource,2011,,BiomassResource,,,,
+CHE,Biomass,Resource,2012,,BiomassResource,,,,
+CHE,Biomass,Resource,2013,,BiomassResource,,,,
+CHE,Biomass,Resource,2014,,BiomassResource,,,,
+CHE,Biomass,Resource,2015,,BiomassResource,,,,
+CHE,Biomass,Resource,2016,,BiomassResource,,,,
+CHE,Biomass,Resource,2017,,BiomassResource,,,,
+CHE,Biomass,Resource,2018,,BiomassResource,,,,
+CHE,Biomass,Resource,2019,,BiomassResource,,,,
+CHE,Biomass,LF_min,1990,,0,,Assumption for testing,,
+CHE,Biomass,LF_min,1991,,0.001,,,,
+CHE,Biomass,LF_min,1992,,0.001,,,,
+CHE,Biomass,LF_min,1993,,0.001,,,,
+CHE,Biomass,LF_min,1994,,0.001,,,,
+CHE,Biomass,LF_min,1995,,0.001,,,,
+CHE,Biomass,LF_min,1996,,0.001,,,,
+CHE,Biomass,LF_min,1997,,0.001,,,,
+CHE,Biomass,LF_min,1998,,0.001,,,,
+CHE,Biomass,LF_min,1999,,0.001,,,,
+CHE,Biomass,LF_min,2000,,0.001,,,,
+CHE,Biomass,LF_min,2001,,0.001,,,,
+CHE,Biomass,LF_min,2002,,0.001,,,,
+CHE,Biomass,LF_min,2003,,0.001,,,,
+CHE,Biomass,LF_min,2004,,0.001,,,,
+CHE,Biomass,LF_min,2005,,0.001,,,,
+CHE,Biomass,LF_min,2006,,0.001,,,,
+CHE,Biomass,LF_min,2007,,0.001,,,,
+CHE,Biomass,LF_min,2008,,0.001,,,,
+CHE,Biomass,LF_min,2009,,0.001,,,,
+CHE,Biomass,LF_min,2010,,0.001,,,,
+CHE,Biomass,LF_min,2011,,0.001,,,,
+CHE,Biomass,LF_min,2012,,0.001,,,,
+CHE,Biomass,LF_min,2013,,0.001,,,,
+CHE,Biomass,LF_min,2014,,0.001,,,,
+CHE,Biomass,LF_min,2015,,0.001,,,,
+CHE,Biomass,LF_min,2016,,0.001,,,,
+CHE,Biomass,LF_min,2017,,0.001,,,,
+CHE,Biomass,LF_min,2018,,0.001,,,,
+CHE,Biomass,LF_min,2019,,0.001,,,,
+CHE,Biomass,LF_max,1990,,1,,,,
+CHE,Biomass,LF_max,1991,,0.15,,Assumption based on max. historical equivalent capacity factor for electricity (capacity reported is total CHP capacity),,
+CHE,Biomass,LF_max,1992,,0.15,,Assumption based on max. historical equivalent capacity factor for electricity (capacity reported is total CHP capacity),,
+CHE,Biomass,LF_max,1993,,0.15,,Assumption based on max. historical equivalent capacity factor for electricity (capacity reported is total CHP capacity),,
+CHE,Biomass,LF_max,1994,,0.15,,Assumption based on max. historical equivalent capacity factor for electricity (capacity reported is total CHP capacity),,
+CHE,Biomass,LF_max,1995,,0.15,,Assumption based on max. historical equivalent capacity factor for electricity (capacity reported is total CHP capacity),,
+CHE,Biomass,LF_max,1996,,0.15,,Assumption based on max. historical equivalent capacity factor for electricity (capacity reported is total CHP capacity),,
+CHE,Biomass,LF_max,1997,,0.15,,Assumption based on max. historical equivalent capacity factor for electricity (capacity reported is total CHP capacity),,
+CHE,Biomass,LF_max,1998,,0.15,,Assumption based on max. historical equivalent capacity factor for electricity (capacity reported is total CHP capacity),,
+CHE,Biomass,LF_max,1999,,0.15,,Assumption based on max. historical equivalent capacity factor for electricity (capacity reported is total CHP capacity),,
+CHE,Biomass,LF_max,2000,,0.15,,Assumption based on max. historical equivalent capacity factor for electricity (capacity reported is total CHP capacity),,
+CHE,Biomass,LF_max,2001,,0.15,,Assumption based on max. historical equivalent capacity factor for electricity (capacity reported is total CHP capacity),,
+CHE,Biomass,LF_max,2002,,0.15,,Assumption based on max. historical equivalent capacity factor for electricity (capacity reported is total CHP capacity),,
+CHE,Biomass,LF_max,2003,,0.15,,Assumption based on max. historical equivalent capacity factor for electricity (capacity reported is total CHP capacity),,
+CHE,Biomass,LF_max,2004,,0.15,,Assumption based on max. historical equivalent capacity factor for electricity (capacity reported is total CHP capacity),,
+CHE,Biomass,LF_max,2005,,0.15,,Assumption based on max. historical equivalent capacity factor for electricity (capacity reported is total CHP capacity),,
+CHE,Biomass,LF_max,2006,,0.15,,Assumption based on max. historical equivalent capacity factor for electricity (capacity reported is total CHP capacity),,
+CHE,Biomass,LF_max,2007,,0.15,,Assumption based on max. historical equivalent capacity factor for electricity (capacity reported is total CHP capacity),,
+CHE,Biomass,LF_max,2008,,0.15,,Assumption based on max. historical equivalent capacity factor for electricity (capacity reported is total CHP capacity),,
+CHE,Biomass,LF_max,2009,,0.15,,Assumption based on max. historical equivalent capacity factor for electricity (capacity reported is total CHP capacity),,
+CHE,Biomass,LF_max,2010,,0.15,,Assumption based on max. historical equivalent capacity factor for electricity (capacity reported is total CHP capacity),,
+CHE,Biomass,LF_max,2011,,0.15,,Assumption based on max. historical equivalent capacity factor for electricity (capacity reported is total CHP capacity),,
+CHE,Biomass,LF_max,2012,,0.15,,Assumption based on max. historical equivalent capacity factor for electricity (capacity reported is total CHP capacity),,
+CHE,Biomass,LF_max,2013,,0.15,,Assumption based on max. historical equivalent capacity factor for electricity (capacity reported is total CHP capacity),,
+CHE,Biomass,LF_max,2014,,0.15,,Assumption based on max. historical equivalent capacity factor for electricity (capacity reported is total CHP capacity),,
+CHE,Biomass,LF_max,2015,,0.15,,Assumption based on max. historical equivalent capacity factor for electricity (capacity reported is total CHP capacity),,
+CHE,Biomass,LF_max,2016,,0.15,,Assumption based on max. historical equivalent capacity factor for electricity (capacity reported is total CHP capacity),,
+CHE,Biomass,LF_max,2017,,0.15,,Assumption based on max. historical equivalent capacity factor for electricity (capacity reported is total CHP capacity),,
+CHE,Biomass,LF_max,2018,,0.15,,Assumption based on max. historical equivalent capacity factor for electricity (capacity reported is total CHP capacity),,
+CHE,Biomass,LF_max,2019,,0.15,,Assumption based on max. historical equivalent capacity factor for electricity (capacity reported is total CHP capacity),,
+CHE,Biomass,Peak_contr,1990,,0.88,,"Royal Academy of Engineering (2014) GB electricity capacity margin, table 1",,
+CHE,Biomass,Peak_contr,1991,,0.88,,,,
+CHE,Biomass,Peak_contr,1992,,0.88,,,,
+CHE,Biomass,Peak_contr,1993,,0.88,,,,
+CHE,Biomass,Peak_contr,1994,,0.88,,,,
+CHE,Biomass,Peak_contr,1995,,0.88,,,,
+CHE,Biomass,Peak_contr,1996,,0.88,,,,
+CHE,Biomass,Peak_contr,1997,,0.88,,,,
+CHE,Biomass,Peak_contr,1998,,0.88,,,,
+CHE,Biomass,Peak_contr,1999,,0.88,,,,
+CHE,Biomass,Peak_contr,2000,,0.88,,,,
+CHE,Biomass,Peak_contr,2001,,0.88,,,,
+CHE,Biomass,Peak_contr,2002,,0.88,,,,
+CHE,Biomass,Peak_contr,2003,,0.88,,,,
+CHE,Biomass,Peak_contr,2004,,0.88,,,,
+CHE,Biomass,Peak_contr,2005,,0.88,,,,
+CHE,Biomass,Peak_contr,2006,,0.88,,,,
+CHE,Biomass,Peak_contr,2007,,0.88,,,,
+CHE,Biomass,Peak_contr,2008,,0.88,,,,
+CHE,Biomass,Peak_contr,2009,,0.88,,,,
+CHE,Biomass,Peak_contr,2010,,0.88,,,,
+CHE,Biomass,Peak_contr,2011,,0.88,,,,
+CHE,Biomass,Peak_contr,2012,,0.88,,,,
+CHE,Biomass,Peak_contr,2013,,0.88,,,,
+CHE,Biomass,Peak_contr,2014,,0.88,,,,
+CHE,Biomass,Peak_contr,2015,,0.88,,,,
+CHE,Biomass,Peak_contr,2016,,0.88,,,,
+CHE,Biomass,Peak_contr,2017,,0.88,,,,
+CHE,Biomass,Peak_contr,2018,,0.88,,,,
+CHE,Biomass,Peak_contr,2019,,0.88,,,,
+CHE,Biomass,Own_use,1990,,0.1,,Assumption,,
+CHE,Biomass,Own_use,1991,,0.1,,Assumption,,
+CHE,Biomass,Own_use,1992,,0.1,,Assumption,,
+CHE,Biomass,Own_use,1993,,0.1,,Assumption,,
+CHE,Biomass,Own_use,1994,,0.1,,Assumption,,
+CHE,Biomass,Own_use,1995,,0.1,,Assumption,,
+CHE,Biomass,Own_use,1996,,0.1,,Assumption,,
+CHE,Biomass,Own_use,1997,,0.1,,Assumption,,
+CHE,Biomass,Own_use,1998,,0.1,,Assumption,,
+CHE,Biomass,Own_use,1999,,0.1,,Assumption,,
+CHE,Biomass,Own_use,2000,,0.1,,Assumption,,
+CHE,Biomass,Own_use,2001,,0.1,,Assumption,,
+CHE,Biomass,Own_use,2002,,0.1,,Assumption,,
+CHE,Biomass,Own_use,2003,,0.1,,Assumption,,
+CHE,Biomass,Own_use,2004,,0.1,,Assumption,,
+CHE,Biomass,Own_use,2005,,0.1,,Assumption,,
+CHE,Biomass,Own_use,2006,,0.1,,Assumption,,
+CHE,Biomass,Own_use,2007,,0.1,,Assumption,,
+CHE,Biomass,Own_use,2008,,0.1,,Assumption,,
+CHE,Biomass,Own_use,2009,,0.1,,Assumption,,
+CHE,Biomass,Own_use,2010,,0.1,,Assumption,,
+CHE,Biomass,Own_use,2011,,0.1,,Assumption,,
+CHE,Biomass,Own_use,2012,,0.1,,Assumption,,
+CHE,Biomass,Own_use,2013,,0.1,,Assumption,,
+CHE,Biomass,Own_use,2014,,0.1,,Assumption,,
+CHE,Biomass,Own_use,2015,,0.1,,Assumption,,
+CHE,Biomass,Own_use,2016,,0.1,,Assumption,,
+CHE,Biomass,Own_use,2017,,0.1,,Assumption,,
+CHE,Biomass,Own_use,2018,,0.1,,Assumption,,
+CHE,Biomass,Own_use,2019,,0.1,,Assumption,,
+CHE,Biomass,Buildrates,1990,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.5GW/year and peak historical buildrate for Biomass in CHE, rounded up to 0.25GW"
+CHE,Biomass,Buildrates,1991,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.5GW/year and peak historical buildrate for Biomass in CHE, rounded up to 0.25GW"
+CHE,Biomass,Buildrates,1992,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.5GW/year and peak historical buildrate for Biomass in CHE, rounded up to 0.25GW"
+CHE,Biomass,Buildrates,1993,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.5GW/year and peak historical buildrate for Biomass in CHE, rounded up to 0.25GW"
+CHE,Biomass,Buildrates,1994,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.5GW/year and peak historical buildrate for Biomass in CHE, rounded up to 0.25GW"
+CHE,Biomass,Buildrates,1995,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.5GW/year and peak historical buildrate for Biomass in CHE, rounded up to 0.25GW"
+CHE,Biomass,Buildrates,1996,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.5GW/year and peak historical buildrate for Biomass in CHE, rounded up to 0.25GW"
+CHE,Biomass,Buildrates,1997,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.5GW/year and peak historical buildrate for Biomass in CHE, rounded up to 0.25GW"
+CHE,Biomass,Buildrates,1998,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.5GW/year and peak historical buildrate for Biomass in CHE, rounded up to 0.25GW"
+CHE,Biomass,Buildrates,1999,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.5GW/year and peak historical buildrate for Biomass in CHE, rounded up to 0.25GW"
+CHE,Biomass,Buildrates,2000,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.5GW/year and peak historical buildrate for Biomass in CHE, rounded up to 0.25GW"
+CHE,Biomass,Buildrates,2001,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.5GW/year and peak historical buildrate for Biomass in CHE, rounded up to 0.25GW"
+CHE,Biomass,Buildrates,2002,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.5GW/year and peak historical buildrate for Biomass in CHE, rounded up to 0.25GW"
+CHE,Biomass,Buildrates,2003,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.5GW/year and peak historical buildrate for Biomass in CHE, rounded up to 0.25GW"
+CHE,Biomass,Buildrates,2004,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.5GW/year and peak historical buildrate for Biomass in CHE, rounded up to 0.25GW"
+CHE,Biomass,Buildrates,2005,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.5GW/year and peak historical buildrate for Biomass in CHE, rounded up to 0.25GW"
+CHE,Biomass,Buildrates,2006,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.5GW/year and peak historical buildrate for Biomass in CHE, rounded up to 0.25GW"
+CHE,Biomass,Buildrates,2007,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.5GW/year and peak historical buildrate for Biomass in CHE, rounded up to 0.25GW"
+CHE,Biomass,Buildrates,2008,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.5GW/year and peak historical buildrate for Biomass in CHE, rounded up to 0.25GW"
+CHE,Biomass,Buildrates,2009,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.5GW/year and peak historical buildrate for Biomass in CHE, rounded up to 0.25GW"
+CHE,Biomass,Buildrates,2010,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.5GW/year and peak historical buildrate for Biomass in CHE, rounded up to 0.25GW"
+CHE,Biomass,Buildrates,2011,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.5GW/year and peak historical buildrate for Biomass in CHE, rounded up to 0.25GW"
+CHE,Biomass,Buildrates,2012,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.5GW/year and peak historical buildrate for Biomass in CHE, rounded up to 0.25GW"
+CHE,Biomass,Buildrates,2013,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.5GW/year and peak historical buildrate for Biomass in CHE, rounded up to 0.25GW"
+CHE,Biomass,Buildrates,2014,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.5GW/year and peak historical buildrate for Biomass in CHE, rounded up to 0.25GW"
+CHE,Biomass,Buildrates,2015,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.5GW/year and peak historical buildrate for Biomass in CHE, rounded up to 0.25GW"
+CHE,Biomass,Buildrates,2016,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.5GW/year and peak historical buildrate for Biomass in CHE, rounded up to 0.25GW"
+CHE,Biomass,Buildrates,2017,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.5GW/year and peak historical buildrate for Biomass in CHE, rounded up to 0.25GW"
+CHE,Biomass,Buildrates,2018,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.5GW/year and peak historical buildrate for Biomass in CHE, rounded up to 0.25GW"
+CHE,Biomass,Buildrates,2019,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.5GW/year and peak historical buildrate for Biomass in CHE, rounded up to 0.25GW"
+CHE,Biomass,Lifetime,2010,,25,yr,"Estimated from DECC/Arup (2016) Review of RE generation cost, section 11",,
+CHE,Biomass,Potential_annual,1990,,57.6,PJ,JRC ENSPRESO database,,"Based on 2010 estimate, assuming 30% conversion efficiency of potential feedstock"
+CHE,Biomass,Potential_annual,1991,,57.6,PJ,JRC ENSPRESO database,,"Based on 2010 estimate, assuming 30% conversion efficiency of potential feedstock"
+CHE,Biomass,Potential_annual,1992,,57.6,PJ,JRC ENSPRESO database,,"Based on 2010 estimate, assuming 30% conversion efficiency of potential feedstock"
+CHE,Biomass,Potential_annual,1993,,57.6,PJ,JRC ENSPRESO database,,"Based on 2010 estimate, assuming 30% conversion efficiency of potential feedstock"
+CHE,Biomass,Potential_annual,1994,,57.6,PJ,JRC ENSPRESO database,,"Based on 2010 estimate, assuming 30% conversion efficiency of potential feedstock"
+CHE,Biomass,Potential_annual,1995,,57.6,PJ,JRC ENSPRESO database,,"Based on 2010 estimate, assuming 30% conversion efficiency of potential feedstock"
+CHE,Biomass,Potential_annual,1996,,57.6,PJ,JRC ENSPRESO database,,"Based on 2010 estimate, assuming 30% conversion efficiency of potential feedstock"
+CHE,Biomass,Potential_annual,1997,,57.6,PJ,JRC ENSPRESO database,,"Based on 2010 estimate, assuming 30% conversion efficiency of potential feedstock"
+CHE,Biomass,Potential_annual,1998,,57.6,PJ,JRC ENSPRESO database,,"Based on 2010 estimate, assuming 30% conversion efficiency of potential feedstock"
+CHE,Biomass,Potential_annual,1999,,57.6,PJ,JRC ENSPRESO database,,"Based on 2010 estimate, assuming 30% conversion efficiency of potential feedstock"
+CHE,Biomass,Potential_annual,2000,,57.6,PJ,JRC ENSPRESO database,,"Based on 2010 estimate, assuming 30% conversion efficiency of potential feedstock"
+CHE,Biomass,Potential_annual,2001,,57.6,PJ,JRC ENSPRESO database,,"Based on 2010 estimate, assuming 30% conversion efficiency of potential feedstock"
+CHE,Biomass,Potential_annual,2002,,57.6,PJ,JRC ENSPRESO database,,"Based on 2010 estimate, assuming 30% conversion efficiency of potential feedstock"
+CHE,Biomass,Potential_annual,2003,,57.6,PJ,JRC ENSPRESO database,,"Based on 2010 estimate, assuming 30% conversion efficiency of potential feedstock"
+CHE,Biomass,Potential_annual,2004,,57.6,PJ,JRC ENSPRESO database,,"Based on 2010 estimate, assuming 30% conversion efficiency of potential feedstock"
+CHE,Biomass,Potential_annual,2005,,57.6,PJ,JRC ENSPRESO database,,"Based on 2010 estimate, assuming 30% conversion efficiency of potential feedstock"
+CHE,Biomass,Potential_annual,2006,,57.6,PJ,JRC ENSPRESO database,,"Based on 2010 estimate, assuming 30% conversion efficiency of potential feedstock"
+CHE,Biomass,Potential_annual,2007,,57.6,PJ,JRC ENSPRESO database,,"Based on 2010 estimate, assuming 30% conversion efficiency of potential feedstock"
+CHE,Biomass,Potential_annual,2008,,57.6,PJ,JRC ENSPRESO database,,"Based on 2010 estimate, assuming 30% conversion efficiency of potential feedstock"
+CHE,Biomass,Potential_annual,2009,,57.6,PJ,JRC ENSPRESO database,,"Based on 2010 estimate, assuming 30% conversion efficiency of potential feedstock"
+CHE,Biomass,Potential_annual,2010,,57.6,PJ,JRC ENSPRESO database,,"Based on 2010 estimate, assuming 30% conversion efficiency of potential feedstock"
+CHE,Biomass,Potential_annual,2011,,57.6,PJ,JRC ENSPRESO database,,"Based on 2010 estimate, assuming 30% conversion efficiency of potential feedstock"
+CHE,Biomass,Potential_annual,2012,,57.6,PJ,JRC ENSPRESO database,,"Based on 2010 estimate, assuming 30% conversion efficiency of potential feedstock"
+CHE,Biomass,Potential_annual,2013,,57.6,PJ,JRC ENSPRESO database,,"Based on 2010 estimate, assuming 30% conversion efficiency of potential feedstock"
+CHE,Biomass,Potential_annual,2014,,57.6,PJ,JRC ENSPRESO database,,"Based on 2010 estimate, assuming 30% conversion efficiency of potential feedstock"
+CHE,Biomass,Potential_annual,2015,,57.6,PJ,JRC ENSPRESO database,,"Based on 2010 estimate, assuming 30% conversion efficiency of potential feedstock"
+CHE,Biomass,Potential_annual,2016,,57.6,PJ,JRC ENSPRESO database,,"Based on 2010 estimate, assuming 30% conversion efficiency of potential feedstock"
+CHE,Biomass,Potential_annual,2017,,57.6,PJ,JRC ENSPRESO database,,"Based on 2010 estimate, assuming 30% conversion efficiency of potential feedstock"
+CHE,Biomass,Potential_annual,2018,,57.6,PJ,JRC ENSPRESO database,,"Based on 2010 estimate, assuming 30% conversion efficiency of potential feedstock"
+CHE,Biomass,Potential_annual,2019,,57.6,PJ,JRC ENSPRESO database,,"Based on 2010 estimate, assuming 30% conversion efficiency of potential feedstock"
+CHE,Biomass,Potential_installed,1990,,1,GW,,,
+CHE,Biomass,Potential_installed,1991,,,GW,,,
+CHE,Biomass,Potential_installed,1992,,,GW,,,
+CHE,Biomass,Potential_installed,1993,,,GW,,,
+CHE,Biomass,Potential_installed,1994,,,GW,,,
+CHE,Biomass,Potential_installed,1995,,,GW,,,
+CHE,Biomass,Potential_installed,1996,,,GW,,,
+CHE,Biomass,Potential_installed,1997,,,GW,,,
+CHE,Biomass,Potential_installed,1998,,,GW,,,
+CHE,Biomass,Potential_installed,1999,,,GW,,,
+CHE,Biomass,Potential_installed,2000,,,GW,,,
+CHE,Biomass,Potential_installed,2001,,,GW,,,
+CHE,Biomass,Potential_installed,2002,,,GW,,,
+CHE,Biomass,Potential_installed,2003,,,GW,,,
+CHE,Biomass,Potential_installed,2004,,,GW,,,
+CHE,Biomass,Potential_installed,2005,,,GW,,,
+CHE,Biomass,Potential_installed,2006,,,GW,,,
+CHE,Biomass,Potential_installed,2007,,,GW,,,
+CHE,Biomass,Potential_installed,2008,,,GW,,,
+CHE,Biomass,Potential_installed,2009,,,GW,,,
+CHE,Biomass,Potential_installed,2010,,,GW,,,
+CHE,Biomass,Potential_installed,2011,,,GW,,,
+CHE,Biomass,Potential_installed,2012,,,GW,,,
+CHE,Biomass,Potential_installed,2013,,,GW,,,
+CHE,Biomass,Potential_installed,2014,,,GW,,,
+CHE,Biomass,Potential_installed,2015,,,GW,,,
+CHE,Biomass,Potential_installed,2016,,,GW,,,
+CHE,Biomass,Potential_installed,2017,,,GW,,,
+CHE,Biomass,Potential_installed,2018,,,GW,,,
+CHE,Biomass,Potential_installed,2019,,,GW,,,
+CHE,Biomass,Ramp_rate,1990,,0.6,,"Parsons Brinckerhoff (2011) Powering the future, table A5.3.2.1",,Average for hot or cold start
+CHE,Biomass,Ramp_rate,1991,,0.6,,,,
+CHE,Biomass,Ramp_rate,1992,,0.6,,,,
+CHE,Biomass,Ramp_rate,1993,,0.6,,,,
+CHE,Biomass,Ramp_rate,1994,,0.6,,,,
+CHE,Biomass,Ramp_rate,1995,,0.6,,,,
+CHE,Biomass,Ramp_rate,1996,,0.6,,,,
+CHE,Biomass,Ramp_rate,1997,,0.6,,,,
+CHE,Biomass,Ramp_rate,1998,,0.6,,,,
+CHE,Biomass,Ramp_rate,1999,,0.6,,,,
+CHE,Biomass,Ramp_rate,2000,,0.6,,,,
+CHE,Biomass,Ramp_rate,2001,,0.6,,,,
+CHE,Biomass,Ramp_rate,2002,,0.6,,,,
+CHE,Biomass,Ramp_rate,2003,,0.6,,,,
+CHE,Biomass,Ramp_rate,2004,,0.6,,,,
+CHE,Biomass,Ramp_rate,2005,,0.6,,,,
+CHE,Biomass,Ramp_rate,2006,,0.6,,,,
+CHE,Biomass,Ramp_rate,2007,,0.6,,,,
+CHE,Biomass,Ramp_rate,2008,,0.6,,,,
+CHE,Biomass,Ramp_rate,2009,,0.6,,,,
+CHE,Biomass,Ramp_rate,2010,,0.6,,,,
+CHE,Biomass,Ramp_rate,2011,,0.6,,,,
+CHE,Biomass,Ramp_rate,2012,,0.6,,,,
+CHE,Biomass,Ramp_rate,2013,,0.6,,,,
+CHE,Biomass,Ramp_rate,2014,,0.6,,,,
+CHE,Biomass,Ramp_rate,2015,,0.6,,,,
+CHE,Biomass,Ramp_rate,2016,,0.6,,,,
+CHE,Biomass,Ramp_rate,2017,,0.6,,,,
+CHE,Biomass,Ramp_rate,2018,,0.6,,,,
+CHE,Biomass,Ramp_rate,2019,,0.6,,,,
+CHE,Biomass,Fuel_efficiency,1990,,0.3,,Assumption. Check in Schweizerische Holzenergiestatistik Table J,,
+CHE,Biomass,Fuel_efficiency,1991,,0.3,,Assumption. Check in Schweizerische Holzenergiestatistik Table J,,
+CHE,Biomass,Fuel_efficiency,1992,,0.3,,Assumption. Check in Schweizerische Holzenergiestatistik Table J,,
+CHE,Biomass,Fuel_efficiency,1993,,0.3,,Assumption. Check in Schweizerische Holzenergiestatistik Table J,,
+CHE,Biomass,Fuel_efficiency,1994,,0.3,,Assumption. Check in Schweizerische Holzenergiestatistik Table J,,
+CHE,Biomass,Fuel_efficiency,1995,,0.3,,Assumption. Check in Schweizerische Holzenergiestatistik Table J,,
+CHE,Biomass,Fuel_efficiency,1996,,0.3,,Assumption. Check in Schweizerische Holzenergiestatistik Table J,,
+CHE,Biomass,Fuel_efficiency,1997,,0.3,,Assumption. Check in Schweizerische Holzenergiestatistik Table J,,
+CHE,Biomass,Fuel_efficiency,1998,,0.3,,Assumption. Check in Schweizerische Holzenergiestatistik Table J,,
+CHE,Biomass,Fuel_efficiency,1999,,0.3,,Assumption. Check in Schweizerische Holzenergiestatistik Table J,,
+CHE,Biomass,Fuel_efficiency,2000,,0.3,,Assumption. Check in Schweizerische Holzenergiestatistik Table J,,
+CHE,Biomass,Fuel_efficiency,2001,,0.3,,Assumption. Check in Schweizerische Holzenergiestatistik Table J,,
+CHE,Biomass,Fuel_efficiency,2002,,0.3,,Assumption. Check in Schweizerische Holzenergiestatistik Table J,,
+CHE,Biomass,Fuel_efficiency,2003,,0.3,,Assumption. Check in Schweizerische Holzenergiestatistik Table J,,
+CHE,Biomass,Fuel_efficiency,2004,,0.3,,Assumption. Check in Schweizerische Holzenergiestatistik Table J,,
+CHE,Biomass,Fuel_efficiency,2005,,0.3,,Assumption. Check in Schweizerische Holzenergiestatistik Table J,,
+CHE,Biomass,Fuel_efficiency,2006,,0.3,,Assumption. Check in Schweizerische Holzenergiestatistik Table J,,
+CHE,Biomass,Fuel_efficiency,2007,,0.3,,Assumption. Check in Schweizerische Holzenergiestatistik Table J,,
+CHE,Biomass,Fuel_efficiency,2008,,0.3,,Assumption. Check in Schweizerische Holzenergiestatistik Table J,,
+CHE,Biomass,Fuel_efficiency,2009,,0.3,,Assumption. Check in Schweizerische Holzenergiestatistik Table J,,
+CHE,Biomass,Fuel_efficiency,2010,,0.3,,Assumption. Check in Schweizerische Holzenergiestatistik Table J,,
+CHE,Biomass,Fuel_efficiency,2011,,0.3,,Assumption. Check in Schweizerische Holzenergiestatistik Table J,,
+CHE,Biomass,Fuel_efficiency,2012,,0.3,,Assumption. Check in Schweizerische Holzenergiestatistik Table J,,
+CHE,Biomass,Fuel_efficiency,2013,,0.3,,Assumption. Check in Schweizerische Holzenergiestatistik Table J,,
+CHE,Biomass,Fuel_efficiency,2014,,0.3,,Assumption. Check in Schweizerische Holzenergiestatistik Table J,,
+CHE,Biomass,Fuel_efficiency,2015,,0.3,,Assumption. Check in Schweizerische Holzenergiestatistik Table J,,
+CHE,Biomass,Fuel_efficiency,2016,,0.3,,Assumption. Check in Schweizerische Holzenergiestatistik Table J,,
+CHE,Biomass,Fuel_efficiency,2017,,0.3,,Assumption. Check in Schweizerische Holzenergiestatistik Table J,,
+CHE,Biomass,Fuel_efficiency,2018,,0.3,,Assumption. Check in Schweizerische Holzenergiestatistik Table J,,
+CHE,Biomass,Fuel_efficiency,2019,,0.3,,Assumption. Check in Schweizerische Holzenergiestatistik Table J,,
+CHE,Biomass,Heat_to_electricity,1990,,0.512396694,,Assumption,,"Generic assumption (4) multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Biomass,Heat_to_electricity,1991,,0.611570248,,Assumption,,"Generic assumption (4) multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Biomass,Heat_to_electricity,1992,,0.639405204,,Assumption,,"Generic assumption (4) multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Biomass,Heat_to_electricity,1993,,0.76119403,,Assumption,,"Generic assumption (4) multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Biomass,Heat_to_electricity,1994,,0.856187291,,Assumption,,"Generic assumption (4) multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Biomass,Heat_to_electricity,1995,,0.967741935,,Assumption,,"Generic assumption (4) multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Biomass,Heat_to_electricity,1996,,1.106666667,,Assumption,,"Generic assumption (4) multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Biomass,Heat_to_electricity,1997,,1.139393939,,Assumption,,"Generic assumption (4) multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Biomass,Heat_to_electricity,1998,,1.238938053,,Assumption,,"Generic assumption (4) multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Biomass,Heat_to_electricity,1999,,1.303370787,,Assumption,,"Generic assumption (4) multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Biomass,Heat_to_electricity,2000,,1.377410468,,Assumption,,"Generic assumption (4) multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Biomass,Heat_to_electricity,2001,,1.465909091,,Assumption,,"Generic assumption (4) multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Biomass,Heat_to_electricity,2002,,1.461538462,,Assumption,,"Generic assumption (4) multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Biomass,Heat_to_electricity,2003,,1.48787062,,Assumption,,"Generic assumption (4) multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Biomass,Heat_to_electricity,2004,,1.660818713,,Assumption,,"Generic assumption (4) multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Biomass,Heat_to_electricity,2005,,1.685459941,,Assumption,,"Generic assumption (4) multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Biomass,Heat_to_electricity,2006,,1.667638484,,Assumption,,"Generic assumption (4) multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Biomass,Heat_to_electricity,2007,,0.867368601,,"Schweizerische Holzenergiestatistik EJ2020, Table G",,"Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Biomass,Heat_to_electricity,2008,,0.731136515,,"Schweizerische Holzenergiestatistik EJ2020, Table G",,"Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Biomass,Heat_to_electricity,2009,,0.734426152,,"Schweizerische Holzenergiestatistik EJ2020, Table G",,"Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Biomass,Heat_to_electricity,2010,,1.208983725,,"Schweizerische Holzenergiestatistik EJ2020, Table G",,"Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Biomass,Heat_to_electricity,2011,,0.779981052,,"Schweizerische Holzenergiestatistik EJ2020, Table G",,"Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Biomass,Heat_to_electricity,2012,,0.627541548,,"Schweizerische Holzenergiestatistik EJ2020, Table G",,"Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Biomass,Heat_to_electricity,2013,,0.649481624,,"Schweizerische Holzenergiestatistik EJ2020, Table G",,"Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Biomass,Heat_to_electricity,2014,,0.651503182,,"Schweizerische Holzenergiestatistik EJ2020, Table G",,"Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Biomass,Heat_to_electricity,2015,,1.528897777,,"Schweizerische Holzenergiestatistik EJ2020, Table G",,"Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Biomass,Heat_to_electricity,2016,,1.839410309,,"Schweizerische Holzenergiestatistik EJ2020, Table G",,"Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Biomass,Heat_to_electricity,2017,,1.167340013,,"Schweizerische Holzenergiestatistik EJ2020, Table G",,"Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Biomass,Heat_to_electricity,2018,,1.268332203,,"Schweizerische Holzenergiestatistik EJ2020, Table G",,"Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Biomass,Heat_to_electricity,2019,,1.341101311,,"Schweizerische Holzenergiestatistik EJ2020, Table G",,"Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Biomass,Inv,1990,,,,,,
+CHE,Biomass,Inv,1991,,,,,,
+CHE,Biomass,Inv,1992,,,,,,
+CHE,Biomass,Inv,1993,,,,,,
+CHE,Biomass,Inv,1994,,,,,,
+CHE,Biomass,Inv,1995,,,,,,
+CHE,Biomass,Inv,1996,,,,,,
+CHE,Biomass,Inv,1997,,,,,,
+CHE,Biomass,Inv,1998,,,,,,
+CHE,Biomass,Inv,1999,,,,,,
+CHE,Biomass,Inv,2000,,,,,,
+CHE,Biomass,Inv,2001,,,,,,
+CHE,Biomass,Inv,2002,,,,,,
+CHE,Biomass,Inv,2003,,,,,,
+CHE,Biomass,Inv,2004,,,,,,
+CHE,Biomass,Inv,2005,,,,,,
+CHE,Biomass,Inv,2006,,,,,,
+CHE,Biomass,Inv,2007,,,,,,
+CHE,Biomass,Inv,2008,,,,,,
+CHE,Biomass,Inv,2009,,,,,,
+CHE,Biomass,Inv,2010,,,,,,
+CHE,Biomass,Inv,2011,,,,,,
+CHE,Biomass,Inv,2012,,,,,,
+CHE,Biomass,Inv,2013,,,,,,
+CHE,Biomass,Inv,2014,,,,,,
+CHE,Biomass,Inv,2015,,,,,,
+CHE,Biomass,Inv,2016,,,,,,
+CHE,Biomass,Inv,2017,,,,,,
+CHE,Biomass,Inv,2018,,4444,CHF2017/kW,"PSI (2017) Potentials, costs and environmental assessment of electricity generation technologies",,"Wood combustion + ORC, existing in CH"
+CHE,Biomass,Inv,2019,,,,,,
+CHE,Biomass,Fixed_OM_annual,1990,,,,,,
+CHE,Biomass,Fixed_OM_annual,1991,,,,,,
+CHE,Biomass,Fixed_OM_annual,1992,,,,,,
+CHE,Biomass,Fixed_OM_annual,1993,,,,,,
+CHE,Biomass,Fixed_OM_annual,1994,,,,,,
+CHE,Biomass,Fixed_OM_annual,1995,,,,,,
+CHE,Biomass,Fixed_OM_annual,1996,,,,,,
+CHE,Biomass,Fixed_OM_annual,1997,,,,,,
+CHE,Biomass,Fixed_OM_annual,1998,,,,,,
+CHE,Biomass,Fixed_OM_annual,1999,,,,,,
+CHE,Biomass,Fixed_OM_annual,2000,,,,,,
+CHE,Biomass,Fixed_OM_annual,2001,,,,,,
+CHE,Biomass,Fixed_OM_annual,2002,,,,,,
+CHE,Biomass,Fixed_OM_annual,2003,,,,,,
+CHE,Biomass,Fixed_OM_annual,2004,,,,,,
+CHE,Biomass,Fixed_OM_annual,2005,,,,,,
+CHE,Biomass,Fixed_OM_annual,2006,,,,,,
+CHE,Biomass,Fixed_OM_annual,2007,,,,,,
+CHE,Biomass,Fixed_OM_annual,2008,,,,,,
+CHE,Biomass,Fixed_OM_annual,2009,,,,,,
+CHE,Biomass,Fixed_OM_annual,2010,,,,,,
+CHE,Biomass,Fixed_OM_annual,2011,,,,,,
+CHE,Biomass,Fixed_OM_annual,2012,,,,,,
+CHE,Biomass,Fixed_OM_annual,2013,,,,,,
+CHE,Biomass,Fixed_OM_annual,2014,,,,,,
+CHE,Biomass,Fixed_OM_annual,2015,,,,,,
+CHE,Biomass,Fixed_OM_annual,2016,,,,,,
+CHE,Biomass,Fixed_OM_annual,2017,,,,,,
+CHE,Biomass,Fixed_OM_annual,2018,,500,CHF2017/kW,"PSI (2017) Potentials, costs and environmental assessment of electricity generation technologies",,"Wood combustion + ORC, existing in CH"
+CHE,Biomass,Fixed_OM_annual,2019,,,,,,
+CHE,Biomass,Variable_OM,1990,,,,,,
+CHE,Biomass,Variable_OM,1991,,,,,,
+CHE,Biomass,Variable_OM,1992,,,,,,
+CHE,Biomass,Variable_OM,1993,,,,,,
+CHE,Biomass,Variable_OM,1994,,,,,,
+CHE,Biomass,Variable_OM,1995,,,,,,
+CHE,Biomass,Variable_OM,1996,,,,,,
+CHE,Biomass,Variable_OM,1997,,,,,,
+CHE,Biomass,Variable_OM,1998,,,,,,
+CHE,Biomass,Variable_OM,1999,,,,,,
+CHE,Biomass,Variable_OM,2000,,,,,,
+CHE,Biomass,Variable_OM,2001,,,,,,
+CHE,Biomass,Variable_OM,2002,,,,,,
+CHE,Biomass,Variable_OM,2003,,,,,,
+CHE,Biomass,Variable_OM,2004,,,,,,
+CHE,Biomass,Variable_OM,2005,,,,,,
+CHE,Biomass,Variable_OM,2006,,,,,,
+CHE,Biomass,Variable_OM,2007,,,,,,
+CHE,Biomass,Variable_OM,2008,,,,,,
+CHE,Biomass,Variable_OM,2009,,,,,,
+CHE,Biomass,Variable_OM,2010,,,,,,
+CHE,Biomass,Variable_OM,2011,,,,,,
+CHE,Biomass,Variable_OM,2012,,,,,,
+CHE,Biomass,Variable_OM,2013,,,,,,
+CHE,Biomass,Variable_OM,2014,,,,,,
+CHE,Biomass,Variable_OM,2015,,,,,,
+CHE,Biomass,Variable_OM,2016,,,,,,
+CHE,Biomass,Variable_OM,2017,,,,,,
+CHE,Biomass,Variable_OM,2018,,0,CHF2017/MWh,"PSI (2017) Potentials, costs and environmental assessment of electricity generation technologies",,"Wood combustion + ORC, existing in CH"
+CHE,Biomass,Variable_OM,2019,,,,,,
+CHE,Biomass,Actual_capacity,1990,,3480,kW,Assumption for consistency with generation,,
+CHE,Biomass,Actual_capacity,1991,,3480,kW,Assumption for consistency with generation,,
+CHE,Biomass,Actual_capacity,1992,,3480,kW,Assumption for consistency with generation,,
+CHE,Biomass,Actual_capacity,1993,,3480,kW,Assumption for consistency with generation,,
+CHE,Biomass,Actual_capacity,1994,,3480,kW,Assumption for consistency with generation,,
+CHE,Biomass,Actual_capacity,1995,,3480,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,"Category 18, total CHP capacity - check assumptions for elec. capacity. More details in Schweizerische Statistik der erneuerbaren Energien:  Detaildaten, Anhang B"
+CHE,Biomass,Actual_capacity,1996,,11180,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,"Category 18, total CHP capacity - check assumptions for elec. capacity. More details in Schweizerische Statistik der erneuerbaren Energien:  Detaildaten, Anhang B"
+CHE,Biomass,Actual_capacity,1997,,13900,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,"Category 18, total CHP capacity - check assumptions for elec. capacity. More details in Schweizerische Statistik der erneuerbaren Energien:  Detaildaten, Anhang B"
+CHE,Biomass,Actual_capacity,1998,,15650,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,"Category 18, total CHP capacity - check assumptions for elec. capacity. More details in Schweizerische Statistik der erneuerbaren Energien:  Detaildaten, Anhang B"
+CHE,Biomass,Actual_capacity,1999,,15650,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,"Category 18, total CHP capacity - check assumptions for elec. capacity. More details in Schweizerische Statistik der erneuerbaren Energien:  Detaildaten, Anhang B"
+CHE,Biomass,Actual_capacity,2000,,15650,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,"Category 18, total CHP capacity - check assumptions for elec. capacity. More details in Schweizerische Statistik der erneuerbaren Energien:  Detaildaten, Anhang B"
+CHE,Biomass,Actual_capacity,2001,,15550,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,"Category 18, total CHP capacity - check assumptions for elec. capacity. More details in Schweizerische Statistik der erneuerbaren Energien:  Detaildaten, Anhang B"
+CHE,Biomass,Actual_capacity,2002,,9876,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,"Category 18, total CHP capacity - check assumptions for elec. capacity. More details in Schweizerische Statistik der erneuerbaren Energien:  Detaildaten, Anhang B"
+CHE,Biomass,Actual_capacity,2003,,10211,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,"Category 18, total CHP capacity - check assumptions for elec. capacity. More details in Schweizerische Statistik der erneuerbaren Energien:  Detaildaten, Anhang B"
+CHE,Biomass,Actual_capacity,2004,,10272,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,"Category 18, total CHP capacity - check assumptions for elec. capacity. More details in Schweizerische Statistik der erneuerbaren Energien:  Detaildaten, Anhang B"
+CHE,Biomass,Actual_capacity,2005,,10139,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,"Category 18, total CHP capacity - check assumptions for elec. capacity. More details in Schweizerische Statistik der erneuerbaren Energien:  Detaildaten, Anhang B"
+CHE,Biomass,Actual_capacity,2006,,15877,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,"Category 18, total CHP capacity - check assumptions for elec. capacity. More details in Schweizerische Statistik der erneuerbaren Energien:  Detaildaten, Anhang B"
+CHE,Biomass,Actual_capacity,2007,,54394,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,"Category 18, total CHP capacity - check assumptions for elec. capacity. More details in Schweizerische Statistik der erneuerbaren Energien:  Detaildaten, Anhang B"
+CHE,Biomass,Actual_capacity,2008,,116972,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,"Category 18, total CHP capacity - check assumptions for elec. capacity. More details in Schweizerische Statistik der erneuerbaren Energien:  Detaildaten, Anhang B"
+CHE,Biomass,Actual_capacity,2009,,116972,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,"Category 18, total CHP capacity - check assumptions for elec. capacity. More details in Schweizerische Statistik der erneuerbaren Energien:  Detaildaten, Anhang B"
+CHE,Biomass,Actual_capacity,2010,,191385,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,"Category 18, total CHP capacity - check assumptions for elec. capacity. More details in Schweizerische Statistik der erneuerbaren Energien:  Detaildaten, Anhang B"
+CHE,Biomass,Actual_capacity,2011,,191385,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,"Category 18, total CHP capacity - check assumptions for elec. capacity. More details in Schweizerische Statistik der erneuerbaren Energien:  Detaildaten, Anhang B"
+CHE,Biomass,Actual_capacity,2012,,221385,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,"Category 18, total CHP capacity - check assumptions for elec. capacity. More details in Schweizerische Statistik der erneuerbaren Energien:  Detaildaten, Anhang B"
+CHE,Biomass,Actual_capacity,2013,,222385,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,"Category 18, total CHP capacity - check assumptions for elec. capacity. More details in Schweizerische Statistik der erneuerbaren Energien:  Detaildaten, Anhang B"
+CHE,Biomass,Actual_capacity,2014,,222385,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,"Category 18, total CHP capacity - check assumptions for elec. capacity. More details in Schweizerische Statistik der erneuerbaren Energien:  Detaildaten, Anhang B"
+CHE,Biomass,Actual_capacity,2015,,227635,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,"Category 18, total CHP capacity - check assumptions for elec. capacity. More details in Schweizerische Statistik der erneuerbaren Energien:  Detaildaten, Anhang B"
+CHE,Biomass,Actual_capacity,2016,,214635,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,"Category 18, total CHP capacity - check assumptions for elec. capacity. More details in Schweizerische Statistik der erneuerbaren Energien:  Detaildaten, Anhang B"
+CHE,Biomass,Actual_capacity,2017,,220985,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,"Category 18, total CHP capacity - check assumptions for elec. capacity. More details in Schweizerische Statistik der erneuerbaren Energien:  Detaildaten, Anhang B"
+CHE,Biomass,Actual_capacity,2018,,226782,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,"Category 18, total CHP capacity - check assumptions for elec. capacity. More details in Schweizerische Statistik der erneuerbaren Energien:  Detaildaten, Anhang B"
+CHE,Biomass,Actual_capacity,2019,,263892,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,"Category 18, total CHP capacity - check assumptions for elec. capacity. More details in Schweizerische Statistik der erneuerbaren Energien:  Detaildaten, Anhang B"
+CHE,Biomass,Actual_new_capacity,1990,,0,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_new_capacity,1991,,0,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_new_capacity,1992,,0,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_new_capacity,1993,,0,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_new_capacity,1994,,0,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_new_capacity,1995,,3480,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_new_capacity,1996,,7700,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_new_capacity,1997,,2720,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_new_capacity,1998,,1750,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_new_capacity,1999,,0,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_new_capacity,2000,,0,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_new_capacity,2001,,0,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_new_capacity,2002,,0,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_new_capacity,2003,,335,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_new_capacity,2004,,61,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_new_capacity,2005,,0,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_new_capacity,2006,,5738,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_new_capacity,2007,,38517,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_new_capacity,2008,,62578,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_new_capacity,2009,,0,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_new_capacity,2010,,74413,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_new_capacity,2011,,0,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_new_capacity,2012,,30000,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_new_capacity,2013,,1000,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_new_capacity,2014,,0,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_new_capacity,2015,,5250,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_new_capacity,2016,,0,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_new_capacity,2017,,6350,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_new_capacity,2018,,5797,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_new_capacity,2019,,37110,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_retired_capacity,1990,,0,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_retired_capacity,1991,,0,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_retired_capacity,1992,,0,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_retired_capacity,1993,,0,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_retired_capacity,1994,,0,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_retired_capacity,1995,,0,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_retired_capacity,1996,,0,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_retired_capacity,1997,,0,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_retired_capacity,1998,,0,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_retired_capacity,1999,,0,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_retired_capacity,2000,,0,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_retired_capacity,2001,,100,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_retired_capacity,2002,,5674,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_retired_capacity,2003,,0,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_retired_capacity,2004,,0,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_retired_capacity,2005,,133,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_retired_capacity,2006,,0,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_retired_capacity,2007,,0,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_retired_capacity,2008,,0,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_retired_capacity,2009,,0,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_retired_capacity,2010,,0,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_retired_capacity,2011,,0,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_retired_capacity,2012,,0,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_retired_capacity,2013,,0,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_retired_capacity,2014,,0,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_retired_capacity,2015,,0,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_retired_capacity,2016,,13000,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_retired_capacity,2017,,0,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_retired_capacity,2018,,0,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_retired_capacity,2019,,0,kW,"Schweizerische Holzenergiestatistik EJ2020, Table B",,Based on changes in net installed capacity
+CHE,Biomass,Actual_generation,1990,,6,GWh,"Schweizerische Holzenergiestatistik EJ2020, Table H",,"Table 24, N"
+CHE,Biomass,Actual_generation,1991,,6,GWh,"Schweizerische Holzenergiestatistik EJ2020, Table H",,"Table 24, N"
+CHE,Biomass,Actual_generation,1992,,11,GWh,"Schweizerische Holzenergiestatistik EJ2020, Table H",,"Table 24, N"
+CHE,Biomass,Actual_generation,1993,,8,GWh,"Schweizerische Holzenergiestatistik EJ2020, Table H",,"Table 24, N"
+CHE,Biomass,Actual_generation,1994,,10,GWh,"Schweizerische Holzenergiestatistik EJ2020, Table H",,"Table 24, N"
+CHE,Biomass,Actual_generation,1995,,9,GWh,"Schweizerische Holzenergiestatistik EJ2020, Table H",,"Table 24, N"
+CHE,Biomass,Actual_generation,1996,,14,GWh,"Schweizerische Holzenergiestatistik EJ2020, Table H",,"Table 24, N"
+CHE,Biomass,Actual_generation,1997,,10,GWh,"Schweizerische Holzenergiestatistik EJ2020, Table H",,"Table 24, N"
+CHE,Biomass,Actual_generation,1998,,13,GWh,"Schweizerische Holzenergiestatistik EJ2020, Table H",,"Table 24, N"
+CHE,Biomass,Actual_generation,1999,,13,GWh,"Schweizerische Holzenergiestatistik EJ2020, Table H",,"Table 24, N"
+CHE,Biomass,Actual_generation,2000,,14,GWh,"Schweizerische Holzenergiestatistik EJ2020, Table H",,"Table 24, N"
+CHE,Biomass,Actual_generation,2001,,14,GWh,"Schweizerische Holzenergiestatistik EJ2020, Table H",,"Table 24, N"
+CHE,Biomass,Actual_generation,2002,,22,GWh,"Schweizerische Holzenergiestatistik EJ2020, Table H",,"Table 24, N"
+CHE,Biomass,Actual_generation,2003,,27,GWh,"Schweizerische Holzenergiestatistik EJ2020, Table H",,"Table 24, N"
+CHE,Biomass,Actual_generation,2004,,29,GWh,"Schweizerische Holzenergiestatistik EJ2020, Table H",,"Table 24, N"
+CHE,Biomass,Actual_generation,2005,,33,GWh,"Schweizerische Holzenergiestatistik EJ2020, Table H",,"Table 24, N"
+CHE,Biomass,Actual_generation,2006,,44,GWh,"Schweizerische Holzenergiestatistik EJ2020, Table H",,"Table 24, N"
+CHE,Biomass,Actual_generation,2007,,92,GWh,"Schweizerische Holzenergiestatistik EJ2020, Table H",,"Table 24, N"
+CHE,Biomass,Actual_generation,2008,,131,GWh,"Schweizerische Holzenergiestatistik EJ2020, Table H",,"Table 24, N"
+CHE,Biomass,Actual_generation,2009,,154,GWh,"Schweizerische Holzenergiestatistik EJ2020, Table H",,"Table 24, N"
+CHE,Biomass,Actual_generation,2010,,135,GWh,"Schweizerische Holzenergiestatistik EJ2020, Table H",,"Table 24, N"
+CHE,Biomass,Actual_generation,2011,,193,GWh,"Schweizerische Holzenergiestatistik EJ2020, Table H",,"Table 24, N"
+CHE,Biomass,Actual_generation,2012,,252,GWh,"Schweizerische Holzenergiestatistik EJ2020, Table H",,"Table 24, N"
+CHE,Biomass,Actual_generation,2013,,278,GWh,"Schweizerische Holzenergiestatistik EJ2020, Table H",,"Table 24, N"
+CHE,Biomass,Actual_generation,2014,,273,GWh,"Schweizerische Holzenergiestatistik EJ2020, Table H",,"Table 24, N"
+CHE,Biomass,Actual_generation,2015,,184,GWh,"Schweizerische Holzenergiestatistik EJ2020, Table H",,"Table 24, N"
+CHE,Biomass,Actual_generation,2016,,223,GWh,"Schweizerische Holzenergiestatistik EJ2020, Table H",,"Table 24, N"
+CHE,Biomass,Actual_generation,2017,,322,GWh,"Schweizerische Holzenergiestatistik EJ2020, Table H",,"Table 24, N"
+CHE,Biomass,Actual_generation,2018,,290,GWh,"Schweizerische Holzenergiestatistik EJ2020, Table H",,"Table 24, N"
+CHE,Biomass,Actual_generation,2019,,313,GWh,"Schweizerische Holzenergiestatistik EJ2020, Table H",,"Table 24, N"
+CHE,Biomass,Learning_rate,1990,,8.3,,,,
+CHE,Biomass,Initial_retired_capacity,1990,,0,MW,"Eurostat nrg_inf_epc, nrg_inf_epcrw; Global Coal Plant Tracker; Global Gas Plant Tracker",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Biomass,Initial_retired_capacity,1991,,0,MW,"Eurostat nrg_inf_epc, nrg_inf_epcrw; Global Coal Plant Tracker; Global Gas Plant Tracker",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Biomass,Initial_retired_capacity,1992,,0,MW,"Eurostat nrg_inf_epc, nrg_inf_epcrw; Global Coal Plant Tracker; Global Gas Plant Tracker",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Biomass,Initial_retired_capacity,1993,,0,MW,"Eurostat nrg_inf_epc, nrg_inf_epcrw; Global Coal Plant Tracker; Global Gas Plant Tracker",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Biomass,Initial_retired_capacity,1994,,0,MW,"Eurostat nrg_inf_epc, nrg_inf_epcrw; Global Coal Plant Tracker; Global Gas Plant Tracker",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Biomass,Initial_retired_capacity,1995,,0,MW,"Eurostat nrg_inf_epc, nrg_inf_epcrw; Global Coal Plant Tracker; Global Gas Plant Tracker",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Biomass,Initial_retired_capacity,1996,,0,MW,"Eurostat nrg_inf_epc, nrg_inf_epcrw; Global Coal Plant Tracker; Global Gas Plant Tracker",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Biomass,Initial_retired_capacity,1997,,0,MW,"Eurostat nrg_inf_epc, nrg_inf_epcrw; Global Coal Plant Tracker; Global Gas Plant Tracker",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Biomass,Initial_retired_capacity,1998,,0,MW,"Eurostat nrg_inf_epc, nrg_inf_epcrw; Global Coal Plant Tracker; Global Gas Plant Tracker",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Biomass,Initial_retired_capacity,1999,,0,MW,"Eurostat nrg_inf_epc, nrg_inf_epcrw; Global Coal Plant Tracker; Global Gas Plant Tracker",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Biomass,Initial_retired_capacity,2000,,0,MW,"Eurostat nrg_inf_epc, nrg_inf_epcrw; Global Coal Plant Tracker; Global Gas Plant Tracker",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Biomass,Initial_retired_capacity,2001,,0,MW,"Eurostat nrg_inf_epc, nrg_inf_epcrw; Global Coal Plant Tracker; Global Gas Plant Tracker",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Biomass,Initial_retired_capacity,2002,,0,MW,"Eurostat nrg_inf_epc, nrg_inf_epcrw; Global Coal Plant Tracker; Global Gas Plant Tracker",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Biomass,Initial_retired_capacity,2003,,0,MW,"Eurostat nrg_inf_epc, nrg_inf_epcrw; Global Coal Plant Tracker; Global Gas Plant Tracker",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Biomass,Initial_retired_capacity,2004,,0,MW,"Eurostat nrg_inf_epc, nrg_inf_epcrw; Global Coal Plant Tracker; Global Gas Plant Tracker",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Biomass,Initial_retired_capacity,2005,,0,MW,"Eurostat nrg_inf_epc, nrg_inf_epcrw; Global Coal Plant Tracker; Global Gas Plant Tracker",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Biomass,Initial_retired_capacity,2006,,0,MW,"Eurostat nrg_inf_epc, nrg_inf_epcrw; Global Coal Plant Tracker; Global Gas Plant Tracker",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Biomass,Initial_retired_capacity,2007,,0,MW,"Eurostat nrg_inf_epc, nrg_inf_epcrw; Global Coal Plant Tracker; Global Gas Plant Tracker",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Biomass,Initial_retired_capacity,2008,,0,MW,"Eurostat nrg_inf_epc, nrg_inf_epcrw; Global Coal Plant Tracker; Global Gas Plant Tracker",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Biomass,Initial_retired_capacity,2009,,0,MW,"Eurostat nrg_inf_epc, nrg_inf_epcrw; Global Coal Plant Tracker; Global Gas Plant Tracker",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Biomass,Initial_retired_capacity,2010,,0,MW,"Eurostat nrg_inf_epc, nrg_inf_epcrw; Global Coal Plant Tracker; Global Gas Plant Tracker",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Biomass,Initial_retired_capacity,2011,,0,MW,"Eurostat nrg_inf_epc, nrg_inf_epcrw; Global Coal Plant Tracker; Global Gas Plant Tracker",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Biomass,Initial_retired_capacity,2012,,0,MW,"Eurostat nrg_inf_epc, nrg_inf_epcrw; Global Coal Plant Tracker; Global Gas Plant Tracker",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Biomass,Initial_retired_capacity,2013,,0,MW,"Eurostat nrg_inf_epc, nrg_inf_epcrw; Global Coal Plant Tracker; Global Gas Plant Tracker",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Biomass,Initial_retired_capacity,2014,,0,MW,"Eurostat nrg_inf_epc, nrg_inf_epcrw; Global Coal Plant Tracker; Global Gas Plant Tracker",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Biomass,Initial_retired_capacity,2015,,0,MW,"Eurostat nrg_inf_epc, nrg_inf_epcrw; Global Coal Plant Tracker; Global Gas Plant Tracker",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Biomass,Initial_retired_capacity,2016,,0,MW,"Eurostat nrg_inf_epc, nrg_inf_epcrw; Global Coal Plant Tracker; Global Gas Plant Tracker",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Biomass,Initial_retired_capacity,2017,,0,MW,"Eurostat nrg_inf_epc, nrg_inf_epcrw; Global Coal Plant Tracker; Global Gas Plant Tracker",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Biomass,Initial_retired_capacity,2018,,0,MW,"Eurostat nrg_inf_epc, nrg_inf_epcrw; Global Coal Plant Tracker; Global Gas Plant Tracker",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,Biomass,Initial_retired_capacity,2019,,0,MW,"Eurostat nrg_inf_epc, nrg_inf_epcrw; Global Coal Plant Tracker; Global Gas Plant Tracker",,Follows actual retirements until cumulative sum reaches initial installed capacity

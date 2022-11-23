@@ -1,0 +1,577 @@
+Name: CHE Oil
+Date: 2022-10-13 11:23:59.773682
+Author: Marc Jaxa-Rozen, Xin Wen
+
+Country,Entity,Parameter,Year,Period,Value,Unit,Reference,Priority,Note
+CHE,Oil,Resource,1990,,OilResource,,,,
+CHE,Oil,Resource,1991,,OilResource,,,,
+CHE,Oil,Resource,1992,,OilResource,,,,
+CHE,Oil,Resource,1993,,OilResource,,,,
+CHE,Oil,Resource,1994,,OilResource,,,,
+CHE,Oil,Resource,1995,,OilResource,,,,
+CHE,Oil,Resource,1996,,OilResource,,,,
+CHE,Oil,Resource,1997,,OilResource,,,,
+CHE,Oil,Resource,1998,,OilResource,,,,
+CHE,Oil,Resource,1999,,OilResource,,,,
+CHE,Oil,Resource,2000,,OilResource,,,,
+CHE,Oil,Resource,2001,,OilResource,,,,
+CHE,Oil,Resource,2002,,OilResource,,,,
+CHE,Oil,Resource,2003,,OilResource,,,,
+CHE,Oil,Resource,2004,,OilResource,,,,
+CHE,Oil,Resource,2005,,OilResource,,,,
+CHE,Oil,Resource,2006,,OilResource,,,,
+CHE,Oil,Resource,2007,,OilResource,,,,
+CHE,Oil,Resource,2008,,OilResource,,,,
+CHE,Oil,Resource,2009,,OilResource,,,,
+CHE,Oil,Resource,2010,,OilResource,,,,
+CHE,Oil,Resource,2011,,OilResource,,,,
+CHE,Oil,Resource,2012,,OilResource,,,,
+CHE,Oil,Resource,2013,,OilResource,,,,
+CHE,Oil,Resource,2014,,OilResource,,,,
+CHE,Oil,Resource,2015,,OilResource,,,,
+CHE,Oil,Resource,2016,,OilResource,,,,
+CHE,Oil,Resource,2017,,OilResource,,,,
+CHE,Oil,Resource,2018,,OilResource,,,,
+CHE,Oil,Resource,2019,,OilResource,,,,
+CHE,Oil,LF_min,1990,,0.0,,Assumption for testing,,
+CHE,Oil,LF_min,1991,,0.02,,,,
+CHE,Oil,LF_min,1992,,0.02,,,,
+CHE,Oil,LF_min,1993,,0.02,,,,
+CHE,Oil,LF_min,1994,,0.02,,,,
+CHE,Oil,LF_min,1995,,0.02,,,,
+CHE,Oil,LF_min,1996,,0.02,,,,
+CHE,Oil,LF_min,1997,,0.02,,,,
+CHE,Oil,LF_min,1998,,0.02,,,,
+CHE,Oil,LF_min,1999,,0.02,,,,
+CHE,Oil,LF_min,2000,,0.02,,,,
+CHE,Oil,LF_min,2001,,0.02,,,,
+CHE,Oil,LF_min,2002,,0.02,,,,
+CHE,Oil,LF_min,2003,,0.02,,,,
+CHE,Oil,LF_min,2004,,0.02,,,,
+CHE,Oil,LF_min,2005,,0.02,,,,
+CHE,Oil,LF_min,2006,,0.02,,,,
+CHE,Oil,LF_min,2007,,0.02,,,,
+CHE,Oil,LF_min,2008,,0.02,,,,
+CHE,Oil,LF_min,2009,,0.02,,,,
+CHE,Oil,LF_min,2010,,0.02,,,,
+CHE,Oil,LF_min,2011,,0.02,,,,
+CHE,Oil,LF_min,2012,,0.02,,,,
+CHE,Oil,LF_min,2013,,0.02,,,,
+CHE,Oil,LF_min,2014,,0.02,,,,
+CHE,Oil,LF_min,2015,,0.02,,,,
+CHE,Oil,LF_min,2016,,0.02,,,,
+CHE,Oil,LF_min,2017,,0.02,,,,
+CHE,Oil,LF_min,2018,,0.02,,,,
+CHE,Oil,LF_min,2019,,0.02,,,,
+CHE,Oil,LF_max,1990,,1.1,,Assumption for testing,,
+CHE,Oil,LF_max,1991,,0.85,,,,
+CHE,Oil,LF_max,1992,,0.85,,,,
+CHE,Oil,LF_max,1993,,0.85,,,,
+CHE,Oil,LF_max,1994,,0.85,,,,
+CHE,Oil,LF_max,1995,,0.85,,,,
+CHE,Oil,LF_max,1996,,0.85,,,,
+CHE,Oil,LF_max,1997,,0.85,,,,
+CHE,Oil,LF_max,1998,,0.85,,,,
+CHE,Oil,LF_max,1999,,0.85,,,,
+CHE,Oil,LF_max,2000,,0.85,,,,
+CHE,Oil,LF_max,2001,,0.85,,,,
+CHE,Oil,LF_max,2002,,0.85,,,,
+CHE,Oil,LF_max,2003,,0.85,,,,
+CHE,Oil,LF_max,2004,,0.85,,,,
+CHE,Oil,LF_max,2005,,0.85,,,,
+CHE,Oil,LF_max,2006,,0.85,,,,
+CHE,Oil,LF_max,2007,,0.85,,,,
+CHE,Oil,LF_max,2008,,0.85,,,,
+CHE,Oil,LF_max,2009,,0.85,,,,
+CHE,Oil,LF_max,2010,,0.85,,,,
+CHE,Oil,LF_max,2011,,0.85,,,,
+CHE,Oil,LF_max,2012,,0.85,,,,
+CHE,Oil,LF_max,2013,,0.85,,,,
+CHE,Oil,LF_max,2014,,0.85,,,,
+CHE,Oil,LF_max,2015,,0.85,,,,
+CHE,Oil,LF_max,2016,,0.85,,,,
+CHE,Oil,LF_max,2017,,0.85,,,,
+CHE,Oil,LF_max,2018,,0.85,,,,
+CHE,Oil,LF_max,2019,,0.85,,,,
+CHE,Oil,Peak_contr,1990,,0.88,,"Royal Academy of Engineering (2014) GB electricity capacity margin, table 1",,Coal/biomass
+CHE,Oil,Peak_contr,1991,,0.88,,,,
+CHE,Oil,Peak_contr,1992,,0.88,,,,
+CHE,Oil,Peak_contr,1993,,0.88,,,,
+CHE,Oil,Peak_contr,1994,,0.88,,,,
+CHE,Oil,Peak_contr,1995,,0.88,,,,
+CHE,Oil,Peak_contr,1996,,0.88,,,,
+CHE,Oil,Peak_contr,1997,,0.88,,,,
+CHE,Oil,Peak_contr,1998,,0.88,,,,
+CHE,Oil,Peak_contr,1999,,0.88,,,,
+CHE,Oil,Peak_contr,2000,,0.88,,,,
+CHE,Oil,Peak_contr,2001,,0.88,,,,
+CHE,Oil,Peak_contr,2002,,0.88,,,,
+CHE,Oil,Peak_contr,2003,,0.88,,,,
+CHE,Oil,Peak_contr,2004,,0.88,,,,
+CHE,Oil,Peak_contr,2005,,0.88,,,,
+CHE,Oil,Peak_contr,2006,,0.88,,,,
+CHE,Oil,Peak_contr,2007,,0.88,,,,
+CHE,Oil,Peak_contr,2008,,0.88,,,,
+CHE,Oil,Peak_contr,2009,,0.88,,,,
+CHE,Oil,Peak_contr,2010,,0.88,,,,
+CHE,Oil,Peak_contr,2011,,0.88,,,,
+CHE,Oil,Peak_contr,2012,,0.88,,,,
+CHE,Oil,Peak_contr,2013,,0.88,,,,
+CHE,Oil,Peak_contr,2014,,0.88,,,,
+CHE,Oil,Peak_contr,2015,,0.88,,,,
+CHE,Oil,Peak_contr,2016,,0.88,,,,
+CHE,Oil,Peak_contr,2017,,0.88,,,,
+CHE,Oil,Peak_contr,2018,,0.88,,,,
+CHE,Oil,Peak_contr,2019,,0.88,,,,
+CHE,Oil,Own_use,1990,,0.05,,,,
+CHE,Oil,Own_use,1991,,0.05,,,,
+CHE,Oil,Own_use,1992,,0.05,,,,
+CHE,Oil,Own_use,1993,,0.05,,,,
+CHE,Oil,Own_use,1994,,0.05,,,,
+CHE,Oil,Own_use,1995,,0.05,,,,
+CHE,Oil,Own_use,1996,,0.05,,,,
+CHE,Oil,Own_use,1997,,0.05,,,,
+CHE,Oil,Own_use,1998,,0.05,,,,
+CHE,Oil,Own_use,1999,,0.05,,,,
+CHE,Oil,Own_use,2000,,0.05,,,,
+CHE,Oil,Own_use,2001,,0.05,,,,
+CHE,Oil,Own_use,2002,,0.05,,,,
+CHE,Oil,Own_use,2003,,0.05,,,,
+CHE,Oil,Own_use,2004,,0.05,,,,
+CHE,Oil,Own_use,2005,,0.05,,,,
+CHE,Oil,Own_use,2006,,0.05,,,,
+CHE,Oil,Own_use,2007,,0.05,,,,
+CHE,Oil,Own_use,2008,,0.05,,,,
+CHE,Oil,Own_use,2009,,0.05,,,,
+CHE,Oil,Own_use,2010,,0.05,,,,
+CHE,Oil,Own_use,2011,,0.05,,,,
+CHE,Oil,Own_use,2012,,0.05,,,,
+CHE,Oil,Own_use,2013,,0.05,,,,
+CHE,Oil,Own_use,2014,,0.05,,,,
+CHE,Oil,Own_use,2015,,0.05,,,,
+CHE,Oil,Own_use,2016,,0.05,,,,
+CHE,Oil,Own_use,2017,,0.05,,,,
+CHE,Oil,Own_use,2018,,0.05,,,,
+CHE,Oil,Own_use,2019,,0.05,,,,
+CHE,Oil,Buildrates,1990,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Oil in CHE
+CHE,Oil,Buildrates,1991,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Oil in CHE
+CHE,Oil,Buildrates,1992,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Oil in CHE
+CHE,Oil,Buildrates,1993,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Oil in CHE
+CHE,Oil,Buildrates,1994,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Oil in CHE
+CHE,Oil,Buildrates,1995,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Oil in CHE
+CHE,Oil,Buildrates,1996,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Oil in CHE
+CHE,Oil,Buildrates,1997,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Oil in CHE
+CHE,Oil,Buildrates,1998,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Oil in CHE
+CHE,Oil,Buildrates,1999,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Oil in CHE
+CHE,Oil,Buildrates,2000,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Oil in CHE
+CHE,Oil,Buildrates,2001,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Oil in CHE
+CHE,Oil,Buildrates,2002,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Oil in CHE
+CHE,Oil,Buildrates,2003,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Oil in CHE
+CHE,Oil,Buildrates,2004,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Oil in CHE
+CHE,Oil,Buildrates,2005,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Oil in CHE
+CHE,Oil,Buildrates,2006,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Oil in CHE
+CHE,Oil,Buildrates,2007,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Oil in CHE
+CHE,Oil,Buildrates,2008,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Oil in CHE
+CHE,Oil,Buildrates,2009,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Oil in CHE
+CHE,Oil,Buildrates,2010,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Oil in CHE
+CHE,Oil,Buildrates,2011,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Oil in CHE
+CHE,Oil,Buildrates,2012,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Oil in CHE
+CHE,Oil,Buildrates,2013,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Oil in CHE
+CHE,Oil,Buildrates,2014,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Oil in CHE
+CHE,Oil,Buildrates,2015,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Oil in CHE
+CHE,Oil,Buildrates,2016,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Oil in CHE
+CHE,Oil,Buildrates,2017,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Oil in CHE
+CHE,Oil,Buildrates,2018,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Oil in CHE
+CHE,Oil,Buildrates,2019,,2,GW,Assumption,,Maximum between generic assumption of 2.0GW/year and peak historical buildrate for Oil in CHE
+CHE,Oil,Lifetime,2010,,30,yr,,,
+CHE,Oil,Potential_annual,1990,,,TWh,,,
+CHE,Oil,Potential_annual,1991,,,TWh,,,
+CHE,Oil,Potential_annual,1992,,,TWh,,,
+CHE,Oil,Potential_annual,1993,,,TWh,,,
+CHE,Oil,Potential_annual,1994,,,TWh,,,
+CHE,Oil,Potential_annual,1995,,,TWh,,,
+CHE,Oil,Potential_annual,1996,,,TWh,,,
+CHE,Oil,Potential_annual,1997,,,TWh,,,
+CHE,Oil,Potential_annual,1998,,,TWh,,,
+CHE,Oil,Potential_annual,1999,,,TWh,,,
+CHE,Oil,Potential_annual,2000,,,TWh,,,
+CHE,Oil,Potential_annual,2001,,,TWh,,,
+CHE,Oil,Potential_annual,2002,,,TWh,,,
+CHE,Oil,Potential_annual,2003,,,TWh,,,
+CHE,Oil,Potential_annual,2004,,,TWh,,,
+CHE,Oil,Potential_annual,2005,,,TWh,,,
+CHE,Oil,Potential_annual,2006,,,TWh,,,
+CHE,Oil,Potential_annual,2007,,,TWh,,,
+CHE,Oil,Potential_annual,2008,,,TWh,,,
+CHE,Oil,Potential_annual,2009,,,TWh,,,
+CHE,Oil,Potential_annual,2010,,,TWh,,,
+CHE,Oil,Potential_annual,2011,,,TWh,,,
+CHE,Oil,Potential_annual,2012,,,TWh,,,
+CHE,Oil,Potential_annual,2013,,,TWh,,,
+CHE,Oil,Potential_annual,2014,,,TWh,,,
+CHE,Oil,Potential_annual,2015,,,TWh,,,
+CHE,Oil,Potential_annual,2016,,,TWh,,,
+CHE,Oil,Potential_annual,2017,,,TWh,,,
+CHE,Oil,Potential_annual,2018,,,TWh,,,
+CHE,Oil,Potential_annual,2019,,,TWh,,,
+CHE,Oil,Potential_installed,1990,,,GW,,,
+CHE,Oil,Potential_installed,1991,,,GW,,,
+CHE,Oil,Potential_installed,1992,,,GW,,,
+CHE,Oil,Potential_installed,1993,,,GW,,,
+CHE,Oil,Potential_installed,1994,,,GW,,,
+CHE,Oil,Potential_installed,1995,,,GW,,,
+CHE,Oil,Potential_installed,1996,,,GW,,,
+CHE,Oil,Potential_installed,1997,,,GW,,,
+CHE,Oil,Potential_installed,1998,,,GW,,,
+CHE,Oil,Potential_installed,1999,,,GW,,,
+CHE,Oil,Potential_installed,2000,,,GW,,,
+CHE,Oil,Potential_installed,2001,,,GW,,,
+CHE,Oil,Potential_installed,2002,,,GW,,,
+CHE,Oil,Potential_installed,2003,,,GW,,,
+CHE,Oil,Potential_installed,2004,,,GW,,,
+CHE,Oil,Potential_installed,2005,,,GW,,,
+CHE,Oil,Potential_installed,2006,,,GW,,,
+CHE,Oil,Potential_installed,2007,,,GW,,,
+CHE,Oil,Potential_installed,2008,,,GW,,,
+CHE,Oil,Potential_installed,2009,,,GW,,,
+CHE,Oil,Potential_installed,2010,,,GW,,,
+CHE,Oil,Potential_installed,2011,,,GW,,,
+CHE,Oil,Potential_installed,2012,,,GW,,,
+CHE,Oil,Potential_installed,2013,,,GW,,,
+CHE,Oil,Potential_installed,2014,,,GW,,,
+CHE,Oil,Potential_installed,2015,,,GW,,,
+CHE,Oil,Potential_installed,2016,,,GW,,,
+CHE,Oil,Potential_installed,2017,,,GW,,,
+CHE,Oil,Potential_installed,2018,,,GW,,,
+CHE,Oil,Potential_installed,2019,,,GW,,,
+CHE,Oil,Ramp_rate,1990,,0.6,,"Parsons Brinckerhoff (2011) Powering the future, table A5.3.2.1",,Average for hot or cold start for coal
+CHE,Oil,Ramp_rate,1991,,0.6,,,,
+CHE,Oil,Ramp_rate,1992,,0.6,,,,
+CHE,Oil,Ramp_rate,1993,,0.6,,,,
+CHE,Oil,Ramp_rate,1994,,0.6,,,,
+CHE,Oil,Ramp_rate,1995,,0.6,,,,
+CHE,Oil,Ramp_rate,1996,,0.6,,,,
+CHE,Oil,Ramp_rate,1997,,0.6,,,,
+CHE,Oil,Ramp_rate,1998,,0.6,,,,
+CHE,Oil,Ramp_rate,1999,,0.6,,,,
+CHE,Oil,Ramp_rate,2000,,0.6,,,,
+CHE,Oil,Ramp_rate,2001,,0.6,,,,
+CHE,Oil,Ramp_rate,2002,,0.6,,,,
+CHE,Oil,Ramp_rate,2003,,0.6,,,,
+CHE,Oil,Ramp_rate,2004,,0.6,,,,
+CHE,Oil,Ramp_rate,2005,,0.6,,,,
+CHE,Oil,Ramp_rate,2006,,0.6,,,,
+CHE,Oil,Ramp_rate,2007,,0.6,,,,
+CHE,Oil,Ramp_rate,2008,,0.6,,,,
+CHE,Oil,Ramp_rate,2009,,0.6,,,,
+CHE,Oil,Ramp_rate,2010,,0.6,,,,
+CHE,Oil,Ramp_rate,2011,,0.6,,,,
+CHE,Oil,Ramp_rate,2012,,0.6,,,,
+CHE,Oil,Ramp_rate,2013,,0.6,,,,
+CHE,Oil,Ramp_rate,2014,,0.6,,,,
+CHE,Oil,Ramp_rate,2015,,0.6,,,,
+CHE,Oil,Ramp_rate,2016,,0.6,,,,
+CHE,Oil,Ramp_rate,2017,,0.6,,,,
+CHE,Oil,Ramp_rate,2018,,0.6,,,,
+CHE,Oil,Ramp_rate,2019,,0.6,,,,
+CHE,Oil,Fuel_efficiency,1990,,0.286870355,,"IEA Electricity information, total electricity production from petroleum products / fuel input",,
+CHE,Oil,Fuel_efficiency,1991,,,,,,
+CHE,Oil,Fuel_efficiency,1992,,,,,,
+CHE,Oil,Fuel_efficiency,1993,,,,,,
+CHE,Oil,Fuel_efficiency,1994,,,,,,
+CHE,Oil,Fuel_efficiency,1995,,,,,,
+CHE,Oil,Fuel_efficiency,1996,,,,,,
+CHE,Oil,Fuel_efficiency,1997,,,,,,
+CHE,Oil,Fuel_efficiency,1998,,,,,,
+CHE,Oil,Fuel_efficiency,1999,,,,,,
+CHE,Oil,Fuel_efficiency,2000,,,,,,
+CHE,Oil,Fuel_efficiency,2001,,,,,,
+CHE,Oil,Fuel_efficiency,2002,,,,,,
+CHE,Oil,Fuel_efficiency,2003,,,,,,
+CHE,Oil,Fuel_efficiency,2004,,,,,,
+CHE,Oil,Fuel_efficiency,2005,,,,,,
+CHE,Oil,Fuel_efficiency,2006,,,,,,
+CHE,Oil,Fuel_efficiency,2007,,,,,,
+CHE,Oil,Fuel_efficiency,2008,,,,,,
+CHE,Oil,Fuel_efficiency,2009,,,,,,
+CHE,Oil,Fuel_efficiency,2010,,,,,,
+CHE,Oil,Fuel_efficiency,2011,,,,,,
+CHE,Oil,Fuel_efficiency,2012,,,,,,
+CHE,Oil,Fuel_efficiency,2013,,,,,,
+CHE,Oil,Fuel_efficiency,2014,,,,,,
+CHE,Oil,Fuel_efficiency,2015,,,,,,
+CHE,Oil,Fuel_efficiency,2016,,,,,,
+CHE,Oil,Fuel_efficiency,2017,,,,,,
+CHE,Oil,Fuel_efficiency,2018,,,,,,
+CHE,Oil,Fuel_efficiency,2019,,,,,,
+CHE,Oil,Heat_to_electricity,1990,,0.098637101,,"IEA Electricity information, total CHP heat production / total electricity production from petroleum products",,"Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Oil,Heat_to_electricity,1991,,,,,,
+CHE,Oil,Heat_to_electricity,1992,,,,,,
+CHE,Oil,Heat_to_electricity,1993,,,,,,
+CHE,Oil,Heat_to_electricity,1994,,,,,,
+CHE,Oil,Heat_to_electricity,1995,,,,,,
+CHE,Oil,Heat_to_electricity,1996,,,,,,
+CHE,Oil,Heat_to_electricity,1997,,,,,,
+CHE,Oil,Heat_to_electricity,1998,,,,,,
+CHE,Oil,Heat_to_electricity,1999,,,,,,
+CHE,Oil,Heat_to_electricity,2000,,0.232602355,,"IEA Electricity information, total CHP heat production / total electricity production from petroleum products",,"Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Oil,Heat_to_electricity,2001,,,,,,
+CHE,Oil,Heat_to_electricity,2002,,,,,,
+CHE,Oil,Heat_to_electricity,2003,,,,,,
+CHE,Oil,Heat_to_electricity,2004,,,,,,
+CHE,Oil,Heat_to_electricity,2005,,0.144392986,,"IEA Electricity information, total CHP heat production / total electricity production from petroleum products",,"Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Oil,Heat_to_electricity,2006,,,,,,
+CHE,Oil,Heat_to_electricity,2007,,,,,,
+CHE,Oil,Heat_to_electricity,2008,,,,,,
+CHE,Oil,Heat_to_electricity,2009,,,,,,
+CHE,Oil,Heat_to_electricity,2010,,,,,,
+CHE,Oil,Heat_to_electricity,2011,,,,,,
+CHE,Oil,Heat_to_electricity,2012,,,,,,
+CHE,Oil,Heat_to_electricity,2013,,0.092858939,,"IEA Electricity information, total CHP heat production / total electricity production from petroleum products",,"Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Oil,Heat_to_electricity,2014,,0.099786771,,"IEA Electricity information, total CHP heat production / total electricity production from petroleum products",,"Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,Oil,Heat_to_electricity,2015,,,,,,
+CHE,Oil,Heat_to_electricity,2016,,,,,,
+CHE,Oil,Heat_to_electricity,2017,,,,,,
+CHE,Oil,Heat_to_electricity,2018,,,,,,
+CHE,Oil,Heat_to_electricity,2019,,,,,,
+CHE,Oil,Inv,1990,,,,,,
+CHE,Oil,Inv,1991,,,,,,
+CHE,Oil,Inv,1992,,,,,,
+CHE,Oil,Inv,1993,,,,,,
+CHE,Oil,Inv,1994,,,,,,
+CHE,Oil,Inv,1995,,,,,,
+CHE,Oil,Inv,1996,,,,,,
+CHE,Oil,Inv,1997,,,,,,
+CHE,Oil,Inv,1998,,,,,,
+CHE,Oil,Inv,1999,,,,,,
+CHE,Oil,Inv,2000,,,,,,
+CHE,Oil,Inv,2001,,,,,,
+CHE,Oil,Inv,2002,,,,,,
+CHE,Oil,Inv,2003,,,,,,
+CHE,Oil,Inv,2004,,,,,,
+CHE,Oil,Inv,2005,,,,,,
+CHE,Oil,Inv,2006,,,,,,
+CHE,Oil,Inv,2007,,,,,,
+CHE,Oil,Inv,2008,,,,,,
+CHE,Oil,Inv,2009,,,,,,
+CHE,Oil,Inv,2010,,,,,,
+CHE,Oil,Inv,2011,,,,,,
+CHE,Oil,Inv,2012,,,,,,
+CHE,Oil,Inv,2013,,,,,,
+CHE,Oil,Inv,2014,,,,,,
+CHE,Oil,Inv,2015,,,,,,
+CHE,Oil,Inv,2016,,,,,,
+CHE,Oil,Inv,2017,,,,,,
+CHE,Oil,Inv,2018,,610,CHF2017/kW,"PSI (2017) Potentials, costs and environmental assessment of electricity generation technologies",,Gas Turbine
+CHE,Oil,Inv,2019,,,,,,
+CHE,Oil,Fixed_OM_annual,1990,,,,,,
+CHE,Oil,Fixed_OM_annual,1991,,,,,,
+CHE,Oil,Fixed_OM_annual,1992,,,,,,
+CHE,Oil,Fixed_OM_annual,1993,,,,,,
+CHE,Oil,Fixed_OM_annual,1994,,,,,,
+CHE,Oil,Fixed_OM_annual,1995,,,,,,
+CHE,Oil,Fixed_OM_annual,1996,,,,,,
+CHE,Oil,Fixed_OM_annual,1997,,,,,,
+CHE,Oil,Fixed_OM_annual,1998,,,,,,
+CHE,Oil,Fixed_OM_annual,1999,,,,,,
+CHE,Oil,Fixed_OM_annual,2000,,,,,,
+CHE,Oil,Fixed_OM_annual,2001,,,,,,
+CHE,Oil,Fixed_OM_annual,2002,,,,,,
+CHE,Oil,Fixed_OM_annual,2003,,,,,,
+CHE,Oil,Fixed_OM_annual,2004,,,,,,
+CHE,Oil,Fixed_OM_annual,2005,,,,,,
+CHE,Oil,Fixed_OM_annual,2006,,,,,,
+CHE,Oil,Fixed_OM_annual,2007,,,,,,
+CHE,Oil,Fixed_OM_annual,2008,,,,,,
+CHE,Oil,Fixed_OM_annual,2009,,,,,,
+CHE,Oil,Fixed_OM_annual,2010,,,,,,
+CHE,Oil,Fixed_OM_annual,2011,,,,,,
+CHE,Oil,Fixed_OM_annual,2012,,,,,,
+CHE,Oil,Fixed_OM_annual,2013,,,,,,
+CHE,Oil,Fixed_OM_annual,2014,,,,,,
+CHE,Oil,Fixed_OM_annual,2015,,,,,,
+CHE,Oil,Fixed_OM_annual,2016,,,,,,
+CHE,Oil,Fixed_OM_annual,2017,,,,,,
+CHE,Oil,Fixed_OM_annual,2018,,13,CHF2017/kW,"PSI (2017) Potentials, costs and environmental assessment of electricity generation technologies",,Gas Turbine
+CHE,Oil,Fixed_OM_annual,2019,,,,,,
+CHE,Oil,Variable_OM,1990,,,,,,
+CHE,Oil,Variable_OM,1991,,,,,,
+CHE,Oil,Variable_OM,1992,,,,,,
+CHE,Oil,Variable_OM,1993,,,,,,
+CHE,Oil,Variable_OM,1994,,,,,,
+CHE,Oil,Variable_OM,1995,,,,,,
+CHE,Oil,Variable_OM,1996,,,,,,
+CHE,Oil,Variable_OM,1997,,,,,,
+CHE,Oil,Variable_OM,1998,,,,,,
+CHE,Oil,Variable_OM,1999,,,,,,
+CHE,Oil,Variable_OM,2000,,,,,,
+CHE,Oil,Variable_OM,2001,,,,,,
+CHE,Oil,Variable_OM,2002,,,,,,
+CHE,Oil,Variable_OM,2003,,,,,,
+CHE,Oil,Variable_OM,2004,,,,,,
+CHE,Oil,Variable_OM,2005,,,,,,
+CHE,Oil,Variable_OM,2006,,,,,,
+CHE,Oil,Variable_OM,2007,,,,,,
+CHE,Oil,Variable_OM,2008,,,,,,
+CHE,Oil,Variable_OM,2009,,,,,,
+CHE,Oil,Variable_OM,2010,,,,,,
+CHE,Oil,Variable_OM,2011,,,,,,
+CHE,Oil,Variable_OM,2012,,,,,,
+CHE,Oil,Variable_OM,2013,,,,,,
+CHE,Oil,Variable_OM,2014,,,,,,
+CHE,Oil,Variable_OM,2015,,,,,,
+CHE,Oil,Variable_OM,2016,,,,,,
+CHE,Oil,Variable_OM,2017,,,,,,
+CHE,Oil,Variable_OM,2018,,12.1,CHF2017/MWh,"PSI (2017) Potentials, costs and environmental assessment of electricity generation technologies",,Gas Turbine
+CHE,Oil,Variable_OM,2019,,,,,,
+CHE,Oil,Actual_capacity,1990,,378,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,
+CHE,Oil,Actual_capacity,1991,,378,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,
+CHE,Oil,Actual_capacity,1992,,380,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,
+CHE,Oil,Actual_capacity,1993,,380,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,
+CHE,Oil,Actual_capacity,1994,,382,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,
+CHE,Oil,Actual_capacity,1995,,383,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,
+CHE,Oil,Actual_capacity,1996,,386,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,
+CHE,Oil,Actual_capacity,1997,,390,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,
+CHE,Oil,Actual_capacity,1998,,395,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,
+CHE,Oil,Actual_capacity,1999,,114,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,
+CHE,Oil,Actual_capacity,2000,,112,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,
+CHE,Oil,Actual_capacity,2001,,113,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,
+CHE,Oil,Actual_capacity,2002,,113,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,
+CHE,Oil,Actual_capacity,2003,,112,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,
+CHE,Oil,Actual_capacity,2004,,111,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,
+CHE,Oil,Actual_capacity,2005,,108,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,
+CHE,Oil,Actual_capacity,2006,,107,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,
+CHE,Oil,Actual_capacity,2007,,104,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,
+CHE,Oil,Actual_capacity,2008,,99,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,
+CHE,Oil,Actual_capacity,2009,,96,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,
+CHE,Oil,Actual_capacity,2010,,88,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,
+CHE,Oil,Actual_capacity,2011,,87,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,
+CHE,Oil,Actual_capacity,2012,,87,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,
+CHE,Oil,Actual_capacity,2013,,87,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,
+CHE,Oil,Actual_capacity,2014,,87,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,
+CHE,Oil,Actual_capacity,2015,,87,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,
+CHE,Oil,Actual_capacity,2016,,87,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,
+CHE,Oil,Actual_capacity,2017,,82.515,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,
+CHE,Oil,Actual_capacity,2018,,82.303,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,
+CHE,Oil,Actual_capacity,2019,,82.303,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,
+CHE,Oil,Actual_new_capacity,1990,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_new_capacity,1991,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_new_capacity,1992,,2,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_new_capacity,1993,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_new_capacity,1994,,2,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_new_capacity,1995,,1,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_new_capacity,1996,,3,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_new_capacity,1997,,4,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_new_capacity,1998,,5,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_new_capacity,1999,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_new_capacity,2000,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_new_capacity,2001,,1,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_new_capacity,2002,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_new_capacity,2003,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_new_capacity,2004,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_new_capacity,2005,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_new_capacity,2006,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_new_capacity,2007,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_new_capacity,2008,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_new_capacity,2009,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_new_capacity,2010,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_new_capacity,2011,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_new_capacity,2012,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_new_capacity,2013,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_new_capacity,2014,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_new_capacity,2015,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_new_capacity,2016,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_new_capacity,2017,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_new_capacity,2018,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_new_capacity,2019,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_retired_capacity,1990,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_retired_capacity,1991,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_retired_capacity,1992,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_retired_capacity,1993,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_retired_capacity,1994,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_retired_capacity,1995,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_retired_capacity,1996,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_retired_capacity,1997,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_retired_capacity,1998,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_retired_capacity,1999,,281,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_retired_capacity,2000,,2,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_retired_capacity,2001,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_retired_capacity,2002,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_retired_capacity,2003,,1,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_retired_capacity,2004,,1,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_retired_capacity,2005,,3,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_retired_capacity,2006,,1,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_retired_capacity,2007,,3,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_retired_capacity,2008,,5,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_retired_capacity,2009,,3,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_retired_capacity,2010,,8,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_retired_capacity,2011,,1,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_retired_capacity,2012,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_retired_capacity,2013,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_retired_capacity,2014,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_retired_capacity,2015,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_retired_capacity,2016,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_retired_capacity,2017,,4.485,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_retired_capacity,2018,,0.212,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_retired_capacity,2019,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Actual_generation,1990,,386,GWh,,,
+CHE,Oil,Actual_generation,1991,,,GWh,,,
+CHE,Oil,Actual_generation,1992,,,GWh,,,
+CHE,Oil,Actual_generation,1993,,,GWh,,,
+CHE,Oil,Actual_generation,1994,,,GWh,,,
+CHE,Oil,Actual_generation,1995,,,GWh,,,
+CHE,Oil,Actual_generation,1996,,,GWh,,,
+CHE,Oil,Actual_generation,1997,,,GWh,,,
+CHE,Oil,Actual_generation,1998,,,GWh,,,
+CHE,Oil,Actual_generation,1999,,,GWh,,,
+CHE,Oil,Actual_generation,2000,,227,GWh,,,
+CHE,Oil,Actual_generation,2001,,,GWh,,,
+CHE,Oil,Actual_generation,2002,,,GWh,,,
+CHE,Oil,Actual_generation,2003,,,GWh,,,
+CHE,Oil,Actual_generation,2004,,,GWh,,,
+CHE,Oil,Actual_generation,2005,,214,GWh,,,
+CHE,Oil,Actual_generation,2006,,,GWh,,,
+CHE,Oil,Actual_generation,2007,,,GWh,,,
+CHE,Oil,Actual_generation,2008,,,GWh,,,
+CHE,Oil,Actual_generation,2009,,,GWh,,,
+CHE,Oil,Actual_generation,2010,,68,GWh,,,
+CHE,Oil,Actual_generation,2011,,,GWh,,,
+CHE,Oil,Actual_generation,2012,,51,GWh,,,
+CHE,Oil,Actual_generation,2013,,46,GWh,,,
+CHE,Oil,Actual_generation,2014,,42,GWh,,,
+CHE,Oil,Actual_generation,2015,,,GWh,,,
+CHE,Oil,Actual_generation,2016,,,GWh,,,
+CHE,Oil,Actual_generation,2017,,,GWh,,,
+CHE,Oil,Actual_generation,2018,,,GWh,,,
+CHE,Oil,Actual_generation,2019,,,GWh,,,
+CHE,Oil,Learning_rate,1990,,8.3,,,,
+CHE,Oil,Initial_retired_capacity,1990,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Initial_retired_capacity,1991,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Initial_retired_capacity,1992,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Initial_retired_capacity,1993,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Initial_retired_capacity,1994,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Initial_retired_capacity,1995,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Initial_retired_capacity,1996,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Initial_retired_capacity,1997,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Initial_retired_capacity,1998,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Initial_retired_capacity,1999,,281,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Initial_retired_capacity,2000,,2,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Initial_retired_capacity,2001,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Initial_retired_capacity,2002,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Initial_retired_capacity,2003,,1,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Initial_retired_capacity,2004,,1,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Initial_retired_capacity,2005,,3,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Initial_retired_capacity,2006,,1,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Initial_retired_capacity,2007,,3,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Initial_retired_capacity,2008,,5,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Initial_retired_capacity,2009,,3,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Initial_retired_capacity,2010,,8,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Initial_retired_capacity,2011,,1,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Initial_retired_capacity,2012,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Initial_retired_capacity,2013,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Initial_retired_capacity,2014,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Initial_retired_capacity,2015,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Initial_retired_capacity,2016,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Initial_retired_capacity,2017,,4.485,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Initial_retired_capacity,2018,,0.212,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity
+CHE,Oil,Initial_retired_capacity,2019,,0,MW,"IEA Electricity information, Liquid fuels/refinery gas net capacity",,Based on changes in net capacity

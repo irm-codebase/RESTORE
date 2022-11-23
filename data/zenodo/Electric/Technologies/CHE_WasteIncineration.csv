@@ -1,0 +1,587 @@
+Name: CHE WasteIncineration
+Date: 2022-10-13 11:23:59.985320
+Author: Marc Jaxa-Rozen, Xin Wen
+
+Country,Entity,Parameter,Year,Period,Value,Unit,Reference,Priority,Note
+CHE,WasteIncineration,Resource,1990,,WasteResource,,,,
+CHE,WasteIncineration,Resource,1991,,WasteResource,,,,
+CHE,WasteIncineration,Resource,1992,,WasteResource,,,,
+CHE,WasteIncineration,Resource,1993,,WasteResource,,,,
+CHE,WasteIncineration,Resource,1994,,WasteResource,,,,
+CHE,WasteIncineration,Resource,1995,,WasteResource,,,,
+CHE,WasteIncineration,Resource,1996,,WasteResource,,,,
+CHE,WasteIncineration,Resource,1997,,WasteResource,,,,
+CHE,WasteIncineration,Resource,1998,,WasteResource,,,,
+CHE,WasteIncineration,Resource,1999,,WasteResource,,,,
+CHE,WasteIncineration,Resource,2000,,WasteResource,,,,
+CHE,WasteIncineration,Resource,2001,,WasteResource,,,,
+CHE,WasteIncineration,Resource,2002,,WasteResource,,,,
+CHE,WasteIncineration,Resource,2003,,WasteResource,,,,
+CHE,WasteIncineration,Resource,2004,,WasteResource,,,,
+CHE,WasteIncineration,Resource,2005,,WasteResource,,,,
+CHE,WasteIncineration,Resource,2006,,WasteResource,,,,
+CHE,WasteIncineration,Resource,2007,,WasteResource,,,,
+CHE,WasteIncineration,Resource,2008,,WasteResource,,,,
+CHE,WasteIncineration,Resource,2009,,WasteResource,,,,
+CHE,WasteIncineration,Resource,2010,,WasteResource,,,,
+CHE,WasteIncineration,Resource,2011,,WasteResource,,,,
+CHE,WasteIncineration,Resource,2012,,WasteResource,,,,
+CHE,WasteIncineration,Resource,2013,,WasteResource,,,,
+CHE,WasteIncineration,Resource,2014,,WasteResource,,,,
+CHE,WasteIncineration,Resource,2015,,WasteResource,,,,
+CHE,WasteIncineration,Resource,2016,,WasteResource,,,,
+CHE,WasteIncineration,Resource,2017,,WasteResource,,,,
+CHE,WasteIncineration,Resource,2018,,WasteResource,,,,
+CHE,WasteIncineration,Resource,2019,,WasteResource,,,,
+CHE,WasteIncineration,LF_min,1990,,0,,Assumption for testing,,
+CHE,WasteIncineration,LF_min,1991,,0.1,,,,
+CHE,WasteIncineration,LF_min,1992,,0.1,,,,
+CHE,WasteIncineration,LF_min,1993,,0.1,,,,
+CHE,WasteIncineration,LF_min,1994,,0.1,,,,
+CHE,WasteIncineration,LF_min,1995,,0.1,,,,
+CHE,WasteIncineration,LF_min,1996,,0.1,,,,
+CHE,WasteIncineration,LF_min,1997,,0.1,,,,
+CHE,WasteIncineration,LF_min,1998,,0.1,,,,
+CHE,WasteIncineration,LF_min,1999,,0.1,,,,
+CHE,WasteIncineration,LF_min,2000,,0.1,,,,
+CHE,WasteIncineration,LF_min,2001,,0.1,,,,
+CHE,WasteIncineration,LF_min,2002,,0.1,,,,
+CHE,WasteIncineration,LF_min,2003,,0.1,,,,
+CHE,WasteIncineration,LF_min,2004,,0.1,,,,
+CHE,WasteIncineration,LF_min,2005,,0.1,,,,
+CHE,WasteIncineration,LF_min,2006,,0.1,,,,
+CHE,WasteIncineration,LF_min,2007,,0.1,,,,
+CHE,WasteIncineration,LF_min,2008,,0.1,,,,
+CHE,WasteIncineration,LF_min,2009,,0.1,,,,
+CHE,WasteIncineration,LF_min,2010,,0.1,,,,
+CHE,WasteIncineration,LF_min,2011,,0.1,,,,
+CHE,WasteIncineration,LF_min,2012,,0.1,,,,
+CHE,WasteIncineration,LF_min,2013,,0.1,,,,
+CHE,WasteIncineration,LF_min,2014,,0.1,,,,
+CHE,WasteIncineration,LF_min,2015,,0.1,,,,
+CHE,WasteIncineration,LF_min,2016,,0.1,,,,
+CHE,WasteIncineration,LF_min,2017,,0.1,,,,
+CHE,WasteIncineration,LF_min,2018,,0.1,,,,
+CHE,WasteIncineration,LF_min,2019,,0.1,,,,
+CHE,WasteIncineration,LF_max,1990,,1,,,,
+CHE,WasteIncineration,LF_max,1991,,0.9,,,,
+CHE,WasteIncineration,LF_max,1992,,0.9,,,,
+CHE,WasteIncineration,LF_max,1993,,0.9,,,,
+CHE,WasteIncineration,LF_max,1994,,0.9,,,,
+CHE,WasteIncineration,LF_max,1995,,0.9,,,,
+CHE,WasteIncineration,LF_max,1996,,0.9,,,,
+CHE,WasteIncineration,LF_max,1997,,0.9,,,,
+CHE,WasteIncineration,LF_max,1998,,0.9,,,,
+CHE,WasteIncineration,LF_max,1999,,0.9,,,,
+CHE,WasteIncineration,LF_max,2000,,0.9,,,,
+CHE,WasteIncineration,LF_max,2001,,0.9,,,,
+CHE,WasteIncineration,LF_max,2002,,0.9,,,,
+CHE,WasteIncineration,LF_max,2003,,0.9,,,,
+CHE,WasteIncineration,LF_max,2004,,0.9,,,,
+CHE,WasteIncineration,LF_max,2005,,0.9,,,,
+CHE,WasteIncineration,LF_max,2006,,0.9,,,,
+CHE,WasteIncineration,LF_max,2007,,0.9,,,,
+CHE,WasteIncineration,LF_max,2008,,0.9,,,,
+CHE,WasteIncineration,LF_max,2009,,0.9,,,,
+CHE,WasteIncineration,LF_max,2010,,0.9,,,,
+CHE,WasteIncineration,LF_max,2011,,0.9,,,,
+CHE,WasteIncineration,LF_max,2012,,0.9,,,,
+CHE,WasteIncineration,LF_max,2013,,0.9,,,,
+CHE,WasteIncineration,LF_max,2014,,0.9,,,,
+CHE,WasteIncineration,LF_max,2015,,0.9,,DECC/Arup (2016) Review of RE cost and technical assumptions,,
+CHE,WasteIncineration,LF_max,2016,,0.9,,,,
+CHE,WasteIncineration,LF_max,2017,,0.9,,,,
+CHE,WasteIncineration,LF_max,2018,,0.9,,,,
+CHE,WasteIncineration,LF_max,2019,,0.9,,,,
+CHE,WasteIncineration,Peak_contr,1990,,0.88,,"Royal Academy of Engineering (2014) GB electricity capacity margin, table 1",,Assumption from other thermal technologies
+CHE,WasteIncineration,Peak_contr,1991,,0.88,,,,
+CHE,WasteIncineration,Peak_contr,1992,,0.88,,,,
+CHE,WasteIncineration,Peak_contr,1993,,0.88,,,,
+CHE,WasteIncineration,Peak_contr,1994,,0.88,,,,
+CHE,WasteIncineration,Peak_contr,1995,,0.88,,,,
+CHE,WasteIncineration,Peak_contr,1996,,0.88,,,,
+CHE,WasteIncineration,Peak_contr,1997,,0.88,,,,
+CHE,WasteIncineration,Peak_contr,1998,,0.88,,,,
+CHE,WasteIncineration,Peak_contr,1999,,0.88,,,,
+CHE,WasteIncineration,Peak_contr,2000,,0.88,,,,
+CHE,WasteIncineration,Peak_contr,2001,,0.88,,,,
+CHE,WasteIncineration,Peak_contr,2002,,0.88,,,,
+CHE,WasteIncineration,Peak_contr,2003,,0.88,,,,
+CHE,WasteIncineration,Peak_contr,2004,,0.88,,,,
+CHE,WasteIncineration,Peak_contr,2005,,0.88,,,,
+CHE,WasteIncineration,Peak_contr,2006,,0.88,,,,
+CHE,WasteIncineration,Peak_contr,2007,,0.88,,,,
+CHE,WasteIncineration,Peak_contr,2008,,0.88,,,,
+CHE,WasteIncineration,Peak_contr,2009,,0.88,,,,
+CHE,WasteIncineration,Peak_contr,2010,,0.88,,,,
+CHE,WasteIncineration,Peak_contr,2011,,0.88,,,,
+CHE,WasteIncineration,Peak_contr,2012,,0.88,,,,
+CHE,WasteIncineration,Peak_contr,2013,,0.88,,,,
+CHE,WasteIncineration,Peak_contr,2014,,0.88,,,,
+CHE,WasteIncineration,Peak_contr,2015,,0.88,,,,
+CHE,WasteIncineration,Peak_contr,2016,,0.88,,,,
+CHE,WasteIncineration,Peak_contr,2017,,0.88,,,,
+CHE,WasteIncineration,Peak_contr,2018,,0.88,,,,
+CHE,WasteIncineration,Peak_contr,2019,,0.88,,,,
+CHE,WasteIncineration,Peak_contr,2020,,0.88,,,,
+CHE,WasteIncineration,Own_use,1990,,0.23136646,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Own_use,1991,,0.25682183,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Own_use,1992,,0.261560694,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Own_use,1993,,0.267229255,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Own_use,1994,,0.306451613,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Own_use,1995,,0.302521008,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Own_use,1996,,0.294701987,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Own_use,1997,,0.309017224,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Own_use,1998,,0.311219512,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Own_use,1999,,0.318342152,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Own_use,2000,,0.307632399,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Own_use,2001,,0.29321663,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Own_use,2002,,0.291725105,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Own_use,2003,,0.28228022,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Own_use,2004,,0.276041667,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Own_use,2005,,0.265432099,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Own_use,2006,,0.257675439,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Own_use,2007,,0.258533856,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Own_use,2008,,0.253136934,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Own_use,2009,,0.257661748,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Own_use,2010,,0.250405625,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Own_use,2011,,0.244004171,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Own_use,2012,,0.237011381,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Own_use,2013,,0.227556409,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Own_use,2014,,0.219545455,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Own_use,2015,,0.21719457,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Own_use,2016,,0.207747978,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Own_use,2017,,0.205193699,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Own_use,2018,,0.207563386,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Own_use,2019,,0.203751066,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Own_use,2020,,0.207042851,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Buildrates,1990,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for WasteIncineration in CHE, rounded up to 0.25GW"
+CHE,WasteIncineration,Buildrates,1991,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for WasteIncineration in CHE, rounded up to 0.25GW"
+CHE,WasteIncineration,Buildrates,1992,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for WasteIncineration in CHE, rounded up to 0.25GW"
+CHE,WasteIncineration,Buildrates,1993,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for WasteIncineration in CHE, rounded up to 0.25GW"
+CHE,WasteIncineration,Buildrates,1994,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for WasteIncineration in CHE, rounded up to 0.25GW"
+CHE,WasteIncineration,Buildrates,1995,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for WasteIncineration in CHE, rounded up to 0.25GW"
+CHE,WasteIncineration,Buildrates,1996,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for WasteIncineration in CHE, rounded up to 0.25GW"
+CHE,WasteIncineration,Buildrates,1997,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for WasteIncineration in CHE, rounded up to 0.25GW"
+CHE,WasteIncineration,Buildrates,1998,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for WasteIncineration in CHE, rounded up to 0.25GW"
+CHE,WasteIncineration,Buildrates,1999,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for WasteIncineration in CHE, rounded up to 0.25GW"
+CHE,WasteIncineration,Buildrates,2000,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for WasteIncineration in CHE, rounded up to 0.25GW"
+CHE,WasteIncineration,Buildrates,2001,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for WasteIncineration in CHE, rounded up to 0.25GW"
+CHE,WasteIncineration,Buildrates,2002,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for WasteIncineration in CHE, rounded up to 0.25GW"
+CHE,WasteIncineration,Buildrates,2003,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for WasteIncineration in CHE, rounded up to 0.25GW"
+CHE,WasteIncineration,Buildrates,2004,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for WasteIncineration in CHE, rounded up to 0.25GW"
+CHE,WasteIncineration,Buildrates,2005,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for WasteIncineration in CHE, rounded up to 0.25GW"
+CHE,WasteIncineration,Buildrates,2006,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for WasteIncineration in CHE, rounded up to 0.25GW"
+CHE,WasteIncineration,Buildrates,2007,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for WasteIncineration in CHE, rounded up to 0.25GW"
+CHE,WasteIncineration,Buildrates,2008,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for WasteIncineration in CHE, rounded up to 0.25GW"
+CHE,WasteIncineration,Buildrates,2009,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for WasteIncineration in CHE, rounded up to 0.25GW"
+CHE,WasteIncineration,Buildrates,2010,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for WasteIncineration in CHE, rounded up to 0.25GW"
+CHE,WasteIncineration,Buildrates,2011,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for WasteIncineration in CHE, rounded up to 0.25GW"
+CHE,WasteIncineration,Buildrates,2012,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for WasteIncineration in CHE, rounded up to 0.25GW"
+CHE,WasteIncineration,Buildrates,2013,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for WasteIncineration in CHE, rounded up to 0.25GW"
+CHE,WasteIncineration,Buildrates,2014,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for WasteIncineration in CHE, rounded up to 0.25GW"
+CHE,WasteIncineration,Buildrates,2015,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for WasteIncineration in CHE, rounded up to 0.25GW"
+CHE,WasteIncineration,Buildrates,2016,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for WasteIncineration in CHE, rounded up to 0.25GW"
+CHE,WasteIncineration,Buildrates,2017,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for WasteIncineration in CHE, rounded up to 0.25GW"
+CHE,WasteIncineration,Buildrates,2018,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for WasteIncineration in CHE, rounded up to 0.25GW"
+CHE,WasteIncineration,Buildrates,2019,,0.25,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for WasteIncineration in CHE, rounded up to 0.25GW"
+CHE,WasteIncineration,Buildrates,2020,,1,GW,,,
+CHE,WasteIncineration,Lifetime,2010,,30,yr,,,
+CHE,WasteIncineration,Potential_annual,1990,,6.724746202,PJ,JRC ENSPRESO database,,"Corrected to maximum historical value, assumed constant over time"
+CHE,WasteIncineration,Potential_annual,1991,,6.724746202,PJ,JRC ENSPRESO database,,"Corrected to maximum historical value, assumed constant over time"
+CHE,WasteIncineration,Potential_annual,1992,,6.724746202,PJ,JRC ENSPRESO database,,"Corrected to maximum historical value, assumed constant over time"
+CHE,WasteIncineration,Potential_annual,1993,,6.724746202,PJ,JRC ENSPRESO database,,"Corrected to maximum historical value, assumed constant over time"
+CHE,WasteIncineration,Potential_annual,1994,,6.724746202,PJ,JRC ENSPRESO database,,"Corrected to maximum historical value, assumed constant over time"
+CHE,WasteIncineration,Potential_annual,1995,,6.724746202,PJ,JRC ENSPRESO database,,"Corrected to maximum historical value, assumed constant over time"
+CHE,WasteIncineration,Potential_annual,1996,,6.724746202,PJ,JRC ENSPRESO database,,"Corrected to maximum historical value, assumed constant over time"
+CHE,WasteIncineration,Potential_annual,1997,,6.724746202,PJ,JRC ENSPRESO database,,"Corrected to maximum historical value, assumed constant over time"
+CHE,WasteIncineration,Potential_annual,1998,,6.724746202,PJ,JRC ENSPRESO database,,"Corrected to maximum historical value, assumed constant over time"
+CHE,WasteIncineration,Potential_annual,1999,,6.724746202,PJ,JRC ENSPRESO database,,"Corrected to maximum historical value, assumed constant over time"
+CHE,WasteIncineration,Potential_annual,2000,,6.724746202,PJ,JRC ENSPRESO database,,"Corrected to maximum historical value, assumed constant over time"
+CHE,WasteIncineration,Potential_annual,2001,,6.724746202,PJ,JRC ENSPRESO database,,"Corrected to maximum historical value, assumed constant over time"
+CHE,WasteIncineration,Potential_annual,2002,,6.724746202,PJ,JRC ENSPRESO database,,"Corrected to maximum historical value, assumed constant over time"
+CHE,WasteIncineration,Potential_annual,2003,,6.724746202,PJ,JRC ENSPRESO database,,"Corrected to maximum historical value, assumed constant over time"
+CHE,WasteIncineration,Potential_annual,2004,,6.724746202,PJ,JRC ENSPRESO database,,"Corrected to maximum historical value, assumed constant over time"
+CHE,WasteIncineration,Potential_annual,2005,,6.724746202,PJ,JRC ENSPRESO database,,"Corrected to maximum historical value, assumed constant over time"
+CHE,WasteIncineration,Potential_annual,2006,,6.724746202,PJ,JRC ENSPRESO database,,"Corrected to maximum historical value, assumed constant over time"
+CHE,WasteIncineration,Potential_annual,2007,,6.724746202,PJ,JRC ENSPRESO database,,"Corrected to maximum historical value, assumed constant over time"
+CHE,WasteIncineration,Potential_annual,2008,,6.724746202,PJ,JRC ENSPRESO database,,"Corrected to maximum historical value, assumed constant over time"
+CHE,WasteIncineration,Potential_annual,2009,,6.724746202,PJ,JRC ENSPRESO database,,"Corrected to maximum historical value, assumed constant over time"
+CHE,WasteIncineration,Potential_annual,2010,,6.724746202,PJ,JRC ENSPRESO database,,"Corrected to maximum historical value, assumed constant over time"
+CHE,WasteIncineration,Potential_annual,2011,,6.724746202,PJ,JRC ENSPRESO database,,"Corrected to maximum historical value, assumed constant over time"
+CHE,WasteIncineration,Potential_annual,2012,,6.724746202,PJ,JRC ENSPRESO database,,"Corrected to maximum historical value, assumed constant over time"
+CHE,WasteIncineration,Potential_annual,2013,,6.724746202,PJ,JRC ENSPRESO database,,"Corrected to maximum historical value, assumed constant over time"
+CHE,WasteIncineration,Potential_annual,2014,,6.724746202,PJ,JRC ENSPRESO database,,"Corrected to maximum historical value, assumed constant over time"
+CHE,WasteIncineration,Potential_annual,2015,,6.724746202,PJ,JRC ENSPRESO database,,"Corrected to maximum historical value, assumed constant over time"
+CHE,WasteIncineration,Potential_annual,2016,,6.724746202,PJ,JRC ENSPRESO database,,"Corrected to maximum historical value, assumed constant over time"
+CHE,WasteIncineration,Potential_annual,2017,,6.724746202,PJ,JRC ENSPRESO database,,"Corrected to maximum historical value, assumed constant over time"
+CHE,WasteIncineration,Potential_annual,2018,,6.724746202,PJ,JRC ENSPRESO database,,"Corrected to maximum historical value, assumed constant over time"
+CHE,WasteIncineration,Potential_annual,2019,,6.724746202,PJ,JRC ENSPRESO database,,"Corrected to maximum historical value, assumed constant over time"
+CHE,WasteIncineration,Potential_annual,2020,,,TWh,,,
+CHE,WasteIncineration,Potential_installed,1990,,1,GW,Assumption,,
+CHE,WasteIncineration,Potential_installed,1991,,,GW,,,
+CHE,WasteIncineration,Potential_installed,1992,,,GW,,,
+CHE,WasteIncineration,Potential_installed,1993,,,GW,,,
+CHE,WasteIncineration,Potential_installed,1994,,,GW,,,
+CHE,WasteIncineration,Potential_installed,1995,,,GW,,,
+CHE,WasteIncineration,Potential_installed,1996,,,GW,,,
+CHE,WasteIncineration,Potential_installed,1997,,,GW,,,
+CHE,WasteIncineration,Potential_installed,1998,,,GW,,,
+CHE,WasteIncineration,Potential_installed,1999,,,GW,,,
+CHE,WasteIncineration,Potential_installed,2000,,,GW,,,
+CHE,WasteIncineration,Potential_installed,2001,,,GW,,,
+CHE,WasteIncineration,Potential_installed,2002,,,GW,,,
+CHE,WasteIncineration,Potential_installed,2003,,,GW,,,
+CHE,WasteIncineration,Potential_installed,2004,,,GW,,,
+CHE,WasteIncineration,Potential_installed,2005,,,GW,,,
+CHE,WasteIncineration,Potential_installed,2006,,,GW,,,
+CHE,WasteIncineration,Potential_installed,2007,,,GW,,,
+CHE,WasteIncineration,Potential_installed,2008,,,GW,,,
+CHE,WasteIncineration,Potential_installed,2009,,,GW,,,
+CHE,WasteIncineration,Potential_installed,2010,,,GW,,,
+CHE,WasteIncineration,Potential_installed,2011,,,GW,,,
+CHE,WasteIncineration,Potential_installed,2012,,,GW,,,
+CHE,WasteIncineration,Potential_installed,2013,,,GW,,,
+CHE,WasteIncineration,Potential_installed,2014,,,GW,,,
+CHE,WasteIncineration,Potential_installed,2015,,,GW,,,
+CHE,WasteIncineration,Potential_installed,2016,,,GW,,,
+CHE,WasteIncineration,Potential_installed,2017,,,GW,,,
+CHE,WasteIncineration,Potential_installed,2018,,,GW,,,
+CHE,WasteIncineration,Potential_installed,2019,,,GW,,,
+CHE,WasteIncineration,Potential_installed,2020,,,GW,,,
+CHE,WasteIncineration,Ramp_rate,1990,,0.6,,"Parsons Brinckerhoff (2011) Powering the future, table A5.3.2.1",,Average for hot or cold start
+CHE,WasteIncineration,Ramp_rate,1991,,0.6,,"Parsons Brinckerhoff (2011) Powering the future, table A5.3.2.1",,Average for hot or cold start
+CHE,WasteIncineration,Ramp_rate,1992,,0.6,,"Parsons Brinckerhoff (2011) Powering the future, table A5.3.2.1",,Average for hot or cold start
+CHE,WasteIncineration,Ramp_rate,1993,,0.6,,"Parsons Brinckerhoff (2011) Powering the future, table A5.3.2.1",,Average for hot or cold start
+CHE,WasteIncineration,Ramp_rate,1994,,0.6,,"Parsons Brinckerhoff (2011) Powering the future, table A5.3.2.1",,Average for hot or cold start
+CHE,WasteIncineration,Ramp_rate,1995,,0.6,,"Parsons Brinckerhoff (2011) Powering the future, table A5.3.2.1",,Average for hot or cold start
+CHE,WasteIncineration,Ramp_rate,1996,,0.6,,"Parsons Brinckerhoff (2011) Powering the future, table A5.3.2.1",,Average for hot or cold start
+CHE,WasteIncineration,Ramp_rate,1997,,0.6,,"Parsons Brinckerhoff (2011) Powering the future, table A5.3.2.1",,Average for hot or cold start
+CHE,WasteIncineration,Ramp_rate,1998,,0.6,,"Parsons Brinckerhoff (2011) Powering the future, table A5.3.2.1",,Average for hot or cold start
+CHE,WasteIncineration,Ramp_rate,1999,,0.6,,"Parsons Brinckerhoff (2011) Powering the future, table A5.3.2.1",,Average for hot or cold start
+CHE,WasteIncineration,Ramp_rate,2000,,0.6,,"Parsons Brinckerhoff (2011) Powering the future, table A5.3.2.1",,Average for hot or cold start
+CHE,WasteIncineration,Ramp_rate,2001,,0.6,,"Parsons Brinckerhoff (2011) Powering the future, table A5.3.2.1",,Average for hot or cold start
+CHE,WasteIncineration,Ramp_rate,2002,,0.6,,"Parsons Brinckerhoff (2011) Powering the future, table A5.3.2.1",,Average for hot or cold start
+CHE,WasteIncineration,Ramp_rate,2003,,0.6,,"Parsons Brinckerhoff (2011) Powering the future, table A5.3.2.1",,Average for hot or cold start
+CHE,WasteIncineration,Ramp_rate,2004,,0.6,,"Parsons Brinckerhoff (2011) Powering the future, table A5.3.2.1",,Average for hot or cold start
+CHE,WasteIncineration,Ramp_rate,2005,,0.6,,"Parsons Brinckerhoff (2011) Powering the future, table A5.3.2.1",,Average for hot or cold start
+CHE,WasteIncineration,Ramp_rate,2006,,0.6,,"Parsons Brinckerhoff (2011) Powering the future, table A5.3.2.1",,Average for hot or cold start
+CHE,WasteIncineration,Ramp_rate,2007,,0.6,,"Parsons Brinckerhoff (2011) Powering the future, table A5.3.2.1",,Average for hot or cold start
+CHE,WasteIncineration,Ramp_rate,2008,,0.6,,"Parsons Brinckerhoff (2011) Powering the future, table A5.3.2.1",,Average for hot or cold start
+CHE,WasteIncineration,Ramp_rate,2009,,0.6,,"Parsons Brinckerhoff (2011) Powering the future, table A5.3.2.1",,Average for hot or cold start
+CHE,WasteIncineration,Ramp_rate,2010,,0.6,,"Parsons Brinckerhoff (2011) Powering the future, table A5.3.2.1",,Average for hot or cold start
+CHE,WasteIncineration,Ramp_rate,2011,,0.6,,"Parsons Brinckerhoff (2011) Powering the future, table A5.3.2.1",,Average for hot or cold start
+CHE,WasteIncineration,Ramp_rate,2012,,0.6,,"Parsons Brinckerhoff (2011) Powering the future, table A5.3.2.1",,Average for hot or cold start
+CHE,WasteIncineration,Ramp_rate,2013,,0.6,,"Parsons Brinckerhoff (2011) Powering the future, table A5.3.2.1",,Average for hot or cold start
+CHE,WasteIncineration,Ramp_rate,2014,,0.6,,"Parsons Brinckerhoff (2011) Powering the future, table A5.3.2.1",,Average for hot or cold start
+CHE,WasteIncineration,Ramp_rate,2015,,0.6,,"Parsons Brinckerhoff (2011) Powering the future, table A5.3.2.1",,Average for hot or cold start
+CHE,WasteIncineration,Ramp_rate,2016,,0.6,,"Parsons Brinckerhoff (2011) Powering the future, table A5.3.2.1",,Average for hot or cold start
+CHE,WasteIncineration,Ramp_rate,2017,,0.6,,"Parsons Brinckerhoff (2011) Powering the future, table A5.3.2.1",,Average for hot or cold start
+CHE,WasteIncineration,Ramp_rate,2018,,0.6,,"Parsons Brinckerhoff (2011) Powering the future, table A5.3.2.1",,Average for hot or cold start
+CHE,WasteIncineration,Ramp_rate,2019,,0.6,,"Parsons Brinckerhoff (2011) Powering the future, table A5.3.2.1",,Average for hot or cold start
+CHE,WasteIncineration,Ramp_rate,2020,,0.6,,"Parsons Brinckerhoff (2011) Powering the future, table A5.3.2.1",,Average for hot or cold start
+CHE,WasteIncineration,Fuel_efficiency,1990,,0.085923949,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Fuel_efficiency,1991,,0.082516556,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Fuel_efficiency,1992,,0.093035762,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Fuel_efficiency,1993,,0.095436242,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Fuel_efficiency,1994,,0.106670196,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Fuel_efficiency,1995,,0.112097968,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Fuel_efficiency,1996,,0.123332426,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Fuel_efficiency,1997,,0.129036475,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Fuel_efficiency,1998,,0.126840738,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Fuel_efficiency,1999,,0.129822553,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Fuel_efficiency,2000,,0.135959339,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Fuel_efficiency,2001,,0.137278462,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Fuel_efficiency,2002,,0.138905124,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Fuel_efficiency,2003,,0.143589744,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Fuel_efficiency,2004,,0.149068323,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Fuel_efficiency,2005,,0.15,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Fuel_efficiency,2006,,0.153148615,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Fuel_efficiency,2007,,0.150041982,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Fuel_efficiency,2008,,0.155444369,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Fuel_efficiency,2009,,0.150611163,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Fuel_efficiency,2010,,0.152671125,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Fuel_efficiency,2011,,0.156125356,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Fuel_efficiency,2012,,0.1604605,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Fuel_efficiency,2013,,0.171243012,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Fuel_efficiency,2014,,0.177576883,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Fuel_efficiency,2015,,0.172710222,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Fuel_efficiency,2016,,0.177109251,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Fuel_efficiency,2017,,0.176179404,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Fuel_efficiency,2018,,0.173075493,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Fuel_efficiency,2019,,0.173328408,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Fuel_efficiency,2020,,0.173627993,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Heat_to_electricity,1990,,0.400083479,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,"Table 27. Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,WasteIncineration,Heat_to_electricity,1991,,0.54453528,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,"Table 27. Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,WasteIncineration,Heat_to_electricity,1992,,0.547123142,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,"Table 27. Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,WasteIncineration,Heat_to_electricity,1993,,0.653078179,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,"Table 27. Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,WasteIncineration,Heat_to_electricity,1994,,0.724083259,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,"Table 27. Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,WasteIncineration,Heat_to_electricity,1995,,0.80534118,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,"Table 27. Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,WasteIncineration,Heat_to_electricity,1996,,0.82523735,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,"Table 27. Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,WasteIncineration,Heat_to_electricity,1997,,0.773100506,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,"Table 27. Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,WasteIncineration,Heat_to_electricity,1998,,0.813382135,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,"Table 27. Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,WasteIncineration,Heat_to_electricity,1999,,0.847275317,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,"Table 27. Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,WasteIncineration,Heat_to_electricity,2000,,0.818854255,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,"Table 27. Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,WasteIncineration,Heat_to_electricity,2001,,0.843389389,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,"Table 27. Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,WasteIncineration,Heat_to_electricity,2002,,0.821572734,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,"Table 27. Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,WasteIncineration,Heat_to_electricity,2003,,0.849652433,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,"Table 27. Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,WasteIncineration,Heat_to_electricity,2004,,0.91815495,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,"Table 27. Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,WasteIncineration,Heat_to_electricity,2005,,0.92062938,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,"Table 27. Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,WasteIncineration,Heat_to_electricity,2006,,0.852909638,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,"Table 27. Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,WasteIncineration,Heat_to_electricity,2007,,0.854339623,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,"Table 27. Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,WasteIncineration,Heat_to_electricity,2008,,0.771306734,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,"Table 27. Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,WasteIncineration,Heat_to_electricity,2009,,0.66111471,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,"Table 27. Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,WasteIncineration,Heat_to_electricity,2010,,0.640596233,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,"Table 27. Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,WasteIncineration,Heat_to_electricity,2011,,0.680626959,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,"Table 27. Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,WasteIncineration,Heat_to_electricity,2012,,0.604546087,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,"Table 27. Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,WasteIncineration,Heat_to_electricity,2013,,0.586546123,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,"Table 27. Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,WasteIncineration,Heat_to_electricity,2014,,0.571173202,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,"Table 27. Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,WasteIncineration,Heat_to_electricity,2015,,0.679269763,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,"Table 27. Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,WasteIncineration,Heat_to_electricity,2016,,0.755755576,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,"Table 27. Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,WasteIncineration,Heat_to_electricity,2017,,0.756258106,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,"Table 27. Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,WasteIncineration,Heat_to_electricity,2018,,0.77818295,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,"Table 27. Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,WasteIncineration,Heat_to_electricity,2019,,0.71359743,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,"Table 27. Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,WasteIncineration,Heat_to_electricity,2020,,0.700921348,,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,"Table 27. Multiplied by fraction of small CHP in total CHP capacity (BFE Gesamtenergiestatistik, table 36)"
+CHE,WasteIncineration,Inv,1990,,,,,,
+CHE,WasteIncineration,Inv,1991,,,,,,
+CHE,WasteIncineration,Inv,1992,,,,,,
+CHE,WasteIncineration,Inv,1993,,,,,,
+CHE,WasteIncineration,Inv,1994,,,,,,
+CHE,WasteIncineration,Inv,1995,,,,,,
+CHE,WasteIncineration,Inv,1996,,,,,,
+CHE,WasteIncineration,Inv,1997,,,,,,
+CHE,WasteIncineration,Inv,1998,,,,,,
+CHE,WasteIncineration,Inv,1999,,,,,,
+CHE,WasteIncineration,Inv,2000,,,,,,
+CHE,WasteIncineration,Inv,2001,,,,,,
+CHE,WasteIncineration,Inv,2002,,,,,,
+CHE,WasteIncineration,Inv,2003,,,,,,
+CHE,WasteIncineration,Inv,2004,,,,,,
+CHE,WasteIncineration,Inv,2005,,,,,,
+CHE,WasteIncineration,Inv,2006,,,,,,
+CHE,WasteIncineration,Inv,2007,,,,,,
+CHE,WasteIncineration,Inv,2008,,,,,,
+CHE,WasteIncineration,Inv,2009,,,,,,
+CHE,WasteIncineration,Inv,2010,,,,,,
+CHE,WasteIncineration,Inv,2011,,,,,,
+CHE,WasteIncineration,Inv,2012,,,,,,
+CHE,WasteIncineration,Inv,2013,,,,,,
+CHE,WasteIncineration,Inv,2014,,,,,,
+CHE,WasteIncineration,Inv,2015,,,,,,
+CHE,WasteIncineration,Inv,2016,,,,,,
+CHE,WasteIncineration,Inv,2017,,,,,,
+CHE,WasteIncineration,Inv,2018,,6000,CHF2017/kW,"PSI (2017) Potentials, costs and environmental assessment of electricity generation technologies",,"Waste incinerator, existing in CH"
+CHE,WasteIncineration,Inv,2019,,,,,,
+CHE,WasteIncineration,Fixed_OM_annual,1990,,,,,,
+CHE,WasteIncineration,Fixed_OM_annual,1991,,,,,,
+CHE,WasteIncineration,Fixed_OM_annual,1992,,,,,,
+CHE,WasteIncineration,Fixed_OM_annual,1993,,,,,,
+CHE,WasteIncineration,Fixed_OM_annual,1994,,,,,,
+CHE,WasteIncineration,Fixed_OM_annual,1995,,,,,,
+CHE,WasteIncineration,Fixed_OM_annual,1996,,,,,,
+CHE,WasteIncineration,Fixed_OM_annual,1997,,,,,,
+CHE,WasteIncineration,Fixed_OM_annual,1998,,,,,,
+CHE,WasteIncineration,Fixed_OM_annual,1999,,,,,,
+CHE,WasteIncineration,Fixed_OM_annual,2000,,,,,,
+CHE,WasteIncineration,Fixed_OM_annual,2001,,,,,,
+CHE,WasteIncineration,Fixed_OM_annual,2002,,,,,,
+CHE,WasteIncineration,Fixed_OM_annual,2003,,,,,,
+CHE,WasteIncineration,Fixed_OM_annual,2004,,,,,,
+CHE,WasteIncineration,Fixed_OM_annual,2005,,,,,,
+CHE,WasteIncineration,Fixed_OM_annual,2006,,,,,,
+CHE,WasteIncineration,Fixed_OM_annual,2007,,,,,,
+CHE,WasteIncineration,Fixed_OM_annual,2008,,,,,,
+CHE,WasteIncineration,Fixed_OM_annual,2009,,,,,,
+CHE,WasteIncineration,Fixed_OM_annual,2010,,,,,,
+CHE,WasteIncineration,Fixed_OM_annual,2011,,,,,,
+CHE,WasteIncineration,Fixed_OM_annual,2012,,,,,,
+CHE,WasteIncineration,Fixed_OM_annual,2013,,,,,,
+CHE,WasteIncineration,Fixed_OM_annual,2014,,,,,,
+CHE,WasteIncineration,Fixed_OM_annual,2015,,,,,,
+CHE,WasteIncineration,Fixed_OM_annual,2016,,,,,,
+CHE,WasteIncineration,Fixed_OM_annual,2017,,,,,,
+CHE,WasteIncineration,Fixed_OM_annual,2018,,911,CHF2017/kW,"PSI (2017) Potentials, costs and environmental assessment of electricity generation technologies",,"Waste incinerator, existing in CH"
+CHE,WasteIncineration,Fixed_OM_annual,2019,,,,,,
+CHE,WasteIncineration,Variable_OM,1990,,,,,,
+CHE,WasteIncineration,Variable_OM,1991,,,,,,
+CHE,WasteIncineration,Variable_OM,1992,,,,,,
+CHE,WasteIncineration,Variable_OM,1993,,,,,,
+CHE,WasteIncineration,Variable_OM,1994,,,,,,
+CHE,WasteIncineration,Variable_OM,1995,,,,,,
+CHE,WasteIncineration,Variable_OM,1996,,,,,,
+CHE,WasteIncineration,Variable_OM,1997,,,,,,
+CHE,WasteIncineration,Variable_OM,1998,,,,,,
+CHE,WasteIncineration,Variable_OM,1999,,,,,,
+CHE,WasteIncineration,Variable_OM,2000,,,,,,
+CHE,WasteIncineration,Variable_OM,2001,,,,,,
+CHE,WasteIncineration,Variable_OM,2002,,,,,,
+CHE,WasteIncineration,Variable_OM,2003,,,,,,
+CHE,WasteIncineration,Variable_OM,2004,,,,,,
+CHE,WasteIncineration,Variable_OM,2005,,,,,,
+CHE,WasteIncineration,Variable_OM,2006,,,,,,
+CHE,WasteIncineration,Variable_OM,2007,,,,,,
+CHE,WasteIncineration,Variable_OM,2008,,,,,,
+CHE,WasteIncineration,Variable_OM,2009,,,,,,
+CHE,WasteIncineration,Variable_OM,2010,,,,,,
+CHE,WasteIncineration,Variable_OM,2011,,,,,,
+CHE,WasteIncineration,Variable_OM,2012,,,,,,
+CHE,WasteIncineration,Variable_OM,2013,,,,,,
+CHE,WasteIncineration,Variable_OM,2014,,,,,,
+CHE,WasteIncineration,Variable_OM,2015,,,,,,
+CHE,WasteIncineration,Variable_OM,2016,,,,,,
+CHE,WasteIncineration,Variable_OM,2017,,,,,,
+CHE,WasteIncineration,Variable_OM,2018,,0,CHF2017/MWh,"PSI (2017) Potentials, costs and environmental assessment of electricity generation technologies",,"Waste incinerator, existing in CH"
+CHE,WasteIncineration,Variable_OM,2019,,,,,,
+CHE,WasteIncineration,Actual_capacity,1990,,148,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_capacity,1991,,154,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_capacity,1992,,161,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_capacity,1993,,196,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_capacity,1994,,209,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_capacity,1995,,227,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_capacity,1996,,242,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_capacity,1997,,242,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_capacity,1998,,261,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_capacity,1999,,269,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_capacity,2000,,274,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_capacity,2001,,284,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_capacity,2002,,284,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_capacity,2003,,293,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_capacity,2004,,305,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_capacity,2005,,308,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_capacity,2006,,335,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_capacity,2007,,336,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_capacity,2008,,332,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_capacity,2009,,339,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_capacity,2010,,358,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_capacity,2011,,349,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_capacity,2012,,398,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_capacity,2013,,401,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_capacity,2014,,394,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_capacity,2015,,422,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_capacity,2016,,423,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_capacity,2017,,423,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_capacity,2018,,423,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_capacity,2019,,422,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_new_capacity,1990,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_new_capacity,1991,,6,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_new_capacity,1992,,7,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_new_capacity,1993,,35,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_new_capacity,1994,,13,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_new_capacity,1995,,18,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_new_capacity,1996,,15,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_new_capacity,1997,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_new_capacity,1998,,19,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_new_capacity,1999,,8,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_new_capacity,2000,,5,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_new_capacity,2001,,10,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_new_capacity,2002,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_new_capacity,2003,,9,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_new_capacity,2004,,12,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_new_capacity,2005,,3,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_new_capacity,2006,,27,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_new_capacity,2007,,1,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_new_capacity,2008,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_new_capacity,2009,,7,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_new_capacity,2010,,19,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_new_capacity,2011,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_new_capacity,2012,,49,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_new_capacity,2013,,3,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_new_capacity,2014,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_new_capacity,2015,,28,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_new_capacity,2016,,1,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_new_capacity,2017,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_new_capacity,2018,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_new_capacity,2019,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_retired_capacity,1990,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_retired_capacity,1991,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_retired_capacity,1992,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_retired_capacity,1993,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_retired_capacity,1994,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_retired_capacity,1995,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_retired_capacity,1996,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_retired_capacity,1997,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_retired_capacity,1998,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_retired_capacity,1999,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_retired_capacity,2000,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_retired_capacity,2001,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_retired_capacity,2002,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_retired_capacity,2003,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_retired_capacity,2004,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_retired_capacity,2005,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_retired_capacity,2006,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_retired_capacity,2007,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_retired_capacity,2008,,4,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_retired_capacity,2009,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_retired_capacity,2010,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_retired_capacity,2011,,9,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_retired_capacity,2012,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_retired_capacity,2013,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_retired_capacity,2014,,7,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_retired_capacity,2015,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_retired_capacity,2016,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_retired_capacity,2017,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_retired_capacity,2018,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_retired_capacity,2019,,1,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_retired_capacity,2020,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27
+CHE,WasteIncineration,Actual_generation,1990,,644,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27 - gross production
+CHE,WasteIncineration,Actual_generation,1991,,623,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27 - gross production
+CHE,WasteIncineration,Actual_generation,1992,,692,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27 - gross production
+CHE,WasteIncineration,Actual_generation,1993,,711,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27 - gross production
+CHE,WasteIncineration,Actual_generation,1994,,806,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27 - gross production
+CHE,WasteIncineration,Actual_generation,1995,,833,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27 - gross production
+CHE,WasteIncineration,Actual_generation,1996,,906,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27 - gross production
+CHE,WasteIncineration,Actual_generation,1997,,987,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27 - gross production
+CHE,WasteIncineration,Actual_generation,1998,,1025,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27 - gross production
+CHE,WasteIncineration,Actual_generation,1999,,1134,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27 - gross production
+CHE,WasteIncineration,Actual_generation,2000,,1284,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27 - gross production
+CHE,WasteIncineration,Actual_generation,2001,,1371,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27 - gross production
+CHE,WasteIncineration,Actual_generation,2002,,1426,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27 - gross production
+CHE,WasteIncineration,Actual_generation,2003,,1456,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27 - gross production
+CHE,WasteIncineration,Actual_generation,2004,,1536,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27 - gross production
+CHE,WasteIncineration,Actual_generation,2005,,1620,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27 - gross production
+CHE,WasteIncineration,Actual_generation,2006,,1824,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27 - gross production
+CHE,WasteIncineration,Actual_generation,2007,,1787,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27 - gross production
+CHE,WasteIncineration,Actual_generation,2008,,1833,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27 - gross production
+CHE,WasteIncineration,Actual_generation,2009,,1762,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27 - gross production
+CHE,WasteIncineration,Actual_generation,2010,,1849,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27 - gross production
+CHE,WasteIncineration,Actual_generation,2011,,1918,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27 - gross production
+CHE,WasteIncineration,Actual_generation,2012,,2021,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27 - gross production
+CHE,WasteIncineration,Actual_generation,2013,,2083,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27 - gross production
+CHE,WasteIncineration,Actual_generation,2014,,2200,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27 - gross production
+CHE,WasteIncineration,Actual_generation,2015,,2210,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27 - gross production
+CHE,WasteIncineration,Actual_generation,2016,,2349,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27 - gross production
+CHE,WasteIncineration,Actual_generation,2017,,2349,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27 - gross production
+CHE,WasteIncineration,Actual_generation,2018,,2327,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27 - gross production
+CHE,WasteIncineration,Actual_generation,2019,,2346,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Table 27 - gross production
+CHE,WasteIncineration,Learning_rate,1990,,8.3,,,,
+CHE,WasteIncineration,Initial_retired_capacity,1990,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,WasteIncineration,Initial_retired_capacity,1991,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,WasteIncineration,Initial_retired_capacity,1992,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,WasteIncineration,Initial_retired_capacity,1993,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,WasteIncineration,Initial_retired_capacity,1994,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,WasteIncineration,Initial_retired_capacity,1995,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,WasteIncineration,Initial_retired_capacity,1996,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,WasteIncineration,Initial_retired_capacity,1997,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,WasteIncineration,Initial_retired_capacity,1998,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,WasteIncineration,Initial_retired_capacity,1999,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,WasteIncineration,Initial_retired_capacity,2000,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,WasteIncineration,Initial_retired_capacity,2001,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,WasteIncineration,Initial_retired_capacity,2002,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,WasteIncineration,Initial_retired_capacity,2003,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,WasteIncineration,Initial_retired_capacity,2004,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,WasteIncineration,Initial_retired_capacity,2005,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,WasteIncineration,Initial_retired_capacity,2006,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,WasteIncineration,Initial_retired_capacity,2007,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,WasteIncineration,Initial_retired_capacity,2008,,4,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,WasteIncineration,Initial_retired_capacity,2009,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,WasteIncineration,Initial_retired_capacity,2010,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,WasteIncineration,Initial_retired_capacity,2011,,9,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,WasteIncineration,Initial_retired_capacity,2012,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,WasteIncineration,Initial_retired_capacity,2013,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,WasteIncineration,Initial_retired_capacity,2014,,7,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,WasteIncineration,Initial_retired_capacity,2015,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,WasteIncineration,Initial_retired_capacity,2016,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,WasteIncineration,Initial_retired_capacity,2017,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,WasteIncineration,Initial_retired_capacity,2018,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,WasteIncineration,Initial_retired_capacity,2019,,1,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,WasteIncineration,Initial_retired_capacity,2020,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity

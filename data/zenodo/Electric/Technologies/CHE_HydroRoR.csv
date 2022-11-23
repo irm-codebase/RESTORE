@@ -1,0 +1,577 @@
+Name: CHE HydroRoR
+Date: 2022-10-13 11:23:59.874286
+Author: Marc Jaxa-Rozen, Xin Wen
+
+Country,Entity,Parameter,Year,Period,Value,Unit,Reference,Priority,Note
+CHE,HydroRoR,Resource,1990,,HydroResource,,,,
+CHE,HydroRoR,Resource,1991,,HydroResource,,,,
+CHE,HydroRoR,Resource,1992,,HydroResource,,,,
+CHE,HydroRoR,Resource,1993,,HydroResource,,,,
+CHE,HydroRoR,Resource,1994,,HydroResource,,,,
+CHE,HydroRoR,Resource,1995,,HydroResource,,,,
+CHE,HydroRoR,Resource,1996,,HydroResource,,,,
+CHE,HydroRoR,Resource,1997,,HydroResource,,,,
+CHE,HydroRoR,Resource,1998,,HydroResource,,,,
+CHE,HydroRoR,Resource,1999,,HydroResource,,,,
+CHE,HydroRoR,Resource,2000,,HydroResource,,,,
+CHE,HydroRoR,Resource,2001,,HydroResource,,,,
+CHE,HydroRoR,Resource,2002,,HydroResource,,,,
+CHE,HydroRoR,Resource,2003,,HydroResource,,,,
+CHE,HydroRoR,Resource,2004,,HydroResource,,,,
+CHE,HydroRoR,Resource,2005,,HydroResource,,,,
+CHE,HydroRoR,Resource,2006,,HydroResource,,,,
+CHE,HydroRoR,Resource,2007,,HydroResource,,,,
+CHE,HydroRoR,Resource,2008,,HydroResource,,,,
+CHE,HydroRoR,Resource,2009,,HydroResource,,,,
+CHE,HydroRoR,Resource,2010,,HydroResource,,,,
+CHE,HydroRoR,Resource,2011,,HydroResource,,,,
+CHE,HydroRoR,Resource,2012,,HydroResource,,,,
+CHE,HydroRoR,Resource,2013,,HydroResource,,,,
+CHE,HydroRoR,Resource,2014,,HydroResource,,,,
+CHE,HydroRoR,Resource,2015,,HydroResource,,,,
+CHE,HydroRoR,Resource,2016,,HydroResource,,,,
+CHE,HydroRoR,Resource,2017,,HydroResource,,,,
+CHE,HydroRoR,Resource,2018,,HydroResource,,,,
+CHE,HydroRoR,Resource,2019,,HydroResource,,,,
+CHE,HydroRoR,LF_min,1990,,0,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Assumption - 80% of the minimum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_min,1991,,0.259410345,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Assumption - 80% of the minimum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_min,1992,,0.285397556,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Assumption - 80% of the minimum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_min,1993,,0.280450733,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Assumption - 80% of the minimum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_min,1994,,0.298386351,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Assumption - 80% of the minimum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_min,1995,,0.302819901,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Assumption - 80% of the minimum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_min,1996,,0.296544788,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Assumption - 80% of the minimum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_min,1997,,0.279777654,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Assumption - 80% of the minimum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_min,1998,,0.29173744,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Assumption - 80% of the minimum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_min,1999,,0.314572672,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Assumption - 80% of the minimum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_min,2000,,0.312078854,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Assumption - 80% of the minimum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_min,2001,,0.308141273,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Assumption - 80% of the minimum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_min,2002,,0.307264395,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Assumption - 80% of the minimum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_min,2003,,0.279244734,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Assumption - 80% of the minimum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_min,2004,,0.301439154,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Assumption - 80% of the minimum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_min,2005,,0.276707517,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Assumption - 80% of the minimum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_min,2006,,0.293451752,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Assumption - 80% of the minimum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_min,2007,,0.276420733,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Assumption - 80% of the minimum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_min,2008,,0.289893986,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Assumption - 80% of the minimum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_min,2009,,0.297226495,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Assumption - 80% of the minimum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_min,2010,,0.300842204,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Assumption - 80% of the minimum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_min,2011,,0.262365843,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Assumption - 80% of the minimum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_min,2012,,0.29743174,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Assumption - 80% of the minimum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_min,2013,,0.314421674,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Assumption - 80% of the minimum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_min,2014,,0.31237581,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Assumption - 80% of the minimum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_min,2015,,0.284650491,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Assumption - 80% of the minimum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_min,2016,,0.298924903,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Assumption - 80% of the minimum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_min,2017,,0.298924903,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Assumption - 80% of the minimum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_min,2018,,0.298924903,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Assumption - 80% of the minimum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_min,2019,,0.298924903,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Assumption - 80% of the minimum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_max,1990,,1,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Average value for EU - maximum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_max,1991,,0.481934897,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Average value for EU - maximum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_max,1992,,0.527742639,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Average value for EU - maximum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_max,1993,,0.535787602,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Average value for EU - maximum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_max,1994,,0.575284209,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Average value for EU - maximum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_max,1995,,0.559957168,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Average value for EU - maximum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_max,1996,,0.461516749,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Average value for EU - maximum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_max,1997,,0.49615836,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Average value for EU - maximum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_max,1998,,0.505308337,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Average value for EU - maximum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_max,1999,,0.561828861,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Average value for EU - maximum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_max,2000,,0.593094097,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Average value for EU - maximum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_max,2001,,0.583128018,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Average value for EU - maximum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_max,2002,,0.578988864,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Average value for EU - maximum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_max,2003,,0.505830952,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Average value for EU - maximum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_max,2004,,0.526888079,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Average value for EU - maximum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_max,2005,,0.492690779,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Average value for EU - maximum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_max,2006,,0.496104922,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Average value for EU - maximum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_max,2007,,0.518935973,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Average value for EU - maximum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_max,2008,,0.52074868,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Average value for EU - maximum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_max,2009,,0.502772458,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Average value for EU - maximum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_max,2010,,0.485641975,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Average value for EU - maximum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_max,2011,,0.441426791,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Average value for EU - maximum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_max,2012,,0.530129156,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Average value for EU - maximum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_max,2013,,0.526081952,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Average value for EU - maximum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_max,2014,,0.505525292,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Average value for EU - maximum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_max,2015,,0.480652774,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Average value for EU - maximum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_max,2016,,0.472521492,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Average value for EU - maximum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_max,2017,,0.449106788,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Average value for EU - maximum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_max,2018,,0.467033408,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Average value for EU - maximum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,LF_max,2019,,0.485516068,,ENTSO-E Pan-European Climate Database and Eurostat nrg_ind_pehnf,,"Average value for EU - maximum between synthetic ENTSO-E load factor for 1990-2017 climate years, and historical value"
+CHE,HydroRoR,Peak_contr,1990,,0.84,,"Royal Academy of Engineering (2014) GB electricity capacity margin, table 1",,
+CHE,HydroRoR,Peak_contr,1991,,0.84,,,,
+CHE,HydroRoR,Peak_contr,1992,,0.84,,,,
+CHE,HydroRoR,Peak_contr,1993,,0.84,,,,
+CHE,HydroRoR,Peak_contr,1994,,0.84,,,,
+CHE,HydroRoR,Peak_contr,1995,,0.84,,,,
+CHE,HydroRoR,Peak_contr,1996,,0.84,,,,
+CHE,HydroRoR,Peak_contr,1997,,0.84,,,,
+CHE,HydroRoR,Peak_contr,1998,,0.84,,,,
+CHE,HydroRoR,Peak_contr,1999,,0.84,,,,
+CHE,HydroRoR,Peak_contr,2000,,0.84,,,,
+CHE,HydroRoR,Peak_contr,2001,,0.84,,,,
+CHE,HydroRoR,Peak_contr,2002,,0.84,,,,
+CHE,HydroRoR,Peak_contr,2003,,0.84,,,,
+CHE,HydroRoR,Peak_contr,2004,,0.84,,,,
+CHE,HydroRoR,Peak_contr,2005,,0.84,,,,
+CHE,HydroRoR,Peak_contr,2006,,0.84,,,,
+CHE,HydroRoR,Peak_contr,2007,,0.84,,,,
+CHE,HydroRoR,Peak_contr,2008,,0.84,,,,
+CHE,HydroRoR,Peak_contr,2009,,0.84,,,,
+CHE,HydroRoR,Peak_contr,2010,,0.84,,,,
+CHE,HydroRoR,Peak_contr,2011,,0.84,,,,
+CHE,HydroRoR,Peak_contr,2012,,0.84,,,,
+CHE,HydroRoR,Peak_contr,2013,,0.84,,,,
+CHE,HydroRoR,Peak_contr,2014,,0.84,,,,
+CHE,HydroRoR,Peak_contr,2015,,0.84,,,,
+CHE,HydroRoR,Peak_contr,2016,,0.84,,,,
+CHE,HydroRoR,Peak_contr,2017,,0.84,,,,
+CHE,HydroRoR,Peak_contr,2018,,0.84,,,,
+CHE,HydroRoR,Peak_contr,2019,,0.84,,,,
+CHE,HydroRoR,Own_use,1990,,0.02,,Assumption,,
+CHE,HydroRoR,Own_use,1991,,0.02,,,,
+CHE,HydroRoR,Own_use,1992,,0.02,,,,
+CHE,HydroRoR,Own_use,1993,,0.02,,,,
+CHE,HydroRoR,Own_use,1994,,0.02,,,,
+CHE,HydroRoR,Own_use,1995,,0.02,,,,
+CHE,HydroRoR,Own_use,1996,,0.02,,,,
+CHE,HydroRoR,Own_use,1997,,0.02,,,,
+CHE,HydroRoR,Own_use,1998,,0.02,,,,
+CHE,HydroRoR,Own_use,1999,,0.02,,,,
+CHE,HydroRoR,Own_use,2000,,0.02,,,,
+CHE,HydroRoR,Own_use,2001,,0.02,,,,
+CHE,HydroRoR,Own_use,2002,,0.02,,,,
+CHE,HydroRoR,Own_use,2003,,0.02,,,,
+CHE,HydroRoR,Own_use,2004,,0.02,,,,
+CHE,HydroRoR,Own_use,2005,,0.02,,,,
+CHE,HydroRoR,Own_use,2006,,0.02,,,,
+CHE,HydroRoR,Own_use,2007,,0.02,,,,
+CHE,HydroRoR,Own_use,2008,,0.02,,,,
+CHE,HydroRoR,Own_use,2009,,0.02,,,,
+CHE,HydroRoR,Own_use,2010,,0.02,,,,
+CHE,HydroRoR,Own_use,2011,,0.02,,,,
+CHE,HydroRoR,Own_use,2012,,0.02,,,,
+CHE,HydroRoR,Own_use,2013,,0.02,,,,
+CHE,HydroRoR,Own_use,2014,,0.02,,,,
+CHE,HydroRoR,Own_use,2015,,0.02,,,,
+CHE,HydroRoR,Own_use,2016,,0.02,,,,
+CHE,HydroRoR,Own_use,2017,,0.02,,,,
+CHE,HydroRoR,Own_use,2018,,0.02,,,,
+CHE,HydroRoR,Own_use,2019,,0.02,,,,
+CHE,HydroRoR,Buildrates,1990,,1,GW,Assumption,,Maximum between generic assumption of 1.0GW/year and peak historical buildrate for HydroRoR in CHE
+CHE,HydroRoR,Buildrates,1991,,1,GW,Assumption,,Maximum between generic assumption of 1.0GW/year and peak historical buildrate for HydroRoR in CHE
+CHE,HydroRoR,Buildrates,1992,,1,GW,Assumption,,Maximum between generic assumption of 1.0GW/year and peak historical buildrate for HydroRoR in CHE
+CHE,HydroRoR,Buildrates,1993,,1,GW,Assumption,,Maximum between generic assumption of 1.0GW/year and peak historical buildrate for HydroRoR in CHE
+CHE,HydroRoR,Buildrates,1994,,1,GW,Assumption,,Maximum between generic assumption of 1.0GW/year and peak historical buildrate for HydroRoR in CHE
+CHE,HydroRoR,Buildrates,1995,,1,GW,Assumption,,Maximum between generic assumption of 1.0GW/year and peak historical buildrate for HydroRoR in CHE
+CHE,HydroRoR,Buildrates,1996,,1,GW,Assumption,,Maximum between generic assumption of 1.0GW/year and peak historical buildrate for HydroRoR in CHE
+CHE,HydroRoR,Buildrates,1997,,1,GW,Assumption,,Maximum between generic assumption of 1.0GW/year and peak historical buildrate for HydroRoR in CHE
+CHE,HydroRoR,Buildrates,1998,,1,GW,Assumption,,Maximum between generic assumption of 1.0GW/year and peak historical buildrate for HydroRoR in CHE
+CHE,HydroRoR,Buildrates,1999,,1,GW,Assumption,,Maximum between generic assumption of 1.0GW/year and peak historical buildrate for HydroRoR in CHE
+CHE,HydroRoR,Buildrates,2000,,1,GW,Assumption,,Maximum between generic assumption of 1.0GW/year and peak historical buildrate for HydroRoR in CHE
+CHE,HydroRoR,Buildrates,2001,,1,GW,Assumption,,Maximum between generic assumption of 1.0GW/year and peak historical buildrate for HydroRoR in CHE
+CHE,HydroRoR,Buildrates,2002,,1,GW,Assumption,,Maximum between generic assumption of 1.0GW/year and peak historical buildrate for HydroRoR in CHE
+CHE,HydroRoR,Buildrates,2003,,1,GW,Assumption,,Maximum between generic assumption of 1.0GW/year and peak historical buildrate for HydroRoR in CHE
+CHE,HydroRoR,Buildrates,2004,,1,GW,Assumption,,Maximum between generic assumption of 1.0GW/year and peak historical buildrate for HydroRoR in CHE
+CHE,HydroRoR,Buildrates,2005,,1,GW,Assumption,,Maximum between generic assumption of 1.0GW/year and peak historical buildrate for HydroRoR in CHE
+CHE,HydroRoR,Buildrates,2006,,1,GW,Assumption,,Maximum between generic assumption of 1.0GW/year and peak historical buildrate for HydroRoR in CHE
+CHE,HydroRoR,Buildrates,2007,,1,GW,Assumption,,Maximum between generic assumption of 1.0GW/year and peak historical buildrate for HydroRoR in CHE
+CHE,HydroRoR,Buildrates,2008,,1,GW,Assumption,,Maximum between generic assumption of 1.0GW/year and peak historical buildrate for HydroRoR in CHE
+CHE,HydroRoR,Buildrates,2009,,1,GW,Assumption,,Maximum between generic assumption of 1.0GW/year and peak historical buildrate for HydroRoR in CHE
+CHE,HydroRoR,Buildrates,2010,,1,GW,Assumption,,Maximum between generic assumption of 1.0GW/year and peak historical buildrate for HydroRoR in CHE
+CHE,HydroRoR,Buildrates,2011,,1,GW,Assumption,,Maximum between generic assumption of 1.0GW/year and peak historical buildrate for HydroRoR in CHE
+CHE,HydroRoR,Buildrates,2012,,1,GW,Assumption,,Maximum between generic assumption of 1.0GW/year and peak historical buildrate for HydroRoR in CHE
+CHE,HydroRoR,Buildrates,2013,,1,GW,Assumption,,Maximum between generic assumption of 1.0GW/year and peak historical buildrate for HydroRoR in CHE
+CHE,HydroRoR,Buildrates,2014,,1,GW,Assumption,,Maximum between generic assumption of 1.0GW/year and peak historical buildrate for HydroRoR in CHE
+CHE,HydroRoR,Buildrates,2015,,1,GW,Assumption,,Maximum between generic assumption of 1.0GW/year and peak historical buildrate for HydroRoR in CHE
+CHE,HydroRoR,Buildrates,2016,,1,GW,Assumption,,Maximum between generic assumption of 1.0GW/year and peak historical buildrate for HydroRoR in CHE
+CHE,HydroRoR,Buildrates,2017,,1,GW,Assumption,,Maximum between generic assumption of 1.0GW/year and peak historical buildrate for HydroRoR in CHE
+CHE,HydroRoR,Buildrates,2018,,1,GW,Assumption,,Maximum between generic assumption of 1.0GW/year and peak historical buildrate for HydroRoR in CHE
+CHE,HydroRoR,Buildrates,2019,,1,GW,Assumption,,Maximum between generic assumption of 1.0GW/year and peak historical buildrate for HydroRoR in CHE
+CHE,HydroRoR,Lifetime,2010,,40,yr,,,
+CHE,HydroRoR,Potential_annual,1990,,22200,GWh,"Berntsen & Trutnevyte (2017) http://dx.doi.org/10.1016/j.energy.2017.03.043, assumption",,
+CHE,HydroRoR,Potential_annual,1991,,,GWh,,,
+CHE,HydroRoR,Potential_annual,1992,,,GWh,,,
+CHE,HydroRoR,Potential_annual,1993,,,GWh,,,
+CHE,HydroRoR,Potential_annual,1994,,,GWh,,,
+CHE,HydroRoR,Potential_annual,1995,,,GWh,,,
+CHE,HydroRoR,Potential_annual,1996,,,GWh,,,
+CHE,HydroRoR,Potential_annual,1997,,,GWh,,,
+CHE,HydroRoR,Potential_annual,1998,,,GWh,,,
+CHE,HydroRoR,Potential_annual,1999,,,GWh,,,
+CHE,HydroRoR,Potential_annual,2000,,,GWh,,,
+CHE,HydroRoR,Potential_annual,2001,,,GWh,,,
+CHE,HydroRoR,Potential_annual,2002,,,GWh,,,
+CHE,HydroRoR,Potential_annual,2003,,,GWh,,,
+CHE,HydroRoR,Potential_annual,2004,,,GWh,,,
+CHE,HydroRoR,Potential_annual,2005,,,GWh,,,
+CHE,HydroRoR,Potential_annual,2006,,,GWh,,,
+CHE,HydroRoR,Potential_annual,2007,,,GWh,,,
+CHE,HydroRoR,Potential_annual,2008,,,GWh,,,
+CHE,HydroRoR,Potential_annual,2009,,,GWh,,,
+CHE,HydroRoR,Potential_annual,2010,,,GWh,,,
+CHE,HydroRoR,Potential_annual,2011,,,GWh,,,
+CHE,HydroRoR,Potential_annual,2012,,,GWh,,,
+CHE,HydroRoR,Potential_annual,2013,,,GWh,,,
+CHE,HydroRoR,Potential_annual,2014,,,GWh,,,
+CHE,HydroRoR,Potential_annual,2015,,,GWh,,,
+CHE,HydroRoR,Potential_annual,2016,,,GWh,,,
+CHE,HydroRoR,Potential_annual,2017,,,GWh,,,
+CHE,HydroRoR,Potential_annual,2018,,,GWh,,,
+CHE,HydroRoR,Potential_annual,2019,,,GWh,,,
+CHE,HydroRoR,Potential_installed,1990,,,GW,,,
+CHE,HydroRoR,Potential_installed,1991,,,GW,,,
+CHE,HydroRoR,Potential_installed,1992,,,GW,,,
+CHE,HydroRoR,Potential_installed,1993,,,GW,,,
+CHE,HydroRoR,Potential_installed,1994,,,GW,,,
+CHE,HydroRoR,Potential_installed,1995,,,GW,,,
+CHE,HydroRoR,Potential_installed,1996,,,GW,,,
+CHE,HydroRoR,Potential_installed,1997,,,GW,,,
+CHE,HydroRoR,Potential_installed,1998,,,GW,,,
+CHE,HydroRoR,Potential_installed,1999,,,GW,,,
+CHE,HydroRoR,Potential_installed,2000,,,GW,,,
+CHE,HydroRoR,Potential_installed,2001,,,GW,,,
+CHE,HydroRoR,Potential_installed,2002,,,GW,,,
+CHE,HydroRoR,Potential_installed,2003,,,GW,,,
+CHE,HydroRoR,Potential_installed,2004,,,GW,,,
+CHE,HydroRoR,Potential_installed,2005,,,GW,,,
+CHE,HydroRoR,Potential_installed,2006,,,GW,,,
+CHE,HydroRoR,Potential_installed,2007,,,GW,,,
+CHE,HydroRoR,Potential_installed,2008,,,GW,,,
+CHE,HydroRoR,Potential_installed,2009,,,GW,,,
+CHE,HydroRoR,Potential_installed,2010,,,GW,,,
+CHE,HydroRoR,Potential_installed,2011,,,GW,,,
+CHE,HydroRoR,Potential_installed,2012,,,GW,,,
+CHE,HydroRoR,Potential_installed,2013,,,GW,,,
+CHE,HydroRoR,Potential_installed,2014,,,GW,,,
+CHE,HydroRoR,Potential_installed,2015,,,GW,,,
+CHE,HydroRoR,Potential_installed,2016,,,GW,,,
+CHE,HydroRoR,Potential_installed,2017,,,GW,,,
+CHE,HydroRoR,Potential_installed,2018,,,GW,,,
+CHE,HydroRoR,Potential_installed,2019,,,GW,,,
+CHE,HydroRoR,Ramp_rate,1990,,10,,"Parsons Brinckerhoff (2011) Powering the future, table A5.3.2.1",,
+CHE,HydroRoR,Ramp_rate,1991,,10,,,,
+CHE,HydroRoR,Ramp_rate,1992,,10,,,,
+CHE,HydroRoR,Ramp_rate,1993,,10,,,,
+CHE,HydroRoR,Ramp_rate,1994,,10,,,,
+CHE,HydroRoR,Ramp_rate,1995,,10,,,,
+CHE,HydroRoR,Ramp_rate,1996,,10,,,,
+CHE,HydroRoR,Ramp_rate,1997,,10,,,,
+CHE,HydroRoR,Ramp_rate,1998,,10,,,,
+CHE,HydroRoR,Ramp_rate,1999,,10,,,,
+CHE,HydroRoR,Ramp_rate,2000,,10,,,,
+CHE,HydroRoR,Ramp_rate,2001,,10,,,,
+CHE,HydroRoR,Ramp_rate,2002,,10,,,,
+CHE,HydroRoR,Ramp_rate,2003,,10,,,,
+CHE,HydroRoR,Ramp_rate,2004,,10,,,,
+CHE,HydroRoR,Ramp_rate,2005,,10,,,,
+CHE,HydroRoR,Ramp_rate,2006,,10,,,,
+CHE,HydroRoR,Ramp_rate,2007,,10,,,,
+CHE,HydroRoR,Ramp_rate,2008,,10,,,,
+CHE,HydroRoR,Ramp_rate,2009,,10,,,,
+CHE,HydroRoR,Ramp_rate,2010,,10,,,,
+CHE,HydroRoR,Ramp_rate,2011,,10,,,,
+CHE,HydroRoR,Ramp_rate,2012,,10,,,,
+CHE,HydroRoR,Ramp_rate,2013,,10,,,,
+CHE,HydroRoR,Ramp_rate,2014,,10,,,,
+CHE,HydroRoR,Ramp_rate,2015,,10,,,,
+CHE,HydroRoR,Ramp_rate,2016,,10,,,,
+CHE,HydroRoR,Ramp_rate,2017,,10,,,,
+CHE,HydroRoR,Ramp_rate,2018,,10,,,,
+CHE,HydroRoR,Ramp_rate,2019,,10,,,,
+CHE,HydroRoR,Fuel_efficiency,1990,,1,,,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,HydroRoR,Fuel_efficiency,1991,,1,,,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,HydroRoR,Fuel_efficiency,1992,,1,,,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,HydroRoR,Fuel_efficiency,1993,,1,,,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,HydroRoR,Fuel_efficiency,1994,,1,,,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,HydroRoR,Fuel_efficiency,1995,,1,,,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,HydroRoR,Fuel_efficiency,1996,,1,,,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,HydroRoR,Fuel_efficiency,1997,,1,,,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,HydroRoR,Fuel_efficiency,1998,,1,,,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,HydroRoR,Fuel_efficiency,1999,,1,,,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,HydroRoR,Fuel_efficiency,2000,,1,,,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,HydroRoR,Fuel_efficiency,2001,,1,,,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,HydroRoR,Fuel_efficiency,2002,,1,,,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,HydroRoR,Fuel_efficiency,2003,,1,,,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,HydroRoR,Fuel_efficiency,2004,,1,,,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,HydroRoR,Fuel_efficiency,2005,,1,,,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,HydroRoR,Fuel_efficiency,2006,,1,,,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,HydroRoR,Fuel_efficiency,2007,,1,,,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,HydroRoR,Fuel_efficiency,2008,,1,,,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,HydroRoR,Fuel_efficiency,2009,,1,,,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,HydroRoR,Fuel_efficiency,2010,,1,,,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,HydroRoR,Fuel_efficiency,2011,,1,,,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,HydroRoR,Fuel_efficiency,2012,,1,,,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,HydroRoR,Fuel_efficiency,2013,,1,,,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,HydroRoR,Fuel_efficiency,2014,,1,,,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,HydroRoR,Fuel_efficiency,2015,,1,,,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,HydroRoR,Fuel_efficiency,2016,,1,,,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,HydroRoR,Fuel_efficiency,2017,,1,,,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,HydroRoR,Fuel_efficiency,2018,,1,,,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,HydroRoR,Fuel_efficiency,2019,,1,,,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,HydroRoR,Heat_to_electricity,1990,,0,,,,
+CHE,HydroRoR,Heat_to_electricity,1991,,0,,,,
+CHE,HydroRoR,Heat_to_electricity,1992,,0,,,,
+CHE,HydroRoR,Heat_to_electricity,1993,,0,,,,
+CHE,HydroRoR,Heat_to_electricity,1994,,0,,,,
+CHE,HydroRoR,Heat_to_electricity,1995,,0,,,,
+CHE,HydroRoR,Heat_to_electricity,1996,,0,,,,
+CHE,HydroRoR,Heat_to_electricity,1997,,0,,,,
+CHE,HydroRoR,Heat_to_electricity,1998,,0,,,,
+CHE,HydroRoR,Heat_to_electricity,1999,,0,,,,
+CHE,HydroRoR,Heat_to_electricity,2000,,0,,,,
+CHE,HydroRoR,Heat_to_electricity,2001,,0,,,,
+CHE,HydroRoR,Heat_to_electricity,2002,,0,,,,
+CHE,HydroRoR,Heat_to_electricity,2003,,0,,,,
+CHE,HydroRoR,Heat_to_electricity,2004,,0,,,,
+CHE,HydroRoR,Heat_to_electricity,2005,,0,,,,
+CHE,HydroRoR,Heat_to_electricity,2006,,0,,,,
+CHE,HydroRoR,Heat_to_electricity,2007,,0,,,,
+CHE,HydroRoR,Heat_to_electricity,2008,,0,,,,
+CHE,HydroRoR,Heat_to_electricity,2009,,0,,,,
+CHE,HydroRoR,Heat_to_electricity,2010,,0,,,,
+CHE,HydroRoR,Heat_to_electricity,2011,,0,,,,
+CHE,HydroRoR,Heat_to_electricity,2012,,0,,,,
+CHE,HydroRoR,Heat_to_electricity,2013,,0,,,,
+CHE,HydroRoR,Heat_to_electricity,2014,,0,,,,
+CHE,HydroRoR,Heat_to_electricity,2015,,0,,,,
+CHE,HydroRoR,Heat_to_electricity,2016,,0,,,,
+CHE,HydroRoR,Heat_to_electricity,2017,,0,,,,
+CHE,HydroRoR,Heat_to_electricity,2018,,0,,,,
+CHE,HydroRoR,Heat_to_electricity,2019,,0,,,,
+CHE,HydroRoR,Inv,1990,,,,,,
+CHE,HydroRoR,Inv,1991,,,,,,
+CHE,HydroRoR,Inv,1992,,,,,,
+CHE,HydroRoR,Inv,1993,,,,,,
+CHE,HydroRoR,Inv,1994,,,,,,
+CHE,HydroRoR,Inv,1995,,,,,,
+CHE,HydroRoR,Inv,1996,,,,,,
+CHE,HydroRoR,Inv,1997,,,,,,
+CHE,HydroRoR,Inv,1998,,,,,,
+CHE,HydroRoR,Inv,1999,,,,,,
+CHE,HydroRoR,Inv,2000,,,,,,
+CHE,HydroRoR,Inv,2001,,,,,,
+CHE,HydroRoR,Inv,2002,,,,,,
+CHE,HydroRoR,Inv,2003,,,,,,
+CHE,HydroRoR,Inv,2004,,,,,,
+CHE,HydroRoR,Inv,2005,,,,,,
+CHE,HydroRoR,Inv,2006,,,,,,
+CHE,HydroRoR,Inv,2007,,,,,,
+CHE,HydroRoR,Inv,2008,,,,,,
+CHE,HydroRoR,Inv,2009,,,,,,
+CHE,HydroRoR,Inv,2010,,,,,,
+CHE,HydroRoR,Inv,2011,,,,,,
+CHE,HydroRoR,Inv,2012,,,,,,
+CHE,HydroRoR,Inv,2013,,,,,,
+CHE,HydroRoR,Inv,2014,,5500,EUR2013/kW,JRC ETRI (2014),,"JRC ETRI costs, hydro RoR (table 14)"
+CHE,HydroRoR,Inv,2015,,,,,,
+CHE,HydroRoR,Inv,2016,,,,,,
+CHE,HydroRoR,Inv,2017,,,,,,
+CHE,HydroRoR,Inv,2018,,,,,,
+CHE,HydroRoR,Inv,2019,,,,,,
+CHE,HydroRoR,Fixed_OM_annual,1990,,,,,,
+CHE,HydroRoR,Fixed_OM_annual,1991,,,,,,
+CHE,HydroRoR,Fixed_OM_annual,1992,,,,,,
+CHE,HydroRoR,Fixed_OM_annual,1993,,,,,,
+CHE,HydroRoR,Fixed_OM_annual,1994,,,,,,
+CHE,HydroRoR,Fixed_OM_annual,1995,,,,,,
+CHE,HydroRoR,Fixed_OM_annual,1996,,,,,,
+CHE,HydroRoR,Fixed_OM_annual,1997,,,,,,
+CHE,HydroRoR,Fixed_OM_annual,1998,,,,,,
+CHE,HydroRoR,Fixed_OM_annual,1999,,,,,,
+CHE,HydroRoR,Fixed_OM_annual,2000,,,,,,
+CHE,HydroRoR,Fixed_OM_annual,2001,,,,,,
+CHE,HydroRoR,Fixed_OM_annual,2002,,,,,,
+CHE,HydroRoR,Fixed_OM_annual,2003,,,,,,
+CHE,HydroRoR,Fixed_OM_annual,2004,,,,,,
+CHE,HydroRoR,Fixed_OM_annual,2005,,,,,,
+CHE,HydroRoR,Fixed_OM_annual,2006,,,,,,
+CHE,HydroRoR,Fixed_OM_annual,2007,,,,,,
+CHE,HydroRoR,Fixed_OM_annual,2008,,,,,,
+CHE,HydroRoR,Fixed_OM_annual,2009,,,,,,
+CHE,HydroRoR,Fixed_OM_annual,2010,,,,,,
+CHE,HydroRoR,Fixed_OM_annual,2011,,,,,,
+CHE,HydroRoR,Fixed_OM_annual,2012,,,,,,
+CHE,HydroRoR,Fixed_OM_annual,2013,,,,,,
+CHE,HydroRoR,Fixed_OM_annual,2014,,82.5,EUR2013/kW,JRC ETRI (2014),,"JRC ETRI costs, hydro RoR (table 14)"
+CHE,HydroRoR,Fixed_OM_annual,2015,,,,,,
+CHE,HydroRoR,Fixed_OM_annual,2016,,,,,,
+CHE,HydroRoR,Fixed_OM_annual,2017,,,,,,
+CHE,HydroRoR,Fixed_OM_annual,2018,,,,,,
+CHE,HydroRoR,Fixed_OM_annual,2019,,,,,,
+CHE,HydroRoR,Variable_OM,1990,,,,,,
+CHE,HydroRoR,Variable_OM,1991,,,,,,
+CHE,HydroRoR,Variable_OM,1992,,,,,,
+CHE,HydroRoR,Variable_OM,1993,,,,,,
+CHE,HydroRoR,Variable_OM,1994,,,,,,
+CHE,HydroRoR,Variable_OM,1995,,,,,,
+CHE,HydroRoR,Variable_OM,1996,,,,,,
+CHE,HydroRoR,Variable_OM,1997,,,,,,
+CHE,HydroRoR,Variable_OM,1998,,,,,,
+CHE,HydroRoR,Variable_OM,1999,,,,,,
+CHE,HydroRoR,Variable_OM,2000,,,,,,
+CHE,HydroRoR,Variable_OM,2001,,,,,,
+CHE,HydroRoR,Variable_OM,2002,,,,,,
+CHE,HydroRoR,Variable_OM,2003,,,,,,
+CHE,HydroRoR,Variable_OM,2004,,,,,,
+CHE,HydroRoR,Variable_OM,2005,,,,,,
+CHE,HydroRoR,Variable_OM,2006,,,,,,
+CHE,HydroRoR,Variable_OM,2007,,,,,,
+CHE,HydroRoR,Variable_OM,2008,,,,,,
+CHE,HydroRoR,Variable_OM,2009,,,,,,
+CHE,HydroRoR,Variable_OM,2010,,,,,,
+CHE,HydroRoR,Variable_OM,2011,,,,,,
+CHE,HydroRoR,Variable_OM,2012,,,,,,
+CHE,HydroRoR,Variable_OM,2013,,,,,,
+CHE,HydroRoR,Variable_OM,2014,,5,EUR2013/MWh,JRC ETRI (2014),,"JRC ETRI costs, hydro RoR (table 14)"
+CHE,HydroRoR,Variable_OM,2015,,,,,,
+CHE,HydroRoR,Variable_OM,2016,,,,,,
+CHE,HydroRoR,Variable_OM,2017,,,,,,
+CHE,HydroRoR,Variable_OM,2018,,,,,,
+CHE,HydroRoR,Variable_OM,2019,,,,,,
+CHE,HydroRoR,Actual_capacity,1990,,3292,MW,,,
+CHE,HydroRoR,Actual_capacity,1991,,3292,MW,BFE Statistik der Wasserkraftanlagen,,"Sum of max. generator power. Original source seems to be gross capacity, here multiplied by 0.85 for approximate consistency with 2010-2019 series"
+CHE,HydroRoR,Actual_capacity,1992,,3292,MW,,,
+CHE,HydroRoR,Actual_capacity,1993,,3292,MW,,,
+CHE,HydroRoR,Actual_capacity,1994,,3292,MW,,,
+CHE,HydroRoR,Actual_capacity,1995,,3292,MW,,,
+CHE,HydroRoR,Actual_capacity,1996,,3381,MW,BFE Statistik der Wasserkraftanlagen,,"Sum of max. generator power. Original source seems to be gross capacity, here multiplied by 0.85 for approximate consistency with 2010-2019 series"
+CHE,HydroRoR,Actual_capacity,1997,,3381,MW,,,
+CHE,HydroRoR,Actual_capacity,1998,,3381,MW,,,
+CHE,HydroRoR,Actual_capacity,1999,,3381,MW,,,
+CHE,HydroRoR,Actual_capacity,2000,,3381,MW,,,
+CHE,HydroRoR,Actual_capacity,2001,,3475,MW,BFE Statistik der Wasserkraftanlagen,,"Sum of max. generator power. Original source seems to be gross capacity, here multiplied by 0.85 for approximate consistency with 2010-2019 series"
+CHE,HydroRoR,Actual_capacity,2002,,3475,MW,,,
+CHE,HydroRoR,Actual_capacity,2003,,3475,MW,,,
+CHE,HydroRoR,Actual_capacity,2004,,3475,MW,,,
+CHE,HydroRoR,Actual_capacity,2005,,3475,MW,,,
+CHE,HydroRoR,Actual_capacity,2006,,3640,MW,"Office federal de l'energie OFEN Statistique des amenagements hydroelectriques de la Suisse, Tableau 12",,
+CHE,HydroRoR,Actual_capacity,2007,,3640,MW,,,
+CHE,HydroRoR,Actual_capacity,2008,,3657.8,MW,"Office federal de l'energie OFEN Statistique des amenagements hydroelectriques de la Suisse, Tableau 12",,
+CHE,HydroRoR,Actual_capacity,2009,,3657.8,MW,,,
+CHE,HydroRoR,Actual_capacity,2010,,3768.02,MW,"Office federal de l'energie OFEN Statistique des amenagements hydroelectriques de la Suisse, Tableau 12",,
+CHE,HydroRoR,Actual_capacity,2011,,3810.03,MW,"Office federal de l'energie OFEN Statistique des amenagements hydroelectriques de la Suisse, Tableau 12",,
+CHE,HydroRoR,Actual_capacity,2012,,3839.85,MW,"Office federal de l'energie OFEN Statistique des amenagements hydroelectriques de la Suisse, Tableau 12",,
+CHE,HydroRoR,Actual_capacity,2013,,3853.55,MW,"Office federal de l'energie OFEN Statistique des amenagements hydroelectriques de la Suisse, Tableau 12",,
+CHE,HydroRoR,Actual_capacity,2014,,3893.73,MW,"Office federal de l'energie OFEN Statistique des amenagements hydroelectriques de la Suisse, Tableau 12",,
+CHE,HydroRoR,Actual_capacity,2015,,3941.32,MW,"Office federal de l'energie OFEN Statistique des amenagements hydroelectriques de la Suisse, Tableau 12",,
+CHE,HydroRoR,Actual_capacity,2016,,4004.07,MW,"Office federal de l'energie OFEN Statistique des amenagements hydroelectriques de la Suisse, Tableau 12",,
+CHE,HydroRoR,Actual_capacity,2017,,4053.2,MW,"Office federal de l'energie OFEN Statistique des amenagements hydroelectriques de la Suisse, Tableau 12",,
+CHE,HydroRoR,Actual_capacity,2018,,4132.76,MW,"Office federal de l'energie OFEN Statistique des amenagements hydroelectriques de la Suisse, Tableau 12",,
+CHE,HydroRoR,Actual_capacity,2019,,4161.65,MW,"Office federal de l'energie OFEN Statistique des amenagements hydroelectriques de la Suisse, Tableau 12",,
+CHE,HydroRoR,Actual_new_capacity,1990,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_new_capacity,1991,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_new_capacity,1992,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_new_capacity,1993,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_new_capacity,1994,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_new_capacity,1995,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_new_capacity,1996,,89,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_new_capacity,1997,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_new_capacity,1998,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_new_capacity,1999,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_new_capacity,2000,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_new_capacity,2001,,94,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_new_capacity,2002,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_new_capacity,2003,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_new_capacity,2004,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_new_capacity,2005,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_new_capacity,2006,,165,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_new_capacity,2007,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_new_capacity,2008,,17.8,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_new_capacity,2009,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_new_capacity,2010,,110.22,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_new_capacity,2011,,42.01,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_new_capacity,2012,,29.82,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_new_capacity,2013,,13.7,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_new_capacity,2014,,40.18,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_new_capacity,2015,,47.59,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_new_capacity,2016,,62.75,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_new_capacity,2017,,49.13,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_new_capacity,2018,,79.56,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_new_capacity,2019,,28.89,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_retired_capacity,1990,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_retired_capacity,1991,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_retired_capacity,1992,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_retired_capacity,1993,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_retired_capacity,1994,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_retired_capacity,1995,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_retired_capacity,1996,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_retired_capacity,1997,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_retired_capacity,1998,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_retired_capacity,1999,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_retired_capacity,2000,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_retired_capacity,2001,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_retired_capacity,2002,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_retired_capacity,2003,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_retired_capacity,2004,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_retired_capacity,2005,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_retired_capacity,2006,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_retired_capacity,2007,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_retired_capacity,2008,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_retired_capacity,2009,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_retired_capacity,2010,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_retired_capacity,2011,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_retired_capacity,2012,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_retired_capacity,2013,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_retired_capacity,2014,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_retired_capacity,2015,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_retired_capacity,2016,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_retired_capacity,2017,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_retired_capacity,2018,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_retired_capacity,2019,,0,MW,,,Based on changes in net installed capacity
+CHE,HydroRoR,Actual_generation,1990,,13561,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020 Tableau 24",,
+CHE,HydroRoR,Actual_generation,1991,,13898,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020 Tableau 24",,
+CHE,HydroRoR,Actual_generation,1992,,15219,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020 Tableau 24",,
+CHE,HydroRoR,Actual_generation,1993,,15451,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020 Tableau 24",,
+CHE,HydroRoR,Actual_generation,1994,,16590,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020 Tableau 24",,
+CHE,HydroRoR,Actual_generation,1995,,16148,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020 Tableau 24",,
+CHE,HydroRoR,Actual_generation,1996,,13669,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020 Tableau 24",,
+CHE,HydroRoR,Actual_generation,1997,,14695,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020 Tableau 24",,
+CHE,HydroRoR,Actual_generation,1998,,14966,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020 Tableau 24",,
+CHE,HydroRoR,Actual_generation,1999,,16640,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020 Tableau 24",,
+CHE,HydroRoR,Actual_generation,2000,,17566,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020 Tableau 24",,
+CHE,HydroRoR,Actual_generation,2001,,17751,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020 Tableau 24",,
+CHE,HydroRoR,Actual_generation,2002,,17625,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020 Tableau 24",,
+CHE,HydroRoR,Actual_generation,2003,,15398,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020 Tableau 24",,
+CHE,HydroRoR,Actual_generation,2004,,16039,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020 Tableau 24",,
+CHE,HydroRoR,Actual_generation,2005,,14998,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020 Tableau 24",,
+CHE,HydroRoR,Actual_generation,2006,,15819,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020 Tableau 24",,
+CHE,HydroRoR,Actual_generation,2007,,16547,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020 Tableau 24",,
+CHE,HydroRoR,Actual_generation,2008,,16686,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020 Tableau 24",,
+CHE,HydroRoR,Actual_generation,2009,,16110,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020 Tableau 24",,
+CHE,HydroRoR,Actual_generation,2010,,16030,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020 Tableau 24",,
+CHE,HydroRoR,Actual_generation,2011,,14733,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020 Tableau 24",,
+CHE,HydroRoR,Actual_generation,2012,,17832,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020 Tableau 24",,
+CHE,HydroRoR,Actual_generation,2013,,17759,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020 Tableau 24",,
+CHE,HydroRoR,Actual_generation,2014,,17243,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020 Tableau 24",,
+CHE,HydroRoR,Actual_generation,2015,,16595,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020 Tableau 24",,
+CHE,HydroRoR,Actual_generation,2016,,16574,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020 Tableau 24",,
+CHE,HydroRoR,Actual_generation,2017,,15946,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020 Tableau 24",,
+CHE,HydroRoR,Actual_generation,2018,,16908,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020 Tableau 24",,
+CHE,HydroRoR,Actual_generation,2019,,17700,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020 Tableau 24",,
+CHE,HydroRoR,Learning_rate,1990,,8.3,,,,
+CHE,HydroRoR,Initial_retired_capacity,1990,,0,MW,,,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,HydroRoR,Initial_retired_capacity,1991,,0,MW,,,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,HydroRoR,Initial_retired_capacity,1992,,0,MW,,,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,HydroRoR,Initial_retired_capacity,1993,,0,MW,,,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,HydroRoR,Initial_retired_capacity,1994,,0,MW,,,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,HydroRoR,Initial_retired_capacity,1995,,0,MW,,,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,HydroRoR,Initial_retired_capacity,1996,,0,MW,,,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,HydroRoR,Initial_retired_capacity,1997,,0,MW,,,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,HydroRoR,Initial_retired_capacity,1998,,0,MW,,,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,HydroRoR,Initial_retired_capacity,1999,,0,MW,,,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,HydroRoR,Initial_retired_capacity,2000,,0,MW,,,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,HydroRoR,Initial_retired_capacity,2001,,0,MW,,,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,HydroRoR,Initial_retired_capacity,2002,,0,MW,,,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,HydroRoR,Initial_retired_capacity,2003,,0,MW,,,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,HydroRoR,Initial_retired_capacity,2004,,0,MW,,,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,HydroRoR,Initial_retired_capacity,2005,,0,MW,,,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,HydroRoR,Initial_retired_capacity,2006,,0,MW,,,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,HydroRoR,Initial_retired_capacity,2007,,0,MW,,,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,HydroRoR,Initial_retired_capacity,2008,,0,MW,,,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,HydroRoR,Initial_retired_capacity,2009,,0,MW,,,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,HydroRoR,Initial_retired_capacity,2010,,0,MW,,,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,HydroRoR,Initial_retired_capacity,2011,,0,MW,,,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,HydroRoR,Initial_retired_capacity,2012,,0,MW,,,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,HydroRoR,Initial_retired_capacity,2013,,0,MW,,,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,HydroRoR,Initial_retired_capacity,2014,,0,MW,,,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,HydroRoR,Initial_retired_capacity,2015,,0,MW,,,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,HydroRoR,Initial_retired_capacity,2016,,0,MW,,,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,HydroRoR,Initial_retired_capacity,2017,,0,MW,,,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,HydroRoR,Initial_retired_capacity,2018,,0,MW,,,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,HydroRoR,Initial_retired_capacity,2019,,0,MW,,,Follows actual retirements until cumulative sum reaches initial installed capacity

@@ -1,0 +1,588 @@
+Name: CHE PV
+Date: 2022-10-13 11:23:59.915282
+Author: Marc Jaxa-Rozen, Xin Wen
+
+Country,Entity,Parameter,Year,Period,Value,Unit,Reference,Priority,Note
+CHE,PV,Resource,1990,,SolarResource,,,,
+CHE,PV,Resource,1991,,SolarResource,,,,
+CHE,PV,Resource,1992,,SolarResource,,,,
+CHE,PV,Resource,1993,,SolarResource,,,,
+CHE,PV,Resource,1994,,SolarResource,,,,
+CHE,PV,Resource,1995,,SolarResource,,,,
+CHE,PV,Resource,1996,,SolarResource,,,,
+CHE,PV,Resource,1997,,SolarResource,,,,
+CHE,PV,Resource,1998,,SolarResource,,,,
+CHE,PV,Resource,1999,,SolarResource,,,,
+CHE,PV,Resource,2000,,SolarResource,,,,
+CHE,PV,Resource,2001,,SolarResource,,,,
+CHE,PV,Resource,2002,,SolarResource,,,,
+CHE,PV,Resource,2003,,SolarResource,,,,
+CHE,PV,Resource,2004,,SolarResource,,,,
+CHE,PV,Resource,2005,,SolarResource,,,,
+CHE,PV,Resource,2006,,SolarResource,,,,
+CHE,PV,Resource,2007,,SolarResource,,,,
+CHE,PV,Resource,2008,,SolarResource,,,,
+CHE,PV,Resource,2009,,SolarResource,,,,
+CHE,PV,Resource,2010,,SolarResource,,,,
+CHE,PV,Resource,2011,,SolarResource,,,,
+CHE,PV,Resource,2012,,SolarResource,,,,
+CHE,PV,Resource,2013,,SolarResource,,,,
+CHE,PV,Resource,2014,,SolarResource,,,,
+CHE,PV,Resource,2015,,SolarResource,,,,
+CHE,PV,Resource,2016,,SolarResource,,,,
+CHE,PV,Resource,2017,,SolarResource,,,,
+CHE,PV,Resource,2018,,SolarResource,,,,
+CHE,PV,Resource,2019,,SolarResource,,,,
+CHE,PV,Peak_contr,1990,,0,,,,
+CHE,PV,Peak_contr,1991,,0,,,,
+CHE,PV,Peak_contr,1992,,0,,,,
+CHE,PV,Peak_contr,1993,,0,,,,
+CHE,PV,Peak_contr,1994,,0,,,,
+CHE,PV,Peak_contr,1995,,0,,,,
+CHE,PV,Peak_contr,1996,,0,,,,
+CHE,PV,Peak_contr,1997,,0,,,,
+CHE,PV,Peak_contr,1998,,0,,,,
+CHE,PV,Peak_contr,1999,,0,,,,
+CHE,PV,Peak_contr,2000,,0,,,,
+CHE,PV,Peak_contr,2001,,0,,,,
+CHE,PV,Peak_contr,2002,,0,,,,
+CHE,PV,Peak_contr,2003,,0,,,,
+CHE,PV,Peak_contr,2004,,0,,,,
+CHE,PV,Peak_contr,2005,,0,,,,
+CHE,PV,Peak_contr,2006,,0,,,,
+CHE,PV,Peak_contr,2007,,0,,,,
+CHE,PV,Peak_contr,2008,,0,,,,
+CHE,PV,Peak_contr,2009,,0,,,,
+CHE,PV,Peak_contr,2010,,0,,,,
+CHE,PV,Peak_contr,2011,,0,,,,
+CHE,PV,Peak_contr,2012,,0,,,,
+CHE,PV,Peak_contr,2013,,0,,,,
+CHE,PV,Peak_contr,2014,,0,,,,
+CHE,PV,Peak_contr,2015,,0,,,,
+CHE,PV,Peak_contr,2016,,0,,,,
+CHE,PV,Peak_contr,2017,,0,,,,
+CHE,PV,Peak_contr,2018,,0,,,,
+CHE,PV,Peak_contr,2019,,0,,,,
+CHE,PV,Peak_contr,2020,,0,,,,
+CHE,PV,Own_use,1990,,0,,Assumption,,
+CHE,PV,Own_use,1991,,0,,Assumption,,
+CHE,PV,Own_use,1992,,0,,Assumption,,
+CHE,PV,Own_use,1993,,0,,Assumption,,
+CHE,PV,Own_use,1994,,0,,Assumption,,
+CHE,PV,Own_use,1995,,0,,Assumption,,
+CHE,PV,Own_use,1996,,0,,Assumption,,
+CHE,PV,Own_use,1997,,0,,Assumption,,
+CHE,PV,Own_use,1998,,0,,Assumption,,
+CHE,PV,Own_use,1999,,0,,Assumption,,
+CHE,PV,Own_use,2000,,0,,Assumption,,
+CHE,PV,Own_use,2001,,0,,Assumption,,
+CHE,PV,Own_use,2002,,0,,Assumption,,
+CHE,PV,Own_use,2003,,0,,Assumption,,
+CHE,PV,Own_use,2004,,0,,Assumption,,
+CHE,PV,Own_use,2005,,0,,Assumption,,
+CHE,PV,Own_use,2006,,0,,Assumption,,
+CHE,PV,Own_use,2007,,0,,Assumption,,
+CHE,PV,Own_use,2008,,0,,Assumption,,
+CHE,PV,Own_use,2009,,0,,Assumption,,
+CHE,PV,Own_use,2010,,0,,Assumption,,
+CHE,PV,Own_use,2011,,0,,Assumption,,
+CHE,PV,Own_use,2012,,0,,Assumption,,
+CHE,PV,Own_use,2013,,0,,Assumption,,
+CHE,PV,Own_use,2014,,0,,Assumption,,
+CHE,PV,Own_use,2015,,0,,Assumption,,
+CHE,PV,Own_use,2016,,0,,Assumption,,
+CHE,PV,Own_use,2017,,0,,Assumption,,
+CHE,PV,Own_use,2018,,0,,Assumption,,
+CHE,PV,Own_use,2019,,0,,Assumption,,
+CHE,PV,Own_use,2020,,0,,Assumption,,
+CHE,PV,Buildrates,1990,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for PV in CHE, rounded up to 0.25GW"
+CHE,PV,Buildrates,1991,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for PV in CHE, rounded up to 0.25GW"
+CHE,PV,Buildrates,1992,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for PV in CHE, rounded up to 0.25GW"
+CHE,PV,Buildrates,1993,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for PV in CHE, rounded up to 0.25GW"
+CHE,PV,Buildrates,1994,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for PV in CHE, rounded up to 0.25GW"
+CHE,PV,Buildrates,1995,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for PV in CHE, rounded up to 0.25GW"
+CHE,PV,Buildrates,1996,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for PV in CHE, rounded up to 0.25GW"
+CHE,PV,Buildrates,1997,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for PV in CHE, rounded up to 0.25GW"
+CHE,PV,Buildrates,1998,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for PV in CHE, rounded up to 0.25GW"
+CHE,PV,Buildrates,1999,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for PV in CHE, rounded up to 0.25GW"
+CHE,PV,Buildrates,2000,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for PV in CHE, rounded up to 0.25GW"
+CHE,PV,Buildrates,2001,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for PV in CHE, rounded up to 0.25GW"
+CHE,PV,Buildrates,2002,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for PV in CHE, rounded up to 0.25GW"
+CHE,PV,Buildrates,2003,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for PV in CHE, rounded up to 0.25GW"
+CHE,PV,Buildrates,2004,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for PV in CHE, rounded up to 0.25GW"
+CHE,PV,Buildrates,2005,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for PV in CHE, rounded up to 0.25GW"
+CHE,PV,Buildrates,2006,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for PV in CHE, rounded up to 0.25GW"
+CHE,PV,Buildrates,2007,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for PV in CHE, rounded up to 0.25GW"
+CHE,PV,Buildrates,2008,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for PV in CHE, rounded up to 0.25GW"
+CHE,PV,Buildrates,2009,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for PV in CHE, rounded up to 0.25GW"
+CHE,PV,Buildrates,2010,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for PV in CHE, rounded up to 0.25GW"
+CHE,PV,Buildrates,2011,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for PV in CHE, rounded up to 0.25GW"
+CHE,PV,Buildrates,2012,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for PV in CHE, rounded up to 0.25GW"
+CHE,PV,Buildrates,2013,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for PV in CHE, rounded up to 0.25GW"
+CHE,PV,Buildrates,2014,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for PV in CHE, rounded up to 0.25GW"
+CHE,PV,Buildrates,2015,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for PV in CHE, rounded up to 0.25GW"
+CHE,PV,Buildrates,2016,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for PV in CHE, rounded up to 0.25GW"
+CHE,PV,Buildrates,2017,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for PV in CHE, rounded up to 0.25GW"
+CHE,PV,Buildrates,2018,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for PV in CHE, rounded up to 0.25GW"
+CHE,PV,Buildrates,2019,,0.5,GW,Assumption,,"Maximum between generic assumption of 0.25GW/year and peak historical buildrate for PV in CHE, rounded up to 0.25GW"
+CHE,PV,Buildrates,2020,,1,GW,,,
+CHE,PV,Lifetime,2010,,25,yr,,,
+CHE,PV,Potential_annual,1990,,73.24475633,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_annual,1991,,73.24475633,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_annual,1992,,73.24475633,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_annual,1993,,73.24475633,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_annual,1994,,73.24475633,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_annual,1995,,73.24475633,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_annual,1996,,73.24475633,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_annual,1997,,73.24475633,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_annual,1998,,73.24475633,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_annual,1999,,73.24475633,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_annual,2000,,73.24475633,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_annual,2001,,73.24475633,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_annual,2002,,73.24475633,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_annual,2003,,73.24475633,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_annual,2004,,73.24475633,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_annual,2005,,73.24475633,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_annual,2006,,73.24475633,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_annual,2007,,73.24475633,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_annual,2008,,73.24475633,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_annual,2009,,73.24475633,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_annual,2010,,73.24475633,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_annual,2011,,73.24475633,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_annual,2012,,73.24475633,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_annual,2013,,73.24475633,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_annual,2014,,73.24475633,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_annual,2015,,73.24475633,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_annual,2016,,73.24475633,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_annual,2017,,73.24475633,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_annual,2018,,73.24475633,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_annual,2019,,73.24475633,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_annual,2020,,73.24475633,TWh,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100389,,Technical-social potential for rooftop and ground-mounted PV
+CHE,PV,Potential_installed,1990,,64516.78204,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_installed,1991,,64516.78204,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_installed,1992,,64516.78204,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_installed,1993,,64516.78204,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_installed,1994,,64516.78204,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_installed,1995,,64516.78204,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_installed,1996,,64516.78204,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_installed,1997,,64516.78204,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_installed,1998,,64516.78204,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_installed,1999,,64516.78204,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_installed,2000,,64516.78204,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_installed,2001,,64516.78204,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_installed,2002,,64516.78204,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_installed,2003,,64516.78204,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_installed,2004,,64516.78204,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_installed,2005,,64516.78204,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_installed,2006,,64516.78204,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_installed,2007,,64516.78204,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_installed,2008,,64516.78204,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_installed,2009,,64516.78204,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_installed,2010,,64516.78204,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_installed,2011,,64516.78204,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_installed,2012,,64516.78204,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_installed,2013,,64516.78204,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_installed,2014,,64516.78204,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_installed,2015,,64516.78204,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_installed,2016,,64516.78204,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_installed,2017,,64516.78204,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_installed,2018,,64516.78204,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_installed,2019,,64516.78204,MW,Trondle et al. (2019) https://doi.org/10.1016/j.esr.2019.100388,,Sum of rooftop and open-field PV
+CHE,PV,Potential_installed,2020,,64516.78204,MW,https://doi.org/10.1016/j.esr.2019.100388,,Technical-social potential for rooftop and ground-mounted PV
+CHE,PV,Ramp_rate,1990,,10,,Assumption,,
+CHE,PV,Ramp_rate,1991,,10,,,,
+CHE,PV,Ramp_rate,1992,,10,,,,
+CHE,PV,Ramp_rate,1993,,10,,,,
+CHE,PV,Ramp_rate,1994,,10,,,,
+CHE,PV,Ramp_rate,1995,,10,,,,
+CHE,PV,Ramp_rate,1996,,10,,,,
+CHE,PV,Ramp_rate,1997,,10,,,,
+CHE,PV,Ramp_rate,1998,,10,,,,
+CHE,PV,Ramp_rate,1999,,10,,,,
+CHE,PV,Ramp_rate,2000,,10,,,,
+CHE,PV,Ramp_rate,2001,,10,,,,
+CHE,PV,Ramp_rate,2002,,10,,,,
+CHE,PV,Ramp_rate,2003,,10,,,,
+CHE,PV,Ramp_rate,2004,,10,,,,
+CHE,PV,Ramp_rate,2005,,10,,,,
+CHE,PV,Ramp_rate,2006,,10,,,,
+CHE,PV,Ramp_rate,2007,,10,,,,
+CHE,PV,Ramp_rate,2008,,10,,,,
+CHE,PV,Ramp_rate,2009,,10,,,,
+CHE,PV,Ramp_rate,2010,,10,,,,
+CHE,PV,Ramp_rate,2011,,10,,,,
+CHE,PV,Ramp_rate,2012,,10,,,,
+CHE,PV,Ramp_rate,2013,,10,,,,
+CHE,PV,Ramp_rate,2014,,10,,,,
+CHE,PV,Ramp_rate,2015,,10,,,,
+CHE,PV,Ramp_rate,2016,,10,,,,
+CHE,PV,Ramp_rate,2017,,10,,,,
+CHE,PV,Ramp_rate,2018,,10,,,,
+CHE,PV,Ramp_rate,2019,,10,,,,
+CHE,PV,Ramp_rate,2020,,10,,,,
+CHE,PV,Fuel_efficiency,1990,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,PV,Fuel_efficiency,1991,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,PV,Fuel_efficiency,1992,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,PV,Fuel_efficiency,1993,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,PV,Fuel_efficiency,1994,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,PV,Fuel_efficiency,1995,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,PV,Fuel_efficiency,1996,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,PV,Fuel_efficiency,1997,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,PV,Fuel_efficiency,1998,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,PV,Fuel_efficiency,1999,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,PV,Fuel_efficiency,2000,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,PV,Fuel_efficiency,2001,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,PV,Fuel_efficiency,2002,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,PV,Fuel_efficiency,2003,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,PV,Fuel_efficiency,2004,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,PV,Fuel_efficiency,2005,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,PV,Fuel_efficiency,2006,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,PV,Fuel_efficiency,2007,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,PV,Fuel_efficiency,2008,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,PV,Fuel_efficiency,2009,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,PV,Fuel_efficiency,2010,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,PV,Fuel_efficiency,2011,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,PV,Fuel_efficiency,2012,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,PV,Fuel_efficiency,2013,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,PV,Fuel_efficiency,2014,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,PV,Fuel_efficiency,2015,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,PV,Fuel_efficiency,2016,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,PV,Fuel_efficiency,2017,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,PV,Fuel_efficiency,2018,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,PV,Fuel_efficiency,2019,,1,,Eurostat dataset nrg_bal_c,,"GEP/sum(TI_EHG_MAPE_E, TI_EHG_MAPCHP_E, TI_EHG_APE_E, TI_EHG_APCHP_E)"
+CHE,PV,Fuel_efficiency,2020,,1,,,,
+CHE,PV,Heat_to_electricity,1990,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,PV,Heat_to_electricity,1991,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,PV,Heat_to_electricity,1992,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,PV,Heat_to_electricity,1993,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,PV,Heat_to_electricity,1994,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,PV,Heat_to_electricity,1995,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,PV,Heat_to_electricity,1996,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,PV,Heat_to_electricity,1997,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,PV,Heat_to_electricity,1998,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,PV,Heat_to_electricity,1999,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,PV,Heat_to_electricity,2000,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,PV,Heat_to_electricity,2001,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,PV,Heat_to_electricity,2002,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,PV,Heat_to_electricity,2003,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,PV,Heat_to_electricity,2004,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,PV,Heat_to_electricity,2005,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,PV,Heat_to_electricity,2006,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,PV,Heat_to_electricity,2007,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,PV,Heat_to_electricity,2008,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,PV,Heat_to_electricity,2009,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,PV,Heat_to_electricity,2010,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,PV,Heat_to_electricity,2011,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,PV,Heat_to_electricity,2012,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,PV,Heat_to_electricity,2013,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,PV,Heat_to_electricity,2014,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,PV,Heat_to_electricity,2015,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,PV,Heat_to_electricity,2016,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,PV,Heat_to_electricity,2017,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,PV,Heat_to_electricity,2018,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,PV,Heat_to_electricity,2019,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,PV,Heat_to_electricity,2020,,0,,Based on Eurostat energy balances GHP_MAPCHP+GHP_APCHP,,
+CHE,PV,Inv,1990,,7987.55187,USD1990/kW,Assumed constant,,
+CHE,PV,Inv,1991,,7987.55187,USD1991/kW,Assumed constant,,
+CHE,PV,Inv,1992,,7987.55187,USD1992/kW,Assumed constant,,
+CHE,PV,Inv,1993,,7987.55187,USD1993/kW,IEA PVPS annual reports,,"IEA PVPS (2001) Trends in PV applications, figure 7"
+CHE,PV,Inv,1994,,7900.41494,USD1994/kW,IEA PVPS annual reports,,"IEA PVPS (2001) Trends in PV applications, figure 7"
+CHE,PV,Inv,1995,,7697.09544,USD1995/kW,IEA PVPS annual reports,,"IEA PVPS (2001) Trends in PV applications, figure 7"
+CHE,PV,Inv,1996,,7668.04979,USD1996/kW,IEA PVPS annual reports,,"IEA PVPS (2001) Trends in PV applications, figure 7"
+CHE,PV,Inv,1997,,7464.73029,USD1997/kW,IEA PVPS annual reports,,"IEA PVPS (2001) Trends in PV applications, figure 7"
+CHE,PV,Inv,1998,,7522.82158,USD1998/kW,IEA PVPS annual reports,,"IEA PVPS (2001) Trends in PV applications, figure 7"
+CHE,PV,Inv,1999,,7232.36515,USD1999/kW,IEA PVPS annual reports,,"IEA PVPS (2001) Trends in PV applications, figure 7"
+CHE,PV,Inv,2000,,7580.91286,USD2000/kW,IEA PVPS annual reports,,"IEA PVPS (2001) Trends in PV applications, figure 7"
+CHE,PV,Inv,2001,,6100,USD2001/kW,IEA PVPS annual reports,,"Largest on-grid system reported, average of range"
+CHE,PV,Inv,2002,,6100,USD2002/kW,IEA PVPS annual reports,,"Largest on-grid system reported, average of range"
+CHE,PV,Inv,2003,,5800,USD2003/kW,IEA PVPS annual reports,,"Largest on-grid system reported, average of range"
+CHE,PV,Inv,2004,,6000,USD2004/kW,IEA PVPS annual reports,,"Largest on-grid system reported, average of range"
+CHE,PV,Inv,2005,,6500,USD2005/kW,IEA PVPS annual reports,,"Largest on-grid system reported, average of range"
+CHE,PV,Inv,2006,,7200,USD2006/kW,IEA PVPS annual reports,,"Largest on-grid system reported, average of range"
+CHE,PV,Inv,2007,,6950,USD2007/kW,IEA PVPS annual reports,,"Largest on-grid system reported, average of range"
+CHE,PV,Inv,2008,,7750,USD2008/kW,IEA PVPS annual reports,,"Largest on-grid system reported, average of range"
+CHE,PV,Inv,2009,,5900,USD2009/kW,IEA PVPS annual reports,,"Largest on-grid system reported, average of range"
+CHE,PV,Inv,2010,,5999.015537,USD2020/kW,IRENA (2021) Renewable Power Generation Costs,,"Utility-scale time series for DEU (Figure 3.4), plus 60% (average difference between CHE and DEU for residential systems 2013-2020, table 3.1) - probably conservative"
+CHE,PV,Inv,2011,,4790.900882,USD2020/kW,IRENA (2021) Renewable Power Generation Costs,,"Utility-scale time series for DEU (Figure 3.4), plus 60% (average difference between CHE and DEU for residential systems 2013-2020, table 3.1) - probably conservative"
+CHE,PV,Inv,2012,,3791.122979,USD2020/kW,IRENA (2021) Renewable Power Generation Costs,,"Utility-scale time series for DEU (Figure 3.4), plus 60% (average difference between CHE and DEU for residential systems 2013-2020, table 3.1) - probably conservative"
+CHE,PV,Inv,2013,,3249.77825,USD2020/kW,IRENA (2021) Renewable Power Generation Costs,,"Utility-scale time series for DEU (Figure 3.4), plus 60% (average difference between CHE and DEU for residential systems 2013-2020, table 3.1) - probably conservative"
+CHE,PV,Inv,2014,,2590.815307,USD2020/kW,IRENA (2021) Renewable Power Generation Costs,,"Utility-scale time series for DEU (Figure 3.4), plus 60% (average difference between CHE and DEU for residential systems 2013-2020, table 3.1) - probably conservative"
+CHE,PV,Inv,2015,,2072.077063,USD2020/kW,IRENA (2021) Renewable Power Generation Costs,,"Utility-scale time series for DEU (Figure 3.4), plus 60% (average difference between CHE and DEU for residential systems 2013-2020, table 3.1) - probably conservative"
+CHE,PV,Inv,2016,,1881.143025,USD2020/kW,IRENA (2021) Renewable Power Generation Costs,,"Utility-scale time series for DEU (Figure 3.4), plus 60% (average difference between CHE and DEU for residential systems 2013-2020, table 3.1) - probably conservative"
+CHE,PV,Inv,2017,,1803.934916,USD2020/kW,IRENA (2021) Renewable Power Generation Costs,,"Utility-scale time series for DEU (Figure 3.4), plus 60% (average difference between CHE and DEU for residential systems 2013-2020, table 3.1) - probably conservative"
+CHE,PV,Inv,2018,,1802.219667,USD2020/kW,IRENA (2021) Renewable Power Generation Costs,,"Utility-scale time series for DEU (Figure 3.4), plus 60% (average difference between CHE and DEU for residential systems 2013-2020, table 3.1) - probably conservative"
+CHE,PV,Inv,2019,,1455.218396,USD2020/kW,IRENA (2021) Renewable Power Generation Costs,,"Utility-scale time series for DEU (Figure 3.4), plus 60% (average difference between CHE and DEU for residential systems 2013-2020, table 3.1) - probably conservative"
+CHE,PV,Inv,2020,,1119.38085,USD2020/kW,IRENA (2021) Renewable Power Generation Costs,,"Utility-scale time series for DEU (Figure 3.4), plus 60% (average difference between CHE and DEU for residential systems 2013-2020, table 3.1) - probably conservative"
+CHE,PV,Fixed_OM_annual,1990,,,,,,
+CHE,PV,Fixed_OM_annual,1991,,,,,,
+CHE,PV,Fixed_OM_annual,1992,,,,,,
+CHE,PV,Fixed_OM_annual,1993,,,,,,
+CHE,PV,Fixed_OM_annual,1994,,,,,,
+CHE,PV,Fixed_OM_annual,1995,,,,,,
+CHE,PV,Fixed_OM_annual,1996,,,,,,
+CHE,PV,Fixed_OM_annual,1997,,,,,,
+CHE,PV,Fixed_OM_annual,1998,,,,,,
+CHE,PV,Fixed_OM_annual,1999,,,,,,
+CHE,PV,Fixed_OM_annual,2000,,,,,,
+CHE,PV,Fixed_OM_annual,2001,,,,,,
+CHE,PV,Fixed_OM_annual,2002,,,,,,
+CHE,PV,Fixed_OM_annual,2003,,,,,,
+CHE,PV,Fixed_OM_annual,2004,,,,,,
+CHE,PV,Fixed_OM_annual,2005,,,,,,
+CHE,PV,Fixed_OM_annual,2006,,,,,,
+CHE,PV,Fixed_OM_annual,2007,,,,,,
+CHE,PV,Fixed_OM_annual,2008,,,,,,
+CHE,PV,Fixed_OM_annual,2009,,,,,,
+CHE,PV,Fixed_OM_annual,2010,,,,,,
+CHE,PV,Fixed_OM_annual,2011,,,,,,
+CHE,PV,Fixed_OM_annual,2012,,,,,,
+CHE,PV,Fixed_OM_annual,2013,,,,,,
+CHE,PV,Fixed_OM_annual,2014,,,,,,
+CHE,PV,Fixed_OM_annual,2015,,,,,,
+CHE,PV,Fixed_OM_annual,2016,,,,,,
+CHE,PV,Fixed_OM_annual,2017,,,,,,
+CHE,PV,Fixed_OM_annual,2018,,15,CHF2017/kW,"PSI (2017) Potentials, costs and environmental assessment of electricity generation technologies",,1 MW
+CHE,PV,Fixed_OM_annual,2019,,,,,,
+CHE,PV,Fixed_OM_annual,2020,,,,,,
+CHE,PV,Variable_OM,1990,,,,,,
+CHE,PV,Variable_OM,1991,,,,,,
+CHE,PV,Variable_OM,1992,,,,,,
+CHE,PV,Variable_OM,1993,,,,,,
+CHE,PV,Variable_OM,1994,,,,,,
+CHE,PV,Variable_OM,1995,,,,,,
+CHE,PV,Variable_OM,1996,,,,,,
+CHE,PV,Variable_OM,1997,,,,,,
+CHE,PV,Variable_OM,1998,,,,,,
+CHE,PV,Variable_OM,1999,,,,,,
+CHE,PV,Variable_OM,2000,,,,,,
+CHE,PV,Variable_OM,2001,,,,,,
+CHE,PV,Variable_OM,2002,,,,,,
+CHE,PV,Variable_OM,2003,,,,,,
+CHE,PV,Variable_OM,2004,,,,,,
+CHE,PV,Variable_OM,2005,,,,,,
+CHE,PV,Variable_OM,2006,,,,,,
+CHE,PV,Variable_OM,2007,,,,,,
+CHE,PV,Variable_OM,2008,,,,,,
+CHE,PV,Variable_OM,2009,,,,,,
+CHE,PV,Variable_OM,2010,,,,,,
+CHE,PV,Variable_OM,2011,,,,,,
+CHE,PV,Variable_OM,2012,,,,,,
+CHE,PV,Variable_OM,2013,,,,,,
+CHE,PV,Variable_OM,2014,,,,,,
+CHE,PV,Variable_OM,2015,,,,,,
+CHE,PV,Variable_OM,2016,,,,,,
+CHE,PV,Variable_OM,2017,,,,,,
+CHE,PV,Variable_OM,2018,,0,CHF2017/MWh,"PSI (2017) Potentials, costs and environmental assessment of electricity generation technologies",,1 MW
+CHE,PV,Variable_OM,2019,,,,,,
+CHE,PV,Variable_OM,2020,,,,,,
+CHE,PV,Actual_capacity,1990,,2.1,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_capacity,1991,,3.3,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_capacity,1992,,4.5,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_capacity,1993,,5.4,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_capacity,1994,,6.3,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_capacity,1995,,7.1,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_capacity,1996,,8,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_capacity,1997,,8.8,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_capacity,1998,,10.2,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_capacity,1999,,11.7,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_capacity,2000,,13.7,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_capacity,2001,,16.1,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_capacity,2002,,17.9,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_capacity,2003,,19.5,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_capacity,2004,,21.8,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_capacity,2005,,25.7,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_capacity,2006,,27.4,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_capacity,2007,,34.5,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_capacity,2008,,46.4,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_capacity,2009,,76.5,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_capacity,2010,,122.4,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_capacity,2011,,219.9,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_capacity,2012,,433.5,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_capacity,2013,,752.4,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_capacity,2014,,1056.9,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_capacity,2015,,1390.1,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_capacity,2016,,1660.2,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_capacity,2017,,1902.3,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_capacity,2018,,2167.6,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_capacity,2019,,2492,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_new_capacity,1990,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_new_capacity,1991,,1.2,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_new_capacity,1992,,1.2,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_new_capacity,1993,,0.9,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_new_capacity,1994,,0.9,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_new_capacity,1995,,0.8,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_new_capacity,1996,,0.9,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_new_capacity,1997,,0.8,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_new_capacity,1998,,1.4,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_new_capacity,1999,,1.5,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_new_capacity,2000,,2,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_new_capacity,2001,,2.4,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_new_capacity,2002,,1.8,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_new_capacity,2003,,1.6,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_new_capacity,2004,,2.3,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_new_capacity,2005,,3.9,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_new_capacity,2006,,1.7,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_new_capacity,2007,,7.1,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_new_capacity,2008,,11.9,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_new_capacity,2009,,30.1,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_new_capacity,2010,,45.9,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_new_capacity,2011,,97.5,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_new_capacity,2012,,213.6,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_new_capacity,2013,,318.9,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_new_capacity,2014,,304.5,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_new_capacity,2015,,333.2,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_new_capacity,2016,,270.1,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_new_capacity,2017,,242.1,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_new_capacity,2018,,265.3,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_new_capacity,2019,,324.4,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_retired_capacity,1990,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_retired_capacity,1991,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_retired_capacity,1992,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_retired_capacity,1993,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_retired_capacity,1994,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_retired_capacity,1995,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_retired_capacity,1996,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_retired_capacity,1997,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_retired_capacity,1998,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_retired_capacity,1999,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_retired_capacity,2000,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_retired_capacity,2001,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_retired_capacity,2002,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_retired_capacity,2003,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_retired_capacity,2004,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_retired_capacity,2005,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_retired_capacity,2006,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_retired_capacity,2007,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_retired_capacity,2008,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_retired_capacity,2009,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_retired_capacity,2010,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_retired_capacity,2011,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_retired_capacity,2012,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_retired_capacity,2013,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_retired_capacity,2014,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_retired_capacity,2015,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_retired_capacity,2016,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_retired_capacity,2017,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_retired_capacity,2018,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_retired_capacity,2019,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Assumption from changes in net capacity
+CHE,PV,Actual_generation,1990,,1.3,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_generation,1991,,2.1,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_generation,1992,,3.1,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_generation,1993,,4,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_generation,1994,,4.7,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_generation,1995,,5.4,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_generation,1996,,6,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_generation,1997,,6.7,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_generation,1998,,7.6,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_generation,1999,,8.8,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_generation,2000,,10.2,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_generation,2001,,11.9,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_generation,2002,,13.6,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_generation,2003,,16.3,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_generation,2004,,16.8,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_generation,2005,,19.5,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_generation,2006,,22.4,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_generation,2007,,27.1,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_generation,2008,,35.2,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_generation,2009,,52.9,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_generation,2010,,92,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_generation,2011,,166.3,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_generation,2012,,297.7,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_generation,2013,,498.8,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_generation,2014,,839.5,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_generation,2015,,1116.4,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_generation,2016,,1331.4,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_generation,2017,,1680.8,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_generation,2018,,1942.2,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Actual_generation,2019,,2174.3,GWh,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,
+CHE,PV,Learning_rate,1990,,8.3,,,,
+CHE,PV,LF_min,1990,,0,,,,
+CHE,PV,LF_min,1991,,0,,,,
+CHE,PV,LF_min,1992,,0,,,,
+CHE,PV,LF_min,1993,,0,,,,
+CHE,PV,LF_min,1994,,0,,,,
+CHE,PV,LF_min,1995,,0,,,,
+CHE,PV,LF_min,1996,,0,,,,
+CHE,PV,LF_min,1997,,0,,,,
+CHE,PV,LF_min,1998,,0,,,,
+CHE,PV,LF_min,1999,,0,,,,
+CHE,PV,LF_min,2000,,0,,,,
+CHE,PV,LF_min,2001,,0,,,,
+CHE,PV,LF_min,2002,,0,,,,
+CHE,PV,LF_min,2003,,0,,,,
+CHE,PV,LF_min,2004,,0,,,,
+CHE,PV,LF_min,2005,,0,,,,
+CHE,PV,LF_min,2006,,0,,,,
+CHE,PV,LF_min,2007,,0,,,,
+CHE,PV,LF_min,2008,,0,,,,
+CHE,PV,LF_min,2009,,0,,,,
+CHE,PV,LF_min,2010,,0,,,,
+CHE,PV,LF_min,2011,,0,,,,
+CHE,PV,LF_min,2012,,0,,,,
+CHE,PV,LF_min,2013,,0,,,,
+CHE,PV,LF_min,2014,,0,,,,
+CHE,PV,LF_min,2015,,0,,,,
+CHE,PV,LF_min,2016,,0,,,,
+CHE,PV,LF_min,2017,,0,,,,
+CHE,PV,LF_min,2018,,0,,,,
+CHE,PV,LF_min,2019,,0,,,,
+CHE,PV,LF_max,1990,,1,,,,
+CHE,PV,LF_max,1991,,0.2,,,,
+CHE,PV,LF_max,1992,,0.2,,,,
+CHE,PV,LF_max,1993,,0.2,,,,
+CHE,PV,LF_max,1994,,0.2,,,,
+CHE,PV,LF_max,1995,,0.2,,,,
+CHE,PV,LF_max,1996,,0.2,,,,
+CHE,PV,LF_max,1997,,0.2,,,,
+CHE,PV,LF_max,1998,,0.2,,,,
+CHE,PV,LF_max,1999,,0.2,,,,
+CHE,PV,LF_max,2000,,0.2,,,,
+CHE,PV,LF_max,2001,,0.2,,,,
+CHE,PV,LF_max,2002,,0.2,,,,
+CHE,PV,LF_max,2003,,0.2,,,,
+CHE,PV,LF_max,2004,,0.2,,,,
+CHE,PV,LF_max,2005,,0.2,,,,
+CHE,PV,LF_max,2006,,0.2,,,,
+CHE,PV,LF_max,2007,,0.2,,,,
+CHE,PV,LF_max,2008,,0.2,,,,
+CHE,PV,LF_max,2009,,0.2,,,,
+CHE,PV,LF_max,2010,,0.2,,,,
+CHE,PV,LF_max,2011,,0.2,,,,
+CHE,PV,LF_max,2012,,0.2,,,,
+CHE,PV,LF_max,2013,,0.2,,,,
+CHE,PV,LF_max,2014,,0.2,,,,
+CHE,PV,LF_max,2015,,0.2,,,,
+CHE,PV,LF_max,2016,,0.2,,,,
+CHE,PV,LF_max,2017,,0.2,,,,
+CHE,PV,LF_max,2018,,0.2,,,,
+CHE,PV,LF_max,2019,,0.2,,,,
+CHE,PV,Initial_retired_capacity,1990,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,PV,Initial_retired_capacity,1991,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,PV,Initial_retired_capacity,1992,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,PV,Initial_retired_capacity,1993,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,PV,Initial_retired_capacity,1994,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,PV,Initial_retired_capacity,1995,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,PV,Initial_retired_capacity,1996,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,PV,Initial_retired_capacity,1997,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,PV,Initial_retired_capacity,1998,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,PV,Initial_retired_capacity,1999,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,PV,Initial_retired_capacity,2000,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,PV,Initial_retired_capacity,2001,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,PV,Initial_retired_capacity,2002,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,PV,Initial_retired_capacity,2003,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,PV,Initial_retired_capacity,2004,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,PV,Initial_retired_capacity,2005,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,PV,Initial_retired_capacity,2006,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,PV,Initial_retired_capacity,2007,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,PV,Initial_retired_capacity,2008,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,PV,Initial_retired_capacity,2009,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,PV,Initial_retired_capacity,2010,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,PV,Initial_retired_capacity,2011,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,PV,Initial_retired_capacity,2012,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,PV,Initial_retired_capacity,2013,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,PV,Initial_retired_capacity,2014,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,PV,Initial_retired_capacity,2015,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,PV,Initial_retired_capacity,2016,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,PV,Initial_retired_capacity,2017,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,PV,Initial_retired_capacity,2018,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
+CHE,PV,Initial_retired_capacity,2019,,0,MW,"Office federal de l'energie OFEN, Statistique global suisse de l'energie 2020",,Follows actual retirements until cumulative sum reaches initial installed capacity
