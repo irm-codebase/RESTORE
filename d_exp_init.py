@@ -29,8 +29,8 @@ def cnf_model_indexes(mod: pyo.ConcreteModel, tech_df: pd.DataFrame, n_days: int
     mod.DxpCols = pyo.Set(initialize=tech_df.columns)
     tech = tech_df.columns.drop("Import")
     mod.DxpTechs = pyo.Set(initialize=tech)
-    mod.DxpDays = pyo.RangeSet(0, n_days-1)
-    mod.DxpHours = pyo.RangeSet(24)
+    mod.DxpDays = pyo.RangeSet(0, n_days - 1)
+    mod.DxpHours = pyo.RangeSet(0, 24 - 1)
 
 
 def cnf_model_parameters(mod: pyo.ConcreteModel, country_df: pd.DataFrame):
@@ -49,6 +49,7 @@ def cnf_model_parameters(mod: pyo.ConcreteModel, country_df: pd.DataFrame):
 
     def param_discount_factor(mod, year):
         return 1 / np.power(1 + mod.p_DR, (year - mod.Years.first()))
+
     mod.p_DiscFactors = pyo.Param(mod.Years, initialize=param_discount_factor, doc="Discount Factors")
 
 
@@ -91,22 +92,15 @@ def cnf_model_constraints(mod: pyo.ConcreteModel, tech_df: pd.DataFrame, country
         country_df (pd.DataFrame): dataframe with country parameters
     """
     y_0 = mod.Years.first()
-
+    pot_inst = tech_df.loc["Potential_installed"].fillna(value=10000).to_dict()
     # Import / Export power flow constraint
     mod.line_p_upper = pyo.ConstraintList()
     mod.line_p_lower = pyo.ConstraintList()
     for y in mod.Years:  # Add upper/lower constraint for every snapshot
         for d in mod.DxpDays:
-            for t in mod.DxpHours:
-                mod.line_p_upper.add(expr=mod.line_p["Line", y, d, t] <= mod.line_p_nom["Line", y])
-                mod.line_p_lower.add(expr=mod.line_p["Line", y, d, t] >= -mod.line_p_nom["Line", y])
-
-    pot_inst = tech_df.loc["Potential_installed"].fillna(value=10000).to_dict()
-    # Generator installed capacity constraint: set upper bounds for installed capacity
-    for c in mod.DxpTechs:
-        for y in mod.Years.ordered_data()[1:]:
-            mod.p_nom[c, y].setub(pot_inst[c][y])
-
+            for h in mod.DxpHours:
+                mod.line_p_upper.add(expr=mod.line_p["Line", y, d, h] <= mod.line_p_nom["Line", y])
+                mod.line_p_lower.add(expr=mod.line_p["Line", y, d, h] >= -mod.line_p_nom["Line", y])
     # Import and export capacity constraint
     for y in mod.Years:
         mod.line_p_nom["Line", y].setub(pot_inst["Import"][y])
@@ -126,23 +120,26 @@ def cnf_model_constraints(mod: pyo.ConcreteModel, tech_df: pd.DataFrame, country
     mod.e_cons = pyo.ConstraintList()
     for y in mod.Years:
         for d in mod.DxpDays:
-            for t in mod.DxpHours:
-                mod.i_cons.add(expr=mod.imp_p["Import", y, d, t] <= mod.imp_p_nom["Import", y])
-                mod.e_cons.add(expr=mod.exp_p["Export", y, d, t] <= mod.exp_p_nom["Export", y])
+            for h in mod.DxpHours:
+                mod.i_cons.add(expr=mod.imp_p["Import", y, d, h] <= mod.imp_p_nom["Import", y])
+                mod.e_cons.add(expr=mod.exp_p["Export", y, d, h] <= mod.exp_p_nom["Export", y])
 
     # Import - export - Pseudo-line flow = 0
     # create constraint list for nodal power balances
     mod.n2 = pyo.ConstraintList()
     for y in mod.Years.ordered_data()[1:]:
         for d in mod.DxpDays:
-            for t in mod.DxpHours:
-                n2_expr = 0
-                n2_expr = (
-                    mod.imp_p["Import", y, d, t] - mod.exp_p["Export", y, d, t] - mod.line_p["Line", y, d, t]
-                )
-                mod.n2.add(expr=n2_expr == 0)
+            for h in mod.DxpHours:
+                # Nodal balance
                 mod.n2.add(
-                    expr=mod.imp_p["Import", y, d, t] + mod.exp_p["Export", y, d, t]
+                    expr=mod.imp_p["Import", y, d, h]
+                    - mod.exp_p["Export", y, d, h]
+                    - mod.line_p["Line", y, d, h]
+                    == 0
+                )
+                # Line capacity
+                mod.n2.add(
+                    expr=mod.imp_p["Import", y, d, h] + mod.exp_p["Export", y, d, h]
                     <= mod.line_p_nom["Line", y]
                 )
 
@@ -160,30 +157,31 @@ def cnf_model_constraints(mod: pyo.ConcreteModel, tech_df: pd.DataFrame, country
     # Generation balance for the initial year
     # define the annual generation for each technology
     gen_y0 = tech_df.loc["Actual_generation"].loc[y_0]
-    mod.init_p_cons = pyo.ConstraintList()
-    for c in mod.DxpTechs:
-        mod.init_p_cons.add(
-            expr=sum(mod.p[c, y_0, d, t] for d in mod.DxpDays for t in mod.DxpHours)
-            == gen_y0[c] * 1000 * elec_supplied_ratio_y0[d] / (365 * k_ratio_y_d[y_0][d])
-        )
-
     imp_y0 = country_df.loc["Actual_import"].loc[y_0, "Value"]
     exp_y0 = country_df.loc["Actual_export"].loc[y_0, "Value"]
-
-    mod.init_p_cons.add(
-        expr=sum(mod.imp_p["Import", y_0, d, t] for d in mod.DxpDays for t in mod.DxpHours)
-        == imp_y0 * 1000 * elec_supplied_ratio_y0[d] / (365 * k_ratio_y_d[y_0][d])
-    )
-    mod.init_p_cons.add(
-        expr=sum(mod.exp_p["Export", y_0, d, t] for d in mod.DxpDays for t in mod.DxpHours)
-        == exp_y0 * 1000 * elec_supplied_ratio_y0[0] / (365 * k_ratio_y_d[y_0][0])
-    )
+    mod.init_p_cons = pyo.ConstraintList()
+    # All generation technologies
+    for c in mod.DxpTechs:
+        for d in mod.DxpDays:
+            mod.init_p_cons.add(
+                expr=sum(mod.p[c, y_0, d, t] for t in mod.DxpHours)
+                == gen_y0[c] * 1000 * elec_supplied_ratio_y0[d] / (365 * k_ratio_y_d[y_0][d])
+            )
+    # All Imports/Exports
+    for d in mod.DxpDays:
+        mod.init_p_cons.add(
+            expr=sum(mod.imp_p["Import", y_0, d, t] for t in mod.DxpHours)
+            == imp_y0 * 1000 * elec_supplied_ratio_y0[d] / (365 * k_ratio_y_d[y_0][d])
+        )
+        mod.init_p_cons.add(
+            expr=sum(mod.exp_p["Export", y_0, d, t] for t in mod.DxpHours)
+            == exp_y0 * 1000 * elec_supplied_ratio_y0[d] / (365 * k_ratio_y_d[y_0][d])
+        )
 
     # Capacity in the initial year
     # In the first year the newly installed and closed capacity should be zero
     mod.init_p_nom_cons = pyo.ConstraintList()
     mod.init_line_p_nom_cons = pyo.ConstraintList()
-
     cap_y0 = tech_df.loc["Actual_capacity"].loc[y_0]
     for c in mod.DxpTechs:
         mod.init_p_nom_cons.add(expr=mod.p_nom[c, y_0] == cap_y0[c])
@@ -198,44 +196,37 @@ def cnf_model_constraints(mod: pyo.ConcreteModel, tech_df: pd.DataFrame, country
     # storage does not supply anything from the second year because the initial year data is given.
     # (Generators + Pseudo-line flow) * (1 - own use) = Demand
     # TODO: demand formulation should be endogenous?
-    # TODO: transmission losses should be calculated endogenously in the model, or simplified to an exogenous
-    # value.
+    # TODO: transmission losses could be a parameter calculation or a constant
     mod.dem_cons = pyo.ConstraintList()
-    own_use = tech_df.loc["Own_use"]
+    own_use = tech_df.loc["Own_use"].to_dict()
     distribution_losses = country_df.loc["Distribution_losses"]["Value"]
     trans_loss = np.round(distribution_losses / elec_demand, 3)
-    for y in mod.Years.ordered_data()[
-        1:
-    ]:  # Some weirdness with own use in UK data, checking without first year
+    for y in mod.Years:
         for d in mod.DxpDays:
-            for t in mod.DxpHours:
-                dem_bal_expr = prod_after_losses_y(mod, y, d, t, own_use) + mod.line_p["Line", y, d, t] * (
-                    1 - own_use[y, "Import"]
-                )
-                if y == y_0:
-                    mod.dem_cons.add(expr=dem_bal_expr == (demand_y_d_h[y][d][t]) * (1 + trans_loss[y]))
-                else:
-                    mod.dem_cons.add(expr=dem_bal_expr == (demand_y_d_h[y][d][t]) * (1 + trans_loss[y]))
+            for h in mod.DxpHours:
+                dem_bal_expr = prod_after_losses_y(mod, y, d, h, own_use)
+                dem_bal_expr = dem_bal_expr + mod.line_p["Line", y, d, h] * (1 - own_use["Import"][y])
+                mod.dem_cons.add(expr=dem_bal_expr == (demand_y_d_h[y][d][h]) * (1 + trans_loss[y]))
 
     # Capacity retirement due to lifetime and retirement of the initial capacity:
     # Total closed in year N - Retired initial capacity (Retirement rate*Total capacity for initial year)
     # - Total newly installed in year (N-lifetime) = 0
     mod.retirement_cons = pyo.ConstraintList()
-    lifetime = tech_df.loc["Lifetime"].loc[y_0]  # TODO lifetimes should work for all years!
-    ini_ret_cap = tech_df.loc["Initial_retired_capacity"].fillna(value=0)
+    lifetime = tech_df.loc["Lifetime"].to_dict()
+    ini_ret_cap = tech_df.loc["Initial_retired_capacity"].fillna(value=0).to_dict()
     for c in mod.DxpTechs:
         for y in mod.Years.ordered_data()[1:]:
             # Capacity that is closed due to retirement.
             # It is equal to installed capacity in the year that this capacity was installed.
             # But this should not be applicable to the initial year as it is already accounted for.
-            if lifetime[c] <= y:
+            if lifetime[c][y] <= y - y_0:
                 mod.retirement_cons.add(
-                    expr=mod.p_nom_closed[c, y] == ini_ret_cap[y, c] + mod.p_nom_new[c, y - lifetime[c]]
+                    expr=mod.p_nom_closed[c, y] == ini_ret_cap[c][y] + mod.p_nom_new[c, y - lifetime[c][y]]
                 )
             # Retirement of initial capacity,
             # equal to installed capacity in the initial year
             else:
-                mod.retirement_cons.add(expr=mod.p_nom_closed[c, y] == ini_ret_cap[y, c])
+                mod.retirement_cons.add(expr=mod.p_nom_closed[c, y] == ini_ret_cap[c][y])
 
     # Capacity transfer: balance between the capacity the year before, new capacity and closed capacity
     mod.capacity_transfer_cons = pyo.ConstraintList()
@@ -256,78 +247,88 @@ def cnf_model_constraints(mod: pyo.ConcreteModel, tech_df: pd.DataFrame, country
     # exceed the installed capacity times the maximum load factor.
     mod.p_cons = pyo.ConstraintList()
     mod.line_p_cons = pyo.ConstraintList()
-    cf_vre_df = get_cf_variable_renewables()
-    lf_max = tech_df.loc["LF_max"]
-    lf_min = tech_df.loc["LF_min"]
+    cf_vre = get_cf_variable_renewables()
+    lf_max = tech_df.loc["LF_max"].to_dict()  # TODO why are load factors above 1 for initial years?
+    lf_min = tech_df.loc["LF_min"].to_dict()
     # for every flexible generator p(t) < p_nom * LF_max
     for c in mod.DxpTechs:
         for y in mod.Years:
             for d in mod.DxpDays:
-                for t in mod.DxpHours:
+                for h in mod.DxpHours:
                     if c in ["PV", "OnshoreWind", "OffshoreWind"]:
-                        mod.p_cons.add(expr=mod.p[c, y, d, t] <= mod.p_nom[c, y] * cf_vre_df.loc[y, c][t])
-                        mod.p_cons.add(expr=mod.p[c, y, d, t] >= 0)
+                        mod.p_cons.add(expr=mod.p[c, y, d, h] <= mod.p_nom[c, y] * cf_vre[c][y, h])
+                        mod.p_cons.add(expr=mod.p[c, y, d, h] >= 0)
                     else:
-                        mod.p_cons.add(expr=mod.p[c, y, d, t] <= mod.p_nom[c, y] * lf_max[y, c])
-                        mod.p_cons.add(expr=mod.p[c, y, d, t] >= mod.p_nom[c, y] * lf_min[y, c])
+                        mod.p_cons.add(expr=mod.p[c, y, d, h] <= mod.p_nom[c, y] * lf_max[c][y])
+                        mod.p_cons.add(expr=mod.p[c, y, d, h] >= mod.p_nom[c, y] * lf_min[c][y])
 
     for y in mod.Years:
         for d in mod.DxpDays:
-            for t in mod.DxpHours:
+            for h in mod.DxpHours:
                 mod.line_p_cons.add(
-                    expr=mod.imp_p["Import", y, d, t] <= mod.imp_p_nom["Import", y] * lf_max[y, "Import"]
+                    expr=mod.imp_p["Import", y, d, h] <= mod.imp_p_nom["Import", y] * lf_max["Import"][y]
                 )
                 mod.line_p_cons.add(
-                    expr=mod.imp_p["Import", y, d, t] >= mod.imp_p_nom["Import", y] * lf_min[y, "Import"]
+                    expr=mod.imp_p["Import", y, d, h] >= mod.imp_p_nom["Import", y] * lf_min["Import"][y]
                 )
                 mod.line_p_cons.add(
-                    expr=mod.exp_p["Export", y, d, t] <= mod.exp_p_nom["Export", y] * lf_max[y, "Import"]
+                    expr=mod.exp_p["Export", y, d, h] <= mod.exp_p_nom["Export", y] * lf_max["Import"][y]
                 )
                 mod.line_p_cons.add(
-                    expr=mod.exp_p["Export", y, d, t] >= mod.exp_p_nom["Export", y] * lf_min[y, "Import"]
+                    expr=mod.exp_p["Export", y, d, h] >= mod.exp_p_nom["Export", y] * lf_min["Import"][y]
                 )
 
     # Generator ramp rate constraint: the capacity of each technology at each time step should not exceed
     # the installed capacity times the maximum load factor.
     mod.p_ramp_cons = pyo.ConstraintList()
-    ramp_rate = tech_df.loc["Ramp_rate"].fillna(value=1)
+    ramp_rate = tech_df.loc["Ramp_rate"].fillna(value=1).to_dict()
     for c in mod.DxpTechs:
         for y in mod.Years:
             for d in mod.DxpDays:
-                for t in mod.DxpHours.ordered_data()[1:]:  # TODO check if both days should be connected!!!
+                for h in mod.DxpHours.ordered_data()[1:]:
                     mod.p_ramp_cons.add(
-                        expr=mod.p[c, y, d, t] - mod.p[c, y, d, t - 1] <= ramp_rate[y, c] * mod.p_nom[c, y]
+                        expr=mod.p[c, y, d, h] - mod.p[c, y, d, h - 1] <= ramp_rate[c][y] * mod.p_nom[c, y]
                     )
                     mod.p_ramp_cons.add(
-                        expr=mod.p[c, y, d, t - 1] - mod.p[c, y, d, t] <= ramp_rate[y, c] * mod.p_nom[c, y]
+                        expr=mod.p[c, y, d, h - 1] - mod.p[c, y, d, h] <= ramp_rate[c][y] * mod.p_nom[c, y]
                     )
 
+    # Generator installed capacity constraint: set upper bounds for installed capacity
+    for c in mod.DxpTechs:
+        for y in mod.Years.ordered_data()[1:]:
+            mod.p_nom[c, y].setub(pot_inst[c][y])
+
     # The peak electricity demand should be met, accounting for technology contribution to peak equation
+    # TODO: Peak Demand should be a pre-set parameter, maybe?????
+    # TODO: why is year zero omitted from all capacity constraints???
     mod.p_nom_peak_cons = pyo.ConstraintList()
-    peak_ctrl = tech_df.loc["Peak_contr"]
-    peak_dem = country_df.loc["PeakDem_fromzero_central"]["Value"]  # TODO: this is exogenous!
+    peak_ctrl = tech_df.loc["Peak_contr"].to_dict()
+    peak_dem = country_df.loc["PeakDem_fromzero_central"]["Value"]
     for y in mod.Years.ordered_data()[1:]:
         mod.p_nom_peak_cons.add(
-            expr=sum(mod.p_nom[c, y] * (1 - own_use[y, c]) * peak_ctrl[y, c] for c in mod.DxpTechs)
+            expr=sum(mod.p_nom[c, y] * (1 - own_use[c][y]) * peak_ctrl[c][y] for c in mod.DxpTechs)
             >= peak_dem[y]
         )
 
     # The peak electricity demand, plus capacity margin, should be met
+    # TODO: this constraint is more stringent than the previous one. Delete previous.
     mod.p_nom_r_cons = pyo.ConstraintList()
     cap_margin = country_df.loc["Capacity_margin"]["Value"]
     for y in mod.Years.ordered_data()[1:]:
         mod.p_nom_r_cons.add(
-            expr=sum(mod.p_nom[c, y] * (1 - own_use[y, c]) * peak_ctrl[y, c] for c in mod.DxpTechs)
+            expr=sum(mod.p_nom[c, y] * (1 - own_use[c][y]) * peak_ctrl[c][y] for c in mod.DxpTechs)
             >= (1 + cap_margin[y]) * peak_dem[y]
         )
 
     # The base load should be met, i.e. the installed capacity times the minimum load factor should be
     # lower than the base load
+    # TODO: same as peak load. How to handle this if demand is an ESD?
+    # TODO: what is line capacity doing in this formulation?
     mod.p_nom_base_cons = pyo.ConstraintList()
     base_dem = country_df.loc["BaseDem_central"]["Value"]
     for y in mod.Years.ordered_data()[1:]:
         mod.p_nom_base_cons.add(
-            expr=sum(mod.p_nom[c, y] * (1 - own_use[y, c]) * lf_min[y, c] for c in mod.DxpTechs)
+            expr=sum(mod.p_nom[c, y] * (1 - own_use[c][y]) * lf_min[c][y] for c in mod.DxpTechs)
             - mod.line_p_nom["Line", y]
             <= base_dem[y]
         )
@@ -336,26 +337,26 @@ def cnf_model_constraints(mod: pyo.ConcreteModel, tech_df: pd.DataFrame, country
     # technology-specific build rates
     mod.p_nom_new_cons = pyo.ConstraintList()
     mod.line_p_nom_new_cons = pyo.ConstraintList()
-    build_rates = tech_df.loc["Buildrates"]
+    build_rates = tech_df.loc["Buildrates"].to_dict()
     for c in mod.DxpTechs:
         for y in mod.Years.ordered_data()[1:]:
-            mod.p_nom_new_cons.add(expr=mod.p_nom_new[c, y] <= build_rates[y, c])
+            mod.p_nom_new_cons.add(expr=mod.p_nom_new[c, y] <= build_rates[c][y])
 
     for y in mod.Years.ordered_data()[1:]:
-        mod.line_p_nom_new_cons.add(expr=mod.line_p_nom_new["Line", y] <= build_rates[y, "Import"])
+        mod.line_p_nom_new_cons.add(expr=mod.line_p_nom_new["Line", y] <= build_rates["Import"][y])
 
     # Maximum potential in terms of annual electricity generation
     mod.p_potential_g_cons = pyo.ConstraintList()
-    potential_annual = tech_df.loc["Potential_annual"].fillna(value=10000)
+    potential_annual = tech_df.loc["Potential_annual"].fillna(value=10000).to_dict()
     for c in mod.DxpTechs:
         for y in mod.Years.ordered_data()[1:]:
             mod.p_potential_g_cons.add(
                 expr=sum(
-                    mod.p[c, y, d, t] / 1000 * 365 * k_ratio_y_d[y, d]
+                    mod.p[c, y, d, t] / 1000 * 365 * k_ratio_y_d[y][d]
                     for t in mod.DxpHours
                     for d in mod.DxpDays
                 )
-                <= potential_annual[y, c]
+                <= potential_annual[c][y]
             )
 
     # Maximum potential in terms annual import/export line transfers
@@ -363,14 +364,13 @@ def cnf_model_constraints(mod: pyo.ConcreteModel, tech_df: pd.DataFrame, country
     actual_gen = tech_df.loc["Actual_generation"]
     domestic_nep = country_df.loc["ElSupplied_annual_central"]["Value"] - actual_gen.loc[:, "Import"]
     max_hist_exch = np.abs(actual_gen.loc[:, "Import"] / domestic_nep).max()
-
     for y in mod.Years.ordered_data()[1:]:
         mod.line_p_potential_g_cons.add(
             expr=(
                 sum(
-                    mod.line_p["Line", y, d, t] / 1000 * 365 * k_ratio_y_d[y, d]
+                    mod.line_p["Line", y, d, h] / 1000 * 365 * k_ratio_y_d[y][d]
                     for d in mod.DxpDays
-                    for t in mod.DxpHours
+                    for h in mod.DxpHours
                 )
             )
             <= max_hist_exch * domestic_nep[y]
@@ -378,9 +378,9 @@ def cnf_model_constraints(mod: pyo.ConcreteModel, tech_df: pd.DataFrame, country
 
         mod.line_p_potential_g_cons.add(
             expr=sum(
-                mod.line_p["Line", y, d, t] / 1000 * 365 * k_ratio_y_d[y, d]
+                mod.line_p["Line", y, d, h] / 1000 * 365 * k_ratio_y_d[y][d]
                 for d in mod.DxpDays
-                for t in mod.DxpHours
+                for h in mod.DxpHours
             )
             >= -max_hist_exch * domestic_nep[y]
         )
@@ -399,9 +399,9 @@ def cnf_model_objective(mod: pyo.ConcreteModel, tech_df: pd.DataFrame, country_d
     #              - Export revenue [currency/TWh] - Heat revenue [currency/TWh]
 
     # Build cost expression
-    cap_cost = tech_df.loc["Inv"].to_dict()  # TODO: use dictionaries instad of DFs
+    cap_cost = tech_df.loc["Inv"].to_dict()
     tot_inv_cost = sum(
-        mod.p_DiscFactors[y] * mod.p_nom_new[c, y] * cap_cost[c][y] for c in mod.Techs for y in mod.Years
+        mod.p_DiscFactors[y] * mod.p_nom_new[c, y] * cap_cost[c][y] for c in mod.DxpTechs for y in mod.Years
     )
     tot_inv_cost += sum(
         mod.p_DiscFactors[y] * mod.line_p_nom_new["Line", y] * cap_cost["Import"][y] for y in mod.Years
@@ -410,7 +410,7 @@ def cnf_model_objective(mod: pyo.ConcreteModel, tech_df: pd.DataFrame, country_d
     fix_cost = tech_df.loc["Fixed_OM_annual"].to_dict()
 
     tot_fixed_om_cost = sum(
-        mod.p_DiscFactors[y] * mod.p_nom[c, y] * fix_cost[c][y] for c in mod.Techs for y in mod.Years
+        mod.p_DiscFactors[y] * mod.p_nom[c, y] * fix_cost[c][y] for c in mod.DxpTechs for y in mod.Years
     )
     tot_fixed_om_cost += sum(
         mod.p_DiscFactors[y] * mod.line_p_nom["Line", y] * fix_cost["Import"][y] for y in mod.Years
@@ -427,29 +427,30 @@ def cnf_model_objective(mod: pyo.ConcreteModel, tech_df: pd.DataFrame, country_d
 
     var_cost = tech_df.loc["Variable_OM"].to_dict()
     tot_var_om_cost = sum(
-        mod.p_DiscFactors[y] * mod.p[c, y, d, t] * var_cost[c][y] / 1000 * (365 * k_ratio_y_d[y][d])
+        mod.p_DiscFactors[y] * mod.p[c, y, d, h] * var_cost[c][y] / 1000 * (365 * k_ratio_y_d[y][d])
         for c in mod.DxpTechs
         for y in mod.Years
         for d in mod.DxpDays
-        for t in mod.DxpHours
+        for h in mod.DxpHours
     )
     tot_var_om_cost += sum(
         mod.p_DiscFactors[y]
-        * mod.imp_p["Import", y, d, t]
+        * mod.imp_p["Import", y, d, h]
         * var_cost["Import"][y]
         / 1000
-        * (365 * k_ratio_y_d[y][d])
+        * 365
+        * k_ratio_y_d[y][d]
         for y in mod.Years
         for d in mod.DxpDays
-        for t in mod.DxpHours
-    )  # TODO what t for hours to make the code clear!
+        for h in mod.DxpHours
+    )
 
     fuel_eff = tech_df.loc["Fuel_efficiency"].to_dict()
     fuel_cost = tech_df.loc["Fuel_cost_fuel"].to_dict()
 
     tot_fuel_cost = sum(
         mod.p_DiscFactors[y]
-        * mod.p[c, y, d, t]
+        * mod.p[c, y, d, h]
         * fuel_cost[c][y]
         / fuel_eff[c][y]
         / 1000
@@ -457,39 +458,39 @@ def cnf_model_objective(mod: pyo.ConcreteModel, tech_df: pd.DataFrame, country_d
         for c in mod.DxpTechs
         for y in mod.Years
         for d in mod.DxpDays
-        for t in mod.DxpHours
+        for h in mod.DxpHours
     )
 
     tot_imp_cost = sum(
         mod.p_DiscFactors[y]
-        * mod.imp_p["Import", y, d, t]
+        * mod.imp_p["Import", y, d, h]
         * fuel_cost["Import"][y]
         / fuel_eff["Import"][y]
         / 1000
         * (365 * k_ratio_y_d[y][d])
         for y in mod.Years
         for d in mod.DxpDays
-        for t in mod.DxpHours
+        for h in mod.DxpHours
     )
 
     exp_profit = country_df.loc[("Export_profit", "Value")].to_dict()
     tot_exp_revenue = sum(
         mod.p_DiscFactors[y]
-        * mod.exp_p["Export", y, d, t]
+        * mod.exp_p["Export", y, d, h]
         * (-exp_profit[y])
         / fuel_eff["Import"][y]
         / 1000
         * (365 * k_ratio_y_d[y][d])
         for y in mod.Years
         for d in mod.DxpDays
-        for t in mod.DxpHours
+        for h in mod.DxpHours
     )
 
     heat_2_elec = tech_df.loc["Heat_to_electricity"].to_dict()
     heat_revenue = country_df.loc[("Heat_revenue", "Value")].to_dict()  # Same revenue for all techs
     total_heat_revenue = sum(
         mod.p_DiscFactors[y]
-        * mod.p[c, y, d, t]
+        * mod.p[c, y, d, h]
         * heat_2_elec[c][y]
         * (-heat_revenue[y])
         / 1000
@@ -497,7 +498,7 @@ def cnf_model_objective(mod: pyo.ConcreteModel, tech_df: pd.DataFrame, country_d
         for c in mod.DxpTechs
         for y in mod.Years
         for d in mod.DxpDays
-        for t in mod.DxpHours
+        for h in mod.DxpHours
     )
 
     tot_cost_expr = tot_inv_cost + tot_fixed_om_cost + tot_var_om_cost + tot_fuel_cost + tot_imp_cost
@@ -509,14 +510,14 @@ def cnf_model_objective(mod: pyo.ConcreteModel, tech_df: pd.DataFrame, country_d
     mod.dual = pyo.Suffix(direction=pyo.Suffix.IMPORT)
 
 
-def prod_after_losses_y(mod: pyo.ConcreteModel, y, d, t, own_use: np.ndarray):
+def prod_after_losses_y(mod: pyo.ConcreteModel, y, d, h, own_use: dict):
     """Calculate the total generation at [year, time-slice] after technology losses.
 
     Args:
         model (pyo.ConcreteModel): pyomo model
         y (int): year
-        t (int): time-slice
-        own_use (np.ndarray): matrix with the energy losses per technology per year
+        h (int): hour
+        own_use (dict): matrix with the energy losses in the form [Tech][Year]
 
     Returns:
         pyo.Expression: pyomo expression of effective generation at [year, time-slice]
@@ -524,17 +525,17 @@ def prod_after_losses_y(mod: pyo.ConcreteModel, y, d, t, own_use: np.ndarray):
     total_prod_output = 0
     for c in mod.DxpTechs:
         if c == "Storage":
-            total_prod_output += mod.p[c, y, d, t] * (-own_use[y, c])
+            total_prod_output += mod.p[c, y, d, h] * (-own_use[c][y])
         else:
-            total_prod_output += mod.p[c, y, d, t] * (1 - own_use[y, c])
+            total_prod_output += mod.p[c, y, d, h] * (1 - own_use[c][y])
     return total_prod_output
 
 
-def get_cf_variable_renewables():
+def get_cf_variable_renewables() -> dict:
     """Get a dataframe with capacity factors for variable renewables (PV, OnshoreWind, OffshoreWind).
 
     Returns:
-        pd.Dataframe: dataframe with cf data, indexed [year (1980-2019), timeslice (0-23)][Tech]
+        dict: CF data, indexed by [Tech][year (1980-2019), timeslice (0-23)]
     """
     solar_pv = pd.read_csv(
         "data/parsed/elec/ninja_pv_country_CH_merra-2_corrected.csv",
@@ -561,18 +562,29 @@ def get_cf_variable_renewables():
     vre_df = pd.concat([solar_pv, wind], axis=1)
     result = vre_df.groupby([vre_df.index.year, vre_df.index.hour]).mean()
 
-    return result
+    return result.to_dict()
+
 
 def run_d_expanse() -> pyo.ConcreteModel:
-
-    country_df = pd.read_excel("data/parsed/elec/Country_data_CHE.xlsx", index_col=[0,1])
-    tech_df = pd.read_excel("data/parsed/elec/Input_data_CHE.xlsx", index_col=[0,1])
+    """Run electricity only version of D-EXPANSE."""
+    country_df = pd.read_excel("data/parsed/elec/Country_data_CHE.xlsx", index_col=[0, 1])
+    tech_df = pd.read_excel("data/parsed/elec/Input_data_CHE.xlsx", index_col=[0, 1])
     model = pyo.ConcreteModel()
     cnf_model_indexes(model, tech_df, 2)
     cnf_model_parameters(model, country_df)
     cnf_model_variables(model)
     cnf_model_constraints(model, tech_df, country_df)
     cnf_model_objective(model, tech_df, country_df)
+
+    opt = pyo.SolverFactory("gurobi", solver_io="python")
+    opt.options["MIPGap"] = 1e-2
+    opt.options["Timelimit"] = 1800
+    try:
+        opt_result = opt.solve(model, tee=False)
+        print(opt_result)
+    except ValueError:
+        model.write("debug.lp", format="lp", io_options={"symbolic_solver_labels": True})
     return model
+
 
 run_d_expanse()
