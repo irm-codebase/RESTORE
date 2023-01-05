@@ -11,7 +11,7 @@
 
 Converts Marc/Xin ZENODO files into my new format (with extra columns).
 Necessary due to differences in scope and to reduce name ambiguity.
-Post processing is required, this script only re-arranges the data and updates filenames
+Post processing is required, this script only re-arranges the data and updates filenames.
 """
 import os
 import shutil
@@ -22,10 +22,10 @@ import pandas as pd
 import numpy as np
 
 PATH_OLD = "/Users/ruiziv/switchdrive/ACCURACY/D-EXPANSE/CHE"
-PATH_NEW = "data_sources/zenodo_ivan/"
-TEMPLATE_PATH = "data_sources/zenodo_ivan/_templates/template.xlsx"
+PATH_NEW = "data/zenodo_ivan/"
+TEMPLATE_PATH = "data/zenodo_ivan/_templates/template.xlsx"
 
-TECH_CHP_ABLE = ["coal", "biogas", "gas", "oil", "uranium", "waste"]
+TECH_CHP_ABLE = ["coal", "biogas", "gas", "oil", "uranium", "waste", "biomass"]
 
 TECH_LOWERCASE = [
     "LF_min",
@@ -54,60 +54,6 @@ TECH_RENAME_OUTPUT = {
     "Heat_to_electricity": "output_ratio",
 }
 
-IMPORT_PARAMS_FROM_TECH = {
-    "actual_capacity": "Actual_capacity",
-    "actual_export": None,
-    "actual_import": None,
-    "actual_new_capacity": "Actual_new_capacity",
-    "actual_retired_capacity": "Actual_retired_capacity",
-    "buildrate": "Buildrates",
-    "co2_factor": None,
-    "cost_fixed_om_annual": "Fixed_OM_annual",
-    "cost_import": None,
-    "cost_investment": "Inv",
-    "cost_variable_om": "Variable_OM",
-    "efficiency": "Fuel_efficiency",
-    "enable_import": None,
-    "enable_export": None,
-    "initial_retired_capacity": "Initial_retired_capacity",
-    "learning_rate": "Learning_rate",
-    "lf_max": "LF_max",
-    "lf_min": "LF_min",
-    "lifetime": "Lifetime",
-    "max_activity_annual": "Potential_annual",
-    "max_capacity_annual": "Potential_installed",
-    "ramp_rate": "Ramp_rate",
-    "resource": "Resource",
-    "revenue_export": None,
-}
-
-STORAGE_PARAMS_FROM_TECH = {
-    "actual_activity": "Actual_generation",
-    "actual_capacity": "Actual_capacity",
-    "actual_new_capacity": "Actual_new_capacity",
-    "actual_retired_capacity": "Actual_retired_capacity",
-    "buildrate": "Buildrates",
-    "co2_factor": None,
-    "cost_fixed_om_annual": "Fixed_OM_annual",
-    "cost_investment": "Inv",
-    "cost_variable_om": "Variable_OM",
-    "efficiency": "Own_use",
-    "initial_retired_capacity": "Initial_retired_capacity",
-    "learning_rate": "Learning_rate",
-    "lf_max": "LF_max",
-    "lf_min": "LF_min",
-    "lifetime": "Lifetime",
-    "max_activity_annual": "Potential_annual",
-    "max_capacity_annual": "Potential_installed",
-}
-
-GENERATION_PARAMS_FROM_RESOURCE = {
-    "cost_generation": "Fuel_cost_fuel",
-    "max_activity_annual": None,
-    "proven_reserves": None,
-    "resource": None,
-}
-
 COUNTRY_LOWERCASE = ["GDP_per_capita", "Population"]
 COUNTRY_RENAME = {"Discount_rate_uniform": "discount_rate"}
 
@@ -134,7 +80,7 @@ def convert_all_files(path_old: str, path_new: str):
         path_old (str): path to a country folder in MarcXin's database.
         path_new (str): path where the converted files will be stored.
     """
-    file_list = os.listdir()
+    file_list = os.listdir(path_old)
     for item in file_list:
         item_path = os.path.join(path_old, item)
         match item:
@@ -147,8 +93,14 @@ def convert_all_files(path_old: str, path_new: str):
             case _:
                 if os.path.isfile(item_path) and "CountryData" in item:
                     old_df = pd.read_csv(item_path, header=4)
-                    new_df = convert_to_new_format(old_df)
+                    # Update country data
+                    new_df = reshape_columns_to_new_format(old_df)
+                    new_df = update_country_data(new_df)
                     save_excel(new_df, path_new)
+                    # Create a resource file for electricity supply
+                    new_df = reshape_columns_to_new_format(old_df)
+                    new_df = convert_country_to_resource(new_df)
+                    save_excel(new_df, os.path.join(path_new, "resource"))
 
 
 def parse_profiles(old_folder: str, new_folder: str):
@@ -163,7 +115,7 @@ def parse_profiles(old_folder: str, new_folder: str):
     for item in file_list:
         if ".csv" in item:
             item_path = os.path.join(old_folder, item)
-            save_path = os.path.join(new_folder, "profiles/electricity", item)
+            save_path = os.path.join(new_folder, "profiles/elec_supply", item)
             shutil.copyfile(item_path, save_path)
 
 
@@ -178,13 +130,13 @@ def parse_technologies(old_folder: str, new_folder):
     for item in file_list:
         old_path = os.path.join(old_folder, item)
         old_df = pd.read_csv(old_path, header=3)
-        new_df = convert_to_new_format(old_df)
+        new_df = reshape_columns_to_new_format(old_df)
         if "Import" in item:
             new_df = update_tech_import_to_elec_import(new_df)
-            save_path = os.path.join(new_folder, "resources/import")
+            save_path = os.path.join(new_folder, "import")
         elif "Storage" in item:
             new_df = convert_tech_to_pumphydro(new_df)
-            save_path = os.path.join(new_folder, "resources/storage")
+            save_path = os.path.join(new_folder, "storage/elec_supply")
         else:
             new_df, chp_flag = update_tech_data(new_df)
             # save new file
@@ -206,21 +158,21 @@ def parse_resources(old_folder: str, new_folder: str):
     for item in file_list:
         old_path = os.path.join(old_folder, item)
         old_df = pd.read_csv(old_path, header=4)
-        new_df = convert_to_new_format(old_df)
+        new_df = reshape_columns_to_new_format(old_df)
         resource_name = item[4:-12]  # remove country code and file extension from the filename
         match RESOURCE_TYPE[resource_name]:
             case None:
                 continue
             case "generation":
                 new_df = convert_resource_to_generation(new_df)
-                save_path = os.path.join(new_folder, "resources/generation")
+                save_path = os.path.join(new_folder, "generation")
             case "import":
                 new_df = convert_resource_to_import(new_df)
-                save_path = os.path.join(new_folder, "resources/import")
+                save_path = os.path.join(new_folder, "import")
         save_excel(new_df, save_path)
 
 
-def convert_to_new_format(old_df: pd.DataFrame) -> pd.DataFrame:
+def reshape_columns_to_new_format(old_df: pd.DataFrame) -> pd.DataFrame:
     """Copy the data of a MarcXin file into my new format.
 
     Args:
@@ -408,13 +360,38 @@ def update_tech_import_to_elec_import(imp_df: pd.DataFrame) -> pd.DataFrame:
     Returns:
         pd.DataFrame: formatted dataframe.
     """
+    params_import_from_tech = {
+        "actual_capacity": "Actual_capacity",
+        "actual_export": None,
+        "actual_import": None,
+        "actual_new_capacity": "Actual_new_capacity",
+        "actual_retired_capacity": "Actual_retired_capacity",
+        "buildrate": "Buildrates",
+        "co2_factor": None,
+        "cost_fixed_om_annual": "Fixed_OM_annual",
+        "cost_import": None,
+        "cost_investment": "Inv",
+        "cost_variable_om": "Variable_OM",
+        "efficiency": "Fuel_efficiency",
+        "enable_import": None,
+        "enable_export": None,
+        "initial_retired_capacity": "Initial_retired_capacity",
+        "learning_rate": "Learning_rate",
+        "lf_max": "LF_max",
+        "lf_min": "LF_min",
+        "lifetime": "Lifetime",
+        "max_activity_annual": "Potential_annual",
+        "max_capacity_annual": "Potential_installed",
+        "ramp_rate": "Ramp_rate",
+        "resource": "Resource",
+        "revenue_export": None,
+    }
     # Mark current data for future deletion
     imp_df["Delete"] = "MarcXin"
 
     old_params = imp_df["Parameter"].value_counts().index.to_list()
-    new_params = IMPORT_PARAMS_FROM_TECH
 
-    for new, old in new_params.items():
+    for new, old in params_import_from_tech.items():
         if old == "Resource":
             tmp_df = imp_df.loc[imp_df["Parameter"] == old].copy()
             tmp_df["Value"] = "elecsupply"
@@ -440,7 +417,7 @@ def update_tech_import_to_elec_import(imp_df: pd.DataFrame) -> pd.DataFrame:
     imp_df.reset_index(drop=True, inplace=True)
 
     # Update the entity in all rows
-    imp_df["Entity"] = "imp_electricity_supply"
+    imp_df["Entity"] = "imp_elecsupply"
 
     return imp_df
 
@@ -454,14 +431,20 @@ def convert_resource_to_generation(gen_df: pd.DataFrame) -> pd.DataFrame:
     Returns:
         pd.DataFrame: formatted generation dataframe.
     """
+    params_generation_from_resource = {
+        "cost_generation": "Fuel_cost_fuel",
+        "max_activity_annual": None,
+        "proven_reserves": None,
+        "resource": None,
+    }
+
     # Mark current data for future deletion
     gen_df["Delete"] = "MarcXin"
 
     entity = str.lower(gen_df.loc[0, "Entity"]).replace("resource", "")
 
     old_params = gen_df["Parameter"].value_counts().index.to_list()
-    new_params = GENERATION_PARAMS_FROM_RESOURCE
-    for new, old in new_params.items():
+    for new, old in params_generation_from_resource.items():
         if old is None:
             generic_df = gen_df.loc[gen_df["Parameter"] == "cost_generation"].copy()
             generic_df["Parameter"] = new
@@ -499,7 +482,6 @@ def convert_resource_to_import(imp_df: pd.DataFrame) -> pd.DataFrame:
     Returns:
         pd.DataFrame: formatted generation dataframe.
     """
-    resource = str.lower(imp_df.loc[0, "Entity"]).replace("resource", "")
     new_param_builder = {
         "actual_capacity": None,
         "actual_export": None,
@@ -527,8 +509,11 @@ def convert_resource_to_import(imp_df: pd.DataFrame) -> pd.DataFrame:
         "revenue_export": None,
         "enable_capacity": 0,
     }
+
     # Mark current data for future deletion
     imp_df["Delete"] = "MarcXin"
+
+    resource = str.lower(imp_df.loc[0, "Entity"]).replace("resource", "")
 
     generic_df = imp_df.loc[imp_df["Parameter"] == "Fuel_cost_fuel"].copy()
     generic_df["Parameter"] = np.nan
@@ -581,12 +566,31 @@ def convert_tech_to_pumphydro(sto_df: pd.DataFrame) -> pd.DataFrame:
     Returns:
         pd.DataFrame: formatted dataframe.
     """
+    params_storage_from_tech = {
+        "actual_activity": "Actual_generation",
+        "actual_capacity": "Actual_capacity",
+        "actual_new_capacity": "Actual_new_capacity",
+        "actual_retired_capacity": "Actual_retired_capacity",
+        "buildrate": "Buildrates",
+        "co2_factor": None,
+        "cost_fixed_om_annual": "Fixed_OM_annual",
+        "cost_investment": "Inv",
+        "cost_variable_om": "Variable_OM",
+        "efficiency": "Own_use",
+        "initial_retired_capacity": "Initial_retired_capacity",
+        "learning_rate": "Learning_rate",
+        "lf_max": "LF_max",
+        "lf_min": "LF_min",
+        "lifetime": "Lifetime",
+        "max_activity_annual": "Potential_annual",
+        "max_capacity_annual": "Potential_installed",
+    }
+
     # Mark current data for future deletion
     sto_df["Delete"] = "MarcXin"
-
     old_params = sto_df["Parameter"].value_counts().index.to_list()
-    new_params = STORAGE_PARAMS_FROM_TECH
-    for new, old in new_params.items():
+
+    for new, old in params_storage_from_tech.items():
         if old in ("Resource", "Own_use"):
             # Update the resource parameter values in specific cases
             tmp_df = sto_df.loc[sto_df["Parameter"] == old].copy()
@@ -621,7 +625,7 @@ def convert_tech_to_pumphydro(sto_df: pd.DataFrame) -> pd.DataFrame:
 
     # Update the entity in all rows
     # Update the entity in all rows
-    sto_df["Entity"] = "s_e_pumpedhydro"
+    sto_df["Entity"] = "stor_elecsupply_pumpedhydro"
 
     return sto_df
 
@@ -650,6 +654,48 @@ def update_country_data(country_df: pd.DataFrame) -> pd.DataFrame:
 
     # Update the entity in all rows
     country_df["Entity"] = "country"
+
+    # Rearrange the data in an easy to read manner
+    country_df = country_df.sort_values(["Parameter", "Option", "Year"])
+    country_df.reset_index(drop=True, inplace=True)
+
+    return country_df
+
+
+def convert_country_to_resource(country_df: pd.DataFrame) -> pd.DataFrame:
+    """Convert the country data file into a resource file.
+
+    Args:
+        country_df (pd.DataFrame): country dataframe in old format.
+
+    Returns:
+        pd.DataFrame: updated dataframe.
+    """
+    params_resource_from_country = {
+        "min_base_capacity": "BaseDem_central",
+        "min_peak_capacity": "PeakDem_fromzero_central",
+        "capacity_margin": "Capacity_margin",
+        "actual_resource": "ElSupplied_annual_central",
+    }
+
+    # Mark current data for future deletion
+    country_df["Delete"] = "MarcXin"
+
+    old_params = country_df["Parameter"].value_counts().index.to_list()
+    for new, old in params_resource_from_country.items():
+        country_df.replace(old, new, inplace=True)
+        old_params.remove(old)
+
+    for old in old_params:
+        index = country_df.loc[country_df["Parameter"] == old].index
+        country_df.drop(index, inplace=True)
+
+    # Rearrange the data in an easy to read manner
+    country_df = country_df.sort_values(["Parameter", "Option", "Year"])
+    country_df.reset_index(drop=True, inplace=True)
+
+    # Update the entity in all rows
+    country_df["Entity"] = "elecsupply"
 
     return country_df
 
