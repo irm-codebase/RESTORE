@@ -15,7 +15,7 @@ https://www.bfe.admin.ch/bfe/en/home/supply/statistics-and-geodata/energy-statis
 import numpy as np
 import pandas as pd
 
-from .parsing_utils import save_csv
+from parsing_utils import save_csv
 
 
 class CHEParser:
@@ -142,6 +142,7 @@ class CHEParser:
 
     def parse_transport_data(self):
         """Obtain country data for the transport sector."""
+        # TODO: this should use the template
         unit = "TJ"
         sheet_name = "T17e"
 
@@ -162,8 +163,7 @@ class CHEParser:
         csv_df = self.set_csv_data(total_elec, csv_df, entity, param_name, unit, note)
 
         outpath = self.OUT_PATH + "Transport/"
-        filename = f"{self.COUNTRY}_{entity}Data.csv"
-        save_csv(csv_df, outpath, filename)
+        save_csv(csv_df, outpath)
 
 
 if __name__ == "__main__":

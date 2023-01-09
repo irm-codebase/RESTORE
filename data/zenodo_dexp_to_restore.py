@@ -7,23 +7,17 @@
 # GNU General Public License v3.0 or later
 # https://www.gnu.org/licenses/gpl-3.0-standalone.html
 # --------------------------------------------------------------------------- #
-"""D-EXPANSE to RESTORE parser.
-
-Converts Marc/Xin ZENODO files into my new format (with extra columns).
-Necessary due to differences in scope and to reduce name ambiguity.
-Post processing is required, this script only re-arranges the data and updates filenames.
-"""
+"""D-EXPANSE to RESTORE parsers and conversion scripts."""
 import os
 import shutil
-
-from datetime import datetime
 
 import pandas as pd
 import numpy as np
 
+import parsing_utils
+
 PATH_OLD = "/Users/ruiziv/switchdrive/ACCURACY/D-EXPANSE/CHE"
 PATH_NEW = "data/zenodo_ivan/"
-TEMPLATE_PATH = "data/zenodo_ivan/_templates/template.xlsx"
 
 TECH_CHP_ABLE = ["coal", "biogas", "gas", "oil", "uranium", "waste", "biomass"]
 
@@ -76,6 +70,14 @@ RESOURCE_TYPE = {
 def convert_all_files(path_old: str, path_new: str):
     """Convert all the files in a given country folder into the new format.
 
+    Converts Marc/Xin ZENODO files into my new format (with extra columns).
+    Necessary due to differences in scope and to reduce name ambiguity.
+
+    !!!!!!!!!!!!!!!!!!!! IMPORTANT !!!!!!!!!!!!!!!!!!!!
+    Post processing is REQUIRED, this script only re-arranges the data and updates filenames.
+    Look for rows with 'todo' specified in the Value column.
+    !!!!!!!!!!!!!!!!!!!! IMPORTANT !!!!!!!!!!!!!!!!!!!!
+
     Args:
         path_old (str): path to a country folder in MarcXin's database.
         path_new (str): path where the converted files will be stored.
@@ -96,11 +98,11 @@ def convert_all_files(path_old: str, path_new: str):
                     # Update country data
                     new_df = reshape_columns_to_new_format(old_df)
                     new_df = update_country_data(new_df)
-                    save_excel(new_df, path_new)
+                    parsing_utils.save_excel(new_df, path_new)
                     # Create a resource file for electricity supply
                     new_df = reshape_columns_to_new_format(old_df)
                     new_df = convert_country_to_resource(new_df)
-                    save_excel(new_df, os.path.join(path_new, "resource"))
+                    parsing_utils.save_excel(new_df, os.path.join(path_new, "resource"))
 
 
 def parse_profiles(old_folder: str, new_folder: str):
@@ -144,7 +146,7 @@ def parse_technologies(old_folder: str, new_folder):
                 save_path = os.path.join(new_folder, "process/chp_supply")
             else:
                 save_path = os.path.join(new_folder, "process/elec_supply")
-        save_excel(new_df, save_path)
+        parsing_utils.save_excel(new_df, save_path)
 
 
 def parse_resources(old_folder: str, new_folder: str):
@@ -169,7 +171,7 @@ def parse_resources(old_folder: str, new_folder: str):
             case "import":
                 new_df = convert_resource_to_import(new_df)
                 save_path = os.path.join(new_folder, "import")
-        save_excel(new_df, save_path)
+        parsing_utils.save_excel(new_df, save_path)
 
 
 def reshape_columns_to_new_format(old_df: pd.DataFrame) -> pd.DataFrame:
@@ -181,7 +183,7 @@ def reshape_columns_to_new_format(old_df: pd.DataFrame) -> pd.DataFrame:
     Returns:
         pd.DataFrame: new dataframe
     """
-    template_df = pd.read_excel(TEMPLATE_PATH, sheet_name="template", header=4)
+    template_df = parsing_utils.get_template_dataframe()
 
     copy_list = ["Country", "Entity", "Parameter", "Year", "Value", "Unit", "Reference", "Note"]
     new_df = pd.DataFrame(columns=template_df.columns)
@@ -192,33 +194,10 @@ def reshape_columns_to_new_format(old_df: pd.DataFrame) -> pd.DataFrame:
     return new_df
 
 
-def save_excel(dataframe: pd.DataFrame, folder_path: str):
-    """Save the new file, writing metadata and ensuring correct cell types.
-
-    Args:
-        dataframe (pd.DataFrame): dataframe
-        folder_path (str): folder to save
-    """
-    filename = dataframe.loc[0, "Country"] + "_" + dataframe.loc[0, "Entity"] + ".xlsx"
-    writer = pd.ExcelWriter(  # pylint: disable=abstract-class-instantiated
-        os.path.join(folder_path, filename),
-        engine="xlsxwriter",
-        engine_kwargs={"options": {"strings_to_numbers": True}},
-    )
-
-    metadata = pd.DataFrame(columns=["Data"])
-    metadata.loc["Name:"] = filename
-    metadata.loc["Date:"] = datetime.today().strftime("%Y-%m-%d %H:%M:%S")
-    metadata.loc["Author:"] = "Ivan Ruiz Manuel"
-
-    with writer:
-        metadata.to_excel(writer, header=False)
-        dataframe.to_excel(writer, index=False, startrow=4)
-
-
 def update_tech_data(tech_df: pd.DataFrame) -> tuple[pd.DataFrame, bool]:
     """Update a technology dataframe into the new format.
 
+    TODO: make this less ugly, maybe?
     Objectives: update resource/parameter names, add input/output resource flows.
     By default, all technologies are set to have 1 input (their resource) and 1 output (elecsupply).
     Only technologies with a "heat to electricity" ratio are set to have elecsupply + heatsupply
@@ -698,6 +677,34 @@ def convert_country_to_resource(country_df: pd.DataFrame) -> pd.DataFrame:
     country_df["Entity"] = "elecsupply"
 
     return country_df
+
+
+def linearise_zenodo_dataframe(input_df: pd.DataFrame) -> pd.DataFrame:
+    """Take a dataframe and fill empty values via linearisation.
+
+    Args:
+        input_df (pd.DataFrame): zenodo dataframe.
+
+    Returns:
+        pd.DataFrame: corrected dataframe, with all values linearized/filled.
+    """
+    # Clean the final dataframe
+    input_df.set_index(["Entity", "Parameter", "Year"], inplace=True)
+
+    # Reindex to "stretch" the df and create consistent indexes
+    reindex_df = input_df.reindex(pd.MultiIndex.from_product(input_df.index.levels))
+    reindex_df.sort_index(axis=0, ascending=True, inplace=True)
+    extended_df = reindex_df
+
+    # Linear interpolation across years, skipping Parameters with string values
+    for entity in extended_df.index.unique(level=0):
+        for param in extended_df.loc[entity].index.unique(level=0):
+            index = (entity, param, slice(None))
+            if param not in ["input_resource", "output_resource", "resource"]:
+                values = extended_df.loc[index, "Value"].astype(float)
+                extended_df.loc[index, "Value"] = values.interpolate(limit_direction="both")
+
+    return extended_df
 
 
 if __name__ == "__main__":
