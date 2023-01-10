@@ -7,15 +7,19 @@
 # GNU General Public License v3.0 or later
 # https://www.gnu.org/licenses/gpl-3.0-standalone.html
 # --------------------------------------------------------------------------- #
-"""Scripts to enable unit conversion in the Zenodo datafiles."""
+"""Scripts to enable unit conversion in the Zenodo datafiles.
+
+Adapted from the code developed by Marc.
+"""
 import os
-import logging
+import logging  # TODO: currently this is not working, fix
 
 import pandas as pd
 
 COMMON_PATH = "data/zenodo_ivan/_common"
 
 CURRENCY_DF = pd.read_csv(os.path.join(COMMON_PATH, "Currency.csv"), skiprows=4, index_col=[0, 2])
+AVAILABLE_CURRENCIES = CURRENCY_DF["Parameter"].unique()
 
 # Currency exchange rates to USD, indexed by currency and year
 EXCHANGE_RATE_DF = (
@@ -29,41 +33,13 @@ EXCHANGE_RATE_DF = (
 REF_CURRENCY_DF = (
     CURRENCY_DF[CURRENCY_DF["Parameter"] == "ReferenceCurrency"].reset_index().set_index(["Country", "Year"])
 )
-
 # GDP deflator indexed by country and year
 DEFLATOR_DF = pd.read_csv(os.path.join(COMMON_PATH, "Deflator.csv"), skiprows=4, index_col=[0, 2])
+
 # Units indexed by country, technology, year, unit
 UNITS_DF = pd.read_csv(os.path.join(COMMON_PATH, "Conversions.csv"), skiprows=4, index_col=[0, 1, 3, 2])
-
-
-class NonRepetitiveLogger(logging.Logger):
-    """Simple logger for unit conversion errors."""
-
-    def __init__(self, name, level=logging.NOTSET):
-        """Set logger.
-
-        Args:
-            name (str): Name of the logger
-            level (Any, optional): Lowest severity to dispatch. Defaults to logging.NOTSET.
-        """
-        super().__init__(name=name, level=level)
-        self._message_cache = []
-
-    def _log(self, level, msg, args, exc_info=None, extra=None, stack_info=False):
-        msg_hash = hash(msg)
-        if msg_hash in self._message_cache:
-            return
-        self._message_cache.append(msg_hash)
-        super()._log(level, msg, args, exc_info, extra, stack_info)
-
-
-# TODO: fix logging, does not seem to work
-logger = NonRepetitiveLogger("units")
-sh = logging.StreamHandler()
-sh.setFormatter(logging.Formatter("[%(levelname)s] - %(message)s"))
-logger.addHandler(sh)
-logger.setLevel(logging.INFO)
-logging.Logger
+AVAILABLE_POWER_UNITS = UNITS_DF.loc[UNITS_DF["Unit"] == "MW"].index.unique(3)
+AVAILABLE_ENERGY_UNITS = UNITS_DF.loc[UNITS_DF["Unit"] == "MWh"].index.unique(3)
 
 
 def _get_conv_factor(country: str, entity: str, data_yr: int, unit_name: str):
@@ -80,7 +56,7 @@ def _get_conv_factor(country: str, entity: str, data_yr: int, unit_name: str):
     Returns:
         Any: conversion factor.
     """
-    conv = 1.0  # Default to 1 so the script does not stop if there is an issue. Always look at the logger.
+    conv = 1.0  # Default to 1 so the script does not stop if there is an issue. Always look at the logs.
     try:
         # Specific conversion factor for country, technology, year and unit?
         # NOTE: dataframe index is left as string type to avoid mixed dtypes, so we index using str(data_yr)
@@ -98,7 +74,7 @@ def _get_conv_factor(country: str, entity: str, data_yr: int, unit_name: str):
                     # General conversion factor for unit
                     conv = UNITS_DF.loc[("Undefined", "Undefined", "Undefined", unit_name)]
                 except (KeyError, IndexError) as ex:
-                    logger.debug(ex)
+                    logging.debug(ex)
 
     return conv
 
@@ -124,7 +100,7 @@ def _get_new_currency(row: pd.DataFrame, new_currency: str, new_year: str, defla
         deflator_country (str): intermediate deflator country ("local" means the current country will be used)
 
     Returns:
-        float: _description_
+        float: new currency value
     """
     country = row["Country"]
     value = float(row["Value"])
@@ -179,27 +155,20 @@ def _get_new_currency(row: pd.DataFrame, new_currency: str, new_year: str, defla
     return val_new_yr
 
 
-def convert_unit(
-    row: pd.DataFrame, new_cy="USD", new_yr=2019, new_energy="MWh", new_power="MW", deflator_country="local"
-) -> pd.DataFrame:
-    """Convert units and currencies.
+def convert_units(row: pd.Series, new_energy="MWh", new_power="MW") -> pd.Series:
+    """Convert a dataframe rows with energy or power values.
 
-    Supported formats: unit of power or energy, or currency/(unit of power or energy).
+    Uses a conversion file in the _common folder.
 
     Args:
-        row (pd.DataFrame): pandas dataframe row with columns [Country, Entity, Year, Value, Unit]
-        new_cy (str, optional): Currency to convert to in 3-letter ISO 4217. Defaults to "USD".
-        new_yr (int, optional): New year to use as deflator. Defaults to 2019.
-        new_energy (str, optional): Energy unit to convert to using MWh as intermediary. Defaults to "MWh".
-        new_power (str, optional): Power unit to convert to using MW as intermediary. Defaults to "MW".
-        deflator_country (str, optional): National deflator to use. Defaults to "local" (row[Country]).
+        row (pd.Series): a pandas dataframe row.
+        new_energy (str, optional): New energy unit. Defaults to "MWh".
+        new_power (str, optional): New power unit. Defaults to "MW".
 
     Returns:
-        pd.Dataframe: row with new modified data
+        pd.Series: converted row, or the same as the input row if the value was not in power/energy units.
     """
-    available_currencies = CURRENCY_DF["Parameter"].unique()
-
-    if not pd.isnull(row["Unit"]):
+    if not pd.isnull(row["Unit"]):  # Skip ratios and unit-less values
 
         country = row["Country"]
         entity = row["Entity"]
@@ -207,67 +176,87 @@ def convert_unit(
         value = row["Value"]
         data_yr = row["Year"]
 
+        # First identify the unit that will be converted.
+        if "/" in unit:
+            ref_unit = unit[unit.find("/") + 1:]  # For now, the script can only work with denominators
+        else:
+            ref_unit = unit
+
+        # Check if the unit is configured for conversion
+        if any([ref_unit in AVAILABLE_ENERGY_UNITS, ref_unit in AVAILABLE_POWER_UNITS]):
+            target_unit = new_energy if ref_unit in AVAILABLE_ENERGY_UNITS else new_power
+            try:
+                value = float(value)
+
+                # Convert to the intermediate conversion unit (MW, MWh)
+                conv_factor = _get_conv_factor(country, entity, data_yr, ref_unit)
+                conv_unit = conv_factor["Unit"]
+                if "/" in unit:
+                    new_value = value / conv_factor["Value"]
+                else:
+                    new_value = value * conv_factor["Value"]
+
+                if conv_unit != target_unit:
+                    # New unit is not the intermediate unit (MW, MWh), convert again
+                    conv_factor = _get_conv_factor(country, entity, data_yr, target_unit)
+                    if "/" in unit:
+                        new_value = value * conv_factor["Value"]
+                    else:
+                        new_value = new_value / conv_factor["Value"]
+
+                if "/" in unit:
+                    new_unit = unit[: unit.find("/")] + "/" + target_unit
+                else:
+                    new_unit = target_unit
+
+                row["Value"] = new_value
+                row["Unit"] = new_unit
+
+            except (KeyError, IndexError, TypeError) as ex:
+                logging.debug(ex)
+
+    return row
+
+
+def convert_currency(row: pd.DataFrame, new_cy="USD", new_yr=2019, deflator_country="local") -> pd.DataFrame:
+    """Convert units and currencies.
+
+    Supported formats: currency/(any).
+
+    Args:
+        row (pd.DataFrame): pandas dataframe row with columns [Country, Entity, Year, Value, Unit]
+        new_cy (str, optional): Currency to convert to in 3-letter ISO 4217. Defaults to "USD".
+        new_yr (int, optional): New year to use as deflator. Defaults to 2019.
+        deflator_country (str, optional): National deflator to use. Defaults to "local" (row[Country]).
+
+    Returns:
+        pd.Dataframe: row with new modified data
+    """
+    if not pd.isnull(row["Unit"]):
+        entity = row["Entity"]
+        unit = row["Unit"]
+        value = row["Value"]
         try:
             value = float(value)
             if "/" in unit:
                 # Fractions are only for currency values
                 numerator = unit[: unit.find("/")]
-                denominator = unit[unit.find("/") + 1:]
-                if not numerator[-4:].isdigit():
-                    # Year improperly formatted
-                    logger.info("Error for %s: conversion not implemented (%s)", entity, unit)
-                elif not numerator[:3] in available_currencies:
-                    # Currency not available in common file
-                    logger.info("Currency not found: %s", numerator)
-                else:
-                    # convert to the specified new currency and year
-                    val_new_yr = _get_new_currency(row, new_cy, new_yr, deflator_country)
-                    num_unit = f"{new_cy}{new_yr}"
+                if numerator[-4:].isdigit():
+                    if numerator[:3] in AVAILABLE_CURRENCIES:
+                        # convert to the specified new currency and year
+                        new_value = _get_new_currency(row, new_cy, new_yr, deflator_country)
+                        new_unit = f"{new_cy}{new_yr}" + unit[unit.find("/"):]
 
-                    conv_factor = _get_conv_factor(country, entity, data_yr, denominator)
-                    conv_unit = conv_factor["Unit"]
-                    new_value_refunit = val_new_yr / conv_factor["Value"]
-
-                    if new_energy != "MWh" and conv_unit == "MWh":
-                        new_value = new_value_refunit * (
-                            _get_conv_factor(country, entity, data_yr, new_energy)["Value"]
-                        )
-                        denom_unit = new_energy
-                    elif new_power != "MW" and conv_unit == "MW":
-                        new_value = new_value_refunit * (
-                            _get_conv_factor(country, entity, data_yr, new_power)["Value"]
-                        )
-                        denom_unit = new_power
+                        row["Value"] = new_value
+                        row["Unit"] = new_unit
                     else:
-                        new_value = new_value_refunit
-                        denom_unit = conv_unit
-
-                    new_unit = f"{num_unit}/{denom_unit}"
-
-            else:
-                conv_factor = _get_conv_factor(country, entity, data_yr, unit)
-                conv_unit = conv_factor["Unit"]
-                new_value_refunit = value * conv_factor["Value"]
-
-                if new_energy != "MWh" and conv_unit == "MWh":
-                    new_value = new_value_refunit / (
-                        _get_conv_factor(country, entity, data_yr, new_energy)["Value"]
-                    )
-                    conv_unit = new_energy
-                elif new_power != "MW" and conv_unit == "MW":
-                    new_value = new_value_refunit / (
-                        _get_conv_factor(country, entity, data_yr, new_power)["Value"]
-                    )
-                    conv_unit = new_power
+                        # Currency not available in common file
+                        logging.info("Currency not found: %s", numerator)
                 else:
-                    new_value = new_value_refunit
-
-                new_unit = conv_unit
-
-            row["Value"] = new_value
-            row["Unit"] = new_unit
+                    # Year improperly formatted
+                    logging.info("Error for %s: conversion not implemented (%s)", entity, unit)
 
         except (KeyError, IndexError, TypeError) as ex:
-            logger.debug(str(ex))
+            logging.debug(str(ex))
 
     return row
