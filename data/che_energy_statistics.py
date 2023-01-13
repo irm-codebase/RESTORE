@@ -15,7 +15,7 @@ https://www.bfe.admin.ch/bfe/en/home/supply/statistics-and-geodata/energy-statis
 import numpy as np
 import pandas as pd
 
-from parsing_utils import save_csv
+from gen_utils.file_manager import save_csv  # pylint: disable=import-error
 
 
 class CHEParser:
