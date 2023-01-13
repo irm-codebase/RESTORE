@@ -87,23 +87,24 @@ def get_demand_shape(years: list, days: list, hist_elec_demand: pd.Series) -> tu
     """
     k_ratio_y_d = dict.fromkeys(years)
     demand_y_d_h = dict.fromkeys(years)
+    folder = "data/zenodo_ivan" 
 
     country = "CHE"
     for y in years:
         try:
-            path = f"data_sources/zenodo_marc/Profiles/{country}_{y}.csv"
+            path = f"{folder}/profiles/elec_supply/{country}_{y}.csv"
             load_prof = pd.read_csv(path, index_col=0)
             load_prof = load_prof.fillna(method="bfill", axis=1).values
         except FileNotFoundError:
             try:
-                path = "data_sources/zenodo_marc/Profiles"
+                path = f"{folder}/profiles/elec_supply"
                 profiles = [f for f in listdir(path) if isfile(join(path, f)) and country in f]
                 earliest_profile = sorted(profiles)[0]
-                path = f"data_sources/zenodo_marc/Profiles/{earliest_profile}"
+                path = f"{path}/{earliest_profile}"
                 load_prof = pd.read_csv(path, index_col=0)
                 load_prof = load_prof.fillna(method="bfill", axis=1).values
             except FileNotFoundError:
-                load_prof = pd.read_csv("data_sources/zenodo_marc/_common/GenericLoadProfile.csv")
+                load_prof = pd.read_csv(f"{folder}/_common/GenericLoadProfile.csv")
                 load_prof = load_prof[[i for i in load_prof.columns if "SensedHourly" in i]].values
 
         k_ratio_y_d[y], prof_demand_d_h = get_k_means_hourly_demand(days, load_prof)
