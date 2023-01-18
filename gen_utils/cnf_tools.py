@@ -51,6 +51,50 @@ def merge_dicts(dict1: dict, dict2: dict) -> dict:
     return out_dict
 
 
+def get_lf_vre(country: str) -> dict:
+    """Get a dictionary with load factors for variable renewables (PV, OnshoreWind, OffshoreWind).
+
+    Args:
+        country (str): country ISO 3166-1 alpha-2 code
+
+    Returns:
+        dict: LF data, indexed by [Tech][year (1980-2019), timeslice (0-23)]
+    """
+    path = "data/zenodo_ivan/_common/renewables_ninja"
+    solar_pv = pd.read_csv(
+        f"{path}/ninja_pv_country_{country}_merra-2_corrected.csv",
+        header=2,
+        index_col=0,
+    )
+    wind = pd.read_csv(
+        f"{path}/ninja_wind_country_{country}_current-merra-2_corrected.csv",
+        header=2,
+        index_col=0,
+    )
+
+    if len(wind.columns) > 1:
+        wind.rename({"offshore": "OffshoreWind", "onshore": "OnshoreWind"}, axis=1, inplace=True)
+        wind.drop("national", axis=1, inplace=True)
+    else:
+        wind.rename({"national": "OnshoreWind"}, axis=1, inplace=True)
+        wind["OffshoreWind"] = 0
+
+    solar_pv.index = pd.DatetimeIndex(solar_pv.index)
+    wind.index = pd.DatetimeIndex(wind.index)
+    solar_pv.columns = ["PV"]
+
+    vre_df = pd.concat([solar_pv, wind], axis=1)
+    result = vre_df.groupby([vre_df.index.year, vre_df.index.hour]).mean()
+    
+    col_fix = {"PV": "conv_elec_pv", "OnshoreWind": "conv_elec_onshorewind",
+               "OffshoreWind": "conv_elec_offshorewind"}
+    new_col = [col_fix[i] for i in result.columns]
+    
+    result.columns = new_col
+    
+    return result.to_dict()
+
+
 class ConfigHandler:
     """Configuration file reading and extraction."""
 

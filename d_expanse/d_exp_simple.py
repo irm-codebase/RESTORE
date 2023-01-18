@@ -13,8 +13,8 @@ There are two NOTE items in this code. Keep them in mind when basing a project o
 """
 import pandas as pd
 import numpy as np
-# import pyomo.environ as pyo
-from gen_utils import k_clustering as k_means  # pylint: disable=import-error
+import pyomo.environ as pyo
+from gen_utils import k_clustering as k_means
 
 COUNTRY_PATH = "data/parsed/elec/Country_data_CHE.xlsx"
 INPUT_PATH = "data/parsed/elec/Input_data_CHE.xlsx"
