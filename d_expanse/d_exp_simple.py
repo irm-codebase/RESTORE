@@ -522,13 +522,15 @@ def get_cf_variable_renewables() -> dict:
     Returns:
         dict: CF data, indexed by [Tech][year (1980-2019), timeslice (0-23)]
     """
+    path = "data/zenodo_ivan/_common/renewables_ninja"
+    country = "CH"
     solar_pv = pd.read_csv(
-        "mod_sectors/params/elec/ninja_pv_country_CH_merra-2_corrected.csv",
+        f"{path}/ninja_pv_country_{country}_merra-2_corrected.csv",
         header=2,
         index_col=0,
     )
     wind = pd.read_csv(
-        "mod_sectors/params/elec/ninja_wind_country_CH_current-merra-2_corrected.csv",
+        f"{path}/ninja_wind_country_{country}_current-merra-2_corrected.csv",
         header=2,
         index_col=0,
     )
@@ -552,8 +554,10 @@ def get_cf_variable_renewables() -> dict:
 
 def run_d_expanse() -> pyo.ConcreteModel:
     """Run electricity only version of D-EXPANSE."""
-    country_df = pd.read_excel("mod_sectors/params/simple_d_expanse/Country_data_CHE.xlsx", index_col=[0, 1])
-    tech_df = pd.read_excel("mod_sectors/params/simple_d_expanse/Input_data_CHE.xlsx", index_col=[0, 1])
+    path = "data/cnf_files/d_expanse"
+
+    country_df = pd.read_excel(f"{path}/Country_data_CHE.xlsx", index_col=[0, 1])
+    tech_df = pd.read_excel(f"{path}/Input_data_CHE.xlsx", index_col=[0, 1])
     model = pyo.ConcreteModel()
     cnf_model_indexes(model, tech_df, 2)
     cnf_model_parameters(model, country_df)
@@ -569,4 +573,7 @@ def run_d_expanse() -> pyo.ConcreteModel:
         print(opt_result)
     except ValueError:
         model.write("debug.lp", format="lp", io_options={"symbolic_solver_labels": True})
-    return model
+    return model, country_df, tech_df
+
+
+print("D-EXPANSE module initialised")

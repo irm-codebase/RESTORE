@@ -85,13 +85,16 @@ def get_lf_vre(country: str) -> dict:
 
     vre_df = pd.concat([solar_pv, wind], axis=1)
     result = vre_df.groupby([vre_df.index.year, vre_df.index.hour]).mean()
-    
-    col_fix = {"PV": "conv_elec_pv", "OnshoreWind": "conv_elec_onshorewind",
-               "OffshoreWind": "conv_elec_offshorewind"}
+
+    col_fix = {
+        "PV": "conv_elec_pv",
+        "OnshoreWind": "conv_elec_onshorewind",
+        "OffshoreWind": "conv_elec_offshorewind",
+    }
     new_col = [col_fix[i] for i in result.columns]
-    
+
     result.columns = new_col
-    
+
     return result.to_dict()
 
 
@@ -134,14 +137,29 @@ class ConfigHandler:
         self.io_cnf = io_dict
         self.ef_stack = {k: i.droplevel(0).stack() for (k, i) in io_dict.items()}
 
+    # Flow functions
+    def check_flow_cnf(self, flow: str, option: str):
+        return not np.isnan(self.flow_cnf[flow][("configuration", option)])
+    
+    def get_flow_const(self, flow: str, option: str) -> Any:
+        value = self.flow_cnf[flow][("value", option)]
+        # Allow empty values, but ensure usage causes error if handled improperly.
+        return value if not np.isnan(value) else None
+
+    def get_flow_value(self, flow: str, value_type: str, option: Any) -> Any:
+        value = self.flow_cnf[flow][(value_type, option)]
+        if np.isnan(value):
+            raise ValueError("Requested", value_type, "in", flow, "is NaN. Check configuration validity.")
+        return value
+    
     # Process functions
     # Valid for Conversion, Storage, Import and Generation types.
-    def check_process_cnf(self, process: str, option: Any) -> bool:
+    def check_process_cnf(self, process: str, option: str) -> bool:
         """See if a specific configuration is enabled for the process.
 
         Args:
             process (str): name of the process (e.g., conv_chp_biogas).
-            option (Any): value in the second column in the process' datafile.
+            option (str): value in the second column in the process' datafile.
 
         Returns:
             bool: Configured value. Typically float, int or np.nan.
@@ -169,9 +187,11 @@ class ConfigHandler:
             option (Any): value in the second column in the process' datafile.
 
         Returns:
-            Any: Configured value. Typically float, int or np.nan.
+            Any: Configured value. Typically float, int. None if empty.
         """
-        return self.process_cnf[process][("value", option)]
+        value = self.process_cnf[process][("value", option)]
+        # Allow empty values, but ensure usage causes error if handled improperly.
+        return value if not np.isnan(value) else None
 
     def get_process_value(self, process: str, value_type: str, option: Any) -> Any:
         """Get any process value.
@@ -183,7 +203,13 @@ class ConfigHandler:
             value_type (str): name in the first column in the process' datafile.
             option (Any): value in the second column in the process' datafile.
 
+        Raises:
+            ValueError: if the requested value is empty.
+
         Returns:
-            Any: Configured value. Typically float, int or np.nan.
+            Any: Configured value. Typically float, int.
         """
-        return self.process_cnf[process][(value_type, option)]
+        value = self.process_cnf[process][(value_type, option)]
+        if np.isnan(value):
+            raise ValueError("Requested", value_type, "in", process, "is NaN. Check configuration validity.")
+        return value
