@@ -40,7 +40,7 @@ def merge_dicts(dict1: dict, dict2: dict) -> dict:
         dict2 (dict): input 2
 
     Returns:
-        dict: merged dictoniary
+        dict: merged dictionary
     """
     keys = set(dict1.keys()) | set(dict2.keys())
     out_dict = {k: [] for k in keys}  # type: dict[str, list]
@@ -113,103 +113,88 @@ class ConfigHandler:
         setting_names.remove("info")
 
         io_dict = {}
-        process_df = pd.DataFrame()
-        flow_df = pd.DataFrame()
-        country_df = pd.DataFrame()
+        flow_dict = {}
+        country_dict = {}
+        process_dict = {}
         for name in setting_names:
             if "input" in name or "output" in name:
                 io_dict[name] = pd.read_excel(path, name, header=1, index_col=[0, 1])
             elif "flows" == name:
-                flow_df = pd.read_excel(path, name, header=0, index_col=[0, 1])
+                flow_dict = pd.read_excel(path, name, header=0, index_col=[0, 1]).to_dict()
             elif "country" == name:
-                country_df = pd.read_excel(path, name, header=0, index_col=[0, 1])
+                country_dict = pd.read_excel(path, name, header=0, index_col=[0, 1]).to_dict()
             else:
-                tmp_df = pd.read_excel(path, name, header=0, index_col=[0, 1])
-                if process_df.empty:
-                    process_df = tmp_df
-                else:
-                    process_df = pd.merge(process_df, tmp_df, left_index=True, right_index=True, how="outer")
+                tmp_dict = pd.read_excel(path, name, header=0, index_col=[0, 1]).to_dict()
+                for key, values in tmp_dict.items():
+                    process_dict[key] = values
 
         # Convert configuration to dictionaries to improve speed
-        self.process_cnf = process_df.to_dict()
-        self.flow_cnf = flow_df.to_dict()
-        self.country_cnf = country_df.to_dict()
+        self.process_cnf = process_dict
+        self.flow_cnf = flow_dict
+        self.country_cnf = country_dict
         self.io_cnf = io_dict
         self.ef_stack = {k: i.droplevel(0).stack() for (k, i) in io_dict.items()}
 
-    # Flow functions
+    # Configuration.
+    @staticmethod
+    def _check_cnf(cnf_dict: dict, item: str, option: str):
+        """Evaluate if a configuration option is set. Generic."""
+        return not np.isnan(cnf_dict[item]["configuration", option])
+
     def check_flow_cnf(self, flow: str, option: str):
-        return not np.isnan(self.flow_cnf[flow][("configuration", option)])
-    
-    def get_flow_const(self, flow: str, option: str) -> Any:
-        value = self.flow_cnf[flow][("value", option)]
+        """Check flow configuration."""
+        return self._check_cnf(self.flow_cnf, flow, option)
+
+    def check_process_cnf(self, process: str, option: str) -> bool:
+        """Check process configuration."""
+        return self._check_cnf(self.process_cnf, process, option)
+
+    # Constants
+    @staticmethod
+    def _get_const(cnf_dict: dict, item: str, option: str) -> Any:
+        """Return configuration constants. Generic."""
         # Allow empty values, but ensure usage causes error if handled improperly.
+        value = cnf_dict[item]["value", option]
         return value if not np.isnan(value) else None
 
-    def get_flow_value(self, flow: str, value_type: str, option: Any) -> Any:
-        value = self.flow_cnf[flow][(value_type, option)]
-        if np.isnan(value):
-            raise ValueError("Requested", value_type, "in", flow, "is NaN. Check configuration validity.")
-        return value
-    
-    # Process functions
-    # Valid for Conversion, Storage, Import and Generation types.
-    def check_process_cnf(self, process: str, option: str) -> bool:
-        """See if a specific configuration is enabled for the process.
+    def get_country_const(self, option: str) -> Any:
+        """Return country constant."""
+        return self._get_const(self.country_cnf, "country", option)
 
-        Args:
-            process (str): name of the process (e.g., conv_chp_biogas).
-            option (str): value in the second column in the process' datafile.
-
-        Returns:
-            bool: Configured value. Typically float, int or np.nan.
-        """
-        return not np.isnan(self.process_cnf[process][("configuration", option)])
-
-    def get_process_cnf(self, process: str, option: Any) -> Any:
-        """Get a process configuration value.
-
-        Args:
-            process (str): name of the process (e.g., conv_chp_biogas).
-            value_type (str): name in the first column in the process' datafile.
-            option (Any): value in the second column in the process' datafile.
-
-        Returns:
-            Any: Configured value. Typically float, int or np.nan.
-        """
-        return self.process_cnf[process][("configuration", option)]
+    def get_flow_const(self, flow: str, option: str) -> Any:
+        """Return flow constant."""
+        return self._get_const(self.flow_cnf, flow, option)
 
     def get_process_const(self, process: str, option: Any) -> Any:
-        """Get a process constant.
+        """Return process constant."""
+        return self._get_const(self.process_cnf, process, option)
 
-        Args:
-            process (str): name of the process (e.g., conv_chp_biogas).
-            option (Any): value in the second column in the process' datafile.
-
-        Returns:
-            Any: Configured value. Typically float, int. None if empty.
-        """
-        value = self.process_cnf[process][("value", option)]
-        # Allow empty values, but ensure usage causes error if handled improperly.
-        return value if not np.isnan(value) else None
-
-    def get_process_value(self, process: str, value_type: str, option: Any) -> Any:
-        """Get any process value.
-
-        Valid for Conversion, Storage, Import and Generation types.
-
-        Args:
-            process (str): name of the process (e.g., conv_chp_biogas).
-            value_type (str): name in the first column in the process' datafile.
-            option (Any): value in the second column in the process' datafile.
-
-        Raises:
-            ValueError: if the requested value is empty.
-
-        Returns:
-            Any: Configured value. Typically float, int.
-        """
-        value = self.process_cnf[process][(value_type, option)]
+    # Historic values
+    @staticmethod
+    def _get_value(cnf_dict: dict, item: str, value_type: str, year: int):
+        """Return historic values. Generic."""
+        value = cnf_dict[item][value_type, year]
         if np.isnan(value):
-            raise ValueError("Requested", value_type, "in", process, "is NaN. Check configuration validity.")
+            raise ValueError("Requested", value_type, "in", item, "is NaN. Check configuration validity.")
         return value
+
+    def get_country_value(self, value_type: str, year: int) -> Any:
+        """Return yearly country value."""
+        return self._get_value(self.country_cnf, "country", value_type, year)
+
+    def get_flow_value(self, flow: str, value_type: str, year: int) -> Any:
+        """Return yearly flow value."""
+        return self._get_value(self.flow_cnf, flow, value_type, year)
+
+    def get_process_value(self, process: str, value_type: str, year: int) -> Any:
+        """Return yearly process value."""
+        return self._get_value(self.process_cnf, process, value_type, year)
+
+    # Configuration sets
+    def build_cnf_set(self, elements: set, config: str):
+        """Create a set where the given configuration is enabled."""
+        cap_processes = set()
+        for i in elements:
+            if self.check_process_cnf(i, config):
+                cap_processes.add(i)
+        return cap_processes

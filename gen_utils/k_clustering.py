@@ -18,6 +18,8 @@ from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_samples
 
 
+# TODO: input should be an integer. The list makes little sense.
+# TODO: handle units here? Big problem!
 def get_k_means_hourly_demand(days: list, load_prof_yr: list) -> tuple[np.ndarray, np.ndarray]:
     """Obtain a number of representative daily load profiles using k-means clustering.
 
@@ -34,18 +36,22 @@ def get_k_means_hourly_demand(days: list, load_prof_yr: list) -> tuple[np.ndarra
     cluster_labels = k_means_model.fit_predict(load_prof_yr)
     hourly_dem = k_means_model.cluster_centers_ / 1000
 
-    # The silhouette_score gives the average value for all the samples.
-    # This gives a perspective into the density and separation of the formed clusters
-    sample_silhouette_values = silhouette_samples(load_prof_yr, cluster_labels)
-    size_cluster = np.zeros(len(days))
-    for i in days:
-        # get the number of days corresponding to each cluster
-        size_cluster[i] = len(sample_silhouette_values[cluster_labels == i])
+    if len(days) > 1:
+        # The silhouette_score gives the average value for all the samples.
+        # This gives a perspective into the density and separation of the formed clusters
+        sample_silhouette_values = silhouette_samples(load_prof_yr, cluster_labels)
+        size_cluster = np.zeros(len(days))
+        for i in days:
+            # get the number of days corresponding to each cluster
+            size_cluster[i] = len(sample_silhouette_values[cluster_labels == i])
 
-    cluster_ratios = np.zeros(len(days))
-    for i in days:
-        # calculate the % of representation of cluster i in the whole year
-        cluster_ratios[i] = size_cluster[i] / sum(size_cluster)
+        cluster_ratios = np.zeros(len(days))
+        for i in days:
+            # calculate the % of representation of cluster i in the whole year
+            cluster_ratios[i] = size_cluster[i] / sum(size_cluster)
+    else:
+        # ratio is 100% if only one day was requested
+        cluster_ratios = [1]
 
     return cluster_ratios, hourly_dem
 
@@ -87,10 +93,10 @@ def get_demand_shape(years: list, days: list, hist_elec_demand: pd.Series) -> tu
     """
     k_ratio_y_d = dict.fromkeys(years)
     demand_y_d_h = dict.fromkeys(years)
-    folder = "data/zenodo_ivan" 
+    folder = "data/zenodo_ivan"
 
     country = "CHE"
-    for y in years:
+    for i, y in enumerate(years):
         try:
             path = f"{folder}/profiles/elec_supply/{country}_{y}.csv"
             load_prof = pd.read_csv(path, index_col=0)
@@ -105,16 +111,16 @@ def get_demand_shape(years: list, days: list, hist_elec_demand: pd.Series) -> tu
                 load_prof = load_prof.fillna(method="bfill", axis=1).values
             except FileNotFoundError:
                 load_prof = pd.read_csv(f"{folder}/_common/GenericLoadProfile.csv")
-                load_prof = load_prof[[i for i in load_prof.columns if "SensedHourly" in i]].values
+                load_prof = load_prof[[c for c in load_prof.columns if "SensedHourly" in c]].values
 
         k_ratio_y_d[y], prof_demand_d_h = get_k_means_hourly_demand(days, load_prof)
 
         # Apply a correction to the hourly profiles using historical data.
         # Necessary since demand profiles may not be available for every year.
         elec_supplied_y = 0
-        for i in days:
-            elec_supplied_y += sum(prof_demand_d_h[i, :]) * 365 * k_ratio_y_d[y][i] / 1000
-        hist_prof_ratio_y = hist_elec_demand[y] / elec_supplied_y
+        for d in days:
+            elec_supplied_y += sum(prof_demand_d_h[d, :]) * 365 * k_ratio_y_d[y][d] / 1000
+        hist_prof_ratio_y = hist_elec_demand[i] / elec_supplied_y
         demand_y_d_h[y] = prof_demand_d_h * hist_prof_ratio_y
 
     return k_ratio_y_d, demand_y_d_h
