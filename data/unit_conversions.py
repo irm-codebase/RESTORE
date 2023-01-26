@@ -12,7 +12,6 @@
 Adapted from the code developed by Marc.
 """
 import os
-import logging  # TODO: currently this is not working, fix
 
 import pandas as pd
 
@@ -42,39 +41,37 @@ AVAILABLE_POWER_UNITS = UNITS_DF.loc[UNITS_DF["Unit"] == "MW"].index.unique(3)
 AVAILABLE_ENERGY_UNITS = UNITS_DF.loc[UNITS_DF["Unit"] == "MWh"].index.unique(3)
 
 
-def _get_conv_factor(country: str, entity: str, data_yr: int, unit_name: str):
+def _get_conv_factor(country: str, data_yr: int, unit_name: str):
     """Find the most specific conversion factor available in the units data file.
 
-    E.g.: in case there are time-specific national conversion factors for energy per ton of coal, etc.
+    By default, all units are converted to/from MW or MWh.
+    E.g., converting from nation and year specific energy units into TWh requires two calls.
+    GBR oil tonne * conv_factor(GBR,year,tonne_oil) -> MWh / conv_factor(_,_,_,TWh)-> TWh
 
     Args:
         country (str): 3-letter ISO 3166 country code.
-        entity (str): Technology of resource name found under the 'Entity' column of the dataframe.
         data_yr (int): Year of the data to be converted.
-        unit_name (str): Name of the unit found under the 'Parameter' column of the dataframe.
+        unit_name (str): Name of the energy/power unit. E.g., "GW, PJ, tonne_coal, ktoe".
 
     Returns:
         Any: conversion factor.
     """
     conv = 1.0  # Default to 1 so the script does not stop if there is an issue. Always look at the logs.
     try:
-        # Specific conversion factor for country, technology, year and unit?
+        # Specific conversion factor for country, year and unit?
         # NOTE: dataframe index is left as string type to avoid mixed dtypes, so we index using str(data_yr)
-        conv = UNITS_DF.loc[(country, entity, str(data_yr), unit_name)]
+        conv = UNITS_DF.loc[(country, str(data_yr), unit_name)]
     except (KeyError, IndexError):
         try:
-            # Specific conversion factor for country, technology, and unit?
-            conv = UNITS_DF.loc[(country, entity, "Undefined", unit_name)]
+            # Specific conversion factor for country, and unit?
+            conv = UNITS_DF.loc[(country, "Undefined", unit_name)]
         except (KeyError, IndexError):
             try:
-                # Specific conversion factor for technology and unit?
-                conv = UNITS_DF.loc[("Undefined", entity, "Undefined", unit_name)]
-            except (KeyError, IndexError):
-                try:
-                    # General conversion factor for unit
-                    conv = UNITS_DF.loc[("Undefined", "Undefined", "Undefined", unit_name)]
-                except (KeyError, IndexError) as ex:
-                    logging.debug(ex)
+                # General conversion factor for unit?
+                conv = UNITS_DF.loc[("Undefined", "Undefined", unit_name)]
+            except (KeyError, IndexError) as ex:
+                print("Conversion factor not found for", country, data_yr, unit_name)
+                raise Exception() from ex
 
     return conv
 
@@ -171,9 +168,9 @@ def convert_units(row: pd.Series, new_energy="MWh", new_power="MW") -> pd.Series
     if not pd.isnull(row["Unit"]):  # Skip ratios and unit-less values
 
         country = row["Country"]
-        entity = row["Entity"]
+        parameter = row["Parameter"]
         unit = row["Unit"]
-        value = row["Value"]
+        initial_value = row["Value"]
         data_yr = row["Year"]
 
         # First identify the unit that will be converted.
@@ -186,34 +183,37 @@ def convert_units(row: pd.Series, new_energy="MWh", new_power="MW") -> pd.Series
         if any([ref_unit in AVAILABLE_ENERGY_UNITS, ref_unit in AVAILABLE_POWER_UNITS]):
             target_unit = new_energy if ref_unit in AVAILABLE_ENERGY_UNITS else new_power
             try:
-                value = float(value)
+                initial_value = float(initial_value)
 
                 # Convert to the intermediate conversion unit (MW, MWh)
-                conv_factor = _get_conv_factor(country, entity, data_yr, ref_unit)
+                conv_factor = _get_conv_factor(country, data_yr, ref_unit)
                 conv_unit = conv_factor["Unit"]
                 if "/" in unit:
-                    new_value = value / conv_factor["Value"]
+                    conv_value = initial_value / conv_factor["Value"]
                 else:
-                    new_value = value * conv_factor["Value"]
+                    conv_value = initial_value * conv_factor["Value"]
 
                 if conv_unit != target_unit:
                     # New unit is not the intermediate unit (MW, MWh), convert again
-                    conv_factor = _get_conv_factor(country, entity, data_yr, target_unit)
+                    conv_factor = _get_conv_factor(country, data_yr, target_unit)
                     if "/" in unit:
-                        new_value = value * conv_factor["Value"]
+                        target_value = conv_value * conv_factor["Value"]
                     else:
-                        new_value = new_value / conv_factor["Value"]
+                        target_value = conv_value / conv_factor["Value"]
+                else:
+                    target_value = conv_value
 
                 if "/" in unit:
                     new_unit = unit[: unit.find("/")] + "/" + target_unit
                 else:
                     new_unit = target_unit
 
-                row["Value"] = new_value
+                row["Value"] = target_value
                 row["Unit"] = new_unit
 
             except (KeyError, IndexError, TypeError) as ex:
-                logging.debug(ex)
+                print("Conversion failed for", country, parameter, data_yr, unit)
+                raise Exception() from ex
 
     return row
 
@@ -251,12 +251,12 @@ def convert_currency(row: pd.DataFrame, new_cy="USD", new_yr=2019, deflator_coun
                         row["Unit"] = new_unit
                     else:
                         # Currency not available in common file
-                        logging.info("Currency not found: %s", numerator)
+                        raise ValueError(f"Currency not found: {numerator}")
                 else:
                     # Year improperly formatted
-                    logging.info("Error for %s: conversion not implemented (%s)", entity, unit)
+                    raise ValueError(f"Error for {entity}: conversion not implemented ({unit})")
 
         except (KeyError, IndexError, TypeError) as ex:
-            logging.debug(str(ex))
+            raise Exception() from ex
 
     return row
