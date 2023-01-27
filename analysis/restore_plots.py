@@ -14,7 +14,7 @@ import pandas as pd
 from gen_utils.cnf_tools import ConfigHandler
 from gen_utils import fig_tools
 
-fig_tools.plt.rcParams['axes.prop_cycle'] = fig_tools.plt.cycler(color=fig_tools.plt.cm.tab20c.colors)
+fig_tools.plt.rcParams['axes.prop_cycle'] = fig_tools.plt.cycler(color=fig_tools.plt.cm.tab20.colors)
 
 
 def plot_io_network(*in_out: pd.DataFrame, labels=True):
@@ -40,7 +40,7 @@ def plot_io_network(*in_out: pd.DataFrame, labels=True):
     nx.draw_networkx(network, node_size=100, font_size=6, with_labels=labels)
 
 
-def plot_fout(model, handler: ConfigHandler, flow):
+def plot_fout_act(model, handler: ConfigHandler, flow):
     """Plot values flowing out of elements at a flow node."""
     columns = [e for f, e in model.FoE if f == flow]
     fout_df = pd.DataFrame(index=model.Years, columns=columns)
@@ -63,7 +63,7 @@ def plot_fout(model, handler: ConfigHandler, flow):
     return axis
 
 
-def plot_fin(model, handler: ConfigHandler, flow):
+def plot_fin_act(model, handler: ConfigHandler, flow):
     """Plot values flowing into elements at a flow node."""
     columns = [e for f, e in model.FiE if f == flow]
     fin_df = pd.DataFrame(index=model.Years, columns=columns)
@@ -80,6 +80,31 @@ def plot_fin(model, handler: ConfigHandler, flow):
     axis.set_title(f"FiE at {flow}")
     handles, labels = fig_tools.get_plt_inverted_legend(axis)
     axis.legend(handles, labels, bbox_to_anchor=(1.1, 1.05))
+    fig_tools.plt.tight_layout()
+    axis.autoscale()
+
+    return axis
+
+
+def plot_fout_ctot(model, handler: ConfigHandler, flow: str):
+    """Plot the capacity of the conversion elements feeding into a flow."""    
+    o_eff = handler.ef_stack["output_eff"].to_dict()
+    
+    columns = [e for f, e in model.FoE if f == flow and e in (model.ProsCap & model.Convs)]
+    cap_df = pd.DataFrame(index=model.Years, columns=columns)
+    for e in columns:
+        for y in model.Years:
+            cap_df.loc[y, e] = o_eff[e, flow] * model.ctot[e, y].value
+
+    axis = cap_df.plot(kind="bar", stacked=True, width=0.8)
+    
+    hist_values = [handler.get_flow_value(flow, "actual_capacity", y) for y in model.Years]
+    historical = pd.Series(data=hist_values, index=model.Years, name="Historical total")
+    axis = historical.plot(color="black", linestyle="-.", use_index=False, mark_right=False, rot=90)
+
+    axis.set_title(f"Capacity at {flow}")
+    handles, labels = fig_tools.get_plt_inverted_legend(axis)
+    axis.legend(handles, labels, bbox_to_anchor=(1, 1.05))
     fig_tools.plt.tight_layout()
     axis.autoscale()
 
