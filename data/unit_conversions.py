@@ -36,9 +36,9 @@ REF_CURRENCY_DF = (
 DEFLATOR_DF = pd.read_csv(os.path.join(COMMON_PATH, "Deflator.csv"), skiprows=4, index_col=[0, 2])
 
 # Units indexed by country, technology, year, unit
-UNITS_DF = pd.read_csv(os.path.join(COMMON_PATH, "Conversions.csv"), skiprows=4, index_col=[0, 1, 3, 2])
-AVAILABLE_POWER_UNITS = UNITS_DF.loc[UNITS_DF["Unit"] == "MW"].index.unique(3)
-AVAILABLE_ENERGY_UNITS = UNITS_DF.loc[UNITS_DF["Unit"] == "MWh"].index.unique(3)
+UNITS_DF = pd.read_csv(os.path.join(COMMON_PATH, "Conversions.csv"), skiprows=4, index_col=[0, 2, 1])
+AVAILABLE_POWER_UNITS = UNITS_DF.loc[UNITS_DF["Unit"] == "MW"].index.unique(2)
+AVAILABLE_ENERGY_UNITS = UNITS_DF.loc[UNITS_DF["Unit"] == "MWh"].index.unique(2)
 
 
 def _get_conv_factor(country: str, data_yr: int, unit_name: str):
@@ -241,8 +241,8 @@ def convert_currency(row: pd.DataFrame, new_cy="USD", new_yr=2019, deflator_coun
             if "/" in unit:
                 # Fractions are only for currency values
                 numerator = unit[: unit.find("/")]
-                if numerator[-4:].isdigit():
-                    if numerator[:3] in AVAILABLE_CURRENCIES:
+                if numerator[:3] in AVAILABLE_CURRENCIES:
+                    if numerator[-4:].isdigit():
                         # convert to the specified new currency and year
                         new_value = _get_new_currency(row, new_cy, new_yr, deflator_country)
                         new_unit = f"{new_cy}{new_yr}" + unit[unit.find("/"):]
@@ -250,12 +250,11 @@ def convert_currency(row: pd.DataFrame, new_cy="USD", new_yr=2019, deflator_coun
                         row["Value"] = new_value
                         row["Unit"] = new_unit
                     else:
-                        # Currency not available in common file
-                        raise ValueError(f"Currency not found: {numerator}")
+                        # Year improperly formatted
+                        raise ValueError(f"Error for {entity}: conversion not implemented ({unit})")
                 else:
-                    # Year improperly formatted
-                    raise ValueError(f"Error for {entity}: conversion not implemented ({unit})")
-
+                    # Currency not available in common file
+                    print(f"Currency not found: {numerator}")
         except (KeyError, IndexError, TypeError) as ex:
             raise Exception() from ex
 
