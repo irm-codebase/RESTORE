@@ -14,7 +14,8 @@ import shutil
 import pandas as pd
 import numpy as np
 
-import parsing_utils
+from gen_utils import file_manager
+
 
 PATH_OLD = "/Users/ruiziv/switchdrive/ACCURACY/D-EXPANSE/CHE"
 PATH_NEW = "data/zenodo_ivan/"
@@ -98,11 +99,11 @@ def convert_all_files(path_old: str, path_new: str):
                     # Update country data
                     new_df = reshape_columns_to_new_format(old_df)
                     new_df = update_country_data(new_df)
-                    parsing_utils.save_excel(new_df, path_new)
+                    file_manager.save_excel(new_df, path_new)
                     # Create a resource file for electricity supply
                     new_df = reshape_columns_to_new_format(old_df)
                     new_df = convert_country_to_resource(new_df)
-                    parsing_utils.save_excel(new_df, os.path.join(path_new, "resource"))
+                    file_manager.save_excel(new_df, os.path.join(path_new, "resource"))
 
 
 def parse_profiles(old_folder: str, new_folder: str):
@@ -146,7 +147,7 @@ def parse_technologies(old_folder: str, new_folder):
                 save_path = os.path.join(new_folder, "process/chp_supply")
             else:
                 save_path = os.path.join(new_folder, "process/elec_supply")
-        parsing_utils.save_excel(new_df, save_path)
+        file_manager.save_excel(new_df, save_path)
 
 
 def parse_resources(old_folder: str, new_folder: str):
@@ -171,7 +172,7 @@ def parse_resources(old_folder: str, new_folder: str):
             case "import":
                 new_df = convert_resource_to_import(new_df)
                 save_path = os.path.join(new_folder, "import")
-        parsing_utils.save_excel(new_df, save_path)
+        file_manager.save_excel(new_df, save_path)
 
 
 def reshape_columns_to_new_format(old_df: pd.DataFrame) -> pd.DataFrame:
@@ -183,7 +184,7 @@ def reshape_columns_to_new_format(old_df: pd.DataFrame) -> pd.DataFrame:
     Returns:
         pd.DataFrame: new dataframe
     """
-    template_df = parsing_utils.get_template_dataframe()
+    template_df = file_manager.get_template_dataframe()
 
     copy_list = ["Country", "Entity", "Parameter", "Year", "Value", "Unit", "Reference", "Note"]
     new_df = pd.DataFrame(columns=template_df.columns)

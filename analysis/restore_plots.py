@@ -14,7 +14,7 @@ import pandas as pd
 from gen_utils.cnf_tools import ConfigHandler
 from gen_utils import fig_tools
 
-fig_tools.plt.rcParams['axes.prop_cycle'] = fig_tools.plt.cycler(color=fig_tools.plt.cm.tab20.colors)
+fig_tools.plt.rcParams["axes.prop_cycle"] = fig_tools.plt.cycler(color=fig_tools.plt.cm.tab20.colors)
 
 
 def plot_io_network(*in_out: pd.DataFrame, labels=True):
@@ -42,19 +42,30 @@ def plot_io_network(*in_out: pd.DataFrame, labels=True):
 
 def plot_fout_act(model, handler: ConfigHandler, flow):
     """Plot values flowing out of elements at a flow node."""
+    o_eff = handler.ef_stack["output_eff"].to_dict()
+    
     columns = [e for f, e in model.FoE if f == flow]
     fout_df = pd.DataFrame(index=model.Years, columns=columns)
+    element_actuals = pd.Series(data=0, index=model.Years, name="Aggr. element references")
     for f, e in model.FoE:
         if f == flow:
             for y in model.Years:
                 fout_df.loc[y, e] = model.TPERIOD * sum(model.fout[f, e, y, h].value for h in model.Hours)
+                if e in model.Trades:
+                    element_actuals[y] += handler.get_process_value(e, "actual_import", y) * o_eff[e, f]
+                else:
+                    element_actuals[y] += handler.get_process_value(e, "actual_activity", y) * o_eff[e, f]
 
     axis = fout_df.plot.area(linewidth=0)
 
     hist_values = [handler.get_flow_value(flow, "actual_flow", y) for y in model.Years]
     actual = pd.Series(data=hist_values, index=model.Years, name="Historical total")
     axis = actual.plot.line(ax=axis, color="black", linestyle="-.")
-    axis.set_title(f"FoE at {flow}")
+    
+    # Per-technology 'actual' values
+    axis = element_actuals.plot(ax=axis, color="red")
+    
+    axis.set_title(f"FoE at {flow} (TWh)")
     handles, labels = fig_tools.get_plt_inverted_legend(axis)
     axis.legend(handles, labels, bbox_to_anchor=(1.1, 1.05))
     fig_tools.plt.tight_layout()
@@ -77,7 +88,7 @@ def plot_fin_act(model, handler: ConfigHandler, flow):
     hist_values = [handler.get_flow_value(flow, "actual_flow", y) for y in model.Years]
     actual = pd.Series(data=hist_values, index=model.Years, name="Historical total")
     axis = actual.plot.line(ax=axis, color="black", linestyle="-.")
-    axis.set_title(f"FiE at {flow}")
+    axis.set_title(f"FiE at {flow} (TWh)")
     handles, labels = fig_tools.get_plt_inverted_legend(axis)
     axis.legend(handles, labels, bbox_to_anchor=(1.1, 1.05))
     fig_tools.plt.tight_layout()
@@ -87,22 +98,28 @@ def plot_fin_act(model, handler: ConfigHandler, flow):
 
 
 def plot_fout_ctot(model, handler: ConfigHandler, flow: str):
-    """Plot the capacity of the conversion elements feeding into a flow."""    
+    """Plot the capacity of the conversion elements feeding into a flow."""
     o_eff = handler.ef_stack["output_eff"].to_dict()
-    
-    columns = [e for f, e in model.FoE if f == flow and e in (model.ProsCap & model.Convs)]
-    cap_df = pd.DataFrame(index=model.Years, columns=columns)
-    for e in columns:
+
+    cap_elements = [e for f, e in model.FoE if f == flow and e in (model.ProsCap - model.Trades)]
+    cap_df = pd.DataFrame(index=model.Years, columns=cap_elements)
+    element_actuals = pd.Series(data=0, index=model.Years, name="Aggr. element references")
+    for e in cap_elements:
         for y in model.Years:
             cap_df.loc[y, e] = o_eff[e, flow] * model.ctot[e, y].value
+            element_actuals[y] += handler.get_process_value(e, "actual_capacity", y) * o_eff[e, flow]
 
     axis = cap_df.plot(kind="bar", stacked=True, width=0.8)
-    
+
+    # Aggregated historical reference
     hist_values = [handler.get_flow_value(flow, "actual_capacity", y) for y in model.Years]
-    historical = pd.Series(data=hist_values, index=model.Years, name="Historical total")
+    historical = pd.Series(data=hist_values, index=model.Years, name="Historical reference")
     axis = historical.plot(color="black", linestyle="-.", use_index=False, mark_right=False, rot=90)
 
-    axis.set_title(f"Capacity at {flow}")
+    # Per-technology 'actual' values
+    axis = element_actuals.plot(color="red", use_index=False, mark_right=False, rot=90)
+
+    axis.set_title(f"Net capacity at {flow} (GW)")
     handles, labels = fig_tools.get_plt_inverted_legend(axis)
     axis.legend(handles, labels, bbox_to_anchor=(1, 1.05))
     fig_tools.plt.tight_layout()
@@ -135,7 +152,43 @@ def plot_process_act(model, handler: ConfigHandler, process, trd_dir=None, axis=
     actual = pd.Series(data=hist_values, index=model.Years, name="Historical total")
     axis = actual.plot.line(ax=axis, color="black", linestyle="-.")
     if title is not None:
-        axis.set_title(process)
+        axis.set_title(process + " (TWh)")
+    handles, labels = fig_tools.get_plt_inverted_legend(axis)
+    axis.legend(handles, labels, bbox_to_anchor=(1.1, 1.05))
+    fig_tools.plt.tight_layout()
+    axis.autoscale()
+
+    return axis
+
+
+def plot_emissions_elec_heat(model, handler: ConfigHandler):
+    """Plot activity values at a process element."""
+    flow = "elecsupply"
+
+    elements = [e for f, e in model.FoE if f == flow]
+    model_result_df = pd.DataFrame(index=model.Years, columns=elements)
+    element_actuals = pd.Series(data=0, index=model.Years, name="Aggr. element references")
+    for e in elements:
+        for y in model.Years:
+            co2_factor = handler.get_process_const(e, "co2_factor")
+            if e in model.Trades:
+                act = sum(model.aimp[e, y, h].value for h in model.Hours)
+                element_actuals[y] += handler.get_process_value(e, "actual_import", y) * co2_factor
+            else:
+                act = sum(model.a[e, y, h].value for h in model.Hours)
+                element_actuals[y] += handler.get_process_value(e, "actual_activity", y) * co2_factor
+            model_result_df.loc[y, e] = model.TPERIOD * act * co2_factor
+
+    axis = model_result_df.plot.area(linewidth=0)
+
+    # hist_values = [handler.get_country_value("actual_emissions_elec_heat", y) for y in model.Years]
+    # actual = pd.Series(data=hist_values, index=model.Years, name="Historical total")
+    # axis = actual.plot.line(ax=axis, color="black", linestyle="-.")
+
+    # Per-technology 'actual' values
+    axis = element_actuals.plot(ax=axis, color="red")
+
+    axis.set_title(f"Emissions electricity and heat {flow}")
     handles, labels = fig_tools.get_plt_inverted_legend(axis)
     axis.legend(handles, labels, bbox_to_anchor=(1.1, 1.05))
     fig_tools.plt.tight_layout()

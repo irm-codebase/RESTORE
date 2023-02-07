@@ -125,4 +125,5 @@ dmypy.json
 
 # tmp files for other applications
 *.drawio.bkp
+*.drawio.dtmp
 ~$*.xlsx
