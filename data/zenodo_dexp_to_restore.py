@@ -680,33 +680,5 @@ def convert_country_to_resource(country_df: pd.DataFrame) -> pd.DataFrame:
     return country_df
 
 
-def linearise_zenodo_dataframe(input_df: pd.DataFrame) -> pd.DataFrame:
-    """Take a dataframe and fill empty values via linearisation.
-
-    Args:
-        input_df (pd.DataFrame): zenodo dataframe.
-
-    Returns:
-        pd.DataFrame: corrected dataframe, with all values linearized/filled.
-    """
-    # Clean the final dataframe
-    input_df.set_index(["Entity", "Parameter", "Year"], inplace=True)
-
-    # Reindex to "stretch" the df and create consistent indexes
-    reindex_df = input_df.reindex(pd.MultiIndex.from_product(input_df.index.levels))
-    reindex_df.sort_index(axis=0, ascending=True, inplace=True)
-    extended_df = reindex_df
-
-    # Linear interpolation across years, skipping Parameters with string values
-    for entity in extended_df.index.unique(level=0):
-        for param in extended_df.loc[entity].index.unique(level=0):
-            index = (entity, param, slice(None))
-            if param not in ["input_resource", "output_resource", "resource"]:
-                values = extended_df.loc[index, "Value"].astype(float)
-                extended_df.loc[index, "Value"] = values.interpolate(limit_direction="both")
-
-    return extended_df
-
-
 if __name__ == "__main__":
     convert_all_files(PATH_OLD, PATH_NEW)
