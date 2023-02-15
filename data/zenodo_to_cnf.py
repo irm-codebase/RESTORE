@@ -1,18 +1,20 @@
 # --------------------------------------------------------------------------- #
-# Filename: unit_conversions.py
-# Path: /unit_conversions.py
+# Filename: zenodo_to_cnf.py
+# Path: /zenodo_to_cnf.py
 # Created Date: Thursday, October 27th 2022, 3:04:54 pm
 # Author: Marc Jaxa-Rozen, Ivan Ruiz Manuel
 # Copyright (c) 2023 University of Geneva
 # GNU General Public License v3.0 or later
 # https://www.gnu.org/licenses/gpl-3.0-standalone.html
 # --------------------------------------------------------------------------- #
-"""Scripts to enable unit conversion in the Zenodo datafiles.
+"""Converting Zenodo datafiles to a configuration file.
 
-Adapted from the code developed by Marc.
+Unit conversion and currency conversion functions were adapted from D-EXPANSE.
+Linearisation and configuration data aggregation are new to RESTORE.
 """
 import os
 import pandas as pd
+import numpy as np
 
 COMMON_PATH = "data/zenodo_ivan/_common"
 
@@ -38,6 +40,9 @@ DEFLATOR_DF = pd.read_csv(os.path.join(COMMON_PATH, "Deflator.csv"), skiprows=4,
 UNITS_DF = pd.read_csv(os.path.join(COMMON_PATH, "Conversions.csv"), skiprows=4, index_col=[0, 2, 1])
 AVAILABLE_POWER_UNITS = UNITS_DF.loc[UNITS_DF["Unit"] == "MW"].index.unique(2)
 AVAILABLE_ENERGY_UNITS = UNITS_DF.loc[UNITS_DF["Unit"] == "MWh"].index.unique(2)
+
+CNF_INDEX = ["Type", "Parameter", "Flow", "Year"]
+ZENODO_FOLDER_PATH = "data/zenodo_ivan"
 
 
 def _get_conv_factor(country: str, data_yr: int, unit_name: str):
@@ -261,7 +266,19 @@ def convert_currency(row: pd.DataFrame, new_cy="USD", new_yr=2019, deflator_coun
 
 
 def linearise_dataframe(input_df: pd.DataFrame) -> pd.DataFrame:
-    """Take a dataframe and fill empty values via linearisation."""
+    """Take a dataframe and fill empty values via linearisation.
+
+    Modifies the input dataframe!
+
+    Args:
+        input_df (pd.DataFrame): _description_
+
+    Raises:
+        ValueError: _description_
+
+    Returns:
+        pd.DataFrame: _description_
+    """
     # Clean the final dataframe
     input_df.set_index(["Entity", "Parameter", "Year"], inplace=True)
     tmp_df = input_df.copy()
@@ -278,42 +295,108 @@ def linearise_dataframe(input_df: pd.DataFrame) -> pd.DataFrame:
                 tmp_df.loc[idx, "Value"] = values.interpolate(limit_direction="both")
 
     input_df.update(tmp_df)
+    input_df.reset_index(inplace=True)
 
     return input_df
 
 
-def create_cnf_file(data_path: str, cnf_path: str):
+def create_cnf_file(data_folder_path: str, cnf_file_path: str):
     """Parse through datafiles and create a configuration file, recursively."""
-    dir_items = os.listdir(data_path)
+    dir_items = sorted(os.listdir(data_folder_path))
     for item in dir_items:
-        item_path = os.path.join(data_path, item)
+        item_path = os.path.join(data_folder_path, item)
         if os.path.isdir(item_path) and "_" not in item:  # ensure generic folders are omitted
-            create_cnf_file(item_path, cnf_path)
+            create_cnf_file(item_path, cnf_file_path)
         elif os.path.isfile(item_path) and "_" in item and ".xlsx" in item:
-            # Get position in configuration file
+            # Test if the file is named correctly and identify the excel sheet grouping
             file_name = item.removesuffix(".xlsx")
             data_settings = file_name.split("_")
             if len(data_settings) != 3:
                 raise ValueError("Incorrect naming in", item)
             sheet_name = data_settings[1]
-            
-            # Read and arrange data
-            data_df = pd.read_excel(item_path, skiprows=4)
-            entity = data_df["Entity"].unique()[0]
-            data_df = linearise_dataframe(data_df)
-            data_df.set_index(["Parameter", "Type", "Year", "Flow"], inplace=True)
-            values = data_df["Value"]
-            values.name = entity
-            
-            if os.path.isfile(cnf_path):  # Config file already exists?
-                xlsx = pd.ExcelFile(cnf_path)
-                if data_settings[1] in xlsx.sheet_names:
-                    config_data = pd.read_excel(cnf_path, sheet_name=sheet_name)
-                    config_data = pd.concat([config_data, values], axis=1)
+
+            # Read and arrange data (unit conversion, linearisation)
+            zenodo_file_df = pd.read_excel(item_path, skiprows=4)
+            zenodo_file_df = zenodo_file_df.apply(convert_units, new_power="MW", new_energy="TJ", axis=1)
+            zenodo_file_df = zenodo_file_df.apply(
+                convert_currency, new_cy="EUR", new_yr=2019, deflator_country="local", axis=1
+            )
+            zenodo_file_df = linearise_dataframe(zenodo_file_df)
+
+            # Construct the column to be put in the configuration file
+            entity = zenodo_file_df["Entity"].unique()[0]
+            zenodo_file_df.set_index(CNF_INDEX, inplace=True)
+            zenodo_values = zenodo_file_df["Value"]
+            zenodo_values.name = entity
+
+            if os.path.isfile(cnf_file_path):
+                # Config file already exists
+                xlsx = pd.ExcelFile(cnf_file_path)
+                if sheet_name in xlsx.sheet_names:
+                    # Combine with other columns if the sheet already exists
+                    cnf_file_df = pd.read_excel(cnf_file_path, sheet_name=sheet_name)
+                    cnf_file_df.set_index(CNF_INDEX, inplace=True)
+                    cnf_file_df = pd.concat([cnf_file_df, zenodo_values], axis=1)
                 else:
-                    config_data = values
-                
-                with pd.ExcelWriter(cnf_path, engine="openpyxl", mode="a") as writer:
-                    config_data.to_excel(writer, sheet_name=sheet_name)
+                    # Otherwise, create the sheet
+                    cnf_file_df = zenodo_values
+                cnf_file_df.sort_index(level=[0, 1], ascending=True, inplace=True)
+                # pylint: disable=abstract-class-instantiated
+                writer = pd.ExcelWriter(cnf_file_path, engine="openpyxl", mode="a", if_sheet_exists="replace")
+                with writer:
+                    cnf_file_df.to_excel(writer, sheet_name=sheet_name, merge_cells=False)
             else:
-                values.to_excel(cnf_path, sheet_name=sheet_name)
+                zenodo_values.to_excel(cnf_file_path, sheet_name=sheet_name, merge_cells=False)
+
+
+def create_fxe_matrix(cnf_file_path: str):
+    """Create sheets for FiE (flow into element) and FoE (flow out of element)."""
+    xlsx = pd.ExcelFile(cnf_file_path)
+    fie_matrix = pd.DataFrame()
+    foe_matrix = pd.DataFrame()
+    for sheet in xlsx.sheet_names:
+        sheet_df = pd.read_excel(cnf_file_path, sheet_name=sheet)
+
+        # TODO: consider combining these into once procedure (specifying sheet name and constant_fxe parm.)
+        # TODO: perhaps a single configuration_fxe value (not related to efficiency) would be more flexible...
+        # Get flows into elements
+        sheet_fie = sheet_df.loc[
+            (sheet_df["Type"] == "constant_fxe") & (sheet_df["Parameter"] == "input_efficiency")
+        ]
+        if not sheet_fie.empty:
+            sheet_fie = sheet_fie.drop(["Type", "Parameter", "Year"], axis=1)
+            for i in sheet_fie.index:
+                elements = sheet_fie.columns.drop("Flow")
+                flow = sheet_fie.loc[i, "Flow"]
+                values = sheet_fie.loc[i, elements]
+                flow_elements = pd.Series(name=flow, index=elements, data=values)
+                fie_matrix = pd.concat([fie_matrix, flow_elements], axis=1)
+
+        # Get flows out of elements
+        sheet_foe = sheet_df.loc[
+            (sheet_df["Type"] == "constant_fxe") & (sheet_df["Parameter"] == "output_efficiency")
+        ]
+        if not sheet_foe.empty:
+            sheet_foe = sheet_foe.drop(["Type", "Parameter", "Year"], axis=1)
+            for i in sheet_foe.index:
+                elements = sheet_foe.columns.drop("Flow")
+                values = sheet_foe.loc[i, elements]
+                flow_elements = pd.Series(name=sheet_foe.loc[i, "Flow"], index=elements, data=values)
+                foe_matrix = pd.concat([foe_matrix, flow_elements], axis=1)
+
+    fie_matrix = fie_matrix.groupby(fie_matrix.columns, axis=1).agg(np.max)
+    foe_matrix = foe_matrix.groupby(foe_matrix.columns, axis=1).agg(np.max)
+
+    # Rearrange to improve readability
+    fie_matrix.sort_index(ascending=True, inplace=True)
+    foe_matrix.sort_index(ascending=True, inplace=True)
+
+    # pylint: disable=abstract-class-instantiated
+    writer = pd.ExcelWriter(cnf_file_path, engine="openpyxl", mode="a", if_sheet_exists="replace")
+    with writer:
+        fie_matrix.to_excel(writer, sheet_name="FiE")
+        foe_matrix.to_excel(writer, sheet_name="FoE")
+
+
+create_cnf_file(ZENODO_FOLDER_PATH, "/Users/ruiziv/Downloads/test.xlsx")
+create_fxe_matrix("/Users/ruiziv/Downloads/test.xlsx")
