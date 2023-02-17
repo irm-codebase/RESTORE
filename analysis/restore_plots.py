@@ -41,24 +41,23 @@ def plot_io_network(*in_out: pd.DataFrame, labels=True):
 
 
 def plot_fout_act(model, handler: ConfigHandler, flow):
-    """Plot values flowing out of elements at a flow node."""
-    o_eff = handler.ef_stack["output_eff"].to_dict()
-    
+    """Plot values flowing out of elements at a flow node."""    
     columns = [e for f, e in model.FoE if f == flow]
     fout_df = pd.DataFrame(index=model.Years, columns=columns)
     element_actuals = pd.Series(data=0, index=model.Years, name="Aggr. element references")
     for f, e in model.FoE:
         if f == flow:
+            o_eff = handler.get_const_fxe(e, "output_efficiency", f)
             for y in model.Years:
                 fout_df.loc[y, e] = model.TPERIOD * sum(model.fout[f, e, y, h].value for h in model.Hours)
                 if e in model.Trades:
-                    element_actuals[y] += handler.get_process_value(e, "actual_import", y) * o_eff[e, f]
+                    element_actuals[y] += handler.get_annual(e, "actual_import", y) * o_eff
                 else:
-                    element_actuals[y] += handler.get_process_value(e, "actual_activity", y) * o_eff[e, f]
+                    element_actuals[y] += handler.get_annual(e, "actual_activity", y) * o_eff
 
     axis = fout_df.plot.area(linewidth=0)
 
-    hist_values = [handler.get_flow_value(flow, "actual_flow", y) for y in model.Years]
+    hist_values = [handler.get_annual(flow, "actual_flow", y) for y in model.Years]
     actual = pd.Series(data=hist_values, index=model.Years, name="Historical total")
     axis = actual.plot.line(ax=axis, color="black", linestyle="-.")
     
@@ -85,7 +84,7 @@ def plot_fin_act(model, handler: ConfigHandler, flow):
 
     axis = fin_df.plot.area(linewidth=0)
 
-    hist_values = [handler.get_flow_value(flow, "actual_flow", y) for y in model.Years]
+    hist_values = [handler.get_annual(flow, "actual_flow", y) for y in model.Years]
     actual = pd.Series(data=hist_values, index=model.Years, name="Historical total")
     axis = actual.plot.line(ax=axis, color="black", linestyle="-.")
     axis.set_title(f"FiE at {flow} (TWh)")
@@ -99,20 +98,20 @@ def plot_fin_act(model, handler: ConfigHandler, flow):
 
 def plot_fout_ctot(model, handler: ConfigHandler, flow: str):
     """Plot the capacity of the conversion elements feeding into a flow."""
-    o_eff = handler.ef_stack["output_eff"].to_dict()
 
     cap_elements = [e for f, e in model.FoE if f == flow and e in (model.ProsCap - model.Trades)]
     cap_df = pd.DataFrame(index=model.Years, columns=cap_elements)
     element_actuals = pd.Series(data=0, index=model.Years, name="Aggr. element references")
     for e in cap_elements:
+        o_eff = handler.get_const_fxe(e, "output_efficiency", flow)
         for y in model.Years:
-            cap_df.loc[y, e] = o_eff[e, flow] * model.ctot[e, y].value
-            element_actuals[y] += handler.get_process_value(e, "actual_capacity", y) * o_eff[e, flow]
+            cap_df.loc[y, e] = o_eff * model.ctot[e, y].value
+            element_actuals[y] += handler.get_annual(e, "actual_capacity", y) * o_eff
 
     axis = cap_df.plot(kind="bar", stacked=True, width=0.8)
 
     # Aggregated historical reference
-    hist_values = [handler.get_flow_value(flow, "actual_capacity", y) for y in model.Years]
+    hist_values = [handler.get_annual(flow, "actual_capacity", y) for y in model.Years]
     historical = pd.Series(data=hist_values, index=model.Years, name="Historical reference")
     axis = historical.plot(color="black", linestyle="-.", use_index=False, mark_right=False, rot=90)
 
@@ -148,7 +147,7 @@ def plot_process_act(model, handler: ConfigHandler, process, trd_dir=None, axis=
         activity[y] = model.TPERIOD * sum(act[process, y, h].value for h in model.Hours)
     axis = activity.plot.line(ax=axis)
 
-    hist_values = [handler.get_process_value(process, value_type, y) for y in model.Years]
+    hist_values = [handler.get_annual(process, value_type, y) for y in model.Years]
     actual = pd.Series(data=hist_values, index=model.Years, name="Historical total")
     axis = actual.plot.line(ax=axis, color="black", linestyle="-.")
     if title is not None:
@@ -170,13 +169,13 @@ def plot_emissions_elec_heat(model, handler: ConfigHandler):
     element_actuals = pd.Series(data=0, index=model.Years, name="Aggr. element references")
     for e in elements:
         for y in model.Years:
-            co2_factor = handler.get_process_const(e, "co2_factor")
+            co2_factor = handler.get_const(e, "co2_factor")
             if e in model.Trades:
                 act = sum(model.aimp[e, y, h].value for h in model.Hours)
-                element_actuals[y] += handler.get_process_value(e, "actual_import", y) * co2_factor
+                element_actuals[y] += handler.get_annual(e, "actual_import", y) * co2_factor
             else:
                 act = sum(model.a[e, y, h].value for h in model.Hours)
-                element_actuals[y] += handler.get_process_value(e, "actual_activity", y) * co2_factor
+                element_actuals[y] += handler.get_annual(e, "actual_activity", y) * co2_factor
             model_result_df.loc[y, e] = model.TPERIOD * act * co2_factor
 
     axis = model_result_df.plot.area(linewidth=0)

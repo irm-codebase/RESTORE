@@ -13,6 +13,8 @@ from typing import Any
 import pandas as pd
 import numpy as np
 
+from data.zenodo_to_cnf import CNF_INDEX
+
 
 def get_flow_element_dict(io_df: pd.DataFrame, by_element=False) -> dict[str, list]:
     """Create a dictionary with the flows as keys, and the connected processes as the item (in list).
@@ -109,92 +111,85 @@ class ConfigHandler:
         """
         # Get model configuration
         excel_file = pd.ExcelFile(path)
-        setting_names = excel_file.sheet_names
-        setting_names.remove("info")
 
-        io_dict = {}
-        flow_dict = {}
-        country_dict = {}
-        process_dict = {}
-        for name in setting_names:
-            if "input" in name or "output" in name:
-                io_dict[name] = pd.read_excel(path, name, header=1, index_col=[0, 1])
-            elif "flows" == name:
-                flow_dict = pd.read_excel(path, name, header=0, index_col=[0, 1]).to_dict()
-            elif "country" == name:
-                country_dict = pd.read_excel(path, name, header=0, index_col=[0, 1]).to_dict()
-            else:
-                tmp_dict = pd.read_excel(path, name, header=0, index_col=[0, 1]).to_dict()
-                for key, values in tmp_dict.items():
-                    process_dict[key] = values
+        fxe = {}
+        params = {}
 
         # Convert configuration to dictionaries to improve speed
-        self.process_cnf = process_dict
-        self.flow_cnf = flow_dict
-        self.country_cnf = country_dict
-        self.io_cnf = io_dict
-        self.ef_stack = {k: i.droplevel(0).stack() for (k, i) in io_dict.items()}
+        for group in excel_file.sheet_names:
+            if group in ["FiE", "FoE"]:
+                fxe[group] = pd.read_excel(path, group, index_col=0)
+            else:
+                sheet_df = pd.read_excel(path, sheet_name=group)
+                for entity_id in sheet_df.columns.drop(CNF_INDEX):
+                    if entity_id in params:
+                        raise ValueError("Found duplicate id", entity_id, "in sheet", group)
+                    params[entity_id] = {}
+                    id_cnf = sheet_df.loc[:, CNF_INDEX + [entity_id]]
+                    for data_type in id_cnf["Type"].unique():
+                        entity_df = id_cnf.loc[id_cnf["Type"] == data_type].copy()
+                        if data_type == "annual":
+                            entity_df.drop(["Type", "Flow"], axis=1, inplace=True)
+                            entity_df.set_index(["Parameter", "Year"], inplace=True)
+                        elif data_type == "constant":
+                            entity_df.drop(["Type", "Flow", "Year"], axis=1, inplace=True)
+                            entity_df.set_index(["Parameter"], inplace=True)
+                        elif data_type == "constant_fxe":
+                            entity_df.drop(["Type", "Year"], axis=1, inplace=True)
+                            entity_df.set_index(["Parameter", "Flow"], inplace=True)
+                        elif data_type == "configuration":
+                            entity_df.drop(["Type", "Flow", "Year"], axis=1, inplace=True)
+                            entity_df.set_index(["Parameter"], inplace=True)
+                        else:
+                            raise ValueError("Invalid Data Type", data_type, "in", group, entity_id)
 
-    # Configuration.
-    @staticmethod
-    def _check_cnf(cnf_dict: dict, item: str, option: str):
-        """Evaluate if a configuration option is set. Generic."""
-        return not np.isnan(cnf_dict[item]["configuration", option])
+                        params[entity_id][data_type] = entity_df.to_dict()[entity_id]
 
-    def check_flow_cnf(self, flow: str, option: str):
-        """Check flow configuration."""
-        return self._check_cnf(self.flow_cnf, flow, option)
+        self.fxe = fxe
+        self.params = params
 
-    def check_process_cnf(self, process: str, option: str) -> bool:
-        """Check process configuration."""
-        return self._check_cnf(self.process_cnf, process, option)
+    def check_cnf(self, entity_id, parameter):
+        """Evaluate if a configuration option is set."""
+        # Turns functionality on/off. Empty values should cause deactivation, not failure.
+        try:
+            value = self.params[entity_id]["configuration"][parameter]
+        except KeyError as exc:
+            raise KeyError("Invalid key for", entity_id, parameter) from exc
+        return not np.isnan(value)
 
-    # Constants
-    @staticmethod
-    def _get_const(cnf_dict: dict, item: str, option: str) -> Any:
-        """Return configuration constants. Generic."""
-        # Allow empty values, but ensure usage causes error if handled improperly.
-        value = cnf_dict[item]["value", option]
+    def get_const(self, entity_id: str, parameter: str) -> Any:
+        """Return configuration constants."""
+        # Allow empty values, but ensure usage causes error if handled improperly by returning None.
+        try:
+            value = self.params[entity_id]["constant"][parameter]
+        except KeyError as exc:
+            raise KeyError("Invalid key for", entity_id, parameter) from exc
         return value if not np.isnan(value) else None
 
-    def get_country_const(self, option: str) -> Any:
-        """Return country constant."""
-        return self._get_const(self.country_cnf, "country", option)
+    def get_const_fxe(self, entity_id, parameter, flow):
+        """Return flow-specific constants."""
+        # Allow empty values, but ensure usage causes error if handled improperly by returning None.
+        try:
+            value = self.params[entity_id]["constant_fxe"][(parameter, flow)]
+        except KeyError as exc:
+            raise KeyError("Invalid key for", entity_id, parameter, flow) from exc
+        return value if not np.isnan(value) else None
 
-    def get_flow_const(self, flow: str, option: str) -> Any:
-        """Return flow constant."""
-        return self._get_const(self.flow_cnf, flow, option)
-
-    def get_process_const(self, process: str, option: Any) -> Any:
-        """Return process constant."""
-        return self._get_const(self.process_cnf, process, option)
-
-    # Historic values
-    @staticmethod
-    def _get_value(cnf_dict: dict, item: str, value_type: str, year: int):
-        """Return historic values. Generic."""
-        value = cnf_dict[item][value_type, year]
+    def get_annual(self, entity_id, parameter, year):
+        """Return historic values."""
+        # Trying to read empty annual data should cause an error to minimise bugs.
+        try:
+            value = self.params[entity_id]["annual"][(parameter, year)]
+        except KeyError as exc:
+            raise KeyError("Invalid key for", entity_id, parameter, year) from exc
         if np.isnan(value):
-            raise ValueError("Requested", value_type, "in", item, "is NaN. Check configuration validity.")
+            raise ValueError("Requested", parameter, "in", entity_id, "is NaN. Check configuration file.")
         return value
 
-    def get_country_value(self, value_type: str, year: int) -> Any:
-        """Return yearly country value."""
-        return self._get_value(self.country_cnf, "country", value_type, year)
-
-    def get_flow_value(self, flow: str, value_type: str, year: int) -> Any:
-        """Return yearly flow value."""
-        return self._get_value(self.flow_cnf, flow, value_type, year)
-
-    def get_process_value(self, process: str, value_type: str, year: int) -> Any:
-        """Return yearly process value."""
-        return self._get_value(self.process_cnf, process, value_type, year)
-
     # Configuration sets
-    def build_cnf_set(self, elements: set, config: str):
+    def build_cnf_set(self, entity_set: set, parameter: str):
         """Create a set where the given configuration is enabled."""
-        cap_processes = set()
-        for i in elements:
-            if self.check_process_cnf(i, config):
-                cap_processes.add(i)
-        return cap_processes
+        config_enabled = set()
+        config_enabled = [i for i in entity_set if self.check_cnf(i, parameter)]
+
+        return set(config_enabled)

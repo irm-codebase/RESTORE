@@ -317,7 +317,7 @@ def create_cnf_file(data_folder_path: str, cnf_file_path: str):
 
             # Read and arrange data (unit conversion, linearisation)
             zenodo_file_df = pd.read_excel(item_path, skiprows=4)
-            zenodo_file_df = zenodo_file_df.apply(convert_units, new_power="MW", new_energy="TJ", axis=1)
+            zenodo_file_df = zenodo_file_df.apply(convert_units, new_power="GW", new_energy="TWh", axis=1)
             zenodo_file_df = zenodo_file_df.apply(
                 convert_currency, new_cy="EUR", new_yr=2019, deflator_country="local", axis=1
             )
@@ -398,5 +398,7 @@ def create_fxe_matrix(cnf_file_path: str):
         foe_matrix.to_excel(writer, sheet_name="FoE")
 
 
-create_cnf_file(ZENODO_FOLDER_PATH, "/Users/ruiziv/Downloads/test.xlsx")
-create_fxe_matrix("/Users/ruiziv/Downloads/test.xlsx")
+# If the script is called directly, build the configuration file in the downloads folder
+if __name__ == "__main__":
+    create_cnf_file(ZENODO_FOLDER_PATH, "/Users/ruiziv/Downloads/test.xlsx")
+    create_fxe_matrix("/Users/ruiziv/Downloads/test.xlsx")
