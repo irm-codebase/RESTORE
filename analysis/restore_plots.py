@@ -41,7 +41,7 @@ def plot_io_network(*in_out: pd.DataFrame, labels=True):
 
 
 def plot_fout_act(model, handler: ConfigHandler, flow):
-    """Plot values flowing out of elements at a flow node."""    
+    """Plot values flowing out of elements at a flow node."""
     columns = [e for f, e in model.FoE if f == flow]
     fout_df = pd.DataFrame(index=model.Years, columns=columns)
     element_actuals = pd.Series(data=0, index=model.Years, name="Aggr. element references")
@@ -60,10 +60,10 @@ def plot_fout_act(model, handler: ConfigHandler, flow):
     hist_values = [handler.get_annual(flow, "actual_flow", y) for y in model.Years]
     actual = pd.Series(data=hist_values, index=model.Years, name="Historical total")
     axis = actual.plot.line(ax=axis, color="black", linestyle="-.")
-    
+
     # Per-technology 'actual' values
     axis = element_actuals.plot(ax=axis, color="red")
-    
+
     axis.set_title(f"FoE at {flow} (TWh)")
     handles, labels = fig_tools.get_plt_inverted_legend(axis)
     axis.legend(handles, labels, bbox_to_anchor=(1.1, 1.05))
@@ -98,7 +98,6 @@ def plot_fin_act(model, handler: ConfigHandler, flow):
 
 def plot_fout_ctot(model, handler: ConfigHandler, flow: str):
     """Plot the capacity of the conversion elements feeding into a flow."""
-
     cap_elements = [e for f, e in model.FoE if f == flow and e in (model.ProsCap - model.Trades)]
     cap_df = pd.DataFrame(index=model.Years, columns=cap_elements)
     element_actuals = pd.Series(data=0, index=model.Years, name="Aggr. element references")
