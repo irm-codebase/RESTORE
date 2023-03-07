@@ -156,10 +156,100 @@ def _get_new_currency(row: pd.DataFrame, new_currency: str, new_year: str, defla
     return val_new_yr
 
 
+def _convert_numerator_unit(row, new_energy, new_power):
+    """Convert the numerator of a row."""
+    country = row["Country"]
+    parameter = row["Parameter"]
+    unit = row["Unit"]
+    initial_value = row["Value"]
+    data_yr = row["Year"]
+
+    if "/" in unit:
+        ref_unit = unit[: unit.find("/")]  # Get numerator
+    else:
+        ref_unit = unit
+
+    if any([ref_unit in AVAILABLE_ENERGY_UNITS, ref_unit in AVAILABLE_POWER_UNITS]):
+        target_unit = new_energy if ref_unit in AVAILABLE_ENERGY_UNITS else new_power
+        try:
+            initial_value = float(initial_value)
+
+            # Convert to the intermediate conversion unit (MW, MWh)
+            conv_factor = _get_conv_factor(country, data_yr, ref_unit)
+            conv_unit = conv_factor["Unit"]
+            conv_value = initial_value * conv_factor["Value"]
+
+            if conv_unit != target_unit:
+                # New unit is not the intermediate unit (MW, MWh), convert again
+                conv_factor = _get_conv_factor(country, data_yr, target_unit)
+                target_value = conv_value / conv_factor["Value"]
+            else:
+                target_value = conv_value
+
+            if "/" in unit:
+                new_unit = target_unit + "/" + unit[unit.find("/") + 1:]
+            else:
+                new_unit = target_unit
+
+            row["Value"] = target_value
+            row["Unit"] = new_unit
+
+        except (KeyError, IndexError, TypeError) as ex:
+            print("Conversion failed for", country, parameter, data_yr, unit)
+            raise Exception() from ex
+
+    return row
+
+
+def _convert_denominator_unit(row, new_energy, new_power):
+    """Convert the denominator of a row."""
+    country = row["Country"]
+    parameter = row["Parameter"]
+    unit = row["Unit"]
+    initial_value = row["Value"]
+    data_yr = row["Year"]
+
+    # First identify the unit that will be converted.
+    if "/" in unit:
+        ref_unit = unit[unit.find("/") + 1:]  # For now, the script can only work with denominators
+    else:
+        raise ValueError("No denominator unit in", parameter, data_yr, ". Found", unit)
+
+    # Check if the unit is configured for conversion
+    if any([ref_unit in AVAILABLE_ENERGY_UNITS, ref_unit in AVAILABLE_POWER_UNITS]):
+        target_unit = new_energy if ref_unit in AVAILABLE_ENERGY_UNITS else new_power
+        try:
+            initial_value = float(initial_value)
+
+            # Convert to the intermediate conversion unit (MW, MWh)
+            conv_factor = _get_conv_factor(country, data_yr, ref_unit)
+            conv_unit = conv_factor["Unit"]
+            conv_value = initial_value / conv_factor["Value"]
+
+            if conv_unit != target_unit:
+                # New unit is not the intermediate unit (MW, MWh), convert again
+                conv_factor = _get_conv_factor(country, data_yr, target_unit)
+                target_value = conv_value * conv_factor["Value"]
+            else:
+                target_value = conv_value
+
+            new_unit = unit[: unit.find("/")] + "/" + target_unit
+
+            row["Value"] = target_value
+            row["Unit"] = new_unit
+
+        except (KeyError, IndexError, TypeError) as ex:
+            print("Conversion failed for", country, parameter, data_yr, unit)
+            raise Exception() from ex
+
+    return row
+
+
 def convert_units(row: pd.Series, new_energy="MWh", new_power="MW") -> pd.Series:
     """Convert a dataframe rows with energy or power values.
 
     Uses a conversion file in the _common folder.
+    Works for both numerator/denominator.
 
     Args:
         row (pd.Series): a pandas dataframe row.
@@ -171,53 +261,10 @@ def convert_units(row: pd.Series, new_energy="MWh", new_power="MW") -> pd.Series
     """
     if not pd.isnull(row["Unit"]):  # Skip ratios and unit-less values
 
-        country = row["Country"]
-        parameter = row["Parameter"]
         unit = row["Unit"]
-        initial_value = row["Value"]
-        data_yr = row["Year"]
-
-        # First identify the unit that will be converted.
+        row = _convert_numerator_unit(row, new_energy, new_power)
         if "/" in unit:
-            ref_unit = unit[unit.find("/") + 1:]  # For now, the script can only work with denominators
-        else:
-            ref_unit = unit
-
-        # Check if the unit is configured for conversion
-        if any([ref_unit in AVAILABLE_ENERGY_UNITS, ref_unit in AVAILABLE_POWER_UNITS]):
-            target_unit = new_energy if ref_unit in AVAILABLE_ENERGY_UNITS else new_power
-            try:
-                initial_value = float(initial_value)
-
-                # Convert to the intermediate conversion unit (MW, MWh)
-                conv_factor = _get_conv_factor(country, data_yr, ref_unit)
-                conv_unit = conv_factor["Unit"]
-                if "/" in unit:
-                    conv_value = initial_value / conv_factor["Value"]
-                else:
-                    conv_value = initial_value * conv_factor["Value"]
-
-                if conv_unit != target_unit:
-                    # New unit is not the intermediate unit (MW, MWh), convert again
-                    conv_factor = _get_conv_factor(country, data_yr, target_unit)
-                    if "/" in unit:
-                        target_value = conv_value * conv_factor["Value"]
-                    else:
-                        target_value = conv_value / conv_factor["Value"]
-                else:
-                    target_value = conv_value
-
-                if "/" in unit:
-                    new_unit = unit[: unit.find("/")] + "/" + target_unit
-                else:
-                    new_unit = target_unit
-
-                row["Value"] = target_value
-                row["Unit"] = new_unit
-
-            except (KeyError, IndexError, TypeError) as ex:
-                print("Conversion failed for", country, parameter, data_yr, unit)
-                raise Exception() from ex
+            row = _convert_denominator_unit(row, new_energy, new_power)  # convert denominators if necessary
 
     return row
 
@@ -225,7 +272,7 @@ def convert_units(row: pd.Series, new_energy="MWh", new_power="MW") -> pd.Series
 def convert_currency(row: pd.DataFrame, new_cy="USD", new_yr=2019, deflator_country="local") -> pd.DataFrame:
     """Convert units and currencies.
 
-    Supported formats: currency/(any).
+    Supported formats: currency/(any). ONLY WORKS FOR NUMERATORS.
 
     Args:
         row (pd.DataFrame): pandas dataframe row with columns [Country, Entity, Year, Value, Unit]
@@ -304,49 +351,54 @@ def create_cnf_file(data_folder_path: str, cnf_file_path: str):
     """Parse through datafiles and create a configuration file, recursively."""
     dir_items = sorted(os.listdir(data_folder_path))
     for item in dir_items:
-        item_path = os.path.join(data_folder_path, item)
-        if os.path.isdir(item_path) and "_" not in item:  # ensure generic folders are omitted
-            create_cnf_file(item_path, cnf_file_path)
-        elif os.path.isfile(item_path) and "_" in item and ".xlsx" in item:
-            # Test if the file is named correctly and identify the excel sheet grouping
-            file_name = item.removesuffix(".xlsx")
-            data_settings = file_name.split("_")
-            if len(data_settings) != 3:
-                raise ValueError("Incorrect naming in", item)
-            sheet_name = data_settings[1]
+        try:
+            item_path = os.path.join(data_folder_path, item)
+            if os.path.isdir(item_path) and "_" not in item:  # ensure generic folders are omitted
+                create_cnf_file(item_path, cnf_file_path)
+            elif os.path.isfile(item_path) and "_" in item and ".xlsx" in item and "$" not in item:
+                # Test if the file is named correctly and identify the excel sheet grouping
+                file_name = item.removesuffix(".xlsx")
+                data_settings = file_name.split("_")
+                if len(data_settings) != 3:
+                    raise ValueError("Incorrect naming in", item)
+                sheet_name = data_settings[1]
 
-            # Read and arrange data (unit conversion, linearisation)
-            zenodo_file_df = pd.read_excel(item_path, skiprows=4)
-            zenodo_file_df = zenodo_file_df.apply(convert_units, new_power="GW", new_energy="TWh", axis=1)
-            zenodo_file_df = zenodo_file_df.apply(
-                convert_currency, new_cy="EUR", new_yr=2019, deflator_country="local", axis=1
-            )
-            zenodo_file_df = linearise_dataframe(zenodo_file_df)
+                # Read and arrange data (unit conversion, linearisation)
+                zenodo_file_df = pd.read_excel(item_path, skiprows=4)
+                zenodo_file_df = zenodo_file_df.apply(convert_units, new_power="GW", new_energy="TWh", axis=1)
+                zenodo_file_df = zenodo_file_df.apply(
+                    convert_currency, new_cy="EUR", new_yr=2019, deflator_country="local", axis=1
+                )
+                zenodo_file_df = linearise_dataframe(zenodo_file_df)
 
-            # Construct the column to be put in the configuration file
-            entity = zenodo_file_df["Entity"].unique()[0]
-            zenodo_file_df.set_index(CNF_INDEX, inplace=True)
-            zenodo_values = zenodo_file_df["Value"]
-            zenodo_values.name = entity
+                # Construct the column to be put in the configuration file
+                entity = zenodo_file_df["Entity"].unique()[0]
+                zenodo_file_df.set_index(CNF_INDEX, inplace=True)
+                zenodo_values = zenodo_file_df["Value"]
+                zenodo_values.name = entity
 
-            if os.path.isfile(cnf_file_path):
-                # Config file already exists
-                xlsx = pd.ExcelFile(cnf_file_path)
-                if sheet_name in xlsx.sheet_names:
-                    # Combine with other columns if the sheet already exists
-                    cnf_file_df = pd.read_excel(cnf_file_path, sheet_name=sheet_name)
-                    cnf_file_df.set_index(CNF_INDEX, inplace=True)
-                    cnf_file_df = pd.concat([cnf_file_df, zenodo_values], axis=1)
+                if os.path.isfile(cnf_file_path):
+                    # Config file already exists
+                    xlsx = pd.ExcelFile(cnf_file_path)
+                    if sheet_name in xlsx.sheet_names:
+                        # Combine with other columns if the sheet already exists
+                        cnf_file_df = pd.read_excel(cnf_file_path, sheet_name=sheet_name)
+                        cnf_file_df.set_index(CNF_INDEX, inplace=True)
+                        cnf_file_df = pd.concat([cnf_file_df, zenodo_values], axis=1)
+                    else:
+                        # Otherwise, create the sheet
+                        cnf_file_df = zenodo_values
+                    cnf_file_df.sort_index(level=[0, 1], ascending=True, inplace=True)
+                    # pylint: disable=abstract-class-instantiated
+                    writer = pd.ExcelWriter(
+                        cnf_file_path, engine="openpyxl", mode="a", if_sheet_exists="replace"
+                    )
+                    with writer:
+                        cnf_file_df.to_excel(writer, sheet_name=sheet_name, merge_cells=False)
                 else:
-                    # Otherwise, create the sheet
-                    cnf_file_df = zenodo_values
-                cnf_file_df.sort_index(level=[0, 1], ascending=True, inplace=True)
-                # pylint: disable=abstract-class-instantiated
-                writer = pd.ExcelWriter(cnf_file_path, engine="openpyxl", mode="a", if_sheet_exists="replace")
-                with writer:
-                    cnf_file_df.to_excel(writer, sheet_name=sheet_name, merge_cells=False)
-            else:
-                zenodo_values.to_excel(cnf_file_path, sheet_name=sheet_name, merge_cells=False)
+                    zenodo_values.to_excel(cnf_file_path, sheet_name=sheet_name, merge_cells=False)
+        except ValueError as exc:
+            raise ValueError("File creation error at", item) from exc
 
 
 def create_fxe_matrix(cnf_file_path: str):

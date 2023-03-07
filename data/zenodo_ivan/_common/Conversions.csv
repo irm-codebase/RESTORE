@@ -7,6 +7,7 @@ Undefined,kWh,Undefined,0.001,MWh,https://doi.org/10.1787/557a761b-en,
 Undefined,MWh,Undefined,1,MWh,https://doi.org/10.1787/557a761b-en,
 Undefined,GWh,Undefined,1000,MWh,https://doi.org/10.1787/557a761b-en,
 Undefined,TWh,Undefined,1000000,MWh,https://doi.org/10.1787/557a761b-en,
+Undefined,MJ,Undefined,0.000277778,MWh,https://doi.org/10.1787/557a761b-en,
 Undefined,GJ,Undefined,0.277777778,MWh,https://doi.org/10.1787/557a761b-en,
 Undefined,TJ,Undefined,277.7777778,MWh,https://doi.org/10.1787/557a761b-en,
 Undefined,PJ,Undefined,277777.7778,MWh,https://doi.org/10.1787/557a761b-en,
@@ -31,8 +32,12 @@ Undefined,kcal,Undefined,0.000001163,MWh,https://doi.org/10.1787/557a761b-en,
 Undefined,W,Undefined,0.000001,MW,https://doi.org/10.1787/557a761b-en,
 Undefined,tcal,Undefined,1163,MWh,https://doi.org/10.1787/557a761b-en,
 Undefined,tonne_coal,Undefined,6.6291,MWh,Generic values from IEA World Energy Outlook 2011,
+Undefined,tonne_diesel,Undefined,12.05,MWh,https://www.bp.com/content/dam/bp/business-sites/en/global/corporate/pdfs/energy-economics/statistical-review/bp-stats-review-2022-approximate-conversion-factors.pdf,Tonne diesel to GJ then to MWh
+Undefined,tonne_gasoline,Undefined,12.43056,MWh,https://www.bp.com/content/dam/bp/business-sites/en/global/corporate/pdfs/energy-economics/statistical-review/bp-stats-review-2022-approximate-conversion-factors.pdf,Tonne gasoline to GJ then to MWh
 Undefined,tonne_oil,Undefined,11.5,MWh,Generic values from IEA World Energy Outlook 2011,
 GBR,tonne_oil,1999,11.47881,MWh,https://doi.org/10.1787/eneprice-data-en,Net calorific value (9870 kcal/kg)
 GBR,tonne_coal,1999,6.574439,MWh,https://doi.org/10.1787/eneprice-data-en,Net calorific value (5653 kcal/kg)
 SVK,tonne_oil,Undefined,11.279937,MWh,https://doi.org/10.1787/eneprice-data-en,Net calorific value (9699 kcal/kg)
 Undefined,tonne_lignite,Undefined,2.25,MWh,Brown lignite - http://www.inega.gal/informacion/diccionario_de_termos/unidades_de_conversion.html,
+Undefined,litre_gasoline,Undefined,0.009357587,MWh,https://www.bp.com/content/dam/bp/business-sites/en/global/corporate/pdfs/energy-economics/statistical-review/bp-stats-review-2022-approximate-conversion-factors.pdf,"Gasoline, page 1. Litre to kilolitre to tonne to GJ to MWh"
+Undefined,litre_diesel,Undefined,0.01015531,MWh,https://www.bp.com/content/dam/bp/business-sites/en/global/corporate/pdfs/energy-economics/statistical-review/bp-stats-review-2022-approximate-conversion-factors.pdf,"Gas oil/Diesel, page 1. Litre to kilolitre to tonne to GJ to MWh"

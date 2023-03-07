@@ -159,6 +159,24 @@ def plot_process_act(model, handler: ConfigHandler, process, trd_dir=None, axis=
     return axis
 
 
+def plot_demand(model, demand_id):
+    """Plot demand trend."""
+    annual_demand = pd.Series(index=model.Years, name=demand_id)
+
+    for y in model.Years:
+        annual_demand[y] = model.TPERIOD * sum(model.a[demand_id, y, h].value for h in model.Hours)
+
+    axis = annual_demand.plot.line()
+    axis.set_title(demand_id + " (TWh)")
+
+    handles, labels = fig_tools.get_plt_inverted_legend(axis)
+    axis.legend(handles, labels, bbox_to_anchor=(1.1, 1.05))
+    fig_tools.plt.tight_layout()
+    axis.autoscale()
+
+    return axis
+
+
 def plot_emissions_elec_heat(model, handler: ConfigHandler):
     """Plot activity values at a process element."""
     flow = "elecsupply"
