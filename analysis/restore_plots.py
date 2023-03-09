@@ -40,7 +40,7 @@ def plot_io_network(*in_out: pd.DataFrame, labels=True):
     nx.draw_networkx(network, node_size=100, font_size=6, with_labels=labels)
 
 
-def plot_fout_act(model, handler: ConfigHandler, flow):
+def plot_fout_act(model, handler: ConfigHandler, flow, unit="TWh"):
     """Plot values flowing out of elements at a flow node."""
     columns = [e for f, e in model.FoE if f == flow]
     fout_df = pd.DataFrame(index=model.Years, columns=columns)
@@ -64,7 +64,7 @@ def plot_fout_act(model, handler: ConfigHandler, flow):
     # Per-technology 'actual' values
     axis = element_actuals.plot(ax=axis, color="red")
 
-    axis.set_title(f"FoE at {flow} (TWh)")
+    axis.set_title(f"FoE at {flow} ({unit})")
     handles, labels = fig_tools.get_plt_inverted_legend(axis)
     axis.legend(handles, labels, bbox_to_anchor=(1.1, 1.05))
     fig_tools.plt.tight_layout()
@@ -73,7 +73,7 @@ def plot_fout_act(model, handler: ConfigHandler, flow):
     return axis
 
 
-def plot_fin_act(model, handler: ConfigHandler, flow):
+def plot_fin_act(model, handler: ConfigHandler, flow, unit="TWh"):
     """Plot values flowing into elements at a flow node."""
     columns = [e for f, e in model.FiE if f == flow]
     fin_df = pd.DataFrame(index=model.Years, columns=columns)
@@ -87,7 +87,7 @@ def plot_fin_act(model, handler: ConfigHandler, flow):
     hist_values = [handler.get_annual(flow, "actual_flow", y) for y in model.Years]
     actual = pd.Series(data=hist_values, index=model.Years, name="Historical total")
     axis = actual.plot.line(ax=axis, color="black", linestyle="-.")
-    axis.set_title(f"FiE at {flow} (TWh)")
+    axis.set_title(f"FiE at {flow} ({unit})")
     handles, labels = fig_tools.get_plt_inverted_legend(axis)
     axis.legend(handles, labels, bbox_to_anchor=(1.1, 1.05))
     fig_tools.plt.tight_layout()
@@ -96,7 +96,7 @@ def plot_fin_act(model, handler: ConfigHandler, flow):
     return axis
 
 
-def plot_fout_ctot(model, handler: ConfigHandler, flow: str):
+def plot_fout_ctot(model, handler: ConfigHandler, flow: str, unit="GW"):
     """Plot the capacity of the conversion elements feeding into a flow."""
     cap_elements = [e for f, e in model.FoE if f == flow and e in (model.ProsCap - model.Trades)]
     cap_df = pd.DataFrame(index=model.Years, columns=cap_elements)
@@ -117,7 +117,7 @@ def plot_fout_ctot(model, handler: ConfigHandler, flow: str):
     # Per-technology 'actual' values
     axis = element_actuals.plot(color="red", use_index=False, mark_right=False, rot=90)
 
-    axis.set_title(f"Net capacity at {flow} (GW)")
+    axis.set_title(f"Net capacity at {flow} ({unit})")
     handles, labels = fig_tools.get_plt_inverted_legend(axis)
     axis.legend(handles, labels, bbox_to_anchor=(1, 1.05))
     fig_tools.plt.tight_layout()
@@ -159,7 +159,7 @@ def plot_process_act(model, handler: ConfigHandler, process, trd_dir=None, axis=
     return axis
 
 
-def plot_demand(model, demand_id):
+def plot_demand(model, demand_id, unit="TWh"):
     """Plot demand trend."""
     annual_demand = pd.Series(index=model.Years, name=demand_id)
 
@@ -167,7 +167,7 @@ def plot_demand(model, demand_id):
         annual_demand[y] = model.TPERIOD * sum(model.a[demand_id, y, h].value for h in model.Hours)
 
     axis = annual_demand.plot.line()
-    axis.set_title(demand_id + " (TWh)")
+    axis.set_title(demand_id + f" ({unit})")
 
     handles, labels = fig_tools.get_plt_inverted_legend(axis)
     axis.legend(handles, labels, bbox_to_anchor=(1.1, 1.05))
