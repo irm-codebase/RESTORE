@@ -11,8 +11,8 @@
 import networkx as nx
 import pandas as pd
 
-from gen_utils.cnf_tools import ConfigHandler
-from gen_utils import fig_tools
+from model_utils.data_handler import DataHandler
+from analysis import fig_tools
 
 fig_tools.plt.rcParams["axes.prop_cycle"] = fig_tools.plt.cycler(color=fig_tools.plt.cm.tab20.colors)
 
@@ -25,22 +25,22 @@ def plot_io_network(*in_out: pd.DataFrame, labels=True):
     Args:
         labels (bool, optional): Whether to include labels in the plot. Defaults to True.
     """
-    io_df = pd.DataFrame()
-    for i, df in enumerate(in_out):
+    network_df = pd.DataFrame()
+    for i, io_df in enumerate(in_out):
         if i == 0:
-            io_df = df.copy()
+            network_df = io_df.copy()
         else:
-            io_df.update(df)
+            network_df.update(io_df)
 
-    edges = io_df.index.to_list() + io_df.columns.to_list()
+    edges = network_df.index.to_list() + network_df.columns.to_list()
     adjacency_df = pd.DataFrame(index=edges, columns=edges, dtype=float)
-    adjacency_df.update(io_df)
+    adjacency_df.update(network_df)
     adjacency_df = adjacency_df.notnull().astype(int)
     network = nx.from_pandas_adjacency(adjacency_df)
     nx.draw_networkx(network, node_size=100, font_size=6, with_labels=labels)
 
 
-def plot_fout_act(model, handler: ConfigHandler, flow, unit="TWh"):
+def plot_fout_act(model, handler: DataHandler, flow, unit="TWh"):
     """Plot values flowing out of elements at a flow node."""
     columns = [e for f, e in model.FoE if f == flow]
     fout_df = pd.DataFrame(index=model.Years, columns=columns)
@@ -73,7 +73,7 @@ def plot_fout_act(model, handler: ConfigHandler, flow, unit="TWh"):
     return axis
 
 
-def plot_fin_act(model, handler: ConfigHandler, flow, unit="TWh"):
+def plot_fin_act(model, handler: DataHandler, flow, unit="TWh"):
     """Plot values flowing into elements at a flow node."""
     columns = [e for f, e in model.FiE if f == flow]
     fin_df = pd.DataFrame(index=model.Years, columns=columns)
@@ -96,7 +96,8 @@ def plot_fin_act(model, handler: ConfigHandler, flow, unit="TWh"):
     return axis
 
 
-def plot_fout_ctot(model, handler: ConfigHandler, flow: str, unit="GW"):
+# TODO: cap_elements should be derived from an input.
+def plot_fout_ctot(model, handler: DataHandler, flow: str, unit="GW"):
     """Plot the capacity of the conversion elements feeding into a flow."""
     cap_elements = [e for f, e in model.FoE if f == flow and e in (model.ProsCap - model.Trades)]
     cap_df = pd.DataFrame(index=model.Years, columns=cap_elements)
@@ -126,7 +127,7 @@ def plot_fout_ctot(model, handler: ConfigHandler, flow: str, unit="GW"):
     return axis
 
 
-def plot_process_act(model, handler: ConfigHandler, process, trd_dir=None, axis=None, title: bool = False):
+def plot_process_act(model, handler: DataHandler, process, trd_dir=None, axis=None, title: bool = False):
     """Plot activity values at a process element."""
     activity = pd.Series(index=model.Years, name=process)
     if process in model.Trades:
@@ -177,7 +178,7 @@ def plot_demand(model, demand_id, unit="TWh"):
     return axis
 
 
-def plot_emissions_elec_heat(model, handler: ConfigHandler):
+def plot_emissions_elec_heat(model, handler: DataHandler):
     """Plot activity values at a process element."""
     flow = "elecsupply"
 
