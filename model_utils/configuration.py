@@ -18,10 +18,10 @@ Rules:
 """
 import pandas as pd
 
-from model_utils.data_handler import DataHandler
+from model_utils import data_handler as _handler
 
 # Build model configuration
-DATA = DataHandler("data/cnf_files/restore_cnf_v3.xlsx")
+DATA = _handler.DataHandler("data/cnf_files/restore_cnf_v3.xlsx")
 ELEMENTS = pd.merge(DATA.fxe["FiE"], DATA.fxe["FoE"], how='outer', left_index=True, right_index=True).index
 FLOWS = set(pd.merge(DATA.fxe["FiE"], DATA.fxe["FoE"], how='inner').columns)
 

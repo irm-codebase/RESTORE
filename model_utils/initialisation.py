@@ -19,8 +19,8 @@ Rules:
 """
 import numpy as np
 import pyomo.environ as pyo
-import configuration as cnf
-import data_handler
+from model_utils import configuration as cnf
+from model_utils import data_handler
 
 
 def _c_io_balance(model: pyo.ConcreteModel, flow_id: str, y: int, h: int):
@@ -49,22 +49,14 @@ def _init_sets(model: pyo.ConcreteModel) -> pyo.ConcreteModel:
     model.Flows = pyo.Set(initialize=flows, ordered=False)
 
     # Element sub-types (1xN)
-    conversions = set(cnf.ELEMENTS[cnf.ELEMENTS.str.startswith("conv_")])
-    extractions = set(cnf.ELEMENTS[cnf.ELEMENTS.str.startswith("ext_")])
-    trades = set(cnf.ELEMENTS[cnf.ELEMENTS.str.startswith("trd_")])
-    storages = set(cnf.ELEMENTS[cnf.ELEMENTS.str.startswith("sto_")])
     demands = set(cnf.ELEMENTS[cnf.ELEMENTS.str.startswith("dem_")])
-    model.Convs = pyo.Set(initialize=conversions, ordered=False)
-    model.Extrs = pyo.Set(initialize=extractions, ordered=False)
-    model.Trades = pyo.Set(initialize=trades, ordered=False)
-    model.Stors = pyo.Set(initialize=storages, ordered=False)
     model.Dems = pyo.Set(initialize=demands, ordered=False)
 
     # Element groupings (1xN)
     processes = elements - demands
     capacity = cnf.DATA.build_cnf_set(processes, "enable_capacity")
     model.Pros = pyo.Set(initialize=processes, ordered=False)
-    model.ProsCap = pyo.Set(initialize=capacity, ordered=False)
+    model.Caps = pyo.Set(initialize=capacity, ordered=False)
 
     # Connections (FxE), using cartesian subsets
     # See https://github.com/brentertainer/pyomo-tutorials/blob/master/intermediate/05-indexed-sets.ipynb
@@ -81,15 +73,13 @@ def _init_sets(model: pyo.ConcreteModel) -> pyo.ConcreteModel:
 
 def _init_variables(model: pyo.ConcreteModel) -> pyo.ConcreteModel:
     # Capacity TODO: find a way of eliminating unnecessary capacity variables
-    model.ctot = pyo.Var(model.ProsCap, model.Years, domain=pyo.NonNegativeReals, initialize=0)
-    model.cnew = pyo.Var(model.ProsCap, model.Years, domain=pyo.NonNegativeReals, initialize=0)
-    model.cret = pyo.Var(model.ProsCap, model.Years, domain=pyo.NonNegativeReals, initialize=0)
+    model.ctot = pyo.Var(model.Caps, model.Years, domain=pyo.NonNegativeReals, initialize=0)
+    model.cnew = pyo.Var(model.Caps, model.Years, domain=pyo.NonNegativeReals, initialize=0)
+    model.cret = pyo.Var(model.Caps, model.Years, domain=pyo.NonNegativeReals, initialize=0)
 
     # Process activity
-    act = model.Elems - model.Trades
+    act = model.Elems
     model.a = pyo.Var(act, model.Years, model.Hours, domain=pyo.NonNegativeReals, initialize=0)
-    model.aimp = pyo.Var(model.TradesImp, model.Years, model.Hours, domain=pyo.NonNegativeReals, initialize=0)
-    model.aexp = pyo.Var(model.TradesExp, model.Years, model.Hours, domain=pyo.NonNegativeReals, initialize=0)
 
     # Flows
     model.fin = pyo.Var(model.FiE, model.Years, model.Hours, domain=pyo.NonNegativeReals, initialize=0)
