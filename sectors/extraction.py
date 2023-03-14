@@ -28,23 +28,16 @@ def _sets(model: pyo.ConcreteModel):
         ordered=False,
         initialize={(f, e) for f, e in model.FoE if e in extractions},
     )
-    model.ExtrsFiE = pyo.Set(
-        within=model.Flows * model.Elems,
-        ordered=False,
-        initialize={(f, e) for f, e in model.FiE if e in extractions},
-    )
 
 
 def _constraints(model: pyo.ConcreteModel):
     """Set sector constraints."""
     # Output
-    model.ext_c_flow_out = pyo.Constraint(model.Extrs, model.Years, model.Hours, rule=gen.c_flow_out)
+    model.ext_c_flow_out = pyo.Constraint(model.Extrs, model.YOpt, model.Hours, rule=gen.c_flow_out)
     # Capacity
     model.ext_c_cap_max_annual = pyo.Constraint(model.Extrs, model.Years, rule=gen.c_cap_max_annual)
-    model.ext_c_cap_transfer = pyo.Constraint(model.Extrs, model.Years - model.Y0, rule=gen.c_cap_transfer)
-    model.ext_c_cap_retirement = pyo.Constraint(
-        model.Extrs, model.Years - model.Y0, rule=gen.c_cap_retirement
-    )
+    model.ext_c_cap_transfer = pyo.Constraint(model.Extrs, model.YOpt, rule=gen.c_cap_transfer)
+    model.ext_c_cap_retirement = pyo.Constraint(model.Extrs, model.YOpt, rule=gen.c_cap_retirement)
     model.ext_c_cap_buildrate = pyo.Constraint(model.Extrs, model.Years, rule=gen.c_cap_buildrate)
     # Activity
     model.ext_c_act_ramp_up = pyo.Constraint(
@@ -66,6 +59,14 @@ def _initialise(model: pyo.ConcreteModel):
     """Set initial sector values."""
     # gen.init_activity(model, model.Extrs)
     gen.init_capacity(model, model.Extrs)
+
+
+# --------------------------------------------------------------------------- #
+# Cost
+# --------------------------------------------------------------------------- #
+def get_cost(model: pyo.ConcreteModel):
+    """Get a cost expression for the sector."""
+    return gen.cost_combined(model, model.Extrs, model.Years)
 
 
 # --------------------------------------------------------------------------- #

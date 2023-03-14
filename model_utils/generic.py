@@ -8,7 +8,7 @@
 # https://www.gnu.org/licenses/gpl-3.0-standalone.html
 # --------------------------------------------------------------------------- #
 """
-Holds standard constraint functions that can be re-used by sector modules.
+Holds standard functions that can be re-used by sector modules.
 
 Rules:
 - Only use generic variables (a, ctot, cnew, cret, fin, fout).
@@ -75,7 +75,7 @@ def c_cap_max_annual(model, element_id, y):
 def c_cap_transfer(model, element_id, y):
     """Transfer installed capacity between year slices."""
     if DATA.check_cnf(element_id, "enable_capacity"):
-        total_capacity = model.ctot[element_id, y-1] + model.cnew[element_id, y] - model.cret[element_id, y]
+        total_capacity = model.ctot[element_id, y - 1] + model.cnew[element_id, y] - model.cret[element_id, y]
         return model.ctot[element_id, y] == total_capacity
     return pyo.Constraint.Skip
 
@@ -113,7 +113,7 @@ def c_act_ramp_up(model, element_id, y, h):
         return pyo.Constraint.Skip
     cap_to_act = DATA.get_const(element_id, "capacity_to_activity")
     max_activity_change = ramp_rate * model.ctot[element_id, y] * cap_to_act
-    return model.a[element_id, y, h] - model.a[element_id, y, h-1] <= max_activity_change
+    return model.a[element_id, y, h] - model.a[element_id, y, h - 1] <= max_activity_change
 
 
 def c_act_ramp_down(model, element_id, y, h):
@@ -125,7 +125,7 @@ def c_act_ramp_down(model, element_id, y, h):
         return pyo.Constraint.Skip
     cap_to_act = DATA.get_const(element_id, "capacity_to_activity")
     max_activity_change = ramp_rate * model.ctot[element_id, y] * cap_to_act
-    return model.a[element_id, y, h-1] - model.a[element_id, y, h] <= max_activity_change
+    return model.a[element_id, y, h - 1] - model.a[element_id, y, h] <= max_activity_change
 
 
 def c_act_max_annual(model, element_id, y):
@@ -182,7 +182,7 @@ def init_activity(model, elements):
     y_0 = model.Y0.first()
     for element_id in elements:
         act_y0 = DATA.get_annual(element_id, "actual_activity", y_0)
-        act_y0_h = act_y0/(365*24)
+        act_y0_h = act_y0 / (365 * 24)
         for h in model.Hours:
             model.a[element_id, y_0, h].fix(True)
             model.a[element_id, y_0, h].set_value(act_y0_h)
@@ -200,3 +200,48 @@ def init_capacity(model: pyo.ConcreteModel, elements: set):
             model.ctot[element_id, y_0].set_value(cap_y0)
             model.cnew[element_id, y_0].set_value(0)
             model.cret[element_id, y_0].set_value(0)
+
+
+# --------------------------------------------------------------------------- #
+# Cost
+# --------------------------------------------------------------------------- #
+def cost_investment(model: pyo.ConcreteModel, entities, years):
+    """Get investment cost for a set of elements."""
+    cost = 0
+    for e in entities:
+        if DATA.check_cnf(e, "enable_capacity"):
+            cost += sum(
+                model.DR[y] * DATA.get_annual(e, "cost_investment", y) * model.cnew[e, y]
+                for y in years
+            )
+    return cost
+
+
+def cost_fixed_om(model: pyo.ConcreteModel, entities, years):
+    """Get fixed O&M cost for a set of elements."""
+    cost = 0
+    for e in entities:
+        if DATA.check_cnf(e, "enable_capacity"):
+            cost += sum(
+                model.DR[y] * DATA.get_annual(e, "cost_fixed_om_annual", y) * model.ctot[e, y]
+                for y in years
+            )
+    return cost
+
+
+def cost_variable_om(model: pyo.ConcreteModel, entities, years):
+    """Get variable O&M cost for a set of elements."""
+    cost = sum(
+        model.DR[y] * DATA.get_annual(e, "cost_variable_om", y) * sum(model.a[e, y, h] for h in model.Hours)
+        for e in entities
+        for y in years
+    )
+    return cost
+
+
+def cost_combined(model: pyo.ConcreteModel, entities: set, years: set):
+    """Wrap the most generic cost setup."""
+    cost = cost_investment(model, entities, years)
+    cost += cost_fixed_om(model, entities, years)
+    cost += cost_variable_om(model, entities, years)
+    return cost

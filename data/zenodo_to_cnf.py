@@ -409,7 +409,7 @@ def create_fxe_matrix(cnf_file_path: str):
     for sheet in xlsx.sheet_names:
         sheet_df = pd.read_excel(cnf_file_path, sheet_name=sheet)
 
-        # TODO: consider combining these into once procedure (specifying sheet name and constant_fxe parm.)
+        # TODO: consider combining these into one procedure (specifying sheet name and constant_fxe parm.)
         # TODO: perhaps a single configuration_fxe value (not related to efficiency) would be more flexible...
         # Get flows into elements
         sheet_fie = sheet_df.loc[

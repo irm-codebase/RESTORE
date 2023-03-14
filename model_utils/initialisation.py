@@ -39,6 +39,7 @@ def _init_sets(model: pyo.ConcreteModel) -> pyo.ConcreteModel:
     # Temporal (1xN)
     model.Years = pyo.Set(initialize=cnf.YEARS, ordered=True)
     model.Y0 = pyo.Set(initialize=[cnf.YEARS[0]], ordered=True)
+    model.YOpt = pyo.Set(initialize=model.Years - model.Y0, ordered=True)
     model.Hours = pyo.Set(initialize=cnf.HOURS, ordered=True)
     model.H0 = pyo.Set(initialize=[cnf.HOURS[0]], ordered=True)
 
@@ -48,11 +49,8 @@ def _init_sets(model: pyo.ConcreteModel) -> pyo.ConcreteModel:
     model.Elems = pyo.Set(initialize=elements, ordered=False)
     model.Flows = pyo.Set(initialize=flows, ordered=False)
 
-    # Element sub-types (1xN)
-    demands = set(cnf.ELEMENTS[cnf.ELEMENTS.str.startswith("dem_")])
-    model.Dems = pyo.Set(initialize=demands, ordered=False)
-
     # Element groupings (1xN)
+    demands = set(cnf.ELEMENTS[cnf.ELEMENTS.str.startswith("dem_")])
     processes = elements - demands
     capacity = cnf.DATA.build_cnf_set(processes, "enable_capacity")
     model.Pros = pyo.Set(initialize=processes, ordered=False)

@@ -1,0 +1,9 @@
+\ Model cost_copy
+\ LP format - for model browsing. Use MPS format to capture full model detail.
+Minimize
+ 
+Subject To
+ c_u_pass_c_act_cf_max_year(conv_passenger_icedies_1990)_:
+   <= -110.8021562069292
+Bounds
+End

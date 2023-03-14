@@ -85,10 +85,16 @@ def _sets(model: pyo.ConcreteModel):
     model.Trades = pyo.Set(initialize=trades, ordered=False)
     model.TradesImp = pyo.Set(initialize=cnf.DATA.build_cnf_set(trades, "enable_import"), ordered=False)
     model.TradesExp = pyo.Set(initialize=cnf.DATA.build_cnf_set(trades, "enable_export"), ordered=False)
-    model.TradesFoE = pyo.Set(within=model.Flows*model.Elems, ordered=False,
-                              initialize={(f, e) for f, e in model.FoE if e in trades})
-    model.TradesFiE = pyo.Set(within=model.Flows*model.Elems, ordered=False,
-                              initialize={(f, e) for f, e in model.FiE if e in trades})
+    model.TradesFoE = pyo.Set(
+        within=model.Flows * model.Elems,
+        ordered=False,
+        initialize={(f, e) for f, e in model.FoE if e in trades},
+    )
+    model.TradesFiE = pyo.Set(
+        within=model.Flows * model.Elems,
+        ordered=False,
+        initialize={(f, e) for f, e in model.FiE if e in trades},
+    )
 
 
 def _variables(model: pyo.ConcreteModel):
@@ -100,8 +106,8 @@ def _variables(model: pyo.ConcreteModel):
 def _constraints(model: pyo.ConcreteModel):
     """Set sector constraints."""
     # Input/output
-    model.trd_c_flow_in = pyo.Constraint(model.Trades, model.Years, model.Hours, rule=_c_flow_in)
-    model.trd_c_flow_out = pyo.Constraint(model.Trades, model.Years, model.Hours, rule=_c_flow_out)
+    model.trd_c_flow_in = pyo.Constraint(model.Trades, model.YOpt, model.Hours, rule=_c_flow_in)
+    model.trd_c_flow_out = pyo.Constraint(model.Trades, model.YOpt, model.Hours, rule=_c_flow_out)
     model.trd_c_flow_in_max_share = pyo.Constraint(
         model.TradesFiE, model.Years, model.Hours, rule=gen.c_flow_in_max_share
     )
@@ -110,7 +116,7 @@ def _constraints(model: pyo.ConcreteModel):
     )
     # Capacity, no retirements
     model.trd_c_cap_max_annual = pyo.Constraint(model.Trades, model.Years, rule=gen.c_cap_max_annual)
-    model.trd_c_cap_transfer = pyo.Constraint(model.Trades, model.Years - model.Y0, rule=gen.c_cap_transfer)
+    model.trd_c_cap_transfer = pyo.Constraint(model.Trades, model.YOpt, rule=gen.c_cap_transfer)
     model.trd_c_cap_buildrate = pyo.Constraint(model.Trades, model.Years, rule=gen.c_cap_buildrate)
     # Activity
     # TODO: perhaps limit annually?
@@ -144,6 +150,34 @@ def _initialise(model: pyo.ConcreteModel):
             for h in model.Hours:
                 model.aexp[element_id, y_0, h].fix(True)
                 model.aexp[element_id, y_0, h].set_value(actexp_y0_h)
+
+
+# --------------------------------------------------------------------------- #
+# Cost
+# --------------------------------------------------------------------------- #
+def _cost_variable_om(model: pyo.ConcreteModel, years):
+    """Get import cost."""
+    cost = sum(
+        model.DR[y] * cnf.DATA.get_annual(e, "cost_import", y) * sum(model.aimp[e, y, h] for h in model.Hours)
+        for e in model.TradesImp
+        for y in years
+    )
+    cost -= sum(
+        model.DR[y]
+        * cnf.DATA.get_annual(e, "revenue_export", y)
+        * sum(model.aexp[e, y, h] for h in model.Hours)
+        for e in model.TradesExp
+        for y in years
+    )
+    return cost
+
+
+def get_cost(model: pyo.ConcreteModel):
+    """Get a cost expression for the sector."""
+    cost = gen.cost_fixed_om(model, model.Trades, model.Years)
+    cost += gen.cost_investment(model, model.Trades, model.Years)
+    cost += _cost_variable_om(model, model.Years)
+    return cost
 
 
 # --------------------------------------------------------------------------- #

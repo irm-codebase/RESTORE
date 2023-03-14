@@ -41,17 +41,21 @@ def _sets(model: pyo.ConcreteModel):
 def _constraints(model: pyo.ConcreteModel):
     """Set sector constraints."""
     # Input/output
-    model.etrans_c_flow_in = pyo.Constraint(
-        model.ETrans, model.Years - model.Y0, model.Hours, rule=gen.c_flow_in
-    )
-    model.etrans_c_flow_out = pyo.Constraint(
-        model.ETrans, model.Years - model.Y0, model.Hours, rule=gen.c_flow_out
-    )
+    model.etrans_c_flow_in = pyo.Constraint(model.ETrans, model.YOpt, model.Hours, rule=gen.c_flow_in)
+    model.etrans_c_flow_out = pyo.Constraint(model.ETrans, model.YOpt, model.Hours, rule=gen.c_flow_out)
 
 
 def _initialise(model: pyo.ConcreteModel):
     """Set initial sector values."""
     gen.init_activity(model, model.ETrans)
+
+
+# --------------------------------------------------------------------------- #
+# Cost
+# --------------------------------------------------------------------------- #
+def get_cost(model: pyo.ConcreteModel):
+    """Get a cost expression for the sector."""
+    return gen.cost_variable_om(model, model.ETrans, model.Years)
 
 
 # --------------------------------------------------------------------------- #

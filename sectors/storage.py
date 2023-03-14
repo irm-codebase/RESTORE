@@ -41,14 +41,12 @@ def _sets(model: pyo.ConcreteModel):
 def _constraints(model: pyo.ConcreteModel):
     """Set sector constraints."""
     # Output
-    model.sto_c_flow_in = pyo.Constraint(model.Stors, model.Years-model.Y0, model.Hours, rule=gen.c_flow_in)
-    model.sto_c_flow_out = pyo.Constraint(model.Stors, model.Years-model.Y0, model.Hours, rule=gen.c_flow_out)
+    model.sto_c_flow_in = pyo.Constraint(model.Stors, model.YOpt, model.Hours, rule=gen.c_flow_in)
+    model.sto_c_flow_out = pyo.Constraint(model.Stors, model.YOpt, model.Hours, rule=gen.c_flow_out)
     # Capacity
     model.sto_c_cap_max_annual = pyo.Constraint(model.Stors, model.Years, rule=gen.c_cap_max_annual)
-    model.sto_c_cap_transfer = pyo.Constraint(model.Stors, model.Years - model.Y0, rule=gen.c_cap_transfer)
-    model.sto_c_cap_retirement = pyo.Constraint(
-        model.Stors, model.Years - model.Y0, rule=gen.c_cap_retirement
-    )
+    model.sto_c_cap_transfer = pyo.Constraint(model.Stors, model.YOpt, rule=gen.c_cap_transfer)
+    model.sto_c_cap_retirement = pyo.Constraint(model.Stors, model.YOpt, rule=gen.c_cap_retirement)
     model.sto_c_cap_buildrate = pyo.Constraint(model.Stors, model.Years, rule=gen.c_cap_buildrate)
     # Activity
     model.sto_c_act_ramp_up = pyo.Constraint(
@@ -70,6 +68,14 @@ def _initialise(model: pyo.ConcreteModel):
     """Set initial sector values."""
     gen.init_activity(model, model.Stors)
     gen.init_capacity(model, model.Stors)
+
+
+# --------------------------------------------------------------------------- #
+# Cost
+# --------------------------------------------------------------------------- #
+def get_cost(model: pyo.ConcreteModel):
+    """Get a cost expression for the sector."""
+    return gen.cost_combined(model, model.Stors, model.Years)
 
 
 # --------------------------------------------------------------------------- #

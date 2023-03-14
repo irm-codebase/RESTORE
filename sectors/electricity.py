@@ -11,15 +11,34 @@
 import pyomo.environ as pyo
 
 from model_utils import configuration as cnf
+from model_utils import data_handler
 from model_utils import generic as gen
 
 GROUP_IDS = ["conv_chp_", "conv_elec_"]
 OUTFLOW_ID = "elecsupply"
 
+VRE_NAMES = ["onshorewind", "pv", "offshorewind"]
+VRE_DICT = data_handler.get_lf_vre(cnf.COUNTRY)
+
 
 # --------------------------------------------------------------------------- #
 # Sector-specific constraints
 # --------------------------------------------------------------------------- #
+def _c_act_cf_max_hour(model, element_id, y, h):
+    """Set the maximum hourly utilisation of an element's capacity.
+
+    Accounts for VRE load factors.
+    """
+    if not cnf.DATA.check_cnf(element_id, "enable_capacity"):
+        return pyo.Constraint.Skip
+    if element_id in model.ElecsVRE:
+        lf_max = VRE_DICT[element_id][y, h % 24]
+    else:
+        lf_max = cnf.DATA.get_annual(element_id, "lf_max", y)
+    cap_to_act = cnf.DATA.get_const(element_id, "capacity_to_activity")
+    return model.a[element_id, y, h] <= lf_max * model.ctot[element_id, y] * cap_to_act
+
+
 def _c_cap_peak(model, y):
     """Fulfil capacity requirement, excluding import capacity (full autarky)."""
     flow_id = OUTFLOW_ID
@@ -40,6 +59,7 @@ def _c_cap_peak(model, y):
 
 
 def _c_cap_base(model, y):
+    """Meet base capacity requirement, with the help of imports."""
     flow_id = OUTFLOW_ID
     base_power = cnf.DATA.get_annual(flow_id, "base_capacity_demand", y)
     base_cap_sys = sum(
@@ -61,8 +81,8 @@ def _c_cap_base(model, y):
     if isinstance(base_cap_sys, int):
         print(f"Warning: Skipped base capacity requirement of {base_cap_sys} for {y}. Check LF data.")
         return pyo.Constraint.Skip
-    x = base_power >= base_cap_sys - imports
-    return x  # System must be able to go lower than the lowest expected demand
+    constraint = base_power >= base_cap_sys - imports
+    return constraint  # System must be able to go lower than the lowest expected demand
 
 
 # --------------------------------------------------------------------------- #
@@ -70,19 +90,23 @@ def _c_cap_base(model, y):
 # --------------------------------------------------------------------------- #
 def _sets(model: pyo.ConcreteModel):
     """Create sets used by this sector."""
-    elec_generators = set()  # type: set[str]
+    elec_elements = set()  # type: set[str]
     for group in GROUP_IDS:
-        elec_generators = elec_generators | set(cnf.ELEMENTS[cnf.ELEMENTS.str.startswith(group)])
-    model.Elecs = pyo.Set(initialize=elec_generators, ordered=False)
+        elec_elements = elec_elements | set(cnf.ELEMENTS[cnf.ELEMENTS.str.startswith(group)])
+    model.Elecs = pyo.Set(initialize=elec_elements, ordered=False)
+
+    vre_elements = set(c for c in elec_elements for vre in VRE_NAMES if vre in c)
+    model.ElecsVRE = pyo.Set(initialize=vre_elements, ordered=False)
+
     model.ElecsFoE = pyo.Set(
         within=model.Flows * model.Elems,
         ordered=False,
-        initialize={(f, e) for f, e in model.FoE if e in elec_generators},
+        initialize={(f, e) for f, e in model.FoE if e in elec_elements},
     )
     model.ElecsFiE = pyo.Set(
         within=model.Flows * model.Elems,
         ordered=False,
-        initialize={(f, e) for f, e in model.FiE if e in elec_generators},
+        initialize={(f, e) for f, e in model.FiE if e in elec_elements},
     )
 
 
@@ -91,15 +115,14 @@ def _constraints(model: pyo.ConcreteModel):
 
     Includes CHP, for now.
     """
+    # Generics
     # Input/output
-    model.elec_c_flow_in = pyo.Constraint(model.Elecs, model.Years, model.Hours, rule=gen.c_flow_in)
-    model.elec_c_flow_out = pyo.Constraint(model.Elecs, model.Years, model.Hours, rule=gen.c_flow_out)
+    model.elec_c_flow_in = pyo.Constraint(model.Elecs, model.YOpt, model.Hours, rule=gen.c_flow_in)
+    model.elec_c_flow_out = pyo.Constraint(model.Elecs, model.YOpt, model.Hours, rule=gen.c_flow_out)
     # Capacity
     model.elec_c_cap_max_annual = pyo.Constraint(model.Elecs, model.Years, rule=gen.c_cap_max_annual)
-    model.elec_c_cap_transfer = pyo.Constraint(model.Elecs, model.Years - model.Y0, rule=gen.c_cap_transfer)
-    model.elec_c_cap_retirement = pyo.Constraint(
-        model.Elecs, model.Years - model.Y0, rule=gen.c_cap_retirement
-    )
+    model.elec_c_cap_transfer = pyo.Constraint(model.Elecs, model.YOpt, rule=gen.c_cap_transfer)
+    model.elec_c_cap_retirement = pyo.Constraint(model.Elecs, model.YOpt, rule=gen.c_cap_retirement)
     model.elec_c_cap_buildrate = pyo.Constraint(model.Elecs, model.Years, rule=gen.c_cap_buildrate)
     # Activity
     model.elec_c_act_ramp_up = pyo.Constraint(
@@ -112,10 +135,13 @@ def _constraints(model: pyo.ConcreteModel):
     model.elec_c_act_cf_min_hour = pyo.Constraint(
         model.Elecs, model.Years, model.Hours, rule=gen.c_act_cf_min_hour
     )
+
+    # Sector specific
+    # Max LF per hour
     model.elec_c_act_cf_max_hour = pyo.Constraint(
-        model.Elecs, model.Years, model.Hours, rule=gen.c_act_cf_max_hour
+        model.Elecs, model.Years, model.Hours, rule=_c_act_cf_max_hour
     )
-    # Capacity requirements
+    # Peak and base-load capacity requirements
     model.elec_c_cap_peak = pyo.Constraint(model.Years, rule=_c_cap_peak)
     model.elec_c_cap_base = pyo.Constraint(model.Years, rule=_c_cap_base)
 
@@ -124,6 +150,14 @@ def _initialise(model: pyo.ConcreteModel):
     """Set initial sector values."""
     gen.init_activity(model, model.Elecs)
     gen.init_capacity(model, model.Elecs)
+
+
+# --------------------------------------------------------------------------- #
+# Cost
+# --------------------------------------------------------------------------- #
+def get_cost(model: pyo.ConcreteModel):
+    """Get a cost expression for the sector."""
+    return gen.cost_combined(model, model.Elecs, model.Years)
 
 
 # --------------------------------------------------------------------------- #
