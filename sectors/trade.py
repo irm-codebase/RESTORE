@@ -119,7 +119,6 @@ def _constraints(model: pyo.ConcreteModel):
     model.trd_c_cap_transfer = pyo.Constraint(model.Trades, model.YOpt, rule=gen.c_cap_transfer)
     model.trd_c_cap_buildrate = pyo.Constraint(model.Trades, model.Years, rule=gen.c_cap_buildrate)
     # Activity
-    # TODO: perhaps limit annually?
     model.trd_c_act_setup = pyo.Constraint(model.Trades, model.Years, model.Hours, rule=_c_activity_setup)
     model.trd_c_act_max_imp_annual = pyo.Constraint(model.Trades, model.Years, rule=_c_act_max_import_annual)
     model.trd_c_act_max_exp_annual = pyo.Constraint(model.Trades, model.Years, rule=_c_act_max_export_annual)

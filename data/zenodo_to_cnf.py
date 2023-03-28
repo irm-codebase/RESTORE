@@ -327,7 +327,7 @@ def linearise_dataframe(input_df: pd.DataFrame) -> pd.DataFrame:
         pd.DataFrame: _description_
     """
     # Clean the final dataframe
-    input_df.set_index(["Entity", "Parameter", "Year"], inplace=True)
+    input_df.set_index(["Entity", "Parameter", "Year", "Flow"], inplace=True)
     tmp_df = input_df.copy()
     tmp_df.sort_index(inplace=True)  # Ensure the order of years is right
     # Linear interpolation across years, skipping Parameters that are not annual
@@ -337,7 +337,7 @@ def linearise_dataframe(input_df: pd.DataFrame) -> pd.DataFrame:
             data_type = tmp_df.loc[idx, "Type"].unique()
             if len(data_type) != 1:
                 raise ValueError("Multiple data types used for", param, "in", entity)
-            if data_type[0] == "annual":
+            if data_type[0] in ["annual", "annual_fxe"]:
                 values = tmp_df.loc[idx, "Value"].astype(float)
                 tmp_df.loc[idx, "Value"] = values.interpolate(limit_direction="both")
 

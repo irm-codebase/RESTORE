@@ -23,7 +23,7 @@ from model_utils import data_handler as _handler
 COUNTRY = "CH"
 
 # Build model configuration
-DATA = _handler.DataHandler("data/cnf_files/restore_cnf_v3.xlsx")
+DATA = _handler.DataHandler("data/cnf_files/restore_cnf_v5.xlsx")
 ELEMENTS = pd.merge(DATA.fxe["FiE"], DATA.fxe["FoE"], how='outer', left_index=True, right_index=True).index
 FLOWS = set(pd.merge(DATA.fxe["FiE"], DATA.fxe["FoE"], how='inner').columns)
 
