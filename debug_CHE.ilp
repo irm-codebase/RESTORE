@@ -3,45 +3,6 @@
 Minimize
  
 Subject To
- c_e_c_io_balance(diesel_2019_4)_: - fin(diesel_conv_passenger_hevd_2019_4)
-   - fin(diesel_conv_passenger_iced_2019_4)
-   - fin(diesel_conv_passenger_phevd_2019_4)
-   + fout(diesel_trd_diesel_2019_4) = 0
- c_e_c_io_balance(gasoline_2019_5)_:
-   - fin(gasoline_conv_passenger_hevg_2019_5)
-   - fin(gasoline_conv_passenger_iceg_2019_5)
-   - fin(gasoline_conv_passenger_phevg_2019_5)
-   + fout(gasoline_trd_gasoline_2019_5) = 0
- c_e_c_io_balance(gasoline_2019_6)_:
-   - fin(gasoline_conv_passenger_hevg_2019_6)
-   - fin(gasoline_conv_passenger_iceg_2019_6)
-   - fin(gasoline_conv_passenger_phevg_2019_6)
-   + fout(gasoline_trd_gasoline_2019_6) = 0
- c_e_c_io_balance(gasoline_2019_10)_:
-   - fin(gasoline_conv_passenger_hevg_2019_10)
-   - fin(gasoline_conv_passenger_iceg_2019_10)
-   - fin(gasoline_conv_passenger_phevg_2019_10)
-   + fout(gasoline_trd_gasoline_2019_10) = 0
- c_e_c_io_balance(gasoline_2019_15)_:
-   - fin(gasoline_conv_passenger_hevg_2019_15)
-   - fin(gasoline_conv_passenger_iceg_2019_15)
-   - fin(gasoline_conv_passenger_phevg_2019_15)
-   + fout(gasoline_trd_gasoline_2019_15) = 0
- c_e_c_io_balance(gasoline_2019_21)_:
-   - fin(gasoline_conv_passenger_hevg_2019_21)
-   - fin(gasoline_conv_passenger_iceg_2019_21)
-   - fin(gasoline_conv_passenger_phevg_2019_21)
-   + fout(gasoline_trd_gasoline_2019_21) = 0
- c_e_c_io_balance(gasoline_2019_22)_:
-   - fin(gasoline_conv_passenger_hevg_2019_22)
-   - fin(gasoline_conv_passenger_iceg_2019_22)
-   - fin(gasoline_conv_passenger_phevg_2019_22)
-   + fout(gasoline_trd_gasoline_2019_22) = 0
- c_e_c_io_balance(gasoline_2019_23)_:
-   - fin(gasoline_conv_passenger_hevg_2019_23)
-   - fin(gasoline_conv_passenger_iceg_2019_23)
-   - fin(gasoline_conv_passenger_phevg_2019_23)
-   + fout(gasoline_trd_gasoline_2019_23) = 0
  c_e_c_io_balance(passenger_2019_3)_: - fin(passenger_dem_passenger_2019_3)
    + fout(passenger_conv_passenger_bev_2019_3)
    + fout(passenger_conv_passenger_hevd_2019_3)
@@ -245,22 +206,6 @@ Subject To
    + fout(passenger_conv_passenger_phevd_2019_23)
    + fout(passenger_conv_passenger_phevg_2019_23)
    + fout(passenger_conv_passenger_prail_2019_23) = 0
- c_e_trd_c_flow_out(trd_diesel_2019_4)_: aimp(trd_diesel_2019_4)
-   - fout(diesel_trd_diesel_2019_4) = 0
- c_e_trd_c_flow_out(trd_gasoline_2019_5)_: aimp(trd_gasoline_2019_5)
-   - fout(gasoline_trd_gasoline_2019_5) = 0
- c_e_trd_c_flow_out(trd_gasoline_2019_6)_: aimp(trd_gasoline_2019_6)
-   - fout(gasoline_trd_gasoline_2019_6) = 0
- c_e_trd_c_flow_out(trd_gasoline_2019_10)_: aimp(trd_gasoline_2019_10)
-   - fout(gasoline_trd_gasoline_2019_10) = 0
- c_e_trd_c_flow_out(trd_gasoline_2019_15)_: aimp(trd_gasoline_2019_15)
-   - fout(gasoline_trd_gasoline_2019_15) = 0
- c_e_trd_c_flow_out(trd_gasoline_2019_21)_: aimp(trd_gasoline_2019_21)
-   - fout(gasoline_trd_gasoline_2019_21) = 0
- c_e_trd_c_flow_out(trd_gasoline_2019_22)_: aimp(trd_gasoline_2019_22)
-   - fout(gasoline_trd_gasoline_2019_22) = 0
- c_e_trd_c_flow_out(trd_gasoline_2019_23)_: aimp(trd_gasoline_2019_23)
-   - fout(gasoline_trd_gasoline_2019_23) = 0
  c_e_pass_c_flow_out(conv_passenger_bev_2019_3)_:
    a(conv_passenger_bev_2019_3)
    - 0.5734091751390601 fout(passenger_conv_passenger_bev_2019_3) = 0
@@ -2375,47 +2320,47 @@ Subject To
    + 365 a(conv_passenger_prail_2019_9)
    - 0.0433900146330553 ctot(conv_passenger_prail_2019) <= 0
  c_e_dem_c_flow_in(dem_passenger_2019_3)_:
-   - fin(passenger_dem_passenger_2019_3) = -0.4747430802235827
+   - fin(passenger_dem_passenger_2019_3) = -0.3860230933913998
  c_e_dem_c_flow_in(dem_passenger_2019_4)_:
-   - fin(passenger_dem_passenger_2019_4) = -0.9494861604471655
+   - fin(passenger_dem_passenger_2019_4) = -0.7720461867827997
  c_e_dem_c_flow_in(dem_passenger_2019_5)_:
-   - fin(passenger_dem_passenger_2019_5) = -3.797944073996006
+   - fin(passenger_dem_passenger_2019_5) = -3.088184285447633
  c_e_dem_c_flow_in(dem_passenger_2019_6)_:
-   - fin(passenger_dem_passenger_2019_6) = -14.24229070332951
+   - fin(passenger_dem_passenger_2019_6) = -11.5806914166913
  c_e_dem_c_flow_in(dem_passenger_2019_7)_:
-   - fin(passenger_dem_passenger_2019_7) = -18.98972093777268
+   - fin(passenger_dem_passenger_2019_7) = -15.44092188892173
  c_e_dem_c_flow_in(dem_passenger_2019_8)_:
-   - fin(passenger_dem_passenger_2019_8) = -14.24229070332951
+   - fin(passenger_dem_passenger_2019_8) = -11.5806914166913
  c_e_dem_c_flow_in(dem_passenger_2019_9)_:
-   - fin(passenger_dem_passenger_2019_9) = -13.29280454288235
+   - fin(passenger_dem_passenger_2019_9) = -10.8086452299085
  c_e_dem_c_flow_in(dem_passenger_2019_10)_:
-   - fin(passenger_dem_passenger_2019_10) = -13.29280454288235
+   - fin(passenger_dem_passenger_2019_10) = -10.8086452299085
  c_e_dem_c_flow_in(dem_passenger_2019_11)_:
-   - fin(passenger_dem_passenger_2019_11) = -18.04023506122184
+   - fin(passenger_dem_passenger_2019_11) = -14.66887593298071
  c_e_dem_c_flow_in(dem_passenger_2019_12)_:
-   - fin(passenger_dem_passenger_2019_12) = -17.09074890077468
+   - fin(passenger_dem_passenger_2019_12) = -13.89682974619791
  c_e_dem_c_flow_in(dem_passenger_2019_13)_:
-   - fin(passenger_dem_passenger_2019_13) = -19.93920709821985
+   - fin(passenger_dem_passenger_2019_13) = -16.21296807570453
  c_e_dem_c_flow_in(dem_passenger_2019_14)_:
-   - fin(passenger_dem_passenger_2019_14) = -16.14126274032752
+   - fin(passenger_dem_passenger_2019_14) = -13.12478355941511
  c_e_dem_c_flow_in(dem_passenger_2019_15)_:
-   - fin(passenger_dem_passenger_2019_15) = -17.09074890077468
+   - fin(passenger_dem_passenger_2019_15) = -13.89682974619791
  c_e_dem_c_flow_in(dem_passenger_2019_16)_:
-   - fin(passenger_dem_passenger_2019_16) = -23.73715117221585
+   - fin(passenger_dem_passenger_2019_16) = -19.30115236115216
  c_e_dem_c_flow_in(dem_passenger_2019_17)_:
-   - fin(passenger_dem_passenger_2019_17) = -26.58560936966102
+   - fin(passenger_dem_passenger_2019_17) = -21.61729069065878
  c_e_dem_c_flow_in(dem_passenger_2019_18)_:
-   - fin(passenger_dem_passenger_2019_18) = -21.36343605499427
+   - fin(passenger_dem_passenger_2019_18) = -17.37103712503695
  c_e_dem_c_flow_in(dem_passenger_2019_19)_:
-   - fin(passenger_dem_passenger_2019_19) = -16.6160058205511
+   - fin(passenger_dem_passenger_2019_19) = -13.51080665280651
  c_e_dem_c_flow_in(dem_passenger_2019_20)_:
-   - fin(passenger_dem_passenger_2019_20) = -9.494860468886342
+   - fin(passenger_dem_passenger_2019_20) = -7.720460944460865
  c_e_dem_c_flow_in(dem_passenger_2019_21)_:
-   - fin(passenger_dem_passenger_2019_21) = -7.595888431888339
+   - fin(passenger_dem_passenger_2019_21) = -6.176368801737047
  c_e_dem_c_flow_in(dem_passenger_2019_22)_:
-   - fin(passenger_dem_passenger_2019_22) = -7.121145351664756
+   - fin(passenger_dem_passenger_2019_22) = -5.790345708345649
  c_e_dem_c_flow_in(dem_passenger_2019_23)_:
-   - fin(passenger_dem_passenger_2019_23) = -3.797944073996006
+   - fin(passenger_dem_passenger_2019_23) = -3.088184285447633
 Bounds
  a(conv_passenger_bev_2019_10) free
  a(conv_passenger_bev_2019_11) free
@@ -2817,38 +2762,6 @@ Bounds
  cnew(conv_passenger_prail_2017) free
  cnew(conv_passenger_prail_2018) free
  cnew(conv_passenger_prail_2019) free
- fin(diesel_conv_passenger_hevd_2019_4) free
- fin(diesel_conv_passenger_iced_2019_4) free
- fin(diesel_conv_passenger_phevd_2019_4) free
- fout(diesel_trd_diesel_2019_4) free
- fin(gasoline_conv_passenger_hevg_2019_5) free
- fin(gasoline_conv_passenger_iceg_2019_5) free
- fin(gasoline_conv_passenger_phevg_2019_5) free
- fout(gasoline_trd_gasoline_2019_5) free
- fin(gasoline_conv_passenger_hevg_2019_6) free
- fin(gasoline_conv_passenger_iceg_2019_6) free
- fin(gasoline_conv_passenger_phevg_2019_6) free
- fout(gasoline_trd_gasoline_2019_6) free
- fin(gasoline_conv_passenger_hevg_2019_10) free
- fin(gasoline_conv_passenger_iceg_2019_10) free
- fin(gasoline_conv_passenger_phevg_2019_10) free
- fout(gasoline_trd_gasoline_2019_10) free
- fin(gasoline_conv_passenger_hevg_2019_15) free
- fin(gasoline_conv_passenger_iceg_2019_15) free
- fin(gasoline_conv_passenger_phevg_2019_15) free
- fout(gasoline_trd_gasoline_2019_15) free
- fin(gasoline_conv_passenger_hevg_2019_21) free
- fin(gasoline_conv_passenger_iceg_2019_21) free
- fin(gasoline_conv_passenger_phevg_2019_21) free
- fout(gasoline_trd_gasoline_2019_21) free
- fin(gasoline_conv_passenger_hevg_2019_22) free
- fin(gasoline_conv_passenger_iceg_2019_22) free
- fin(gasoline_conv_passenger_phevg_2019_22) free
- fout(gasoline_trd_gasoline_2019_22) free
- fin(gasoline_conv_passenger_hevg_2019_23) free
- fin(gasoline_conv_passenger_iceg_2019_23) free
- fin(gasoline_conv_passenger_phevg_2019_23) free
- fout(gasoline_trd_gasoline_2019_23) free
  fin(passenger_dem_passenger_2019_3) free
  fout(passenger_conv_passenger_bev_2019_3) free
  fout(passenger_conv_passenger_hevd_2019_3) free

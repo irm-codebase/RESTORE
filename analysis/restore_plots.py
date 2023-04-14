@@ -44,7 +44,7 @@ def plot_fout(model, handler: DataHandler, flow, unit="TWh", use_actual=False):
     """Plot values flowing out of elements at a flow node."""
     columns = [e for f, e in model.FoE if f == flow]
     value_df = pd.DataFrame(index=model.Years, columns=columns)
-    
+
     # Gather values
     historical_data = [handler.get_annual(flow, "actual_flow", y) for y in model.Years]
     historical_ref = pd.Series(data=historical_data, index=model.Years, name="Historical total")
@@ -95,6 +95,31 @@ def plot_fin(model, handler: DataHandler, flow, unit="TWh"):
     axis.set_title(f"FiE at {flow} ({unit})")
     handles, labels = fig_tools.get_plt_inverted_legend(axis)
     axis.legend(handles, labels, bbox_to_anchor=(1.1, 1.05))
+    fig_tools.plt.tight_layout()
+    axis.autoscale()
+
+    return axis
+
+
+def plot_ctot(model, handler: DataHandler, grouping: str, unit="GW", use_actual=False):
+    """Plot the capacity of the elements in a group."""
+    group_ids = [e for e in model.Elems if grouping in e and e in model.Caps]
+    cap_df = pd.DataFrame(index=model.Years, columns=group_ids)
+    for e in group_ids:
+        for y in model.Years:
+            if use_actual:
+                cap_df.loc[y, e] = handler.get_annual(e, "actual_capacity", y)
+            else:
+                cap_df.loc[y, e] = model.ctot[e, y].value
+
+    axis = cap_df.plot(kind="bar", stacked=True, width=0.8)
+
+    title = f": Capacity: {grouping} ({unit})"
+    title = "Hist. estimates" + title if use_actual else "Modelled" + title
+
+    axis.set_title(f"Net capacity at {grouping} ({unit})")
+    handles, labels = fig_tools.get_plt_inverted_legend(axis)
+    axis.legend(handles, labels, loc="center left", bbox_to_anchor=(1, 0.5))
     fig_tools.plt.tight_layout()
     axis.autoscale()
 
