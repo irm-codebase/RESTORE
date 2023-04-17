@@ -15,6 +15,7 @@ from datetime import datetime
 import pandas as pd
 
 TEMPLATE_PATH = "data/zenodo_ivan/_templates/template.xlsx"
+COLUMNS = pd.read_excel(TEMPLATE_PATH, sheet_name="template", header=4).columns
 
 
 def save_csv(csv_df: pd.DataFrame, path: str) -> None:
@@ -38,14 +39,16 @@ def save_csv(csv_df: pd.DataFrame, path: str) -> None:
         csv_df.to_csv(file, header=False)
 
 
-def save_excel(dataframe: pd.DataFrame, folder_path: str):
+def save_excel(dataframe: pd.DataFrame, folder_path: str, append_country_code=False):
     """Save a RESTORE data file as .xlsx, adding metadata and ensuring correct cell types.
 
     Args:
         dataframe (pd.DataFrame): dataframe
         folder_path (str): folder to save
     """
-    filename = dataframe.loc[0, "Country"] + "_" + dataframe.loc[0, "Entity"] + ".xlsx"
+    filename = dataframe.loc[0, "Entity"] + ".xlsx"
+    if append_country_code:
+        filename = dataframe.loc[0, "Country"] + filename
 
     # Prepare file location
     if not os.path.exists(folder_path):

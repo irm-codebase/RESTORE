@@ -34,7 +34,8 @@ REF_CURRENCY_DF = (
     CURRENCY_DF[CURRENCY_DF["Parameter"] == "ReferenceCurrency"].reset_index().set_index(["Country", "Year"])
 )
 # GDP deflator indexed by country and year
-DEFLATOR_DF = pd.read_csv(os.path.join(COMMON_PATH, "Deflator.csv"), skiprows=4, index_col=[0, 2])
+DEFLATOR_DF = pd.read_excel(os.path.join(COMMON_PATH, "deflator.xlsx"), skiprows=4)
+DEFLATOR_DF = DEFLATOR_DF.set_index(["Country", "Year"])["Value"]
 
 # Units indexed by country, technology, year, unit
 UNITS_DF = pd.read_csv(os.path.join(COMMON_PATH, "Conversions.csv"), skiprows=4, index_col=[0, 2, 1])
@@ -121,8 +122,8 @@ def _get_new_currency(row: pd.DataFrame, new_currency: str, new_year: str, defla
         deflator_country = country
     if new_year != ref_currency_year:
         deflator_idx = (
-            DEFLATOR_DF.loc[(deflator_country, new_year), "Value"]
-            / DEFLATOR_DF.loc[(deflator_country, ref_currency_year), "Value"]
+            DEFLATOR_DF[(deflator_country, new_year)]
+            / DEFLATOR_DF[(deflator_country, ref_currency_year)]
         )
     else:
         deflator_idx = 1
