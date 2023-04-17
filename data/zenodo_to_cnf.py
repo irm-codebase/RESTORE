@@ -122,8 +122,7 @@ def _get_new_currency(row: pd.DataFrame, new_currency: str, new_year: str, defla
         deflator_country = country
     if new_year != ref_currency_year:
         deflator_idx = (
-            DEFLATOR_DF[(deflator_country, new_year)]
-            / DEFLATOR_DF[(deflator_country, ref_currency_year)]
+            DEFLATOR_DF[(deflator_country, new_year)] / DEFLATOR_DF[(deflator_country, ref_currency_year)]
         )
     else:
         deflator_idx = 1
@@ -402,56 +401,45 @@ def create_cnf_file(data_folder_path: str, cnf_file_path: str):
             raise ValueError("File creation error at", item) from exc
 
 
-def create_fxe_matrix(cnf_file_path: str):
-    """Create sheets for FiE (flow into element) and FoE (flow out of element)."""
+def _build_fxe_matrix(cnf_file_path: str, parameter: str, sheet_name: str):
     xlsx = pd.ExcelFile(cnf_file_path)
-    fie_matrix = pd.DataFrame()
-    foe_matrix = pd.DataFrame()
+    fxe_matrix = pd.DataFrame()
     for sheet in xlsx.sheet_names:
         sheet_df = pd.read_excel(cnf_file_path, sheet_name=sheet)
 
-        # TODO: consider combining these into one procedure (specifying sheet name and constant_fxe parm.)
-        # TODO: perhaps a single configuration_fxe value (not related to efficiency) would be more flexible...
-        # Get flows into elements
-        sheet_fie = sheet_df.loc[
-            (sheet_df["Type"] == "constant_fxe") & (sheet_df["Parameter"] == "input_efficiency")
-        ]
-        if not sheet_fie.empty:
-            sheet_fie = sheet_fie.drop(["Type", "Parameter", "Year"], axis=1)
-            for i in sheet_fie.index:
-                elements = sheet_fie.columns.drop("Flow")
-                flow = sheet_fie.loc[i, "Flow"]
-                values = sheet_fie.loc[i, elements]
-                flow_elements = pd.Series(name=flow, index=elements, data=values)
-                fie_matrix = pd.concat([fie_matrix, flow_elements], axis=1)
+        # Isolate the requested parameter
+        sheet_df = sheet_df.loc[sheet_df["Type"] == "configuration_fxe"]
+        sheet_df = sheet_df.loc[sheet_df["Parameter"] == parameter]
+        if not sheet_df.empty:
+            # Construct the Flow x Element connections
+            sheet_df = sheet_df.drop(["Type", "Parameter", "Year"], axis=1)
+            sheet_df = sheet_df.dropna(axis=1, how="all")
+            sheet_df = sheet_df.set_index("Flow")
 
-        # Get flows out of elements
-        sheet_foe = sheet_df.loc[
-            (sheet_df["Type"] == "constant_fxe") & (sheet_df["Parameter"] == "output_efficiency")
-        ]
-        if not sheet_foe.empty:
-            sheet_foe = sheet_foe.drop(["Type", "Parameter", "Year"], axis=1)
-            for i in sheet_foe.index:
-                elements = sheet_foe.columns.drop("Flow")
-                values = sheet_foe.loc[i, elements]
-                flow_elements = pd.Series(name=sheet_foe.loc[i, "Flow"], index=elements, data=values)
-                foe_matrix = pd.concat([foe_matrix, flow_elements], axis=1)
-
-    fie_matrix = fie_matrix.groupby(fie_matrix.columns, axis=1).agg(np.max)
-    foe_matrix = foe_matrix.groupby(foe_matrix.columns, axis=1).agg(np.max)
+            fxe_matrix = pd.concat([fxe_matrix, sheet_df.T])
 
     # Rearrange to improve readability
-    fie_matrix.sort_index(ascending=True, inplace=True)
-    foe_matrix.sort_index(ascending=True, inplace=True)
+    fxe_matrix = fxe_matrix.groupby(fxe_matrix.columns, axis=1).agg(np.max)
+    fxe_matrix.sort_index(ascending=True, inplace=True)
 
+    return fxe_matrix
+
+
+def create_fxe_matrix(cnf_file_path: str):
+    """Create sheets for FiE (flow into element) and FoE (flow out of element)."""
+    fie_matrix = _build_fxe_matrix(cnf_file_path, "input", "FiE")
+    foe_matrix = _build_fxe_matrix(cnf_file_path, "output", "FoE")
+
+    fie_matrix.name = "FiE"
+    foe_matrix.name = "FoE"
     # pylint: disable=abstract-class-instantiated
     writer = pd.ExcelWriter(cnf_file_path, engine="openpyxl", mode="a", if_sheet_exists="replace")
     with writer:
-        fie_matrix.to_excel(writer, sheet_name="FiE")
-        foe_matrix.to_excel(writer, sheet_name="FoE")
+        for matrix in [fie_matrix, foe_matrix]:
+            matrix.to_excel(writer, sheet_name=matrix.name)
 
 
 # If the script is called directly, build the configuration file in the downloads folder
 if __name__ == "__main__":
-    create_cnf_file(ZENODO_FOLDER_PATH, "/Users/ruiziv/Downloads/test.xlsx")
+    # create_cnf_file(ZENODO_FOLDER_PATH, "/Users/ruiziv/Downloads/test.xlsx")
     create_fxe_matrix("/Users/ruiziv/Downloads/test.xlsx")
