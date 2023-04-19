@@ -9,6 +9,7 @@
 # --------------------------------------------------------------------------- #
 """Generic functions to deal with RESTORE configuration files."""
 from typing import Any
+from numbers import Number
 
 import pandas as pd
 import numpy as np
@@ -128,18 +129,18 @@ class DataHandler:
                     id_cnf = sheet_df.loc[:, CNF_INDEX + [entity_id]]
                     for data_type in id_cnf["Type"].unique():
                         entity_df = id_cnf.loc[id_cnf["Type"] == data_type].copy()
-                        if data_type == "annual":
-                            entity_df.drop(["Type", "Flow"], axis=1, inplace=True)
-                            entity_df.set_index(["Parameter", "Year"], inplace=True)
-                        elif data_type == "constant":
+                        if data_type in ["constant", "configuration"]:
                             entity_df.drop(["Type", "Flow", "Year"], axis=1, inplace=True)
                             entity_df.set_index(["Parameter"], inplace=True)
-                        elif data_type == "constant_fxe":
+                        elif data_type in ["constant_fxe", "configuration_fxe"]:
                             entity_df.drop(["Type", "Year"], axis=1, inplace=True)
                             entity_df.set_index(["Parameter", "Flow"], inplace=True)
-                        elif data_type == "configuration":
-                            entity_df.drop(["Type", "Flow", "Year"], axis=1, inplace=True)
-                            entity_df.set_index(["Parameter"], inplace=True)
+                        elif data_type == "annual":
+                            entity_df.drop(["Type", "Flow"], axis=1, inplace=True)
+                            entity_df.set_index(["Parameter", "Year"], inplace=True)
+                        elif data_type == "annual_fxe":
+                            entity_df.drop(["Type"], axis=1, inplace=True)
+                            entity_df.set_index(["Parameter", "Flow", "Year"], inplace=True)
                         else:
                             raise ValueError("Invalid Data Type", data_type, "in", group, entity_id)
 
@@ -148,42 +149,94 @@ class DataHandler:
         self.fxe = fxe
         self.params = params
 
+    # ------------------------------------------------------------- #
+    # Specific gets (stringent)
+    # ------------------------------------------------------------- #
     def check_cnf(self, entity_id, parameter):
-        """Evaluate if a configuration option is set."""
-        # Turns functionality on/off. Empty values should cause deactivation, not failure.
+        """Evaluate if a configuration option is set.
+
+        Turns functionality on/off. Empty values cause deactivation, not failure.
+        """
         try:
             value = self.params[entity_id]["configuration"][parameter]
         except KeyError as exc:
             raise KeyError("Invalid key for", entity_id, parameter) from exc
+
+        assert np.isnan(value) or value == 1, f"Invalid: {entity_id}, {parameter}"
         return not np.isnan(value)
 
     def get_const(self, entity_id: str, parameter: str) -> Any:
-        """Return configuration constants."""
-        # Allow empty values, but ensure usage causes error if handled improperly by returning None.
+        """Return configuration constants.
+
+        Empty values return None.
+        """
         try:
             value = self.params[entity_id]["constant"][parameter]
         except KeyError as exc:
             raise KeyError("Invalid key for", entity_id, parameter) from exc
-        return value if not np.isnan(value) else None
+
+        assert isinstance(value, Number) or np.isnan(value), f"Invalid: {entity_id}, {parameter}"
+        return None if np.isnan(value) else value
 
     def get_const_fxe(self, entity_id, parameter, flow):
-        """Return flow-specific constants."""
-        # Allow empty values, but ensure usage causes error if handled improperly by returning None.
+        """Return flow-specific constants.
+
+        Empty values return None.
+        """
         try:
             value = self.params[entity_id]["constant_fxe"][(parameter, flow)]
         except KeyError as exc:
             raise KeyError("Invalid key for", entity_id, parameter, flow) from exc
-        return value if not np.isnan(value) else None
 
-    def get_annual(self, entity_id, parameter, year):
+        assert isinstance(value, Number) or np.isnan(value), f"Invalid: {entity_id}, {parameter}, {flow}"
+        return None if np.isnan(value) else value
+
+    def get_annual(self, entity_id, parameter, year, err_msg: str = "direct call"):
         """Return historic values."""
-        # Trying to read empty annual data should cause an error to minimise bugs.
         try:
             value = self.params[entity_id]["annual"][(parameter, year)]
         except KeyError as exc:
-            raise KeyError("Invalid key for", entity_id, parameter, year) from exc
-        if np.isnan(value):
-            raise ValueError("Requested", parameter, "in", entity_id, "is NaN. Check configuration file.")
+            raise KeyError("Invalid key for", entity_id, parameter, year, err_msg) from exc
+
+        assert isinstance(value, Number) or np.isnan(value), f"Invalid: {entity_id}, {parameter}, {year}"
+        return None if np.isnan(value) else value
+
+    def get_annual_fxe(self, entity_id, parameter, flow, year, err_msg: str = "direct call"):
+        """Return flow-specific historic values."""
+        # Trying to read empty annual data should cause an error to minimise bugs.
+        try:
+            value = self.params[entity_id]["annual_fxe"][(parameter, flow, year)]
+        except KeyError as exc:
+            raise KeyError("Invalid key for", entity_id, parameter, flow, year, err_msg) from exc
+
+        assert isinstance(value, Number) or np.isnan(
+            value
+        ), f"Invalid: {entity_id}, {parameter}, {flow}, {year}"
+        return None if np.isnan(value) else value
+
+    # ------------------------------------------------------------- #
+    # Generic gets (lenient)
+    # ------------------------------------------------------------- #
+    def get(self, entity_id, parameter, year):
+        """Get a parameter, checking constants first."""
+        value = None
+        if "constant" in self.params[entity_id]:
+            if parameter in self.params[entity_id]["constant"]:
+                value = self.get_const(entity_id, parameter)
+        if value is None and "annual" in self.params[entity_id]:
+            if (parameter, year) in self.params[entity_id]["annual"]:
+                value = self.get_annual(entity_id, parameter, year, err_msg="generic call")
+        return value
+
+    def get_fxe(self, entity_id, parameter, flow, year):
+        """Get a FxE parameter, checking constants first."""
+        value = None
+        if "constant_fxe" in self.params[entity_id]:
+            if (parameter, flow) in self.params[entity_id]["constant_fxe"]:
+                value = self.get_const_fxe(entity_id, parameter, flow)
+        if value is None and "annual_fxe" in self.params[entity_id]:
+            if (parameter, flow, year) in self.params[entity_id]["annual_fxe"]:
+                value = self.get_annual_fxe(entity_id, parameter, flow, year)
         return value
 
     # Configuration sets

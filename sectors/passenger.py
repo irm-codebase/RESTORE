@@ -13,7 +13,7 @@ import pyomo.environ as pyo
 from model_utils import configuration as cnf
 from model_utils import generic as gen
 
-GROUP_ID = "conv_passenger_"
+GROUP_ID = "conv_pass_"
 
 
 def _sets(model: pyo.ConcreteModel):
@@ -45,7 +45,7 @@ def _constraints(model: pyo.ConcreteModel):
     model.pass_c_cap_buildrate = pyo.Constraint(model.PassTrans, model.Years, rule=gen.c_cap_buildrate)
     # Activity
     # TODO: YOpt should be removed once annual cap_2_act is implemented
-    model.pass_c_act_max_annual = pyo.Constraint(model.PassTrans, model.Years, rule=gen.c_act_max_annual)
+    # model.pass_c_act_max_annual = pyo.Constraint(model.PassTrans, model.Years, rule=gen.c_act_max_annual)
     model.pass_c_act_cf_min_year = pyo.Constraint(model.PassTrans, model.Years, rule=gen.c_act_cf_min_year)
     model.pass_c_act_cf_max_year = pyo.Constraint(model.PassTrans, model.YOpt, rule=gen.c_act_cf_max_year)
 

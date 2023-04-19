@@ -10,6 +10,7 @@
 """Graph generating utilities for RESTORE."""
 import networkx as nx
 import pandas as pd
+import pyomo.environ as pyo
 
 from model_utils.data_handler import DataHandler
 from analysis import fig_tools
@@ -31,7 +32,6 @@ def plot_io_network(*in_out: pd.DataFrame, labels=True):
             network_df = io_df.copy()
         else:
             network_df.update(io_df)
-
     edges = network_df.index.to_list() + network_df.columns.to_list()
     adjacency_df = pd.DataFrame(index=edges, columns=edges, dtype=float)
     adjacency_df.update(network_df)
@@ -40,63 +40,66 @@ def plot_io_network(*in_out: pd.DataFrame, labels=True):
     nx.draw_networkx(network, node_size=100, font_size=6, with_labels=labels)
 
 
-def plot_fout(model, handler: DataHandler, flow, unit="TWh", use_actual=False):
-    """Plot values flowing out of elements at a flow node."""
-    columns = [e for f, e in model.FoE if f == flow]
-    value_df = pd.DataFrame(index=model.Years, columns=columns)
-
-    # Gather values
-    historical_data = [handler.get_annual(flow, "actual_flow", y) for y in model.Years]
-    historical_ref = pd.Series(data=historical_data, index=model.Years, name="Historical total")
-    for f, e in model.FoE:
-        if f == flow:
-            if use_actual:
-                o_eff = handler.get_const_fxe(e, "output_efficiency", f)
-                for y in model.Years:
-                    if e in model.Trades:
-                        value_df.loc[y, e] = handler.get_annual(e, "actual_import", y) * o_eff
-                    else:
-                        value_df.loc[y, e] = handler.get_annual(e, "actual_activity", y) * o_eff
-            else:
-                for y in model.Years:
-                    value_df.loc[y, e] = sum(model.fout[f, e, y, h].value for h in model.Hours)
-                    value_df.loc[y, e] *= model.TPERIOD  # time correction
-
-    # Plot results and references
-    axis = value_df.plot.area(linewidth=0)
-    axis = historical_ref.plot.line(ax=axis, color="black", linestyle="-.")
-
-    # Make the plot pretty
-    title = f"{flow} ({unit})"
-    title = "Hist. estimates: " + title if use_actual else "Modelled:" + title
+def _prettify_area_plot(axis, title):
     axis.set_title(title)
     handles, labels = fig_tools.get_plt_inverted_legend(axis)
     axis.legend(handles, labels, bbox_to_anchor=(1.1, 1.05))
     fig_tools.plt.tight_layout()
     axis.autoscale()
 
+
+def _add_historical(axis, model: pyo.ConcreteModel, handler: DataHandler, flow: list):
+    historical_data = [handler.get_annual(flow, "actual_flow", y) for y in model.Years]
+    historical_ref = pd.Series(data=historical_data, index=model.Years, name="Historical total")
+    axis = historical_ref.plot.line(ax=axis, color="black", linestyle="-.")
     return axis
 
 
-def plot_fin(model, handler: DataHandler, flow, unit="TWh"):
+def plot_fout(model, handler: DataHandler, flow_ids: list, unit: str = "TWh", historical: str = None):
+    """Plot values flowing out of elements at a flow node."""
+    columns = sorted({e for flow in flow_ids for f, e in model.FoE if f == flow})
+    value_df = pd.DataFrame(index=model.Years, columns=columns, data=0)
+
+    # Gather values
+    for flow in flow_ids:
+        for f, e in model.FoE:
+            if f == flow:
+                for y in model.Years:
+                    sum_fout = sum(model.fout[f, e, y, h].value for h in model.Hours)
+                    value_df.loc[y, e] += sum_fout * model.TPERIOD  # time correction
+
+    # Plotting
+    axis = value_df.plot.area(linewidth=0)
+    if historical:
+        _add_historical(axis, model, handler, historical)
+
+    # Make the plot pretty
+    title = f"Modelled: {flow_ids} ({unit})"
+    _prettify_area_plot(axis, title)
+
+    return axis
+
+
+def plot_fin(model, handler: DataHandler, flow_ids: list, unit: str = "TWh", historical: str = None):
     """Plot values flowing into elements at a flow node."""
-    columns = [e for f, e in model.FiE if f == flow]
-    fin_df = pd.DataFrame(index=model.Years, columns=columns)
+    columns = sorted({e for flow in flow_ids for f, e in model.FiE if f == flow})
+    value_df = pd.DataFrame(index=model.Years, columns=columns, data=0)
+
+    # Gather values
     for f, e in model.FiE:
-        if f == flow:
+        if f in flow_ids:
             for y in model.Years:
-                fin_df.loc[y, e] = model.TPERIOD * sum(model.fin[f, e, y, h].value for h in model.Hours)
+                sum_fout = sum(model.fin[f, e, y, h].value for h in model.Hours)
+                value_df.loc[y, e] += sum_fout * model.TPERIOD  # time correction
 
-    axis = fin_df.plot.area(linewidth=0)
+    # Plotting
+    axis = value_df.plot.area(linewidth=0)
+    if historical:
+        _add_historical(axis, model, handler, historical)
 
-    hist_values = [handler.get_annual(flow, "actual_flow", y) for y in model.Years]
-    actual = pd.Series(data=hist_values, index=model.Years, name="Historical total")
-    axis = actual.plot.line(ax=axis, color="black", linestyle="-.")
-    axis.set_title(f"FiE at {flow} ({unit})")
-    handles, labels = fig_tools.get_plt_inverted_legend(axis)
-    axis.legend(handles, labels, bbox_to_anchor=(1.1, 1.05))
-    fig_tools.plt.tight_layout()
-    axis.autoscale()
+    # Make the plot pretty
+    title = f"Modelled: {flow_ids} ({unit})"
+    _prettify_area_plot(axis, title)
 
     return axis
 

@@ -34,23 +34,23 @@ def _c_act_cf_max_hour(model, element_id, y, h):
     if element_id in model.ElecsVRE:
         lf_max = VRE_DICT[element_id][y, h % 24]
     else:
-        lf_max = cnf.DATA.get_annual(element_id, "lf_max", y)
-    cap_to_act = cnf.DATA.get_const(element_id, "capacity_to_activity")
+        lf_max = cnf.DATA.get(element_id, "lf_max", y)
+    cap_to_act = cnf.DATA.get(element_id, "capacity_to_activity", y) / model.YH
     return model.a[element_id, y, h] <= lf_max * model.ctot[element_id, y] * cap_to_act
 
 
 def _c_cap_peak(model, y):
     """Fulfil capacity requirement, excluding import capacity (full autarky)."""
     flow_id = OUTFLOW_ID
-    cap_margin = cnf.DATA.get_const(flow_id, "peak_capacity_margin")
+    cap_margin = cnf.DATA.get(flow_id, "peak_capacity_margin", y)
     if cap_margin is None:
         raise ValueError("Peak capacity margin must be configured for", flow_id)
     peak_power = cnf.DATA.get_annual(flow_id, "peak_capacity_demand", y)
     pk_cap_sys = sum(
         [
             model.ctot[e, y]
-            * cnf.DATA.get_const_fxe(e, "output_efficiency", f)
-            * cnf.DATA.get_const(e, "peak_ratio")
+            * cnf.DATA.get_fxe(e, "output_efficiency", f, y)
+            * cnf.DATA.get(e, "peak_ratio", y)
             for f, e in model.FoE
             if f == flow_id and e in (model.Caps - model.Trades)
         ]
@@ -65,15 +65,15 @@ def _c_cap_base(model, y):
     base_cap_sys = sum(
         [
             model.ctot[e, y]
-            * cnf.DATA.get_const_fxe(e, "output_efficiency", f)
-            * cnf.DATA.get_annual(e, "lf_min", y)
+            * cnf.DATA.get_fxe(e, "output_efficiency", f, y)
+            * cnf.DATA.get(e, "lf_min", y)
             for f, e in model.FoE
             if f == flow_id and e in (model.Caps - model.Trades)
         ]
     )
     imports = sum(
         [
-            model.ctot[e, y] * cnf.DATA.get_const_fxe(e, "output_efficiency", f)
+            model.ctot[e, y] * cnf.DATA.get_fxe(e, "output_efficiency", f, y)
             for f, e in model.FoE
             if f == flow_id and e in (model.Trades & model.Caps)
         ]

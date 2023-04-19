@@ -73,9 +73,8 @@ def _sets(model: pyo.ConcreteModel):
 def _constraints(model: pyo.ConcreteModel):
     """Set sector constraints."""
     # Input
-    model.dem_c_flow_in = pyo.Constraint(
-        model.Dems, model.YOpt, model.Hours, rule=gen.c_flow_in
-    )
+    model.dem_c_flow_in = pyo.Constraint(model.Dems, model.YOpt, model.Hours, rule=gen.c_flow_in)
+    model.dem_c_input_share = pyo.Constraint(model.DemsFiE, model.YOpt, model.Hours, rule=gen.c_input_share)
 
 
 def _initialise(model: pyo.ConcreteModel):

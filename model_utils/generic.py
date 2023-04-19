@@ -27,7 +27,7 @@ from model_utils.configuration import DATA
 def c_flow_in(model: pyo.ConcreteModel, element_id: str, y: str, h: str):
     """Balance element inflows to its activity."""
     return model.a[element_id, y, h] == sum(
-        model.fin[f, e, y, h] * DATA.get_const_fxe(e, "input_efficiency", f)
+        model.fin[f, e, y, h] * DATA.get_fxe(e, "input_efficiency", f, y)
         for (f, e) in model.FiE
         if e == element_id
     )
@@ -36,27 +36,48 @@ def c_flow_in(model: pyo.ConcreteModel, element_id: str, y: str, h: str):
 def c_flow_out(model: pyo.ConcreteModel, element_id: str, y: int, h: int):
     """Balance element outflows to its activity."""
     return model.a[element_id, y, h] == sum(
-        model.fout[f, e, y, h] / DATA.get_const_fxe(e, "output_efficiency", f)
+        model.fout[f, e, y, h] / DATA.get_fxe(e, "output_efficiency", f, y)
         for (f, e) in model.FoE
         if e == element_id
     )
 
 
-def c_flow_in_max_share(model: pyo.ConcreteModel, flow_id: str, element_id: str, y: int, h: int):
+def c_max_share_at_in_flow(model: pyo.ConcreteModel, flow_id: str, element_id: str, y: int, h: int):
     """Limit the share of an element's inflow against the total flow."""
-    max_share = DATA.get_const(element_id, "flow_in_max_share")
+    max_share = DATA.get_fxe(element_id, "max_share_at_in_flow", flow_id, y)
     if max_share is not None:
         total_inflow = sum(model.fin[f, e, y, h] for (f, e) in model.FiE if f == flow_id)
         return model.fin[flow_id, element_id, y, h] <= max_share * total_inflow
     return pyo.Constraint.Skip
 
 
-def c_flow_out_max_share(model: pyo.ConcreteModel, flow_id: str, element_id: str, y: int, h: int):
+def c_max_share_at_out_flow(model: pyo.ConcreteModel, flow_id: str, element_id: str, y: int, h: int):
     """Limit the share of an element's outflow against the total flow."""
-    max_share = DATA.get_const(element_id, "flow_out_max_share")
+    max_share = DATA.get_fxe(element_id, "max_share_at_out_flow", flow_id, y)
     if max_share is not None:
         total_outflow = sum(model.fout[f, e, y, h] for (f, e) in model.FoE if f == flow_id)
         return model.fout[flow_id, element_id, y, h] <= max_share * total_outflow
+    return pyo.Constraint.Skip
+
+
+# --------------------------------------------------------------------------- #
+# I/O constraints
+# --------------------------------------------------------------------------- #
+def c_input_share(model: pyo.ConcreteModel, flow_id: str, element_id: str, y: int, h: int):
+    """Constrain an element's input to be a share of the sum of all inputs."""
+    input_share = DATA.get_fxe(element_id, "input_share", flow_id, y)
+    if input_share is not None:
+        total_input = sum(model.fin[f, e, y, h] for (f, e) in model.FiE if e == element_id)
+        return model.fin[flow_id, element_id, y, h] == input_share * total_input
+    return pyo.Constraint.Skip
+
+
+def c_output_share(model: pyo.ConcreteModel, flow_id: str, element_id: str, y: int, h: int):
+    """Constrain an element's output to be a share of the sum of all outputs."""
+    output_share = DATA.get_fxe(element_id, "output_share", flow_id, y)
+    if output_share is not None:
+        total_output = sum(model.fout[f, e, y, h] for (f, e) in model.FoE if e == element_id)
+        return model.fout[flow_id, element_id, y, h] == output_share * total_output
     return pyo.Constraint.Skip
 
 
@@ -66,7 +87,7 @@ def c_flow_out_max_share(model: pyo.ConcreteModel, flow_id: str, element_id: str
 def c_cap_max_annual(model, element_id, y):
     """Limit the maximum installed capacity of an element."""
     if DATA.check_cnf(element_id, "enable_capacity"):
-        cap_max = DATA.get_const(element_id, "max_capacity_annual")
+        cap_max = DATA.get(element_id, "max_capacity_annual", y)
         if cap_max is not None:
             return model.ctot[element_id, y] <= cap_max
     return pyo.Constraint.Skip
@@ -97,7 +118,7 @@ def c_cap_buildrate(model, element_id, y):
     """Limit the speed of annual capacity increase."""
     if not DATA.check_cnf(element_id, "enable_capacity"):
         return pyo.Constraint.Skip
-    buildrate = DATA.get_const(element_id, "buildrate")
+    buildrate = DATA.get(element_id, "buildrate", y)
     return model.cnew[element_id, y] <= buildrate if buildrate is not None else pyo.Constraint.Skip
 
 
@@ -108,10 +129,10 @@ def c_act_ramp_up(model, element_id, y, h):
     """Limit the hourly activity increments of an element."""
     if not DATA.check_cnf(element_id, "enable_capacity"):
         return pyo.Constraint.Skip
-    ramp_rate = DATA.get_const(element_id, "ramp_rate")
+    ramp_rate = DATA.get(element_id, "ramp_rate", y)
     if ramp_rate is None or ramp_rate >= 1:  # No limit and ramping at/above 1 are equivalent
         return pyo.Constraint.Skip
-    cap_to_act = DATA.get_const(element_id, "capacity_to_activity")
+    cap_to_act = DATA.get(element_id, "capacity_to_activity", y) / model.YH
     max_activity_change = ramp_rate * model.ctot[element_id, y] * cap_to_act
     return model.a[element_id, y, h] - model.a[element_id, y, h - 1] <= max_activity_change
 
@@ -120,10 +141,10 @@ def c_act_ramp_down(model, element_id, y, h):
     """Limit the hourly activity decrements of an element."""
     if not DATA.check_cnf(element_id, "enable_capacity"):
         return pyo.Constraint.Skip
-    ramp_rate = DATA.get_const(element_id, "ramp_rate")
+    ramp_rate = DATA.get(element_id, "ramp_rate", y)
     if ramp_rate is None or ramp_rate >= 1:  # No limit and ramping at/above 1 are equivalent
         return pyo.Constraint.Skip
-    cap_to_act = DATA.get_const(element_id, "capacity_to_activity")
+    cap_to_act = DATA.get(element_id, "capacity_to_activity", y) / model.YH
     max_activity_change = ramp_rate * model.ctot[element_id, y] * cap_to_act
     return model.a[element_id, y, h - 1] - model.a[element_id, y, h] <= max_activity_change
 
@@ -140,8 +161,8 @@ def c_act_cf_min_hour(model, element_id, y, h):
     """Set the minimum hourly utilisation of an element's capacity."""
     if not DATA.check_cnf(element_id, "enable_capacity"):
         return pyo.Constraint.Skip
-    lf_min = DATA.get_annual(element_id, "lf_min", y)
-    cap_to_act = DATA.get_const(element_id, "capacity_to_activity")
+    lf_min = DATA.get(element_id, "lf_min", y)
+    cap_to_act = DATA.get(element_id, "capacity_to_activity", y) / model.YH
     return lf_min * model.ctot[element_id, y] * cap_to_act <= model.a[element_id, y, h]
 
 
@@ -149,8 +170,8 @@ def c_act_cf_max_hour(model, element_id, y, h):
     """Set the maximum hourly utilisation of an element's capacity."""
     if not DATA.check_cnf(element_id, "enable_capacity"):
         return pyo.Constraint.Skip
-    lf_max = DATA.get_annual(element_id, "lf_max", y)
-    cap_to_act = DATA.get_const(element_id, "capacity_to_activity")
+    lf_max = DATA.get(element_id, "lf_max", y)
+    cap_to_act = DATA.get(element_id, "capacity_to_activity", y) / model.YH
     return model.a[element_id, y, h] <= lf_max * model.ctot[element_id, y] * cap_to_act
 
 
@@ -158,8 +179,8 @@ def c_act_cf_min_year(model, element_id, y):
     """Set the minimum annual utilisation of an element's capacity."""
     if not DATA.check_cnf(element_id, "enable_capacity"):
         return pyo.Constraint.Skip
-    lf_min = DATA.get_annual(element_id, "lf_min", y)
-    cap_to_act = DATA.get_const(element_id, "capacity_to_activity")
+    lf_min = DATA.get(element_id, "lf_min", y)
+    cap_to_act = DATA.get(element_id, "capacity_to_activity", y) / model.YH
     annual_min = lf_min * 365 * 24 * model.ctot[element_id, y] * cap_to_act
     return annual_min <= model.TPERIOD * sum(model.a[element_id, y, h] for h in model.Hours)
 
@@ -168,8 +189,8 @@ def c_act_cf_max_year(model, element_id, y):
     """Set the maximum annual utilisation of an element's capacity."""
     if not DATA.check_cnf(element_id, "enable_capacity"):
         return pyo.Constraint.Skip
-    lf_max = DATA.get_annual(element_id, "lf_max", y)
-    cap_to_act = DATA.get_const(element_id, "capacity_to_activity")
+    lf_max = DATA.get(element_id, "lf_max", y)
+    cap_to_act = DATA.get(element_id, "capacity_to_activity", y) / model.YH
     annual_max = lf_max * 365 * 24 * model.ctot[element_id, y] * cap_to_act
     return model.TPERIOD * sum(model.a[element_id, y, h] for h in model.Hours) <= annual_max
 
@@ -211,7 +232,7 @@ def cost_investment(model: pyo.ConcreteModel, entities, years):
     for e in entities:
         if DATA.check_cnf(e, "enable_capacity"):
             cost += sum(
-                model.DR[y] * DATA.get_annual(e, "cost_investment", y) * model.cnew[e, y]
+                model.DR[y] * DATA.get(e, "cost_investment", y) * model.cnew[e, y]
                 for y in years
             )
     return cost
@@ -223,7 +244,7 @@ def cost_fixed_om(model: pyo.ConcreteModel, entities, years):
     for e in entities:
         if DATA.check_cnf(e, "enable_capacity"):
             cost += sum(
-                model.DR[y] * DATA.get_annual(e, "cost_fixed_om_annual", y) * model.ctot[e, y]
+                model.DR[y] * DATA.get(e, "cost_fixed_om_annual", y) * model.ctot[e, y]
                 for y in years
             )
     return cost
@@ -232,7 +253,7 @@ def cost_fixed_om(model: pyo.ConcreteModel, entities, years):
 def cost_variable_om(model: pyo.ConcreteModel, entities, years):
     """Get variable O&M cost for a set of elements."""
     cost = sum(
-        model.DR[y] * DATA.get_annual(e, "cost_variable_om", y) * sum(model.a[e, y, h] for h in model.Hours)
+        model.DR[y] * DATA.get(e, "cost_variable_om", y) * sum(model.a[e, y, h] for h in model.Hours)
         for e in entities
         for y in years
     )

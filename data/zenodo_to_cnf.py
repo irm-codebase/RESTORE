@@ -401,7 +401,7 @@ def create_cnf_file(data_folder_path: str, cnf_file_path: str):
             raise ValueError("File creation error at", item) from exc
 
 
-def _build_fxe_matrix(cnf_file_path: str, parameter: str, sheet_name: str):
+def _build_fxe_matrix(cnf_file_path: str, parameter: str):
     xlsx = pd.ExcelFile(cnf_file_path)
     fxe_matrix = pd.DataFrame()
     for sheet in xlsx.sheet_names:
@@ -427,19 +427,37 @@ def _build_fxe_matrix(cnf_file_path: str, parameter: str, sheet_name: str):
 
 def create_fxe_matrix(cnf_file_path: str):
     """Create sheets for FiE (flow into element) and FoE (flow out of element)."""
-    fie_matrix = _build_fxe_matrix(cnf_file_path, "input", "FiE")
-    foe_matrix = _build_fxe_matrix(cnf_file_path, "output", "FoE")
+    xlsx = pd.ExcelFile(cnf_file_path)
 
-    fie_matrix.name = "FiE"
-    foe_matrix.name = "FoE"
-    # pylint: disable=abstract-class-instantiated
-    writer = pd.ExcelWriter(cnf_file_path, engine="openpyxl", mode="a", if_sheet_exists="replace")
-    with writer:
-        for matrix in [fie_matrix, foe_matrix]:
-            matrix.to_excel(writer, sheet_name=matrix.name)
+    names = {"input": "FiE", "output": "FoE"}
+    for param, matrix_name in names.items():
+
+        fxe_matrix = pd.DataFrame()
+        for sheet in xlsx.sheet_names:
+            sheet_df = pd.read_excel(cnf_file_path, sheet_name=sheet)
+
+            # Isolate the requested parameter
+            sheet_df = sheet_df.loc[sheet_df["Type"] == "configuration_fxe"]
+            sheet_df = sheet_df.loc[sheet_df["Parameter"] == param]
+            if not sheet_df.empty:
+                # Construct the Flow x Element connections
+                sheet_df = sheet_df.drop(["Type", "Parameter", "Year"], axis=1)
+                sheet_df = sheet_df.dropna(axis=1, how="all")
+                sheet_df = sheet_df.set_index("Flow")
+
+                fxe_matrix = pd.concat([fxe_matrix, sheet_df.T])
+
+        # Rearrange to improve readability
+        fxe_matrix = fxe_matrix.groupby(fxe_matrix.columns, axis=1).agg(np.max)
+        fxe_matrix.sort_index(ascending=True, inplace=True)
+
+        # pylint: disable=abstract-class-instantiated
+        writer = pd.ExcelWriter(cnf_file_path, engine="openpyxl", mode="a", if_sheet_exists="replace")
+        with writer:
+            fxe_matrix.to_excel(writer, sheet_name=matrix_name)
 
 
 # If the script is called directly, build the configuration file in the downloads folder
 if __name__ == "__main__":
-    # create_cnf_file(ZENODO_FOLDER_PATH, "/Users/ruiziv/Downloads/test.xlsx")
+    create_cnf_file(ZENODO_FOLDER_PATH, "/Users/ruiziv/Downloads/test.xlsx")
     create_fxe_matrix("/Users/ruiziv/Downloads/test.xlsx")

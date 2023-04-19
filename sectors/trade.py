@@ -45,7 +45,7 @@ def _c_activity_setup(model, element_id, y, h):
 def _c_flow_in(model: pyo.ConcreteModel, element_id: str, y: str, h: str):
     """Balance element inflows to its activity."""
     return model.aexp[element_id, y, h] == sum(
-        model.fin[f, e, y, h] * cnf.DATA.get_const_fxe(e, "input_efficiency", f)
+        model.fin[f, e, y, h] * cnf.DATA.get_fxe(e, "input_efficiency", f, y)
         for (f, e) in model.FiE
         if e == element_id
     )
@@ -54,7 +54,7 @@ def _c_flow_in(model: pyo.ConcreteModel, element_id: str, y: str, h: str):
 def _c_flow_out(model: pyo.ConcreteModel, element_id: str, y: int, h: int):
     """Balance element outflows to its activity."""
     return model.aimp[element_id, y, h] == sum(
-        model.fout[f, e, y, h] / cnf.DATA.get_const_fxe(e, "output_efficiency", f)
+        model.fout[f, e, y, h] / cnf.DATA.get_fxe(e, "output_efficiency", f, y)
         for (f, e) in model.FoE
         if e == element_id
     )
@@ -108,11 +108,11 @@ def _constraints(model: pyo.ConcreteModel):
     # Input/output
     model.trd_c_flow_in = pyo.Constraint(model.Trades, model.YOpt, model.Hours, rule=_c_flow_in)
     model.trd_c_flow_out = pyo.Constraint(model.Trades, model.YOpt, model.Hours, rule=_c_flow_out)
-    model.trd_c_flow_in_max_share = pyo.Constraint(
-        model.TradesFiE, model.Years, model.Hours, rule=gen.c_flow_in_max_share
+    model.trd_c_max_share_at_in_flow = pyo.Constraint(
+        model.TradesFiE, model.Years, model.Hours, rule=gen.c_max_share_at_in_flow
     )
-    model.trd_c_flow_out_max_share = pyo.Constraint(
-        model.TradesFoE, model.Years, model.Hours, rule=gen.c_flow_out_max_share
+    model.trd_c_max_share_at_out_flow = pyo.Constraint(
+        model.TradesFoE, model.Years, model.Hours, rule=gen.c_max_share_at_out_flow
     )
     # Capacity, no retirements
     model.trd_c_cap_max_annual = pyo.Constraint(model.Trades, model.Years, rule=gen.c_cap_max_annual)
