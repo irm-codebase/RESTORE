@@ -104,6 +104,6 @@ def init_model() -> pyo.ConcreteModel:
     model = _init_variables(model)
     model = _init_parameters(model)
 
-    model.c_io_balance = pyo.Constraint(model.Flows, model.Years-model.Y0, model.Hours, rule=_c_io_balance)
+    model.c_io_balance = pyo.Constraint(model.Flows, model.YOpt, model.Hours, rule=_c_io_balance)
 
     return model

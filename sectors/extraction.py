@@ -33,25 +33,25 @@ def _sets(model: pyo.ConcreteModel):
 def _constraints(model: pyo.ConcreteModel):
     """Set sector constraints."""
     # Output
-    model.ext_c_flow_out = pyo.Constraint(model.Extrs, model.YOpt, model.Hours, rule=gen.c_flow_out)
+    model.ext_c_flow_out = pyo.Constraint(model.Extrs, model.Years, model.Hours, rule=gen.c_flow_out)
     # Capacity
-    model.ext_c_cap_max_annual = pyo.Constraint(model.Extrs, model.Years, rule=gen.c_cap_max_annual)
+    model.ext_c_cap_max_annual = pyo.Constraint(model.Extrs, model.YOpt, rule=gen.c_cap_max_annual)
     model.ext_c_cap_transfer = pyo.Constraint(model.Extrs, model.YOpt, rule=gen.c_cap_transfer)
     model.ext_c_cap_retirement = pyo.Constraint(model.Extrs, model.YOpt, rule=gen.c_cap_retirement)
-    model.ext_c_cap_buildrate = pyo.Constraint(model.Extrs, model.Years, rule=gen.c_cap_buildrate)
+    model.ext_c_cap_buildrate = pyo.Constraint(model.Extrs, model.YOpt, rule=gen.c_cap_buildrate)
     # Activity
     model.ext_c_act_ramp_up = pyo.Constraint(
-        model.Extrs, model.Years, model.Hours - model.H0, rule=gen.c_act_ramp_up
+        model.Extrs, model.YOpt, model.Hours - model.H0, rule=gen.c_act_ramp_up
     )
     model.ext_c_act_ramp_down = pyo.Constraint(
-        model.Extrs, model.Years, model.Hours - model.H0, rule=gen.c_act_ramp_down
+        model.Extrs, model.YOpt, model.Hours - model.H0, rule=gen.c_act_ramp_down
     )
-    model.ext_c_act_max_annual = pyo.Constraint(model.Extrs, model.Years, rule=gen.c_act_max_annual)
+    model.ext_c_act_max_annual = pyo.Constraint(model.Extrs, model.YOpt, rule=gen.c_act_max_annual)
     model.ext_c_act_cf_min_hour = pyo.Constraint(
-        model.Extrs, model.Years, model.Hours, rule=gen.c_act_cf_min_hour
+        model.Extrs, model.YOpt, model.Hours, rule=gen.c_act_cf_min_hour
     )
     model.ext_c_act_cf_max_hour = pyo.Constraint(
-        model.Extrs, model.Years, model.Hours, rule=gen.c_act_cf_max_hour
+        model.Extrs, model.YOpt, model.Hours, rule=gen.c_act_cf_max_hour
     )
 
 

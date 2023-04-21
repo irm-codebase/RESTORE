@@ -117,33 +117,33 @@ def _constraints(model: pyo.ConcreteModel):
     """
     # Generics
     # Input/output
-    model.elec_c_flow_in = pyo.Constraint(model.Elecs, model.YOpt, model.Hours, rule=gen.c_flow_in)
-    model.elec_c_flow_out = pyo.Constraint(model.Elecs, model.YOpt, model.Hours, rule=gen.c_flow_out)
+    model.elec_c_flow_in = pyo.Constraint(model.Elecs, model.Years, model.Hours, rule=gen.c_flow_in)
+    model.elec_c_flow_out = pyo.Constraint(model.Elecs, model.Years, model.Hours, rule=gen.c_flow_out)
     # Capacity
-    model.elec_c_cap_max_annual = pyo.Constraint(model.Elecs, model.Years, rule=gen.c_cap_max_annual)
+    model.elec_c_cap_max_annual = pyo.Constraint(model.Elecs, model.YOpt, rule=gen.c_cap_max_annual)
     model.elec_c_cap_transfer = pyo.Constraint(model.Elecs, model.YOpt, rule=gen.c_cap_transfer)
     model.elec_c_cap_retirement = pyo.Constraint(model.Elecs, model.YOpt, rule=gen.c_cap_retirement)
-    model.elec_c_cap_buildrate = pyo.Constraint(model.Elecs, model.Years, rule=gen.c_cap_buildrate)
+    model.elec_c_cap_buildrate = pyo.Constraint(model.Elecs, model.YOpt, rule=gen.c_cap_buildrate)
     # Activity
     model.elec_c_act_ramp_up = pyo.Constraint(
-        model.Elecs, model.Years, model.Hours - model.H0, rule=gen.c_act_ramp_up
+        model.Elecs, model.YOpt, model.Hours - model.H0, rule=gen.c_act_ramp_up
     )
     model.elec_c_act_ramp_down = pyo.Constraint(
-        model.Elecs, model.Years, model.Hours - model.H0, rule=gen.c_act_ramp_down
+        model.Elecs, model.YOpt, model.Hours - model.H0, rule=gen.c_act_ramp_down
     )
-    model.elec_c_act_max_annual = pyo.Constraint(model.Elecs, model.Years, rule=gen.c_act_max_annual)
+    model.elec_c_act_max_annual = pyo.Constraint(model.Elecs, model.YOpt, rule=gen.c_act_max_annual)
     model.elec_c_act_cf_min_hour = pyo.Constraint(
-        model.Elecs, model.Years, model.Hours, rule=gen.c_act_cf_min_hour
+        model.Elecs, model.YOpt, model.Hours, rule=gen.c_act_cf_min_hour
     )
 
     # Sector specific
     # Max LF per hour
     model.elec_c_act_cf_max_hour = pyo.Constraint(
-        model.Elecs, model.Years, model.Hours, rule=_c_act_cf_max_hour
+        model.Elecs, model.YOpt, model.Hours, rule=_c_act_cf_max_hour
     )
     # Peak and base-load capacity requirements
-    model.elec_c_cap_peak = pyo.Constraint(model.Years, rule=_c_cap_peak)
-    model.elec_c_cap_base = pyo.Constraint(model.Years, rule=_c_cap_base)
+    model.elec_c_cap_peak = pyo.Constraint(model.YOpt, rule=_c_cap_peak)
+    model.elec_c_cap_base = pyo.Constraint(model.YOpt, rule=_c_cap_base)
 
 
 def _initialise(model: pyo.ConcreteModel):

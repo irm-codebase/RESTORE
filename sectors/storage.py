@@ -41,13 +41,13 @@ def _sets(model: pyo.ConcreteModel):
 def _constraints(model: pyo.ConcreteModel):
     """Set sector constraints."""
     # Output
-    model.sto_c_flow_in = pyo.Constraint(model.Stors, model.YOpt, model.Hours, rule=gen.c_flow_in)
-    model.sto_c_flow_out = pyo.Constraint(model.Stors, model.YOpt, model.Hours, rule=gen.c_flow_out)
+    model.sto_c_flow_in = pyo.Constraint(model.Stors, model.Years, model.Hours, rule=gen.c_flow_in)
+    model.sto_c_flow_out = pyo.Constraint(model.Stors, model.Years, model.Hours, rule=gen.c_flow_out)
     # Capacity
-    model.sto_c_cap_max_annual = pyo.Constraint(model.Stors, model.Years, rule=gen.c_cap_max_annual)
+    model.sto_c_cap_max_annual = pyo.Constraint(model.Stors, model.YOpt, rule=gen.c_cap_max_annual)
     model.sto_c_cap_transfer = pyo.Constraint(model.Stors, model.YOpt, rule=gen.c_cap_transfer)
     model.sto_c_cap_retirement = pyo.Constraint(model.Stors, model.YOpt, rule=gen.c_cap_retirement)
-    model.sto_c_cap_buildrate = pyo.Constraint(model.Stors, model.Years, rule=gen.c_cap_buildrate)
+    model.sto_c_cap_buildrate = pyo.Constraint(model.Stors, model.YOpt, rule=gen.c_cap_buildrate)
     # Activity
     model.sto_c_act_ramp_up = pyo.Constraint(
         model.Stors, model.Years, model.Hours - model.H0, rule=gen.c_act_ramp_up
@@ -55,12 +55,12 @@ def _constraints(model: pyo.ConcreteModel):
     model.sto_c_act_ramp_down = pyo.Constraint(
         model.Stors, model.Years, model.Hours - model.H0, rule=gen.c_act_ramp_down
     )
-    model.sto_c_act_max_annual = pyo.Constraint(model.Stors, model.Years, rule=gen.c_act_max_annual)
+    model.sto_c_act_max_annual = pyo.Constraint(model.Stors, model.YOpt, rule=gen.c_act_max_annual)
     model.sto_c_act_cf_min_hour = pyo.Constraint(
-        model.Stors, model.Years, model.Hours, rule=gen.c_act_cf_min_hour
+        model.Stors, model.YOpt, model.Hours, rule=gen.c_act_cf_min_hour
     )
     model.sto_c_act_cf_max_hour = pyo.Constraint(
-        model.Stors, model.Years, model.Hours, rule=gen.c_act_cf_max_hour
+        model.Stors, model.YOpt, model.Hours, rule=gen.c_act_cf_max_hour
     )
 
 

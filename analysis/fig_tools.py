@@ -14,7 +14,16 @@ Stick to generic functionality, do not put result-specific stuff in here.
 import matplotlib.pyplot as plt
 
 
-def get_plt_inverted_legend(axis: plt.Axes):
+def inverted_legend(axis: plt.Axes, bbox_to_anchor=(1.05, 0.5)):
     """Invert the labels in a matplotlib figure."""
     handles, labels = axis.get_legend_handles_labels()
-    return handles[::-1], labels[::-1]
+    axis.legend(handles[::-1], labels[::-1], bbox_to_anchor=bbox_to_anchor, loc="center left")
+
+
+def prettify_plot(axis: plt.Axes, title: str, label: str):
+    """Make plot prettier by adding a legend, title and sorting the labels."""
+    axis.set_title(title)
+    axis.set_ylabel(label)
+    inverted_legend(axis)
+    plt.tight_layout()
+    axis.autoscale()

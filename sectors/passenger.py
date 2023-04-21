@@ -16,6 +16,21 @@ from model_utils import generic as gen
 GROUP_ID = "conv_pass_"
 
 
+def _c_travel_time_budget(model: pyo.ConcreteModel, y):
+    """Limit the available time for travel each year.
+
+    Based on Daly et al. 2014. 10.1016/j.apenergy.2014.08.051
+    """
+    population = cnf.DATA.get_annual("country", "actual_population", y)
+    daily_time = cnf.DATA.get_annual("country", "daily_travel_time", y)
+    ttb = population * daily_time * 365
+    return ttb >= model.TPERIOD * 1e6 * sum(
+        sum(model.fout[f, e, y, h] for h in model.Hours) /
+        cnf.DATA.get_fxe(e, "speed", f, y)
+        for f, e in model.PassTransFoE
+    )
+
+
 def _sets(model: pyo.ConcreteModel):
     """Create sets used by this sector."""
     techs = set(cnf.ELEMENTS[cnf.ELEMENTS.str.startswith(GROUP_ID)])
@@ -36,18 +51,19 @@ def _constraints(model: pyo.ConcreteModel):
     """Set sector constraints."""
     # Generics
     # Input/output
-    model.pass_c_flow_in = pyo.Constraint(model.PassTrans, model.YOpt, model.Hours, rule=gen.c_flow_in)
-    model.pass_c_flow_out = pyo.Constraint(model.PassTrans, model.YOpt, model.Hours, rule=gen.c_flow_out)
+    model.pass_c_flow_in = pyo.Constraint(model.PassTrans, model.Years, model.Hours, rule=gen.c_flow_in)
+    model.pass_c_flow_out = pyo.Constraint(model.PassTrans, model.Years, model.Hours, rule=gen.c_flow_out)
     # Capacity
-    model.pass_c_cap_max_annual = pyo.Constraint(model.PassTrans, model.Years, rule=gen.c_cap_max_annual)
+    model.pass_c_cap_max_annual = pyo.Constraint(model.PassTrans, model.YOpt, rule=gen.c_cap_max_annual)
     model.pass_c_cap_transfer = pyo.Constraint(model.PassTrans, model.YOpt, rule=gen.c_cap_transfer)
     model.pass_c_cap_retirement = pyo.Constraint(model.PassTrans, model.YOpt, rule=gen.c_cap_retirement)
-    model.pass_c_cap_buildrate = pyo.Constraint(model.PassTrans, model.Years, rule=gen.c_cap_buildrate)
+    model.pass_c_cap_buildrate = pyo.Constraint(model.PassTrans, model.YOpt, rule=gen.c_cap_buildrate)
     # Activity
-    # TODO: YOpt should be removed once annual cap_2_act is implemented
-    # model.pass_c_act_max_annual = pyo.Constraint(model.PassTrans, model.Years, rule=gen.c_act_max_annual)
-    model.pass_c_act_cf_min_year = pyo.Constraint(model.PassTrans, model.Years, rule=gen.c_act_cf_min_year)
+    model.pass_c_act_cf_min_year = pyo.Constraint(model.PassTrans, model.YOpt, rule=gen.c_act_cf_min_year)
     model.pass_c_act_cf_max_year = pyo.Constraint(model.PassTrans, model.YOpt, rule=gen.c_act_cf_max_year)
+    model.pass_c_act_max_annual = pyo.Constraint(model.PassTrans, model.YOpt, rule=gen.c_act_max_annual)
+
+    model.pass_c_travel_time_budget = pyo.Constraint(model.YOpt, rule=_c_travel_time_budget)
 
 
 def _initialise(model: pyo.ConcreteModel):

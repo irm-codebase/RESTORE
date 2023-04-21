@@ -75,8 +75,7 @@ def _get_conv_factor(country: str, data_yr: int, unit_name: str):
                 # General conversion factor for unit?
                 conv = UNITS_DF.loc[("Undefined", "Undefined", unit_name)]
             except (KeyError, IndexError) as ex:
-                print("Conversion factor not found for", country, data_yr, unit_name)
-                raise Exception() from ex
+                raise RuntimeError("Conversion factor not found for", country, data_yr, unit_name) from ex
 
     return conv
 
@@ -195,9 +194,7 @@ def _convert_numerator_unit(row, new_energy, new_power):
             row["Unit"] = new_unit
 
         except (KeyError, IndexError, TypeError) as ex:
-            print("Conversion failed for", country, parameter, data_yr, unit)
-            raise Exception() from ex
-
+            raise RuntimeError("Conversion failed for", country, parameter, data_yr, unit) from ex
     return row
 
 
@@ -239,8 +236,7 @@ def _convert_denominator_unit(row, new_energy, new_power):
             row["Unit"] = new_unit
 
         except (KeyError, IndexError, TypeError) as ex:
-            print("Conversion failed for", country, parameter, data_yr, unit)
-            raise Exception() from ex
+            raise RuntimeError("Conversion failed for", country, parameter, data_yr, unit) from ex
 
     return row
 
@@ -307,7 +303,7 @@ def convert_currency(row: pd.DataFrame, new_cy="USD", new_yr=2019, deflator_coun
                     # Currency not available in common file
                     print(f"Currency not found: {numerator}")
         except (KeyError, IndexError, TypeError) as ex:
-            raise Exception() from ex
+            raise RuntimeError("Currency conversion failed for", entity, unit, value) from ex
 
     return row
 

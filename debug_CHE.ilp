@@ -5,10 +5,8 @@ Minimize
    + 0 fin(elecsupply_conv_pass_PHEVd_1991_8)
    + 0 fin(elecsupply_conv_pass_PHEVd_1991_10)
    + 0 fin(elecsupply_conv_pass_PHEVd_1991_14)
-   + 0 fin(elecsupply_conv_pass_PHEVg_1991_14)
    + 0 fin(elecsupply_conv_pass_PHEVd_1991_15)
    + 0 fin(elecsupply_conv_pass_PHEVd_1991_18)
-   + 0 fin(elecsupply_conv_pass_PHEVg_1991_18)
 Subject To
  c_e_c_io_balance(diesel_1991_6)_: - fin(diesel_conv_pass_BUSd_1991_6)
    - fin(diesel_conv_pass_HEVd_1991_6) - fin(diesel_conv_pass_ICEd_1991_6)
@@ -37,30 +35,16 @@ Subject To
    - fin(diesel_conv_pass_ICEd_1991_15)
    - fin(diesel_conv_pass_PHEVd_1991_15) + fout(diesel_trd_diesel_1991_15)
    = 0
+ c_e_c_io_balance(diesel_1991_17)_: - fin(diesel_conv_pass_BUSd_1991_17)
+   - fin(diesel_conv_pass_HEVd_1991_17)
+   - fin(diesel_conv_pass_ICEd_1991_17)
+   - fin(diesel_conv_pass_PHEVd_1991_17) + fout(diesel_trd_diesel_1991_17)
+   = 0
  c_e_c_io_balance(diesel_1991_18)_: - fin(diesel_conv_pass_BUSd_1991_18)
    - fin(diesel_conv_pass_HEVd_1991_18)
    - fin(diesel_conv_pass_ICEd_1991_18)
    - fin(diesel_conv_pass_PHEVd_1991_18) + fout(diesel_trd_diesel_1991_18)
    = 0
- c_e_c_io_balance(diesel_1991_21)_: - fin(diesel_conv_pass_BUSd_1991_21)
-   - fin(diesel_conv_pass_HEVd_1991_21)
-   - fin(diesel_conv_pass_ICEd_1991_21)
-   - fin(diesel_conv_pass_PHEVd_1991_21) + fout(diesel_trd_diesel_1991_21)
-   = 0
- c_e_c_io_balance(gasoline_1991_14)_:
-   - fin(gasoline_conv_pass_BUSg_1991_14)
-   - fin(gasoline_conv_pass_HEVg_1991_14)
-   - fin(gasoline_conv_pass_ICEg_1991_14)
-   - fin(gasoline_conv_pass_L2We_1991_14)
-   - fin(gasoline_conv_pass_PHEVg_1991_14)
-   + fout(gasoline_trd_gasoline_1991_14) = 0
- c_e_c_io_balance(gasoline_1991_18)_:
-   - fin(gasoline_conv_pass_BUSg_1991_18)
-   - fin(gasoline_conv_pass_HEVg_1991_18)
-   - fin(gasoline_conv_pass_ICEg_1991_18)
-   - fin(gasoline_conv_pass_L2We_1991_18)
-   - fin(gasoline_conv_pass_PHEVg_1991_18)
-   + fout(gasoline_trd_gasoline_1991_18) = 0
  c_e_c_io_balance(passlong_1991_3)_: - fin(passlong_dem_passenger_1991_3)
    + fout(passlong_conv_pass_BEV_1991_3)
    + fout(passlong_conv_pass_BUSd_1991_3)
@@ -322,7 +306,7 @@ Subject To
    + fout(passshort_conv_pass_HEVg_1991_3)
    + fout(passshort_conv_pass_ICEd_1991_3)
    + fout(passshort_conv_pass_ICEg_1991_3)
-   + fout(passshort_conv_pass_L2We_1991_3)
+   + fout(passshort_conv_pass_L2Wg_1991_3)
    + fout(passshort_conv_pass_PHEVd_1991_3)
    + fout(passshort_conv_pass_PHEVg_1991_3)
    + fout(passshort_conv_pass_S2We_1991_3)
@@ -337,7 +321,7 @@ Subject To
    + fout(passshort_conv_pass_HEVg_1991_4)
    + fout(passshort_conv_pass_ICEd_1991_4)
    + fout(passshort_conv_pass_ICEg_1991_4)
-   + fout(passshort_conv_pass_L2We_1991_4)
+   + fout(passshort_conv_pass_L2Wg_1991_4)
    + fout(passshort_conv_pass_PHEVd_1991_4)
    + fout(passshort_conv_pass_PHEVg_1991_4)
    + fout(passshort_conv_pass_S2We_1991_4)
@@ -352,7 +336,7 @@ Subject To
    + fout(passshort_conv_pass_HEVg_1991_5)
    + fout(passshort_conv_pass_ICEd_1991_5)
    + fout(passshort_conv_pass_ICEg_1991_5)
-   + fout(passshort_conv_pass_L2We_1991_5)
+   + fout(passshort_conv_pass_L2Wg_1991_5)
    + fout(passshort_conv_pass_PHEVd_1991_5)
    + fout(passshort_conv_pass_PHEVg_1991_5)
    + fout(passshort_conv_pass_S2We_1991_5)
@@ -367,7 +351,7 @@ Subject To
    + fout(passshort_conv_pass_HEVg_1991_6)
    + fout(passshort_conv_pass_ICEd_1991_6)
    + fout(passshort_conv_pass_ICEg_1991_6)
-   + fout(passshort_conv_pass_L2We_1991_6)
+   + fout(passshort_conv_pass_L2Wg_1991_6)
    + fout(passshort_conv_pass_PHEVd_1991_6)
    + fout(passshort_conv_pass_PHEVg_1991_6)
    + fout(passshort_conv_pass_S2We_1991_6)
@@ -382,7 +366,7 @@ Subject To
    + fout(passshort_conv_pass_HEVg_1991_7)
    + fout(passshort_conv_pass_ICEd_1991_7)
    + fout(passshort_conv_pass_ICEg_1991_7)
-   + fout(passshort_conv_pass_L2We_1991_7)
+   + fout(passshort_conv_pass_L2Wg_1991_7)
    + fout(passshort_conv_pass_PHEVd_1991_7)
    + fout(passshort_conv_pass_PHEVg_1991_7)
    + fout(passshort_conv_pass_S2We_1991_7)
@@ -397,7 +381,7 @@ Subject To
    + fout(passshort_conv_pass_HEVg_1991_8)
    + fout(passshort_conv_pass_ICEd_1991_8)
    + fout(passshort_conv_pass_ICEg_1991_8)
-   + fout(passshort_conv_pass_L2We_1991_8)
+   + fout(passshort_conv_pass_L2Wg_1991_8)
    + fout(passshort_conv_pass_PHEVd_1991_8)
    + fout(passshort_conv_pass_PHEVg_1991_8)
    + fout(passshort_conv_pass_S2We_1991_8)
@@ -412,7 +396,7 @@ Subject To
    + fout(passshort_conv_pass_HEVg_1991_9)
    + fout(passshort_conv_pass_ICEd_1991_9)
    + fout(passshort_conv_pass_ICEg_1991_9)
-   + fout(passshort_conv_pass_L2We_1991_9)
+   + fout(passshort_conv_pass_L2Wg_1991_9)
    + fout(passshort_conv_pass_PHEVd_1991_9)
    + fout(passshort_conv_pass_PHEVg_1991_9)
    + fout(passshort_conv_pass_S2We_1991_9)
@@ -428,7 +412,7 @@ Subject To
    + fout(passshort_conv_pass_HEVg_1991_10)
    + fout(passshort_conv_pass_ICEd_1991_10)
    + fout(passshort_conv_pass_ICEg_1991_10)
-   + fout(passshort_conv_pass_L2We_1991_10)
+   + fout(passshort_conv_pass_L2Wg_1991_10)
    + fout(passshort_conv_pass_PHEVd_1991_10)
    + fout(passshort_conv_pass_PHEVg_1991_10)
    + fout(passshort_conv_pass_S2We_1991_10)
@@ -444,7 +428,7 @@ Subject To
    + fout(passshort_conv_pass_HEVg_1991_11)
    + fout(passshort_conv_pass_ICEd_1991_11)
    + fout(passshort_conv_pass_ICEg_1991_11)
-   + fout(passshort_conv_pass_L2We_1991_11)
+   + fout(passshort_conv_pass_L2Wg_1991_11)
    + fout(passshort_conv_pass_PHEVd_1991_11)
    + fout(passshort_conv_pass_PHEVg_1991_11)
    + fout(passshort_conv_pass_S2We_1991_11)
@@ -460,7 +444,7 @@ Subject To
    + fout(passshort_conv_pass_HEVg_1991_12)
    + fout(passshort_conv_pass_ICEd_1991_12)
    + fout(passshort_conv_pass_ICEg_1991_12)
-   + fout(passshort_conv_pass_L2We_1991_12)
+   + fout(passshort_conv_pass_L2Wg_1991_12)
    + fout(passshort_conv_pass_PHEVd_1991_12)
    + fout(passshort_conv_pass_PHEVg_1991_12)
    + fout(passshort_conv_pass_S2We_1991_12)
@@ -476,7 +460,7 @@ Subject To
    + fout(passshort_conv_pass_HEVg_1991_13)
    + fout(passshort_conv_pass_ICEd_1991_13)
    + fout(passshort_conv_pass_ICEg_1991_13)
-   + fout(passshort_conv_pass_L2We_1991_13)
+   + fout(passshort_conv_pass_L2Wg_1991_13)
    + fout(passshort_conv_pass_PHEVd_1991_13)
    + fout(passshort_conv_pass_PHEVg_1991_13)
    + fout(passshort_conv_pass_S2We_1991_13)
@@ -492,7 +476,7 @@ Subject To
    + fout(passshort_conv_pass_HEVg_1991_14)
    + fout(passshort_conv_pass_ICEd_1991_14)
    + fout(passshort_conv_pass_ICEg_1991_14)
-   + fout(passshort_conv_pass_L2We_1991_14)
+   + fout(passshort_conv_pass_L2Wg_1991_14)
    + fout(passshort_conv_pass_PHEVd_1991_14)
    + fout(passshort_conv_pass_PHEVg_1991_14)
    + fout(passshort_conv_pass_S2We_1991_14)
@@ -508,7 +492,7 @@ Subject To
    + fout(passshort_conv_pass_HEVg_1991_15)
    + fout(passshort_conv_pass_ICEd_1991_15)
    + fout(passshort_conv_pass_ICEg_1991_15)
-   + fout(passshort_conv_pass_L2We_1991_15)
+   + fout(passshort_conv_pass_L2Wg_1991_15)
    + fout(passshort_conv_pass_PHEVd_1991_15)
    + fout(passshort_conv_pass_PHEVg_1991_15)
    + fout(passshort_conv_pass_S2We_1991_15)
@@ -524,7 +508,7 @@ Subject To
    + fout(passshort_conv_pass_HEVg_1991_16)
    + fout(passshort_conv_pass_ICEd_1991_16)
    + fout(passshort_conv_pass_ICEg_1991_16)
-   + fout(passshort_conv_pass_L2We_1991_16)
+   + fout(passshort_conv_pass_L2Wg_1991_16)
    + fout(passshort_conv_pass_PHEVd_1991_16)
    + fout(passshort_conv_pass_PHEVg_1991_16)
    + fout(passshort_conv_pass_S2We_1991_16)
@@ -540,7 +524,7 @@ Subject To
    + fout(passshort_conv_pass_HEVg_1991_17)
    + fout(passshort_conv_pass_ICEd_1991_17)
    + fout(passshort_conv_pass_ICEg_1991_17)
-   + fout(passshort_conv_pass_L2We_1991_17)
+   + fout(passshort_conv_pass_L2Wg_1991_17)
    + fout(passshort_conv_pass_PHEVd_1991_17)
    + fout(passshort_conv_pass_PHEVg_1991_17)
    + fout(passshort_conv_pass_S2We_1991_17)
@@ -556,7 +540,7 @@ Subject To
    + fout(passshort_conv_pass_HEVg_1991_18)
    + fout(passshort_conv_pass_ICEd_1991_18)
    + fout(passshort_conv_pass_ICEg_1991_18)
-   + fout(passshort_conv_pass_L2We_1991_18)
+   + fout(passshort_conv_pass_L2Wg_1991_18)
    + fout(passshort_conv_pass_PHEVd_1991_18)
    + fout(passshort_conv_pass_PHEVg_1991_18)
    + fout(passshort_conv_pass_S2We_1991_18)
@@ -572,7 +556,7 @@ Subject To
    + fout(passshort_conv_pass_HEVg_1991_19)
    + fout(passshort_conv_pass_ICEd_1991_19)
    + fout(passshort_conv_pass_ICEg_1991_19)
-   + fout(passshort_conv_pass_L2We_1991_19)
+   + fout(passshort_conv_pass_L2Wg_1991_19)
    + fout(passshort_conv_pass_PHEVd_1991_19)
    + fout(passshort_conv_pass_PHEVg_1991_19)
    + fout(passshort_conv_pass_S2We_1991_19)
@@ -588,7 +572,7 @@ Subject To
    + fout(passshort_conv_pass_HEVg_1991_20)
    + fout(passshort_conv_pass_ICEd_1991_20)
    + fout(passshort_conv_pass_ICEg_1991_20)
-   + fout(passshort_conv_pass_L2We_1991_20)
+   + fout(passshort_conv_pass_L2Wg_1991_20)
    + fout(passshort_conv_pass_PHEVd_1991_20)
    + fout(passshort_conv_pass_PHEVg_1991_20)
    + fout(passshort_conv_pass_S2We_1991_20)
@@ -604,7 +588,7 @@ Subject To
    + fout(passshort_conv_pass_HEVg_1991_21)
    + fout(passshort_conv_pass_ICEd_1991_21)
    + fout(passshort_conv_pass_ICEg_1991_21)
-   + fout(passshort_conv_pass_L2We_1991_21)
+   + fout(passshort_conv_pass_L2Wg_1991_21)
    + fout(passshort_conv_pass_PHEVd_1991_21)
    + fout(passshort_conv_pass_PHEVg_1991_21)
    + fout(passshort_conv_pass_S2We_1991_21)
@@ -620,7 +604,7 @@ Subject To
    + fout(passshort_conv_pass_HEVg_1991_22)
    + fout(passshort_conv_pass_ICEd_1991_22)
    + fout(passshort_conv_pass_ICEg_1991_22)
-   + fout(passshort_conv_pass_L2We_1991_22)
+   + fout(passshort_conv_pass_L2Wg_1991_22)
    + fout(passshort_conv_pass_PHEVd_1991_22)
    + fout(passshort_conv_pass_PHEVg_1991_22)
    + fout(passshort_conv_pass_S2We_1991_22)
@@ -636,7 +620,7 @@ Subject To
    + fout(passshort_conv_pass_HEVg_1991_23)
    + fout(passshort_conv_pass_ICEd_1991_23)
    + fout(passshort_conv_pass_ICEg_1991_23)
-   + fout(passshort_conv_pass_L2We_1991_23)
+   + fout(passshort_conv_pass_L2Wg_1991_23)
    + fout(passshort_conv_pass_PHEVd_1991_23)
    + fout(passshort_conv_pass_PHEVg_1991_23)
    + fout(passshort_conv_pass_S2We_1991_23)
@@ -654,14 +638,10 @@ Subject To
    - fout(diesel_trd_diesel_1991_14) = 0
  c_e_trd_c_flow_out(trd_diesel_1991_15)_: aimp(trd_diesel_1991_15)
    - fout(diesel_trd_diesel_1991_15) = 0
+ c_e_trd_c_flow_out(trd_diesel_1991_17)_: aimp(trd_diesel_1991_17)
+   - fout(diesel_trd_diesel_1991_17) = 0
  c_e_trd_c_flow_out(trd_diesel_1991_18)_: aimp(trd_diesel_1991_18)
    - fout(diesel_trd_diesel_1991_18) = 0
- c_e_trd_c_flow_out(trd_diesel_1991_21)_: aimp(trd_diesel_1991_21)
-   - fout(diesel_trd_diesel_1991_21) = 0
- c_e_trd_c_flow_out(trd_gasoline_1991_14)_: aimp(trd_gasoline_1991_14)
-   - fout(gasoline_trd_gasoline_1991_14) = 0
- c_e_trd_c_flow_out(trd_gasoline_1991_18)_: aimp(trd_gasoline_1991_18)
-   - fout(gasoline_trd_gasoline_1991_18) = 0
  c_e_pass_c_flow_out(conv_pass_BEV_1991_3)_: a(conv_pass_BEV_1991_3)
    - 0.6049844830617312 fout(passlong_conv_pass_BEV_1991_3)
    - 0.6049844830617312 fout(passshort_conv_pass_BEV_1991_3) = 0
@@ -1166,48 +1146,48 @@ Subject To
  c_e_pass_c_flow_out(conv_pass_ICEg_1991_23)_: a(conv_pass_ICEg_1991_23)
    - 0.6049844830617312 fout(passlong_conv_pass_ICEg_1991_23)
    - 0.6049844830617312 fout(passshort_conv_pass_ICEg_1991_23) = 0
- c_e_pass_c_flow_out(conv_pass_L2We_1991_3)_: a(conv_pass_L2We_1991_3)
-   - fout(passshort_conv_pass_L2We_1991_3) = 0
- c_e_pass_c_flow_out(conv_pass_L2We_1991_4)_: a(conv_pass_L2We_1991_4)
-   - fout(passshort_conv_pass_L2We_1991_4) = 0
- c_e_pass_c_flow_out(conv_pass_L2We_1991_5)_: a(conv_pass_L2We_1991_5)
-   - fout(passshort_conv_pass_L2We_1991_5) = 0
- c_e_pass_c_flow_out(conv_pass_L2We_1991_6)_: a(conv_pass_L2We_1991_6)
-   - fout(passshort_conv_pass_L2We_1991_6) = 0
- c_e_pass_c_flow_out(conv_pass_L2We_1991_7)_: a(conv_pass_L2We_1991_7)
-   - fout(passshort_conv_pass_L2We_1991_7) = 0
- c_e_pass_c_flow_out(conv_pass_L2We_1991_8)_: a(conv_pass_L2We_1991_8)
-   - fout(passshort_conv_pass_L2We_1991_8) = 0
- c_e_pass_c_flow_out(conv_pass_L2We_1991_9)_: a(conv_pass_L2We_1991_9)
-   - fout(passshort_conv_pass_L2We_1991_9) = 0
- c_e_pass_c_flow_out(conv_pass_L2We_1991_10)_: a(conv_pass_L2We_1991_10)
-   - fout(passshort_conv_pass_L2We_1991_10) = 0
- c_e_pass_c_flow_out(conv_pass_L2We_1991_11)_: a(conv_pass_L2We_1991_11)
-   - fout(passshort_conv_pass_L2We_1991_11) = 0
- c_e_pass_c_flow_out(conv_pass_L2We_1991_12)_: a(conv_pass_L2We_1991_12)
-   - fout(passshort_conv_pass_L2We_1991_12) = 0
- c_e_pass_c_flow_out(conv_pass_L2We_1991_13)_: a(conv_pass_L2We_1991_13)
-   - fout(passshort_conv_pass_L2We_1991_13) = 0
- c_e_pass_c_flow_out(conv_pass_L2We_1991_14)_: a(conv_pass_L2We_1991_14)
-   - fout(passshort_conv_pass_L2We_1991_14) = 0
- c_e_pass_c_flow_out(conv_pass_L2We_1991_15)_: a(conv_pass_L2We_1991_15)
-   - fout(passshort_conv_pass_L2We_1991_15) = 0
- c_e_pass_c_flow_out(conv_pass_L2We_1991_16)_: a(conv_pass_L2We_1991_16)
-   - fout(passshort_conv_pass_L2We_1991_16) = 0
- c_e_pass_c_flow_out(conv_pass_L2We_1991_17)_: a(conv_pass_L2We_1991_17)
-   - fout(passshort_conv_pass_L2We_1991_17) = 0
- c_e_pass_c_flow_out(conv_pass_L2We_1991_18)_: a(conv_pass_L2We_1991_18)
-   - fout(passshort_conv_pass_L2We_1991_18) = 0
- c_e_pass_c_flow_out(conv_pass_L2We_1991_19)_: a(conv_pass_L2We_1991_19)
-   - fout(passshort_conv_pass_L2We_1991_19) = 0
- c_e_pass_c_flow_out(conv_pass_L2We_1991_20)_: a(conv_pass_L2We_1991_20)
-   - fout(passshort_conv_pass_L2We_1991_20) = 0
- c_e_pass_c_flow_out(conv_pass_L2We_1991_21)_: a(conv_pass_L2We_1991_21)
-   - fout(passshort_conv_pass_L2We_1991_21) = 0
- c_e_pass_c_flow_out(conv_pass_L2We_1991_22)_: a(conv_pass_L2We_1991_22)
-   - fout(passshort_conv_pass_L2We_1991_22) = 0
- c_e_pass_c_flow_out(conv_pass_L2We_1991_23)_: a(conv_pass_L2We_1991_23)
-   - fout(passshort_conv_pass_L2We_1991_23) = 0
+ c_e_pass_c_flow_out(conv_pass_L2Wg_1991_3)_: a(conv_pass_L2Wg_1991_3)
+   - fout(passshort_conv_pass_L2Wg_1991_3) = 0
+ c_e_pass_c_flow_out(conv_pass_L2Wg_1991_4)_: a(conv_pass_L2Wg_1991_4)
+   - fout(passshort_conv_pass_L2Wg_1991_4) = 0
+ c_e_pass_c_flow_out(conv_pass_L2Wg_1991_5)_: a(conv_pass_L2Wg_1991_5)
+   - fout(passshort_conv_pass_L2Wg_1991_5) = 0
+ c_e_pass_c_flow_out(conv_pass_L2Wg_1991_6)_: a(conv_pass_L2Wg_1991_6)
+   - fout(passshort_conv_pass_L2Wg_1991_6) = 0
+ c_e_pass_c_flow_out(conv_pass_L2Wg_1991_7)_: a(conv_pass_L2Wg_1991_7)
+   - fout(passshort_conv_pass_L2Wg_1991_7) = 0
+ c_e_pass_c_flow_out(conv_pass_L2Wg_1991_8)_: a(conv_pass_L2Wg_1991_8)
+   - fout(passshort_conv_pass_L2Wg_1991_8) = 0
+ c_e_pass_c_flow_out(conv_pass_L2Wg_1991_9)_: a(conv_pass_L2Wg_1991_9)
+   - fout(passshort_conv_pass_L2Wg_1991_9) = 0
+ c_e_pass_c_flow_out(conv_pass_L2Wg_1991_10)_: a(conv_pass_L2Wg_1991_10)
+   - fout(passshort_conv_pass_L2Wg_1991_10) = 0
+ c_e_pass_c_flow_out(conv_pass_L2Wg_1991_11)_: a(conv_pass_L2Wg_1991_11)
+   - fout(passshort_conv_pass_L2Wg_1991_11) = 0
+ c_e_pass_c_flow_out(conv_pass_L2Wg_1991_12)_: a(conv_pass_L2Wg_1991_12)
+   - fout(passshort_conv_pass_L2Wg_1991_12) = 0
+ c_e_pass_c_flow_out(conv_pass_L2Wg_1991_13)_: a(conv_pass_L2Wg_1991_13)
+   - fout(passshort_conv_pass_L2Wg_1991_13) = 0
+ c_e_pass_c_flow_out(conv_pass_L2Wg_1991_14)_: a(conv_pass_L2Wg_1991_14)
+   - fout(passshort_conv_pass_L2Wg_1991_14) = 0
+ c_e_pass_c_flow_out(conv_pass_L2Wg_1991_15)_: a(conv_pass_L2Wg_1991_15)
+   - fout(passshort_conv_pass_L2Wg_1991_15) = 0
+ c_e_pass_c_flow_out(conv_pass_L2Wg_1991_16)_: a(conv_pass_L2Wg_1991_16)
+   - fout(passshort_conv_pass_L2Wg_1991_16) = 0
+ c_e_pass_c_flow_out(conv_pass_L2Wg_1991_17)_: a(conv_pass_L2Wg_1991_17)
+   - fout(passshort_conv_pass_L2Wg_1991_17) = 0
+ c_e_pass_c_flow_out(conv_pass_L2Wg_1991_18)_: a(conv_pass_L2Wg_1991_18)
+   - fout(passshort_conv_pass_L2Wg_1991_18) = 0
+ c_e_pass_c_flow_out(conv_pass_L2Wg_1991_19)_: a(conv_pass_L2Wg_1991_19)
+   - fout(passshort_conv_pass_L2Wg_1991_19) = 0
+ c_e_pass_c_flow_out(conv_pass_L2Wg_1991_20)_: a(conv_pass_L2Wg_1991_20)
+   - fout(passshort_conv_pass_L2Wg_1991_20) = 0
+ c_e_pass_c_flow_out(conv_pass_L2Wg_1991_21)_: a(conv_pass_L2Wg_1991_21)
+   - fout(passshort_conv_pass_L2Wg_1991_21) = 0
+ c_e_pass_c_flow_out(conv_pass_L2Wg_1991_22)_: a(conv_pass_L2Wg_1991_22)
+   - fout(passshort_conv_pass_L2Wg_1991_22) = 0
+ c_e_pass_c_flow_out(conv_pass_L2Wg_1991_23)_: a(conv_pass_L2Wg_1991_23)
+   - fout(passshort_conv_pass_L2Wg_1991_23) = 0
  c_e_pass_c_flow_out(conv_pass_PHEVd_1991_3)_: a(conv_pass_PHEVd_1991_3)
    - 0.6049844830617312 fout(passlong_conv_pass_PHEVd_1991_3)
    - 0.6049844830617312 fout(passshort_conv_pass_PHEVd_1991_3) = 0
@@ -1539,8 +1519,8 @@ Subject To
    + cret(conv_pass_ICEd_1991) + ctot(conv_pass_ICEd_1991) = 79129
  c_e_pass_c_cap_transfer(conv_pass_ICEg_1991)_: - cnew(conv_pass_ICEg_1991)
    + cret(conv_pass_ICEg_1991) + ctot(conv_pass_ICEg_1991) = 2.905762e+06
- c_e_pass_c_cap_transfer(conv_pass_L2We_1991)_: - cnew(conv_pass_L2We_1991)
-   + cret(conv_pass_L2We_1991) + ctot(conv_pass_L2We_1991) = 297160
+ c_e_pass_c_cap_transfer(conv_pass_L2Wg_1991)_: - cnew(conv_pass_L2Wg_1991)
+   + cret(conv_pass_L2Wg_1991) + ctot(conv_pass_L2Wg_1991) = 297160
  c_e_pass_c_cap_transfer(conv_pass_PHEVd_1991)_:
    - cnew(conv_pass_PHEVd_1991) + cret(conv_pass_PHEVd_1991)
    + ctot(conv_pass_PHEVd_1991) = 0
@@ -1573,7 +1553,7 @@ Subject To
    = 3661
  c_e_pass_c_cap_retirement(conv_pass_ICEg_1991)_: cret(conv_pass_ICEg_1991)
    = 123704
- c_e_pass_c_cap_retirement(conv_pass_L2We_1991)_: cret(conv_pass_L2We_1991)
+ c_e_pass_c_cap_retirement(conv_pass_L2Wg_1991)_: cret(conv_pass_L2Wg_1991)
    = 0
  c_e_pass_c_cap_retirement(conv_pass_PHEVd_1991)_:
    cret(conv_pass_PHEVd_1991) = 0
@@ -1603,7 +1583,7 @@ Subject To
    <= 153478.8
  c_u_pass_c_cap_buildrate(conv_pass_ICEg_1991)_: cnew(conv_pass_ICEg_1991)
    <= 253848
- c_u_pass_c_cap_buildrate(conv_pass_L2We_1991)_: cnew(conv_pass_L2We_1991)
+ c_u_pass_c_cap_buildrate(conv_pass_L2Wg_1991)_: cnew(conv_pass_L2Wg_1991)
    <= 62472
  c_u_pass_c_cap_buildrate(conv_pass_PHEVd_1991)_:
    cnew(conv_pass_PHEVd_1991) <= 2000
@@ -1729,20 +1709,20 @@ Subject To
    + 365 a(conv_pass_ICEg_1991_6) + 365 a(conv_pass_ICEg_1991_7)
    + 365 a(conv_pass_ICEg_1991_8) + 365 a(conv_pass_ICEg_1991_9)
    - 0.011307368766879 ctot(conv_pass_ICEg_1991) <= 0
- c_u_pass_c_act_cf_max_year(conv_pass_L2We_1991)_:
-   365 a(conv_pass_L2We_1991_0) + 365 a(conv_pass_L2We_1991_1)
-   + 365 a(conv_pass_L2We_1991_10) + 365 a(conv_pass_L2We_1991_11)
-   + 365 a(conv_pass_L2We_1991_12) + 365 a(conv_pass_L2We_1991_13)
-   + 365 a(conv_pass_L2We_1991_14) + 365 a(conv_pass_L2We_1991_15)
-   + 365 a(conv_pass_L2We_1991_16) + 365 a(conv_pass_L2We_1991_17)
-   + 365 a(conv_pass_L2We_1991_18) + 365 a(conv_pass_L2We_1991_19)
-   + 365 a(conv_pass_L2We_1991_2) + 365 a(conv_pass_L2We_1991_20)
-   + 365 a(conv_pass_L2We_1991_21) + 365 a(conv_pass_L2We_1991_22)
-   + 365 a(conv_pass_L2We_1991_23) + 365 a(conv_pass_L2We_1991_3)
-   + 365 a(conv_pass_L2We_1991_4) + 365 a(conv_pass_L2We_1991_5)
-   + 365 a(conv_pass_L2We_1991_6) + 365 a(conv_pass_L2We_1991_7)
-   + 365 a(conv_pass_L2We_1991_8) + 365 a(conv_pass_L2We_1991_9)
-   - 0.000146 ctot(conv_pass_L2We_1991) <= 0
+ c_u_pass_c_act_cf_max_year(conv_pass_L2Wg_1991)_:
+   365 a(conv_pass_L2Wg_1991_0) + 365 a(conv_pass_L2Wg_1991_1)
+   + 365 a(conv_pass_L2Wg_1991_10) + 365 a(conv_pass_L2Wg_1991_11)
+   + 365 a(conv_pass_L2Wg_1991_12) + 365 a(conv_pass_L2Wg_1991_13)
+   + 365 a(conv_pass_L2Wg_1991_14) + 365 a(conv_pass_L2Wg_1991_15)
+   + 365 a(conv_pass_L2Wg_1991_16) + 365 a(conv_pass_L2Wg_1991_17)
+   + 365 a(conv_pass_L2Wg_1991_18) + 365 a(conv_pass_L2Wg_1991_19)
+   + 365 a(conv_pass_L2Wg_1991_2) + 365 a(conv_pass_L2Wg_1991_20)
+   + 365 a(conv_pass_L2Wg_1991_21) + 365 a(conv_pass_L2Wg_1991_22)
+   + 365 a(conv_pass_L2Wg_1991_23) + 365 a(conv_pass_L2Wg_1991_3)
+   + 365 a(conv_pass_L2Wg_1991_4) + 365 a(conv_pass_L2Wg_1991_5)
+   + 365 a(conv_pass_L2Wg_1991_6) + 365 a(conv_pass_L2Wg_1991_7)
+   + 365 a(conv_pass_L2Wg_1991_8) + 365 a(conv_pass_L2Wg_1991_9)
+   - 0.000146 ctot(conv_pass_L2Wg_1991) <= 0
  c_u_pass_c_act_cf_max_year(conv_pass_PHEVd_1991)_:
    365 a(conv_pass_PHEVd_1991_0) + 365 a(conv_pass_PHEVd_1991_1)
    + 365 a(conv_pass_PHEVd_1991_10) + 365 a(conv_pass_PHEVd_1991_11)
@@ -2059,27 +2039,27 @@ Bounds
  a(conv_pass_ICEg_1991_7) free
  a(conv_pass_ICEg_1991_8) free
  a(conv_pass_ICEg_1991_9) free
- a(conv_pass_L2We_1991_10) free
- a(conv_pass_L2We_1991_11) free
- a(conv_pass_L2We_1991_12) free
- a(conv_pass_L2We_1991_13) free
- a(conv_pass_L2We_1991_14) free
- a(conv_pass_L2We_1991_15) free
- a(conv_pass_L2We_1991_16) free
- a(conv_pass_L2We_1991_17) free
- a(conv_pass_L2We_1991_18) free
- a(conv_pass_L2We_1991_19) free
- a(conv_pass_L2We_1991_20) free
- a(conv_pass_L2We_1991_21) free
- a(conv_pass_L2We_1991_22) free
- a(conv_pass_L2We_1991_23) free
- a(conv_pass_L2We_1991_3) free
- a(conv_pass_L2We_1991_4) free
- a(conv_pass_L2We_1991_5) free
- a(conv_pass_L2We_1991_6) free
- a(conv_pass_L2We_1991_7) free
- a(conv_pass_L2We_1991_8) free
- a(conv_pass_L2We_1991_9) free
+ a(conv_pass_L2Wg_1991_10) free
+ a(conv_pass_L2Wg_1991_11) free
+ a(conv_pass_L2Wg_1991_12) free
+ a(conv_pass_L2Wg_1991_13) free
+ a(conv_pass_L2Wg_1991_14) free
+ a(conv_pass_L2Wg_1991_15) free
+ a(conv_pass_L2Wg_1991_16) free
+ a(conv_pass_L2Wg_1991_17) free
+ a(conv_pass_L2Wg_1991_18) free
+ a(conv_pass_L2Wg_1991_19) free
+ a(conv_pass_L2Wg_1991_20) free
+ a(conv_pass_L2Wg_1991_21) free
+ a(conv_pass_L2Wg_1991_22) free
+ a(conv_pass_L2Wg_1991_23) free
+ a(conv_pass_L2Wg_1991_3) free
+ a(conv_pass_L2Wg_1991_4) free
+ a(conv_pass_L2Wg_1991_5) free
+ a(conv_pass_L2Wg_1991_6) free
+ a(conv_pass_L2Wg_1991_7) free
+ a(conv_pass_L2Wg_1991_8) free
+ a(conv_pass_L2Wg_1991_9) free
  a(conv_pass_PHEVd_1991_10) free
  a(conv_pass_PHEVd_1991_11) free
  a(conv_pass_PHEVd_1991_12) free
@@ -2214,7 +2194,7 @@ Bounds
  cnew(conv_pass_HEVg_1991) free
  cnew(conv_pass_ICEd_1991) free
  cnew(conv_pass_ICEg_1991) free
- cnew(conv_pass_L2We_1991) free
+ cnew(conv_pass_L2Wg_1991) free
  cnew(conv_pass_PHEVd_1991) free
  cnew(conv_pass_PHEVg_1991) free
  cnew(conv_pass_RAILp_1991) free
@@ -2251,28 +2231,16 @@ Bounds
  fin(diesel_conv_pass_ICEd_1991_15) free
  fin(diesel_conv_pass_PHEVd_1991_15) free
  fout(diesel_trd_diesel_1991_15) free
+ fin(diesel_conv_pass_BUSd_1991_17) free
+ fin(diesel_conv_pass_HEVd_1991_17) free
+ fin(diesel_conv_pass_ICEd_1991_17) free
+ fin(diesel_conv_pass_PHEVd_1991_17) free
+ fout(diesel_trd_diesel_1991_17) free
  fin(diesel_conv_pass_BUSd_1991_18) free
  fin(diesel_conv_pass_HEVd_1991_18) free
  fin(diesel_conv_pass_ICEd_1991_18) free
  fin(diesel_conv_pass_PHEVd_1991_18) free
  fout(diesel_trd_diesel_1991_18) free
- fin(diesel_conv_pass_BUSd_1991_21) free
- fin(diesel_conv_pass_HEVd_1991_21) free
- fin(diesel_conv_pass_ICEd_1991_21) free
- fin(diesel_conv_pass_PHEVd_1991_21) free
- fout(diesel_trd_diesel_1991_21) free
- fin(gasoline_conv_pass_BUSg_1991_14) free
- fin(gasoline_conv_pass_HEVg_1991_14) free
- fin(gasoline_conv_pass_ICEg_1991_14) free
- fin(gasoline_conv_pass_L2We_1991_14) free
- fin(gasoline_conv_pass_PHEVg_1991_14) free
- fout(gasoline_trd_gasoline_1991_14) free
- fin(gasoline_conv_pass_BUSg_1991_18) free
- fin(gasoline_conv_pass_HEVg_1991_18) free
- fin(gasoline_conv_pass_ICEg_1991_18) free
- fin(gasoline_conv_pass_L2We_1991_18) free
- fin(gasoline_conv_pass_PHEVg_1991_18) free
- fout(gasoline_trd_gasoline_1991_18) free
  fin(passlong_dem_passenger_1991_3) free
  fout(passlong_conv_pass_BEV_1991_3) free
  fout(passlong_conv_pass_BUSd_1991_3) free
@@ -2534,7 +2502,7 @@ Bounds
  fout(passshort_conv_pass_HEVg_1991_3) free
  fout(passshort_conv_pass_ICEd_1991_3) free
  fout(passshort_conv_pass_ICEg_1991_3) free
- fout(passshort_conv_pass_L2We_1991_3) free
+ fout(passshort_conv_pass_L2Wg_1991_3) free
  fout(passshort_conv_pass_PHEVd_1991_3) free
  fout(passshort_conv_pass_PHEVg_1991_3) free
  fout(passshort_conv_pass_S2We_1991_3) free
@@ -2549,7 +2517,7 @@ Bounds
  fout(passshort_conv_pass_HEVg_1991_4) free
  fout(passshort_conv_pass_ICEd_1991_4) free
  fout(passshort_conv_pass_ICEg_1991_4) free
- fout(passshort_conv_pass_L2We_1991_4) free
+ fout(passshort_conv_pass_L2Wg_1991_4) free
  fout(passshort_conv_pass_PHEVd_1991_4) free
  fout(passshort_conv_pass_PHEVg_1991_4) free
  fout(passshort_conv_pass_S2We_1991_4) free
@@ -2564,7 +2532,7 @@ Bounds
  fout(passshort_conv_pass_HEVg_1991_5) free
  fout(passshort_conv_pass_ICEd_1991_5) free
  fout(passshort_conv_pass_ICEg_1991_5) free
- fout(passshort_conv_pass_L2We_1991_5) free
+ fout(passshort_conv_pass_L2Wg_1991_5) free
  fout(passshort_conv_pass_PHEVd_1991_5) free
  fout(passshort_conv_pass_PHEVg_1991_5) free
  fout(passshort_conv_pass_S2We_1991_5) free
@@ -2579,7 +2547,7 @@ Bounds
  fout(passshort_conv_pass_HEVg_1991_6) free
  fout(passshort_conv_pass_ICEd_1991_6) free
  fout(passshort_conv_pass_ICEg_1991_6) free
- fout(passshort_conv_pass_L2We_1991_6) free
+ fout(passshort_conv_pass_L2Wg_1991_6) free
  fout(passshort_conv_pass_PHEVd_1991_6) free
  fout(passshort_conv_pass_PHEVg_1991_6) free
  fout(passshort_conv_pass_S2We_1991_6) free
@@ -2594,7 +2562,7 @@ Bounds
  fout(passshort_conv_pass_HEVg_1991_7) free
  fout(passshort_conv_pass_ICEd_1991_7) free
  fout(passshort_conv_pass_ICEg_1991_7) free
- fout(passshort_conv_pass_L2We_1991_7) free
+ fout(passshort_conv_pass_L2Wg_1991_7) free
  fout(passshort_conv_pass_PHEVd_1991_7) free
  fout(passshort_conv_pass_PHEVg_1991_7) free
  fout(passshort_conv_pass_S2We_1991_7) free
@@ -2609,7 +2577,7 @@ Bounds
  fout(passshort_conv_pass_HEVg_1991_8) free
  fout(passshort_conv_pass_ICEd_1991_8) free
  fout(passshort_conv_pass_ICEg_1991_8) free
- fout(passshort_conv_pass_L2We_1991_8) free
+ fout(passshort_conv_pass_L2Wg_1991_8) free
  fout(passshort_conv_pass_PHEVd_1991_8) free
  fout(passshort_conv_pass_PHEVg_1991_8) free
  fout(passshort_conv_pass_S2We_1991_8) free
@@ -2624,7 +2592,7 @@ Bounds
  fout(passshort_conv_pass_HEVg_1991_9) free
  fout(passshort_conv_pass_ICEd_1991_9) free
  fout(passshort_conv_pass_ICEg_1991_9) free
- fout(passshort_conv_pass_L2We_1991_9) free
+ fout(passshort_conv_pass_L2Wg_1991_9) free
  fout(passshort_conv_pass_PHEVd_1991_9) free
  fout(passshort_conv_pass_PHEVg_1991_9) free
  fout(passshort_conv_pass_S2We_1991_9) free
@@ -2639,7 +2607,7 @@ Bounds
  fout(passshort_conv_pass_HEVg_1991_10) free
  fout(passshort_conv_pass_ICEd_1991_10) free
  fout(passshort_conv_pass_ICEg_1991_10) free
- fout(passshort_conv_pass_L2We_1991_10) free
+ fout(passshort_conv_pass_L2Wg_1991_10) free
  fout(passshort_conv_pass_PHEVd_1991_10) free
  fout(passshort_conv_pass_PHEVg_1991_10) free
  fout(passshort_conv_pass_S2We_1991_10) free
@@ -2654,7 +2622,7 @@ Bounds
  fout(passshort_conv_pass_HEVg_1991_11) free
  fout(passshort_conv_pass_ICEd_1991_11) free
  fout(passshort_conv_pass_ICEg_1991_11) free
- fout(passshort_conv_pass_L2We_1991_11) free
+ fout(passshort_conv_pass_L2Wg_1991_11) free
  fout(passshort_conv_pass_PHEVd_1991_11) free
  fout(passshort_conv_pass_PHEVg_1991_11) free
  fout(passshort_conv_pass_S2We_1991_11) free
@@ -2669,7 +2637,7 @@ Bounds
  fout(passshort_conv_pass_HEVg_1991_12) free
  fout(passshort_conv_pass_ICEd_1991_12) free
  fout(passshort_conv_pass_ICEg_1991_12) free
- fout(passshort_conv_pass_L2We_1991_12) free
+ fout(passshort_conv_pass_L2Wg_1991_12) free
  fout(passshort_conv_pass_PHEVd_1991_12) free
  fout(passshort_conv_pass_PHEVg_1991_12) free
  fout(passshort_conv_pass_S2We_1991_12) free
@@ -2684,7 +2652,7 @@ Bounds
  fout(passshort_conv_pass_HEVg_1991_13) free
  fout(passshort_conv_pass_ICEd_1991_13) free
  fout(passshort_conv_pass_ICEg_1991_13) free
- fout(passshort_conv_pass_L2We_1991_13) free
+ fout(passshort_conv_pass_L2Wg_1991_13) free
  fout(passshort_conv_pass_PHEVd_1991_13) free
  fout(passshort_conv_pass_PHEVg_1991_13) free
  fout(passshort_conv_pass_S2We_1991_13) free
@@ -2699,7 +2667,7 @@ Bounds
  fout(passshort_conv_pass_HEVg_1991_14) free
  fout(passshort_conv_pass_ICEd_1991_14) free
  fout(passshort_conv_pass_ICEg_1991_14) free
- fout(passshort_conv_pass_L2We_1991_14) free
+ fout(passshort_conv_pass_L2Wg_1991_14) free
  fout(passshort_conv_pass_PHEVd_1991_14) free
  fout(passshort_conv_pass_PHEVg_1991_14) free
  fout(passshort_conv_pass_S2We_1991_14) free
@@ -2714,7 +2682,7 @@ Bounds
  fout(passshort_conv_pass_HEVg_1991_15) free
  fout(passshort_conv_pass_ICEd_1991_15) free
  fout(passshort_conv_pass_ICEg_1991_15) free
- fout(passshort_conv_pass_L2We_1991_15) free
+ fout(passshort_conv_pass_L2Wg_1991_15) free
  fout(passshort_conv_pass_PHEVd_1991_15) free
  fout(passshort_conv_pass_PHEVg_1991_15) free
  fout(passshort_conv_pass_S2We_1991_15) free
@@ -2729,7 +2697,7 @@ Bounds
  fout(passshort_conv_pass_HEVg_1991_16) free
  fout(passshort_conv_pass_ICEd_1991_16) free
  fout(passshort_conv_pass_ICEg_1991_16) free
- fout(passshort_conv_pass_L2We_1991_16) free
+ fout(passshort_conv_pass_L2Wg_1991_16) free
  fout(passshort_conv_pass_PHEVd_1991_16) free
  fout(passshort_conv_pass_PHEVg_1991_16) free
  fout(passshort_conv_pass_S2We_1991_16) free
@@ -2744,7 +2712,7 @@ Bounds
  fout(passshort_conv_pass_HEVg_1991_17) free
  fout(passshort_conv_pass_ICEd_1991_17) free
  fout(passshort_conv_pass_ICEg_1991_17) free
- fout(passshort_conv_pass_L2We_1991_17) free
+ fout(passshort_conv_pass_L2Wg_1991_17) free
  fout(passshort_conv_pass_PHEVd_1991_17) free
  fout(passshort_conv_pass_PHEVg_1991_17) free
  fout(passshort_conv_pass_S2We_1991_17) free
@@ -2759,7 +2727,7 @@ Bounds
  fout(passshort_conv_pass_HEVg_1991_18) free
  fout(passshort_conv_pass_ICEd_1991_18) free
  fout(passshort_conv_pass_ICEg_1991_18) free
- fout(passshort_conv_pass_L2We_1991_18) free
+ fout(passshort_conv_pass_L2Wg_1991_18) free
  fout(passshort_conv_pass_PHEVd_1991_18) free
  fout(passshort_conv_pass_PHEVg_1991_18) free
  fout(passshort_conv_pass_S2We_1991_18) free
@@ -2774,7 +2742,7 @@ Bounds
  fout(passshort_conv_pass_HEVg_1991_19) free
  fout(passshort_conv_pass_ICEd_1991_19) free
  fout(passshort_conv_pass_ICEg_1991_19) free
- fout(passshort_conv_pass_L2We_1991_19) free
+ fout(passshort_conv_pass_L2Wg_1991_19) free
  fout(passshort_conv_pass_PHEVd_1991_19) free
  fout(passshort_conv_pass_PHEVg_1991_19) free
  fout(passshort_conv_pass_S2We_1991_19) free
@@ -2789,7 +2757,7 @@ Bounds
  fout(passshort_conv_pass_HEVg_1991_20) free
  fout(passshort_conv_pass_ICEd_1991_20) free
  fout(passshort_conv_pass_ICEg_1991_20) free
- fout(passshort_conv_pass_L2We_1991_20) free
+ fout(passshort_conv_pass_L2Wg_1991_20) free
  fout(passshort_conv_pass_PHEVd_1991_20) free
  fout(passshort_conv_pass_PHEVg_1991_20) free
  fout(passshort_conv_pass_S2We_1991_20) free
@@ -2804,7 +2772,7 @@ Bounds
  fout(passshort_conv_pass_HEVg_1991_21) free
  fout(passshort_conv_pass_ICEd_1991_21) free
  fout(passshort_conv_pass_ICEg_1991_21) free
- fout(passshort_conv_pass_L2We_1991_21) free
+ fout(passshort_conv_pass_L2Wg_1991_21) free
  fout(passshort_conv_pass_PHEVd_1991_21) free
  fout(passshort_conv_pass_PHEVg_1991_21) free
  fout(passshort_conv_pass_S2We_1991_21) free
@@ -2819,7 +2787,7 @@ Bounds
  fout(passshort_conv_pass_HEVg_1991_22) free
  fout(passshort_conv_pass_ICEd_1991_22) free
  fout(passshort_conv_pass_ICEg_1991_22) free
- fout(passshort_conv_pass_L2We_1991_22) free
+ fout(passshort_conv_pass_L2Wg_1991_22) free
  fout(passshort_conv_pass_PHEVd_1991_22) free
  fout(passshort_conv_pass_PHEVg_1991_22) free
  fout(passshort_conv_pass_S2We_1991_22) free
@@ -2834,7 +2802,7 @@ Bounds
  fout(passshort_conv_pass_HEVg_1991_23) free
  fout(passshort_conv_pass_ICEd_1991_23) free
  fout(passshort_conv_pass_ICEg_1991_23) free
- fout(passshort_conv_pass_L2We_1991_23) free
+ fout(passshort_conv_pass_L2Wg_1991_23) free
  fout(passshort_conv_pass_PHEVd_1991_23) free
  fout(passshort_conv_pass_PHEVg_1991_23) free
  fout(passshort_conv_pass_S2We_1991_23) free
@@ -2856,8 +2824,8 @@ Bounds
  ctot(conv_pass_ICEd_1991) free
  cret(conv_pass_ICEg_1991) free
  ctot(conv_pass_ICEg_1991) free
- cret(conv_pass_L2We_1991) free
- ctot(conv_pass_L2We_1991) free
+ cret(conv_pass_L2Wg_1991) free
+ ctot(conv_pass_L2Wg_1991) free
  cret(conv_pass_PHEVd_1991) free
  ctot(conv_pass_PHEVd_1991) free
  cret(conv_pass_PHEVg_1991) free

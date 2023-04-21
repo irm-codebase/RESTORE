@@ -41,8 +41,8 @@ def _sets(model: pyo.ConcreteModel):
 def _constraints(model: pyo.ConcreteModel):
     """Set sector constraints."""
     # Input/output
-    model.etrans_c_flow_in = pyo.Constraint(model.ETrans, model.YOpt, model.Hours, rule=gen.c_flow_in)
-    model.etrans_c_flow_out = pyo.Constraint(model.ETrans, model.YOpt, model.Hours, rule=gen.c_flow_out)
+    model.etrans_c_flow_in = pyo.Constraint(model.ETrans, model.Years, model.Hours, rule=gen.c_flow_in)
+    model.etrans_c_flow_out = pyo.Constraint(model.ETrans, model.Years, model.Hours, rule=gen.c_flow_out)
 
 
 def _initialise(model: pyo.ConcreteModel):

@@ -106,27 +106,27 @@ def _variables(model: pyo.ConcreteModel):
 def _constraints(model: pyo.ConcreteModel):
     """Set sector constraints."""
     # Input/output
-    model.trd_c_flow_in = pyo.Constraint(model.Trades, model.YOpt, model.Hours, rule=_c_flow_in)
-    model.trd_c_flow_out = pyo.Constraint(model.Trades, model.YOpt, model.Hours, rule=_c_flow_out)
+    model.trd_c_flow_in = pyo.Constraint(model.Trades, model.Years, model.Hours, rule=_c_flow_in)
+    model.trd_c_flow_out = pyo.Constraint(model.Trades, model.Years, model.Hours, rule=_c_flow_out)
     model.trd_c_max_share_at_in_flow = pyo.Constraint(
-        model.TradesFiE, model.Years, model.Hours, rule=gen.c_max_share_at_in_flow
+        model.TradesFiE, model.YOpt, model.Hours, rule=gen.c_max_share_at_in_flow
     )
     model.trd_c_max_share_at_out_flow = pyo.Constraint(
-        model.TradesFoE, model.Years, model.Hours, rule=gen.c_max_share_at_out_flow
+        model.TradesFoE, model.YOpt, model.Hours, rule=gen.c_max_share_at_out_flow
     )
     # Capacity, no retirements
-    model.trd_c_cap_max_annual = pyo.Constraint(model.Trades, model.Years, rule=gen.c_cap_max_annual)
+    model.trd_c_cap_max_annual = pyo.Constraint(model.Trades, model.YOpt, rule=gen.c_cap_max_annual)
     model.trd_c_cap_transfer = pyo.Constraint(model.Trades, model.YOpt, rule=gen.c_cap_transfer)
-    model.trd_c_cap_buildrate = pyo.Constraint(model.Trades, model.Years, rule=gen.c_cap_buildrate)
+    model.trd_c_cap_buildrate = pyo.Constraint(model.Trades, model.YOpt, rule=gen.c_cap_buildrate)
     # Activity
     model.trd_c_act_setup = pyo.Constraint(model.Trades, model.Years, model.Hours, rule=_c_activity_setup)
-    model.trd_c_act_max_imp_annual = pyo.Constraint(model.Trades, model.Years, rule=_c_act_max_import_annual)
-    model.trd_c_act_max_exp_annual = pyo.Constraint(model.Trades, model.Years, rule=_c_act_max_export_annual)
+    model.trd_c_act_max_imp_annual = pyo.Constraint(model.Trades, model.YOpt, rule=_c_act_max_import_annual)
+    model.trd_c_act_max_exp_annual = pyo.Constraint(model.Trades, model.YOpt, rule=_c_act_max_export_annual)
     model.trd_c_act_cf_min_hour = pyo.Constraint(
-        model.Trades, model.Years, model.Hours, rule=gen.c_act_cf_min_hour
+        model.Trades, model.YOpt, model.Hours, rule=gen.c_act_cf_min_hour
     )
     model.trd_c_act_cf_max_hour = pyo.Constraint(
-        model.Trades, model.Years, model.Hours, rule=gen.c_act_cf_max_hour
+        model.Trades, model.YOpt, model.Hours, rule=gen.c_act_cf_max_hour
     )
 
 
