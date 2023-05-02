@@ -13,6 +13,9 @@ Stick to generic functionality, do not put result-specific stuff in here.
 """
 import matplotlib.pyplot as plt
 
+# Configure plot settings
+plt.rcParams["axes.prop_cycle"] = plt.cycler(color=plt.cm.tab20.colors)
+
 
 def inverted_legend(axis: plt.Axes, bbox_to_anchor=(1.05, 0.5)):
     """Invert the labels in a matplotlib figure."""

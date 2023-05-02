@@ -42,10 +42,32 @@ def _init_dem_elec(model: pyo.ConcreteModel):
 def _init_dem_passenger(model: pyo.ConcreteModel):
     """Passenger demand uses the demand shape from the STEM model, for now."""
     # Set passenger travel demand
-    pass_demand_shape = [0, 0, 0, 0.001672241, 0.003344482, 0.013377926, 0.050167224, 0.066889632,
-                         0.050167224, 0.046822742, 0.046822742, 0.063545151, 0.060200669, 0.070234114,
-                         0.056856187, 0.060200669, 0.08361204, 0.093645485, 0.075250836, 0.058528428,
-                         0.033444816, 0.026755853, 0.025083612, 0.013377926]
+    pass_demand_shape = [
+        0,
+        0,
+        0,
+        0.001672241,
+        0.003344482,
+        0.013377926,
+        0.050167224,
+        0.066889632,
+        0.050167224,
+        0.046822742,
+        0.046822742,
+        0.063545151,
+        0.060200669,
+        0.070234114,
+        0.056856187,
+        0.060200669,
+        0.08361204,
+        0.093645485,
+        0.075250836,
+        0.058528428,
+        0.033444816,
+        0.026755853,
+        0.025083612,
+        0.013377926,
+    ]
     # pass_demand_shape = [1/24]*24
 
     for y in model.Years:
@@ -74,7 +96,9 @@ def _constraints(model: pyo.ConcreteModel):
     """Set sector constraints."""
     # Input
     model.dem_c_flow_in = pyo.Constraint(model.Dems, model.Years, model.Hours, rule=gen.c_flow_in)
-    model.dem_c_input_share = pyo.Constraint(model.DemsFiE, model.YOpt, model.Hours, rule=gen.c_input_share)
+    model.dem_c_input_share_equal = pyo.Constraint(
+        model.DemsFiE, model.YOpt, model.Hours, rule=gen.c_input_share_equal
+    )
 
 
 def _initialise(model: pyo.ConcreteModel):

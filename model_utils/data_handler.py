@@ -162,8 +162,8 @@ class DataHandler:
         except KeyError as exc:
             raise KeyError("Invalid key for", entity_id, parameter) from exc
 
-        assert np.isnan(value) or value == 1, f"Invalid: {entity_id}, {parameter}"
-        return not np.isnan(value)
+        assert np.isnan(value) or isinstance(value, Number), f"Invalid: {entity_id}, {parameter}"
+        return None if np.isnan(value) else value
 
     def get_const(self, entity_id: str, parameter: str) -> Any:
         """Return configuration constants.
@@ -243,6 +243,6 @@ class DataHandler:
     def build_cnf_set(self, entity_set: set, parameter: str):
         """Create a set where the given configuration is enabled."""
         config_enabled = set()
-        config_enabled = [i for i in entity_set if self.check_cnf(i, parameter)]
+        config_enabled = [i for i in entity_set if self.check_cnf(i, parameter) == 1]
 
         return set(config_enabled)

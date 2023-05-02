@@ -108,11 +108,11 @@ def _constraints(model: pyo.ConcreteModel):
     # Input/output
     model.trd_c_flow_in = pyo.Constraint(model.Trades, model.Years, model.Hours, rule=_c_flow_in)
     model.trd_c_flow_out = pyo.Constraint(model.Trades, model.Years, model.Hours, rule=_c_flow_out)
-    model.trd_c_max_share_at_in_flow = pyo.Constraint(
-        model.TradesFiE, model.YOpt, model.Hours, rule=gen.c_max_share_at_in_flow
+    model.trd_c_flow_in_share_max = pyo.Constraint(
+        model.TradesFiE, model.YOpt, model.Hours, rule=gen.c_flow_in_share_max
     )
-    model.trd_c_max_share_at_out_flow = pyo.Constraint(
-        model.TradesFoE, model.YOpt, model.Hours, rule=gen.c_max_share_at_out_flow
+    model.trd_c_flow_out_share_max = pyo.Constraint(
+        model.TradesFoE, model.YOpt, model.Hours, rule=gen.c_flow_out_share_max
     )
     # Capacity, no retirements
     model.trd_c_cap_max_annual = pyo.Constraint(model.Trades, model.YOpt, rule=gen.c_cap_max_annual)

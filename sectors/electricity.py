@@ -29,7 +29,8 @@ def _c_act_cf_max_hour(model, element_id, y, h):
 
     Accounts for VRE load factors.
     """
-    if not cnf.DATA.check_cnf(element_id, "enable_capacity"):
+    enable_year = cnf.DATA.check_cnf(element_id, "enable_year")
+    if not cnf.DATA.check_cnf(element_id, "enable_capacity") or y <= enable_year:
         return pyo.Constraint.Skip
     if element_id in model.ElecsVRE:
         lf_max = VRE_DICT[element_id][y, h % 24]
@@ -64,9 +65,7 @@ def _c_cap_base(model, y):
     base_power = cnf.DATA.get_annual(flow_id, "base_capacity_demand", y)
     base_cap_sys = sum(
         [
-            model.ctot[e, y]
-            * cnf.DATA.get_fxe(e, "output_efficiency", f, y)
-            * cnf.DATA.get(e, "lf_min", y)
+            model.ctot[e, y] * cnf.DATA.get_fxe(e, "output_efficiency", f, y) * cnf.DATA.get(e, "lf_min", y)
             for f, e in model.FoE
             if f == flow_id and e in (model.Caps - model.Trades)
         ]
