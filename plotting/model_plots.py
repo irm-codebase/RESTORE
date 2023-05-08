@@ -8,14 +8,11 @@
 # https://www.gnu.org/licenses/gpl-3.0-standalone.html
 # --------------------------------------------------------------------------- #
 """Graph generating utilities for RESTORE model outputs."""
-import networkx as nx
 import pandas as pd
 import pyomo.environ as pyo
 
 from model_utils.data_handler import DataHandler
-from analysis import fig_tools
-
-# fig_tools.plt.rcParams["axes.prop_cycle"] = fig_tools.plt.cycler(color=fig_tools.plt.cm.tab20.colors)
+from plotting import fig_tools
 
 
 def _add_historical(axis, model: pyo.ConcreteModel, handler: DataHandler, flow: list):
@@ -23,28 +20,6 @@ def _add_historical(axis, model: pyo.ConcreteModel, handler: DataHandler, flow: 
     historical_ref = pd.Series(data=historical_data, index=model.Years, name="Historical total")
     axis = historical_ref.plot.line(ax=axis, color="black", linestyle="-.")
     return axis
-
-
-def plot_io_network(*in_out: pd.DataFrame, labels=True):
-    """Create a network graph using input/output dataframes.
-
-    Multiindex/column not supported., and must match for all given dataframes.
-
-    Args:
-        labels (bool, optional): Whether to include labels in the plot. Defaults to True.
-    """
-    network_df = pd.DataFrame()
-    for i, io_df in enumerate(in_out):
-        if i == 0:
-            network_df = io_df.copy()
-        else:
-            network_df.update(io_df)
-    edges = network_df.index.to_list() + network_df.columns.to_list()
-    adjacency_df = pd.DataFrame(index=edges, columns=edges, dtype=float)
-    adjacency_df.update(network_df)
-    adjacency_df = adjacency_df.notnull().astype(int)
-    network = nx.from_pandas_adjacency(adjacency_df)
-    nx.draw_networkx(network, node_size=100, font_size=6, with_labels=labels)
 
 
 # --------------------------------------------------------------------------- #
