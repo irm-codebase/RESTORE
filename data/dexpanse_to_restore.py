@@ -121,7 +121,7 @@ def parse_profiles(old_folder: str, new_folder: str):
     for item in file_list:
         if ".csv" in item:
             item_path = os.path.join(old_folder, item)
-            save_path = os.path.join(new_folder, "profiles/elec_supply", item)
+            save_path = os.path.join(new_folder, "_profiles/elec_supply", item)
             shutil.copyfile(item_path, save_path)
 
 

@@ -98,12 +98,12 @@ def get_demand_shape(years: list, days: list, hist_elec_demand: pd.Series) -> tu
     country = "CHE"
     for i, y in enumerate(years):
         try:
-            path = f"{folder}/profiles/elec_supply/{country}_{y}.csv"
+            path = f"{folder}/_profiles/elec_supply/{country}_{y}.csv"
             load_prof = pd.read_csv(path, index_col=0)
             load_prof = load_prof.fillna(method="bfill", axis=1).values
         except FileNotFoundError:
             try:
-                path = f"{folder}/profiles/elec_supply"
+                path = f"{folder}/_profiles/elec_supply"
                 profiles = [f for f in listdir(path) if isfile(join(path, f)) and country in f]
                 earliest_profile = sorted(profiles)[0]
                 path = f"{path}/{earliest_profile}"

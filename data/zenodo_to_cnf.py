@@ -350,11 +350,13 @@ def create_cnf_file(data_folder_path: str, cnf_file_path: str):
     """Parse through datafiles and create a configuration file, recursively."""
     dir_items = sorted(os.listdir(data_folder_path))
     for item in dir_items:
+        if item[0] == "_":  # first is for easy file deactivation, second avoids .xlsx issues
+            continue
         try:
             item_path = os.path.join(data_folder_path, item)
-            if os.path.isdir(item_path) and "_" not in item:  # ensure generic folders are omitted
+            if os.path.isdir(item_path):  
                 create_cnf_file(item_path, cnf_file_path)
-            elif os.path.isfile(item_path) and "_" in item and ".xlsx" in item and "$" not in item:
+            elif os.path.isfile(item_path) and ".xlsx" in item and "$" not in item:
                 # Test if the file is named correctly and identify the excel sheet grouping
                 file_name = item.removesuffix(".xlsx")
                 data_settings = file_name.split("_")

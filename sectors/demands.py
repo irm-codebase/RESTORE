@@ -42,6 +42,7 @@ def _init_dem_elec(model: pyo.ConcreteModel):
 def _init_dem_passenger(model: pyo.ConcreteModel):
     """Passenger demand uses the demand shape from the STEM model, for now."""
     # Set passenger travel demand
+    # TODO: temporary until a standard for load shapes is created
     pass_demand_shape = [
         0,
         0,
@@ -68,7 +69,6 @@ def _init_dem_passenger(model: pyo.ConcreteModel):
         0.025083612,
         0.013377926,
     ]
-    # pass_demand_shape = [1/24]*24
 
     for y in model.Years:
         for h in model.Hours:
@@ -104,7 +104,7 @@ def _constraints(model: pyo.ConcreteModel):
 def _initialise(model: pyo.ConcreteModel):
     """Set initial sector values."""
     _init_dem_elec(model)
-    _init_dem_passenger(model)
+    # _init_dem_passenger(model)
 
 
 # --------------------------------------------------------------------------- #
