@@ -7,7 +7,10 @@
 # GNU General Public License v3.0 or later
 # https://www.gnu.org/licenses/gpl-3.0-standalone.html
 # --------------------------------------------------------------------------- #
-"""D-EXPANSE to RESTORE parsers and conversion scripts."""
+"""D-EXPANSE to RESTORE parsers and conversion scripts.
+
+# TODO: this file has not been updated to the latest style.
+"""
 import os
 import shutil
 
@@ -18,7 +21,7 @@ from gen_utils import file_manager
 
 
 PATH_OLD = "/Users/ruiziv/switchdrive/ACCURACY/D-EXPANSE/CHE"
-PATH_NEW = "data/zenodo_ivan/"
+PATH_NEW = "data/zenodo/"
 
 TECH_CHP_ABLE = ["coal", "biogas", "gas", "oil", "uranium", "waste", "biomass"]
 

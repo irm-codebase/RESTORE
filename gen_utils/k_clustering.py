@@ -93,7 +93,7 @@ def get_demand_shape(years: list, days: list, hist_elec_demand: pd.Series) -> tu
     """
     k_ratio_y_d = dict.fromkeys(years)
     demand_y_d_h = dict.fromkeys(years)
-    folder = "data/zenodo_ivan"
+    folder = "data/zenodo"
 
     country = "CHE"
     for i, y in enumerate(years):

@@ -14,7 +14,7 @@ from datetime import datetime
 
 import pandas as pd
 
-TEMPLATE_PATH = "data/zenodo_ivan/_templates/template.xlsx"
+TEMPLATE_PATH = "data/zenodo/_templates/template.xlsx"
 COLUMNS = pd.read_excel(TEMPLATE_PATH, sheet_name="template", header=4).columns
 
 

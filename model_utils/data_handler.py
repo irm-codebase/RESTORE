@@ -63,7 +63,7 @@ def get_lf_vre(country: str) -> dict:
     Returns:
         dict: LF data, indexed by [Tech][year (1980-2019), timeslice (0-23)]
     """
-    path = "data/zenodo_ivan/_common/renewables_ninja"
+    path = "data/zenodo/_common/renewables_ninja"
     solar_pv = pd.read_csv(
         f"{path}/ninja_pv_country_{country}_merra-2_corrected.csv",
         header=2,

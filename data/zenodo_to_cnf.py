@@ -11,12 +11,16 @@
 
 Unit conversion and currency conversion functions were adapted from D-EXPANSE.
 Linearisation and configuration data aggregation are new to RESTORE.
+# TODO: standardize the common files.
+# TODO: add unit checker (trigger error if unknown unit is detected)
+# TODO: cleanup, too many globals
 """
 import os
 import pandas as pd
 import numpy as np
 
-COMMON_PATH = "data/zenodo_ivan/_common"
+ZENODO_PATH = "data/zenodo"
+COMMON_PATH = os.path.join(ZENODO_PATH, "_common")
 
 CURRENCY_DF = pd.read_csv(os.path.join(COMMON_PATH, "Currency.csv"), skiprows=4, index_col=[0, 2])
 AVAILABLE_CURRENCIES = CURRENCY_DF["Parameter"].unique()
@@ -43,7 +47,6 @@ AVAILABLE_POWER_UNITS = UNITS_DF.loc[UNITS_DF["Unit"] == "MW"].index.unique(2)
 AVAILABLE_ENERGY_UNITS = UNITS_DF.loc[UNITS_DF["Unit"] == "MWh"].index.unique(2)
 
 CNF_INDEX = ["Type", "Parameter", "Flow", "Year"]
-ZENODO_FOLDER_PATH = "data/zenodo_ivan"
 
 
 def _get_conv_factor(country: str, data_yr: int, unit_name: str):
@@ -455,5 +458,5 @@ def create_fxe_matrix(cnf_file_path: str):
 
 # If the script is called directly, build the configuration file in the downloads folder
 if __name__ == "__main__":
-    create_cnf_file(ZENODO_FOLDER_PATH, "/Users/ruiziv/Downloads/test.xlsx")
+    create_cnf_file(ZENODO_PATH, "/Users/ruiziv/Downloads/test.xlsx")
     create_fxe_matrix("/Users/ruiziv/Downloads/test.xlsx")
