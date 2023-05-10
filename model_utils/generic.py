@@ -288,8 +288,7 @@ def init_activity(model, elements):
                 act = DATA.get_annual(element_id, "actual_activity", y) / hours_in_year
             else:
                 act = 0
-            model.a[element_id, y, :].fix(True)
-            model.a[element_id, y, :].set_value(act)
+            model.a[element_id, y, :].fix(act)
 
             if y == enable_year:
                 break
@@ -297,22 +296,19 @@ def init_activity(model, elements):
 
 def init_capacity(model: pyo.ConcreteModel, elements: set):
     """Set the capacity in the inital year, if enabled."""
+    # TODO: Think of a leaner way to implement temporal enabling/disabling.
     for element_id in elements:
         if DATA.check_cnf(element_id, "enable_capacity"):
             enable_year = DATA.check_cnf(element_id, "enable_year")
             cap_enable = DATA.get_annual(element_id, "actual_capacity", enable_year)
             # Capacity is zero until enabled.
             for y in model.Years:
-                model.cnew[element_id, y].fix(True)
-                model.cret[element_id, y].fix(True)
-                model.ctot[element_id, y].fix(True)
-
-                model.cnew[element_id, y].set_value(0)
-                model.cret[element_id, y].set_value(0)
+                model.cnew[element_id, y].fix(0)
+                model.cret[element_id, y].fix(0)
                 if y == enable_year:
-                    model.ctot[element_id, y].set_value(cap_enable)
+                    model.ctot[element_id, y].fix(cap_enable)
                     break
-                model.ctot[element_id, y].set_value(0)
+                model.ctot[element_id, y].fix(0)
 
 
 # --------------------------------------------------------------------------- #

@@ -89,6 +89,7 @@ def _init_variables(model: pyo.ConcreteModel) -> pyo.ConcreteModel:
 def _init_parameters(model: pyo.ConcreteModel) -> pyo.ConcreteModel:
     model.NDAYS = pyo.Param(initialize=cnf.NDAYS, doc="Number of representative days")
     model.TPERIOD = pyo.Param(initialize=365/cnf.NDAYS, doc="Adjust from representative days to year")
+    model.TS = pyo.Param(initialize=cnf.TIMESLICE, doc="Length of a time-slice in the model")
     model.YH = pyo.Param(initialize=365*24, doc="Number of hours in the year")
 
     model.DR = pyo.Param(model.Years, initialize=_discount_rates, doc="Discount Rates")

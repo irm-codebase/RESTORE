@@ -1,0 +1,13 @@
+\ Model cost_copy
+\ LP format - for model browsing. Use MPS format to capture full model detail.
+Minimize
+ 
+Subject To
+ c_u_sto_c_inflow_limit(sto_elec_pumpedhydro_1990_0)_:
+   fin(elecsupply_sto_elec_pumpedhydro_1990_0) <= 0.00177
+ c_e_sto_c_soc_flow(sto_elec_pumpedhydro_1990_0)_:
+   1.111111111111111 fout(elecsupply_sto_elec_pumpedhydro_1990_0)
+   - 0.9 fin(elecsupply_sto_elec_pumpedhydro_1990_0) = -0.19824
+Bounds
+ fin(elecsupply_sto_elec_pumpedhydro_1990_0) free
+End
