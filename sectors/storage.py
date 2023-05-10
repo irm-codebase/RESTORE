@@ -103,15 +103,15 @@ def _init_soc(model: pyo.ConcreteModel, storage_ids: list[str]):
 
 def _sets(model: pyo.ConcreteModel):
     """Create sets used by this sector."""
-    storages = set(cnf.ELEMENTS[cnf.ELEMENTS.str.startswith(GROUP_ID)])
+    storages = set(cnf.ENTITIES[cnf.ENTITIES.str.startswith(GROUP_ID)])
     model.Stors = pyo.Set(initialize=storages, ordered=False)
     model.StorsFoE = pyo.Set(
-        within=model.Flows * model.Elems,
+        within=model.Flows * model.Ents,
         ordered=False,
         initialize={(f, e) for f, e in model.FoE if e in storages},
     )
     model.StorsFiE = pyo.Set(
-        within=model.Flows * model.Elems,
+        within=model.Flows * model.Ents,
         ordered=False,
         initialize={(f, e) for f, e in model.FiE if e in storages},
     )

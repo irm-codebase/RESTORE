@@ -21,10 +21,10 @@ GROUP_ID = "ext_"
 # --------------------------------------------------------------------------- #
 def _sets(model: pyo.ConcreteModel):
     """Create sets used by this sector."""
-    extractions = set(cnf.ELEMENTS[cnf.ELEMENTS.str.startswith(GROUP_ID)])
+    extractions = set(cnf.ENTITIES[cnf.ENTITIES.str.startswith(GROUP_ID)])
     model.Extrs = pyo.Set(initialize=extractions, ordered=False)
     model.ExtrsFoE = pyo.Set(
-        within=model.Flows * model.Elems,
+        within=model.Flows * model.Ents,
         ordered=False,
         initialize={(f, e) for f, e in model.FoE if e in extractions},
     )

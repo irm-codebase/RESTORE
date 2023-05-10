@@ -33,15 +33,15 @@ def _c_travel_time_budget(model: pyo.ConcreteModel, y):
 
 def _sets(model: pyo.ConcreteModel):
     """Create sets used by this sector."""
-    techs = set(cnf.ELEMENTS[cnf.ELEMENTS.str.startswith(GROUP_ID)])
+    techs = set(cnf.ENTITIES[cnf.ENTITIES.str.startswith(GROUP_ID)])
     model.PassTrans = pyo.Set(initialize=techs, ordered=False)
     model.PassTransFoE = pyo.Set(
-        within=model.Flows * model.Elems,
+        within=model.Flows * model.Ents,
         ordered=False,
         initialize={(f, e) for f, e in model.FoE if e in techs},
     )
     model.PassTransFiE = pyo.Set(
-        within=model.Flows * model.Elems,
+        within=model.Flows * model.Ents,
         ordered=False,
         initialize={(f, e) for f, e in model.FiE if e in techs},
     )

@@ -83,10 +83,10 @@ def _init_dem_passenger(model: pyo.ConcreteModel):
 # --------------------------------------------------------------------------- #
 def _sets(model: pyo.ConcreteModel):
     """Create sets used by this sector."""
-    demands = set(cnf.ELEMENTS[cnf.ELEMENTS.str.startswith(GROUP_ID)])
+    demands = set(cnf.ENTITIES[cnf.ENTITIES.str.startswith(GROUP_ID)])
     model.Dems = pyo.Set(initialize=demands, ordered=False)
     model.DemsFiE = pyo.Set(
-        within=model.Flows * model.Elems,
+        within=model.Flows * model.Ents,
         ordered=False,
         initialize={(f, e) for f, e in model.FiE if e in demands},
     )

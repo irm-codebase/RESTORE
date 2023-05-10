@@ -24,15 +24,15 @@ GROUP_ID = "conv_transmission"
 # --------------------------------------------------------------------------- #
 def _sets(model: pyo.ConcreteModel):
     """Create sets used by this sector."""
-    storages = set(cnf.ELEMENTS[cnf.ELEMENTS.str.startswith(GROUP_ID)])
+    storages = set(cnf.ENTITIES[cnf.ENTITIES.str.startswith(GROUP_ID)])
     model.ETrans = pyo.Set(initialize=storages, ordered=False)
     model.ETransFoE = pyo.Set(
-        within=model.Flows * model.Elems,
+        within=model.Flows * model.Ents,
         ordered=False,
         initialize={(f, e) for f, e in model.FoE if e in storages},
     )
     model.ETransFiE = pyo.Set(
-        within=model.Flows * model.Elems,
+        within=model.Flows * model.Ents,
         ordered=False,
         initialize={(f, e) for f, e in model.FiE if e in storages},
     )

@@ -26,9 +26,9 @@ def _add_historical(axis, model: pyo.ConcreteModel, handler: DataHandler, flow: 
 # Flow plots
 # --------------------------------------------------------------------------- #
 def plot_flow_fout(model, handler: DataHandler, flow_ids: list, unit: str = "TWh", hist: str = None):
-    """Plot the modelled element out flows at a flow node."""
-    element_ids = sorted({e for f, e in model.FoE if f in flow_ids})
-    value_df = pd.DataFrame(index=model.Years, columns=element_ids, data=0)
+    """Plot the modelled entity out flows at a flow node."""
+    entity_ids = sorted({e for f, e in model.FoE if f in flow_ids})
+    value_df = pd.DataFrame(index=model.Years, columns=entity_ids, data=0)
 
     # Gather values
     for flow in flow_ids:
@@ -48,9 +48,9 @@ def plot_flow_fout(model, handler: DataHandler, flow_ids: list, unit: str = "TWh
 
 
 def plot_flow_fin(model, handler: DataHandler, flow_ids: list, unit: str = "TWh", hist: str = None):
-    """Plot the modelled element in flows at a flow node."""
-    element_ids = sorted({e for f, e in model.FiE if f in flow_ids})
-    value_df = pd.DataFrame(index=model.Years, columns=element_ids, data=0)
+    """Plot the modelled entity in flows at a flow node."""
+    entity_ids = sorted({e for f, e in model.FiE if f in flow_ids})
+    value_df = pd.DataFrame(index=model.Years, columns=entity_ids, data=0)
 
     # Gather values
     for f, e in model.FiE:
@@ -73,12 +73,12 @@ def plot_flow_fin(model, handler: DataHandler, flow_ids: list, unit: str = "TWh"
 # Group plots
 # --------------------------------------------------------------------------- #
 def plot_group_ctot(model, group_ids: list, unit="GW"):
-    """Plot the modelled total capacity of the elements in a group."""
-    element_ids = sorted({e for group in group_ids for e in model.Elems if group in e and e in model.Caps})
-    cap_df = pd.DataFrame(index=model.Years, columns=element_ids)
+    """Plot the modelled total capacity of the entities in a group."""
+    entity_ids = sorted({e for group in group_ids for e in model.Ents if group in e and e in model.Caps})
+    cap_df = pd.DataFrame(index=model.Years, columns=entity_ids)
 
     # Gather values
-    for e in element_ids:
+    for e in entity_ids:
         for y in model.Years:
             cap_df.loc[y, e] = model.ctot[e, y].value
 
@@ -91,12 +91,12 @@ def plot_group_ctot(model, group_ids: list, unit="GW"):
 
 
 def plot_group_cnew(model, group_ids: list, unit="GW"):
-    """Plot the modelled new capacity of the elements in a group."""
-    element_ids = sorted({e for group in group_ids for e in model.Elems if group in e and e in model.Caps})
-    cap_df = pd.DataFrame(index=model.Years, columns=element_ids)
+    """Plot the modelled new capacity of the entities in a group."""
+    entity_ids = sorted({e for group in group_ids for e in model.Ents if group in e and e in model.Caps})
+    cap_df = pd.DataFrame(index=model.Years, columns=entity_ids)
 
     # Gather values
-    for e in element_ids:
+    for e in entity_ids:
         for y in model.Years:
             cap_df.loc[y, e] = model.cnew[e, y].value
 
@@ -109,12 +109,12 @@ def plot_group_cnew(model, group_ids: list, unit="GW"):
 
 
 def plot_group_cret(model, group_ids: list, unit="GW"):
-    """Plot the modelled retired capacity of the elements in a group."""
-    element_ids = sorted({e for group in group_ids for e in model.Elems if group in e and e in model.Caps})
-    cap_df = pd.DataFrame(index=model.Years, columns=element_ids)
+    """Plot the modelled retired capacity of the entities in a group."""
+    entity_ids = sorted({e for group in group_ids for e in model.Ents if group in e and e in model.Caps})
+    cap_df = pd.DataFrame(index=model.Years, columns=entity_ids)
 
     # Gather values
-    for e in element_ids:
+    for e in entity_ids:
         for y in model.Years:
             cap_df.loc[y, e] = model.cret[e, y].value
 
@@ -127,12 +127,12 @@ def plot_group_cret(model, group_ids: list, unit="GW"):
 
 
 def plot_group_act(model, group_ids: list, unit="GW"):
-    """Plot the activity of the elements in a group."""
-    element_ids = sorted({e for group in group_ids for e in model.Elems if group in e})
-    act_df = pd.DataFrame(index=model.Years, columns=element_ids)
+    """Plot the activity of the entities in a group."""
+    entity_ids = sorted({e for group in group_ids for e in model.Ents if group in e})
+    act_df = pd.DataFrame(index=model.Years, columns=entity_ids)
 
     # Gather values
-    for e in element_ids:
+    for e in entity_ids:
         for y in model.Years:
             act_df.loc[y, e] = model.TPERIOD * sum(model.a[e, y, h].value for h in model.Hours)
 

@@ -17,19 +17,11 @@ import numpy as np
 from data.zenodo_to_cnf import CNF_INDEX
 
 
-def get_flow_element_dict(io_df: pd.DataFrame, by_element=False) -> dict[str, list]:
-    """Create a dictionary with the flows as keys, and the connected processes as the item (in list).
-
-    Args:
-        io_df (pd.DataFrame): In/out dataframe from the configuration file. Must not have multiindex.
-        flows_in_cols (bool, optional): If the flows are in the columns. Defaults to True.
-
-    Returns:
-        dict: Dictionary in the form of {flow: [process, process]}
-    """
+def get_flow_entity_dict(io_df: pd.DataFrame, by_entity=False) -> dict[str, list]:
+    """Create a dictionary with the flows as keys, and the connected processes as the item (in list)."""
     flows = io_df.columns
     io_dict = {f: [] for f in flows}  # type: dict[str, list]
-    index_tuples = list(io_df.stack().index) if not by_element else list(io_df.T.stack().index)
+    index_tuples = list(io_df.stack().index) if not by_entity else list(io_df.T.stack().index)
     for p, f in index_tuples:
         io_dict.setdefault(f, []).append(p)
     return {k: v for k, v in io_dict.items() if v}  # Get rid of empty flows

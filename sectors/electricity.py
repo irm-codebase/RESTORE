@@ -24,20 +24,20 @@ VRE_DICT = data_handler.get_lf_vre(cnf.COUNTRY)
 # --------------------------------------------------------------------------- #
 # Sector-specific constraints
 # --------------------------------------------------------------------------- #
-def _c_act_cf_max_hour(model, element_id, y, h):
-    """Set the maximum hourly utilisation of an element's capacity.
+def _c_act_cf_max_hour(model, entity_id, y, h):
+    """Set the maximum hourly utilisation of an entity's capacity.
 
     Accounts for VRE load factors.
     """
-    enable_year = cnf.DATA.check_cnf(element_id, "enable_year")
-    if not cnf.DATA.check_cnf(element_id, "enable_capacity") or y <= enable_year:
+    enable_year = cnf.DATA.check_cnf(entity_id, "enable_year")
+    if not cnf.DATA.check_cnf(entity_id, "enable_capacity") or y <= enable_year:
         return pyo.Constraint.Skip
-    if element_id in model.ElecsVRE:
-        lf_max = VRE_DICT[element_id][y, h % 24]
+    if entity_id in model.ElecsVRE:
+        lf_max = VRE_DICT[entity_id][y, h % 24]
     else:
-        lf_max = cnf.DATA.get(element_id, "lf_max", y)
-    cap_to_act = cnf.DATA.get(element_id, "capacity_to_activity", y) / model.YH
-    return model.a[element_id, y, h] <= lf_max * model.ctot[element_id, y] * cap_to_act
+        lf_max = cnf.DATA.get(entity_id, "lf_max", y)
+    cap_to_act = cnf.DATA.get(entity_id, "capacity_to_activity", y) / model.YH
+    return model.a[entity_id, y, h] <= lf_max * model.ctot[entity_id, y] * cap_to_act
 
 
 def _c_cap_peak(model, y):
@@ -89,23 +89,23 @@ def _c_cap_base(model, y):
 # --------------------------------------------------------------------------- #
 def _sets(model: pyo.ConcreteModel):
     """Create sets used by this sector."""
-    elec_elements = set()  # type: set[str]
+    elec_entities = set()  # type: set[str]
     for group in GROUP_IDS:
-        elec_elements = elec_elements | set(cnf.ELEMENTS[cnf.ELEMENTS.str.startswith(group)])
-    model.Elecs = pyo.Set(initialize=elec_elements, ordered=False)
+        elec_entities = elec_entities | set(cnf.ENTITIES[cnf.ENTITIES.str.startswith(group)])
+    model.Elecs = pyo.Set(initialize=elec_entities, ordered=False)
 
-    vre_elements = set(c for c in elec_elements for vre in VRE_NAMES if vre in c)
-    model.ElecsVRE = pyo.Set(initialize=vre_elements, ordered=False)
+    vre_entities = set(c for c in elec_entities for vre in VRE_NAMES if vre in c)
+    model.ElecsVRE = pyo.Set(initialize=vre_entities, ordered=False)
 
     model.ElecsFoE = pyo.Set(
-        within=model.Flows * model.Elems,
+        within=model.Flows * model.Ents,
         ordered=False,
-        initialize={(f, e) for f, e in model.FoE if e in elec_elements},
+        initialize={(f, e) for f, e in model.FoE if e in elec_entities},
     )
     model.ElecsFiE = pyo.Set(
-        within=model.Flows * model.Elems,
+        within=model.Flows * model.Ents,
         ordered=False,
-        initialize={(f, e) for f, e in model.FiE if e in elec_elements},
+        initialize={(f, e) for f, e in model.FiE if e in elec_entities},
     )
 
 

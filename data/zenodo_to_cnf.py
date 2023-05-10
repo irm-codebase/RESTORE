@@ -412,7 +412,7 @@ def _build_fxe_matrix(cnf_file_path: str, parameter: str):
         sheet_df = sheet_df.loc[sheet_df["Type"] == "configuration_fxe"]
         sheet_df = sheet_df.loc[sheet_df["Parameter"] == parameter]
         if not sheet_df.empty:
-            # Construct the Flow x Element connections
+            # Construct the Flow x Entity connections
             sheet_df = sheet_df.drop(["Type", "Parameter", "Year"], axis=1)
             sheet_df = sheet_df.dropna(axis=1, how="all")
             sheet_df = sheet_df.set_index("Flow")
@@ -427,7 +427,7 @@ def _build_fxe_matrix(cnf_file_path: str, parameter: str):
 
 
 def create_fxe_matrix(cnf_file_path: str):
-    """Create sheets for FiE (flow into element) and FoE (flow out of element)."""
+    """Create sheets for FiE (flow into entity) and FoE (flow out of entity)."""
     xlsx = pd.ExcelFile(cnf_file_path)
 
     names = {"input": "FiE", "output": "FoE"}
@@ -441,7 +441,7 @@ def create_fxe_matrix(cnf_file_path: str):
             sheet_df = sheet_df.loc[sheet_df["Type"] == "configuration_fxe"]
             sheet_df = sheet_df.loc[sheet_df["Parameter"] == param]
             if not sheet_df.empty:
-                # Construct the Flow x Element connections
+                # Construct the Flow x Entity connections
                 sheet_df = sheet_df.drop(["Type", "Parameter", "Year"], axis=1)
                 sheet_df = sheet_df.dropna(axis=1, how="all")
                 sheet_df = sheet_df.set_index("Flow")

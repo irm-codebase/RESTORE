@@ -10,7 +10,7 @@
 """Trade sector.
 
 Uses unique activity variables (aimp, aexp).
-Each trade element can be configured in 3 ways:
+Each trade entity can be configured in 3 ways:
 - Import mode (only enable_import set)
 - Export mode (only enable_export set)
 - Import/Export mode (both enable_import and enable_export set)
@@ -28,52 +28,52 @@ GROUP_ID = "trd_"
 # --------------------------------------------------------------------------- #
 # Sector-specific constraints
 # --------------------------------------------------------------------------- #
-def _c_activity_setup(model, element_id, y, h):
+def _c_activity_setup(model, entity_id, y, h):
     """Ensure generic and trade-specific activity variables match the model setup.
 
     For trade, the total activity is equal to the sum of imports and exports.
     """
-    if not cnf.DATA.check_cnf(element_id, "enable_import"):
-        model.aimp[element_id, y, h].fix(True)
-        model.aimp[element_id, y, h].set_value(0)
-    if not cnf.DATA.check_cnf(element_id, "enable_export"):
-        model.aexp[element_id, y, h].fix(True)
-        model.aexp[element_id, y, h].set_value(0)
-    return model.a[element_id, y, h] == model.aimp[element_id, y, h] + model.aexp[element_id, y, h]
+    if not cnf.DATA.check_cnf(entity_id, "enable_import"):
+        model.aimp[entity_id, y, h].fix(True)
+        model.aimp[entity_id, y, h].set_value(0)
+    if not cnf.DATA.check_cnf(entity_id, "enable_export"):
+        model.aexp[entity_id, y, h].fix(True)
+        model.aexp[entity_id, y, h].set_value(0)
+    return model.a[entity_id, y, h] == model.aimp[entity_id, y, h] + model.aexp[entity_id, y, h]
 
 
-def _c_flow_in(model: pyo.ConcreteModel, element_id: str, y: str, h: str):
-    """Balance element inflows to its activity."""
-    return model.aexp[element_id, y, h] == sum(
+def _c_flow_in(model: pyo.ConcreteModel, entity_id: str, y: str, h: str):
+    """Balance entity inflows to its activity."""
+    return model.aexp[entity_id, y, h] == sum(
         model.fin[f, e, y, h] * cnf.DATA.get_fxe(e, "input_efficiency", f, y)
         for (f, e) in model.FiE
-        if e == element_id
+        if e == entity_id
     )
 
 
-def _c_flow_out(model: pyo.ConcreteModel, element_id: str, y: int, h: int):
-    """Balance element outflows to its activity."""
-    return model.aimp[element_id, y, h] == sum(
+def _c_flow_out(model: pyo.ConcreteModel, entity_id: str, y: int, h: int):
+    """Balance entity outflows to its activity."""
+    return model.aimp[entity_id, y, h] == sum(
         model.fout[f, e, y, h] / cnf.DATA.get_fxe(e, "output_efficiency", f, y)
         for (f, e) in model.FoE
-        if e == element_id
+        if e == entity_id
     )
 
 
-def _c_act_max_import_annual(model, element_id, y):
+def _c_act_max_import_annual(model, entity_id, y):
     """Limit maximum imports."""
-    max_act_annual = cnf.DATA.get_const(element_id, "max_activity_annual")
-    if element_id not in model.TradesImp or max_act_annual is None:
+    max_act_annual = cnf.DATA.get_const(entity_id, "max_activity_annual")
+    if entity_id not in model.TradesImp or max_act_annual is None:
         return pyo.Constraint.Skip
-    return model.TPERIOD * sum(model.aimp[element_id, y, h] for h in model.Hours) <= max_act_annual
+    return model.TPERIOD * sum(model.aimp[entity_id, y, h] for h in model.Hours) <= max_act_annual
 
 
-def _c_act_max_export_annual(model, element_id, y):
+def _c_act_max_export_annual(model, entity_id, y):
     """Limit maximum exports."""
-    max_act_annual = cnf.DATA.get_const(element_id, "max_activity_annual")
-    if element_id not in model.TradesExp or max_act_annual is None:
+    max_act_annual = cnf.DATA.get_const(entity_id, "max_activity_annual")
+    if entity_id not in model.TradesExp or max_act_annual is None:
         return pyo.Constraint.Skip
-    return model.TPERIOD * sum(model.aexp[element_id, y, h] for h in model.Hours) <= max_act_annual
+    return model.TPERIOD * sum(model.aexp[entity_id, y, h] for h in model.Hours) <= max_act_annual
 
 
 # --------------------------------------------------------------------------- #
@@ -81,17 +81,17 @@ def _c_act_max_export_annual(model, element_id, y):
 # --------------------------------------------------------------------------- #
 def _sets(model: pyo.ConcreteModel):
     """Create sets used by this sector."""
-    trades = set(cnf.ELEMENTS[cnf.ELEMENTS.str.startswith(GROUP_ID)])
+    trades = set(cnf.ENTITIES[cnf.ENTITIES.str.startswith(GROUP_ID)])
     model.Trades = pyo.Set(initialize=trades, ordered=False)
     model.TradesImp = pyo.Set(initialize=cnf.DATA.build_cnf_set(trades, "enable_import"), ordered=False)
     model.TradesExp = pyo.Set(initialize=cnf.DATA.build_cnf_set(trades, "enable_export"), ordered=False)
     model.TradesFoE = pyo.Set(
-        within=model.Flows * model.Elems,
+        within=model.Flows * model.Ents,
         ordered=False,
         initialize={(f, e) for f, e in model.FoE if e in trades},
     )
     model.TradesFiE = pyo.Set(
-        within=model.Flows * model.Elems,
+        within=model.Flows * model.Ents,
         ordered=False,
         initialize={(f, e) for f, e in model.FiE if e in trades},
     )
@@ -136,19 +136,19 @@ def _initialise(model: pyo.ConcreteModel):
     gen.init_capacity(model, model.Trades)
     # Activity: Import and export
     y_0 = model.Years.first()
-    for element_id in model.Trades:
-        if element_id in model.TradesImp:
-            actimp_y0 = cnf.DATA.get_annual(element_id, "actual_import", model.Years.first())
+    for entity_id in model.Trades:
+        if entity_id in model.TradesImp:
+            actimp_y0 = cnf.DATA.get_annual(entity_id, "actual_import", model.Years.first())
             actimp_y0_h = actimp_y0 / (365 * 24)
             for h in model.Hours:
-                model.aimp[element_id, y_0, h].fix(True)
-                model.aimp[element_id, y_0, h].set_value(actimp_y0_h)
-        if element_id in model.TradesExp:
-            actexp_y0 = cnf.DATA.get_annual(element_id, "actual_export", model.Years.first())
+                model.aimp[entity_id, y_0, h].fix(True)
+                model.aimp[entity_id, y_0, h].set_value(actimp_y0_h)
+        if entity_id in model.TradesExp:
+            actexp_y0 = cnf.DATA.get_annual(entity_id, "actual_export", model.Years.first())
             actexp_y0_h = actexp_y0 / (365 * 24)
             for h in model.Hours:
-                model.aexp[element_id, y_0, h].fix(True)
-                model.aexp[element_id, y_0, h].set_value(actexp_y0_h)
+                model.aexp[entity_id, y_0, h].fix(True)
+                model.aexp[entity_id, y_0, h].set_value(actexp_y0_h)
 
 
 # --------------------------------------------------------------------------- #

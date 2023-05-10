@@ -44,24 +44,24 @@ def _init_sets(model: pyo.ConcreteModel) -> pyo.ConcreteModel:
     model.H0 = pyo.Set(initialize=[cnf.HOURS[0]], ordered=True)
 
     # Structural (1xN)
-    elements = set(cnf.ELEMENTS)
+    entities = set(cnf.ENTITIES)
     flows = set(cnf.FLOWS)
-    model.Elems = pyo.Set(initialize=elements, ordered=False)
+    model.Ents = pyo.Set(initialize=entities, ordered=False)
     model.Flows = pyo.Set(initialize=flows, ordered=False)
 
-    # Element groupings (1xN)
-    demands = set(cnf.ELEMENTS[cnf.ELEMENTS.str.startswith("dem_")])
-    processes = elements - demands
+    # Entity groupings (1xN)
+    demands = set(cnf.ENTITIES[cnf.ENTITIES.str.startswith("dem_")])
+    processes = entities - demands
     capacity = cnf.DATA.build_cnf_set(processes, "enable_capacity")
     model.Pros = pyo.Set(initialize=processes, ordered=False)
     model.Caps = pyo.Set(initialize=capacity, ordered=False)
 
     # Connections (FxE), using cartesian subsets
     # See https://github.com/brentertainer/pyomo-tutorials/blob/master/intermediate/05-indexed-sets.ipynb
-    f_in = data_handler.get_flow_element_dict(cnf.DATA.fxe["FiE"])  # Must not contain Extractions
-    f_out = data_handler.get_flow_element_dict(cnf.DATA.fxe["FoE"])  # Must not contain Demands
+    f_in = data_handler.get_flow_entity_dict(cnf.DATA.fxe["FiE"])  # Must not contain Extractions
+    f_out = data_handler.get_flow_entity_dict(cnf.DATA.fxe["FoE"])  # Must not contain Demands
     f_inout_e = data_handler.merge_dicts(f_out, f_in)
-    fxe = model.Flows * model.Elems
+    fxe = model.Flows * model.Ents
     model.FiE = pyo.Set(within=fxe, ordered=False, initialize={(f, p) for f in flows for p in f_in[f]})
     model.FoE = pyo.Set(within=fxe, ordered=False, initialize={(f, p) for f in flows for p in f_out[f]})
     model.FxE = pyo.Set(within=fxe, ordered=False, initialize={(f, p) for f in flows for p in f_inout_e[f]})
@@ -76,7 +76,7 @@ def _init_variables(model: pyo.ConcreteModel) -> pyo.ConcreteModel:
     model.cret = pyo.Var(model.Caps, model.Years, domain=pyo.NonNegativeReals, initialize=0)
 
     # Process activity
-    act = model.Elems
+    act = model.Ents
     model.a = pyo.Var(act, model.Years, model.Hours, domain=pyo.NonNegativeReals, initialize=0)
 
     # Flows
