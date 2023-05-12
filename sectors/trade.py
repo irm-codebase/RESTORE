@@ -157,12 +157,12 @@ def _initialise(model: pyo.ConcreteModel):
 def _cost_variable_om(model: pyo.ConcreteModel, years):
     """Get import cost."""
     cost = sum(
-        model.DR[y] * cnf.DATA.get_annual(e, "cost_import", y) * sum(model.aimp[e, y, h] for h in model.Hours)
+        model.DISCOUNT_RATE[y] * cnf.DATA.get_annual(e, "cost_import", y) * sum(model.aimp[e, y, h] for h in model.Hours)
         for e in model.TradesImp
         for y in years
     )
     cost -= sum(
-        model.DR[y]
+        model.DISCOUNT_RATE[y]
         * cnf.DATA.get_annual(e, "revenue_export", y)
         * sum(model.aexp[e, y, h] for h in model.Hours)
         for e in model.TradesExp

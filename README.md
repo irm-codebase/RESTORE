@@ -7,7 +7,7 @@ RESTORE is based on D-EXPANSE, a stylized national-level power system model used
 - Wen et al.: [Accuracy indicators for evaluating retrospective performance of energy system models](https://doi.org/10.1016/j.apenergy.2022.119906)
 - Wen et al.: [Hindcasting to inform the development of bottom-up electricity system models: The cases of endogenous demand and technology learning](https://doi.org/10.1016/j.apenergy.2023.121035)
 
-RESTORE builds on D-EXPANSE by implementing graph-based energy flows and sector-coupling capabilities (similar to TIMES, TEMOA, OSeMOSYS, etc.). The entire model architecture has been reworked to improve readability, featuring generic constraints that can be easily re-used in sector modules defined by developers.
+RESTORE builds on D-EXPANSE by implementing graph-based energy flows, spatial-disaggregation and sector-coupling capabilities (similar to TIMES, TEMOA, OSeMOSYS, etc.). The entire model architecture has been reworked to improve readability, featuring generic constraints that can be easily re-used in sector modules defined by developers.
 
 RESTORE also features a fully standardized prototyping workflow based on [FAIR principles](https://www.go-fair.org/fair-principles/). Model components (called "entities") are defined in single files, where the user can specify parameter names, values, units and sources. These files are rapidly converted into a single configuration file that the model uses as input. Conversion of currencies, energy units and power units is also integrated into this process.
 
@@ -37,9 +37,11 @@ This is to enable easier tests on the impact on runtime these features will have
 
 To do list:
 - Rework time slicing by adding a day index and day-indexed representativeness parameter.
+- Lenient gets should fail if the parameter is not defined anywhere.
+- Fix the D-EXPANSE "double retirement" glitch.
 - Fix load profile issues in D-EXPANSE files (incorrect indexes, incompleteness).
 - Add k-means plotting functionality to help identify the ideal number of representative days. See https://realpython.com/k-means-clustering-python/
-- Fix lack of demand/weather synchronicity in pre-runs (this is a BIG issue in D-EXPANSE that cannot be allowed to stay).
+- Fix lack of demand/weather synchronicity in pre-runs (inherited from D-EXPANSE).
 - Improve storage by implementing the technique developed by Kotzur et al. (https://doi.org/10.1016/j.apenergy.2018.01.023)
 - Cost functions should be set for each sector module, not in the notebook.
 - Complete the documentation of all modules.

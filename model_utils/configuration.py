@@ -29,7 +29,8 @@ ENTITIES = pd.merge(DATA.fxe["FiE"], DATA.fxe["FoE"], how='outer', left_index=Tr
 FLOWS = set(pd.merge(DATA.fxe["FiE"], DATA.fxe["FoE"], how='inner').columns)
 
 # User defined parameters
-NDAYS = 1
+NDAYS = 2
 YEARS = list(range(1990, 2020))
-HOURS = list(range(NDAYS*24))
+DAYS = list(range(NDAYS))
+HOURS = list(range(24))
 TIMESLICE = 1

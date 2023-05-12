@@ -207,7 +207,7 @@ class DataHandler:
         return None if np.isnan(value) else value
 
     # ------------------------------------------------------------- #
-    # Generic gets (lenient)
+    # Generic gets (lenient) # TODO: should fail if the parameter is not defined!
     # ------------------------------------------------------------- #
     def get(self, entity_id, parameter, year):
         """Get a parameter, checking constants first."""
