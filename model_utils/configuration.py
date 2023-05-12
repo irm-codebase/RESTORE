@@ -20,7 +20,8 @@ import pandas as pd
 
 from model_utils import data_handler as _handler
 
-COUNTRY = "CH"
+ISO2 = "CH"
+ISO3 = "CHE"
 
 # Build model configuration
 DATA = _handler.DataHandler("data/cnf_files/test.xlsx")

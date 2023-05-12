@@ -18,7 +18,7 @@ GROUP_IDS = ["conv_chp_", "conv_elec_"]
 OUTFLOW_ID = "elecsupply"
 
 VRE_NAMES = ["onshorewind", "pv", "offshorewind"]
-VRE_DICT = data_handler.get_lf_vre(cnf.COUNTRY)
+VRE_DICT = data_handler.get_lf_vre(cnf.ISO2)
 
 
 # --------------------------------------------------------------------------- #

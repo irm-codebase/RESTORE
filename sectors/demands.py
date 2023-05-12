@@ -28,7 +28,7 @@ def _init_dem_elec(model: pyo.ConcreteModel):
     """Electricity demand is taken using K-Means, for now."""
     # Set electricity demand
     elec_demand_y = [cnf.DATA.get_annual("dem_elec", "actual_demand", y) for y in model.Years]
-    _, elec_demand_y_h = k_clustering.get_demand_shape(model.Years, [0], elec_demand_y)
+    _, elec_demand_y_h = k_clustering.get_demand_shape(cnf.ISO3, model.Years, cnf.NDAYS, elec_demand_y)
     # Convert back into TWh and remove the array shape
     # TODO: move the magic value to the demand file to enable conversion regardless of the setting?
     elec_demand_y_h = {key: value[0] / 1000 for key, value in elec_demand_y_h.items()}

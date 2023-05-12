@@ -70,14 +70,12 @@ def _init_sets(model: pyo.ConcreteModel) -> pyo.ConcreteModel:
 
 
 def _init_variables(model: pyo.ConcreteModel) -> pyo.ConcreteModel:
-    # Capacity TODO: find a way of eliminating unnecessary capacity variables
     model.ctot = pyo.Var(model.Caps, model.Years, domain=pyo.NonNegativeReals, initialize=0)
     model.cnew = pyo.Var(model.Caps, model.Years, domain=pyo.NonNegativeReals, initialize=0)
     model.cret = pyo.Var(model.Caps, model.Years, domain=pyo.NonNegativeReals, initialize=0)
 
     # Process activity
-    act = model.Ents
-    model.a = pyo.Var(act, model.Years, model.Hours, domain=pyo.NonNegativeReals, initialize=0)
+    model.a = pyo.Var(model.Ents, model.Years, model.Hours, domain=pyo.NonNegativeReals, initialize=0)
 
     # Flows
     model.fin = pyo.Var(model.FiE, model.Years, model.Hours, domain=pyo.NonNegativeReals, initialize=0)

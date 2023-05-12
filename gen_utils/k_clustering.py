@@ -17,10 +17,11 @@ import pandas as pd
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_samples
 
+DATA_FOLDER = "data/zenodo"
 
-# TODO: input should be an integer. The list makes little sense.
+
 # TODO: handle units here? Big problem!
-def get_k_means_hourly_demand(days: list, load_prof_yr: list) -> tuple[np.ndarray, np.ndarray]:
+def get_k_means_hourly_demand(n_days: int, load_prof_yr: list) -> tuple[np.ndarray, np.ndarray]:
     """Obtain a number of representative daily load profiles using k-means clustering.
 
     Args:
@@ -32,21 +33,21 @@ def get_k_means_hourly_demand(days: list, load_prof_yr: list) -> tuple[np.ndarra
             - Ratio of occurrence for each day (i.e., how many days in the year will have this shape)
             - Matrix of size (n_days, 24) with the combined hourly demand of all representative days
     """
-    k_means_model = KMeans(n_clusters=len(days), random_state=0).fit(load_prof_yr)
+    k_means_model = KMeans(n_clusters=n_days, random_state=0).fit(load_prof_yr)  # Deterministic clustering
     cluster_labels = k_means_model.fit_predict(load_prof_yr)
     hourly_dem = k_means_model.cluster_centers_ / 1000
 
-    if len(days) > 1:
+    if n_days > 1:
         # The silhouette_score gives the average value for all the samples.
         # This gives a perspective into the density and separation of the formed clusters
         sample_silhouette_values = silhouette_samples(load_prof_yr, cluster_labels)
-        size_cluster = np.zeros(len(days))
-        for i in days:
+        size_cluster = np.zeros(n_days)
+        for i in range(n_days):
             # get the number of days corresponding to each cluster
             size_cluster[i] = len(sample_silhouette_values[cluster_labels == i])
 
-        cluster_ratios = np.zeros(len(days))
-        for i in days:
+        cluster_ratios = np.zeros(n_days)
+        for i in range(n_days):
             # calculate the % of representation of cluster i in the whole year
             cluster_ratios[i] = size_cluster[i] / sum(size_cluster)
     else:
@@ -80,37 +81,26 @@ def get_supplied_ratio_y_d(demand_y_d_h: dict, k_ratio_y_d: dict, days: list, ye
     return ratio_total_supplied_y_d
 
 
-def get_demand_shape(years: list, days: list, hist_elec_demand: pd.Series) -> tuple[dict, dict]:
-    """Get k-means cluster shapes for the electricity demand in certain years.
-
-    Args:
-        years (list): list of years to obtain.
-        days (list): list of representative days within a year.
-        hist_elec_demand (pd.Series): list of actual historical electricity demand (used for fitting)
-
-    Returns:
-        tuple[dict, dict]: [ratio of each representative (year,day), demand shape (year,day,hour)]
-    """
+def get_demand_shape(country: str, years: list, days: int, hist_elec_demand: pd.Series) -> tuple[dict, dict]:
+    """Get k-means cluster shapes for the electricity demand in certain years."""
     k_ratio_y_d = dict.fromkeys(years)
     demand_y_d_h = dict.fromkeys(years)
-    folder = "data/zenodo"
 
-    country = "CHE"
     for i, y in enumerate(years):
         try:
-            path = f"{folder}/_profiles/elec_supply/{country}_{y}.csv"
+            path = f"{DATA_FOLDER}/_profiles/elec_supply/{country}_{y}.csv"
             load_prof = pd.read_csv(path, index_col=0)
             load_prof = load_prof.fillna(method="bfill", axis=1).values
         except FileNotFoundError:
             try:
-                path = f"{folder}/_profiles/elec_supply"
+                path = f"{DATA_FOLDER}/_profiles/elec_supply"
                 profiles = [f for f in listdir(path) if isfile(join(path, f)) and country in f]
                 earliest_profile = sorted(profiles)[0]
                 path = f"{path}/{earliest_profile}"
                 load_prof = pd.read_csv(path, index_col=0)
                 load_prof = load_prof.fillna(method="bfill", axis=1).values
             except FileNotFoundError:
-                load_prof = pd.read_csv(f"{folder}/_common/GenericLoadProfile.csv")
+                load_prof = pd.read_csv(f"{DATA_FOLDER}/_common/GenericLoadProfile.csv")
                 load_prof = load_prof[[c for c in load_prof.columns if "SensedHourly" in c]].values
 
         k_ratio_y_d[y], prof_demand_d_h = get_k_means_hourly_demand(days, load_prof)
@@ -118,7 +108,7 @@ def get_demand_shape(years: list, days: list, hist_elec_demand: pd.Series) -> tu
         # Apply a correction to the hourly profiles using historical data.
         # Necessary since demand profiles may not be available for every year.
         elec_supplied_y = 0
-        for d in days:
+        for d in range(days):
             elec_supplied_y += sum(prof_demand_d_h[d, :]) * 365 * k_ratio_y_d[y][d] / 1000
         hist_prof_ratio_y = hist_elec_demand[i] / elec_supplied_y
         demand_y_d_h[y] = prof_demand_d_h * hist_prof_ratio_y
