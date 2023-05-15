@@ -1,7 +1,7 @@
 # The RESTORE model
 RESTORE: RetrospEctive SecTor cOupled eneRgy toolsEt
 
-## Short description
+## Brief history description
 RESTORE is based on D-EXPANSE, a stylized national-level nodal power system model used in hindcasting studies:
 - Trutnevyte: [Does cost optimization approximate the real-world energy transition?](http://dx.doi.org/10.1016/j.energy.2016.03.038)
 - Wen et al.: [Accuracy indicators for evaluating retrospective performance of energy system models](https://doi.org/10.1016/j.apenergy.2022.119906)
@@ -9,7 +9,13 @@ RESTORE is based on D-EXPANSE, a stylized national-level nodal power system mode
 
 **Please note that D-EXPANSE is not the same model as EXPANSE, which is a spatially explicit electricity model with no inter year slicing!**
 
-RESTORE builds on D-EXPANSE by implementing graph-based energy flows, spatial-disaggregation and sector-coupling capabilities (similar to TIMES, TEMOA, OSeMOSYS, etc.). The entire model architecture has been reworked to improve readability, featuring generic constraints that can be easily re-used in sector modules defined by developers.
+## New features in RESTORE
+RESTORE builds on D-EXPANSE by implementing:
+- Graph-based flows
+- Spatial disaggregation
+- Sector coupling functionality
+- Reworked architecture to improve readability and modularity
+- Generic, pre-made constraints and expressions that can be easily re-used in sector modules defined by developers
 
 RESTORE also features a fully standardized prototyping workflow based on [FAIR principles](https://www.go-fair.org/fair-principles/). Model components (called "entities") are defined in single files, where the user can specify parameter names, values, units and sources. These files are rapidly converted into a single configuration file that the model uses as input. Conversion of currencies, energy units and power units is also integrated into this process.
 
@@ -17,9 +23,7 @@ This lets model developers track the sources of their data, and gives users and 
 
 ## IMPORTANT
 
-RESTORE is ***not a model validation tool***. Although hindcasting/retrospective studies are useful to test modeller assumptions, they are subject to a plethora of uncertainties that cannot be easily reduced without strong empirical evidence. Essentially, the usefulness of hindcasting is limited by the availability and fineness of historical energy system data, which usually has very limited temporal and spatial resolution. These dimensions matter a lot when it comes to calculating prices, system resilience and the viability of renewable technologies.
-
-Please be careful with hindcasting studies that make assertions about the past since it is difficult to distinguish between parametric, structural and behavioural uncertainties.
+RESTORE is ***not a model validation tool***. Although hindcasting/retrospective studies are useful to test modeller assumptions, they are subject to a plethora of uncertainties that are difficult to avoid. Essentially, the usefulness of hindcasting is limited by the availability and fineness of historical energy system data, which usually has very limited temporal and spatial resolution. These dimensions matter a lot when it comes to calculating prices, system resilience and the viability of renewable technologies.
 
 For more on the topic of model evaluation and past uncertainty, see the following:
 - Oreskes: [Evaluation (not validation) of quantitative models](https://doi.org/10.1289/ehp.98106s61453)
@@ -39,12 +43,11 @@ This is to enable easier tests on the impact on runtime these features will have
 
 To do list:
 - Rework time slicing by adding a day index and day-indexed representativeness parameter.
-- Lenient gets should fail if the parameter is not defined anywhere.
 - Improve the retirement constraint by implementing the OSeMOSYS version of it (will enable sigmoid retirement).
-- Fix load profile issues in D-EXPANSE files (incorrect indexes, incompleteness).
+- Fix load profile issues in D-EXPANSE files (incorrect indexing/missing days).
 - Import capacities are not correct in the D-EXPANSE files... source them from PyPSA?
-- Add k-means plotting functionality to help identify the ideal number of representative days. See https://realpython.com/k-means-clustering-python/
 - Fix lack of demand/weather synchronicity in pre-runs (bug in D-EXPANSE k-means algorithm, use the verson in the STONES model?).
+- Add k-means "shoulder" plotting to help identify the ideal number of representative days. See https://realpython.com/k-means-clustering-python/
 - Improve storage by implementing the technique developed by Kotzur et al. (https://doi.org/10.1016/j.apenergy.2018.01.023)
 - Cost functions should be set for each sector module, not in the notebook.
 - Complete the documentation of all modules.
