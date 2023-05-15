@@ -23,10 +23,10 @@ from model_utils import configuration as cnf
 from model_utils import data_handler
 
 
-def _c_io_balance(model: pyo.ConcreteModel, n: str, flow_id: str, y: int, d: int, h: int):
+def _c_io_balance(model: pyo.ConcreteModel, flow_id: str, y: int, d: int, h: int):
     """Balance inputs and outputs at every flow bus."""
-    outflows_prev = sum(model.fout[n, f, e, y, d, h] for (f, e) in model.FoE if f == flow_id)
-    inflows_next = sum(model.fin[n, f, e, y, d, h] for (f, e) in model.FiE if f == flow_id)
+    outflows_prev = sum(model.fout[f, e, y, d, h] for (f, e) in model.FoE if f == flow_id)
+    inflows_next = sum(model.fin[f, e, y, d, h] for (f, e) in model.FiE if f == flow_id)
     return outflows_prev == inflows_next
 
 
@@ -40,9 +40,6 @@ def _day_share(model: pyo.ConcreteModel, y, d):  # TODO: this should be obtained
 
 
 def _init_sets(model: pyo.ConcreteModel) -> pyo.ConcreteModel:
-    # Spatial
-    model.N = pyo.Set(initialize=[cnf.ISO3], ordered=False)  # largely unused, for now
-
     # Temporal (1xN)
     model.Y = pyo.Set(initialize=cnf.YEARS, ordered=True)
     model.Y0 = pyo.Set(initialize=[cnf.YEARS[0]], ordered=True)
@@ -77,16 +74,16 @@ def _init_sets(model: pyo.ConcreteModel) -> pyo.ConcreteModel:
 
 
 def _init_variables(model: pyo.ConcreteModel) -> pyo.ConcreteModel:
-    model.ctot = pyo.Var(model.N, model.Caps, model.Y, domain=pyo.NonNegativeReals, initialize=0)
-    model.cnew = pyo.Var(model.N, model.Caps, model.Y, domain=pyo.NonNegativeReals, initialize=0)
-    model.cret = pyo.Var(model.N, model.Caps, model.Y, domain=pyo.NonNegativeReals, initialize=0)
+    model.ctot = pyo.Var(model.Caps, model.Y, domain=pyo.NonNegativeReals, initialize=0)
+    model.cnew = pyo.Var(model.Caps, model.Y, domain=pyo.NonNegativeReals, initialize=0)
+    model.cret = pyo.Var(model.Caps, model.Y, domain=pyo.NonNegativeReals, initialize=0)
 
     # Process activity
-    model.a = pyo.Var(model.N, model.E, model.Y, model.D, model.H, domain=pyo.NonNegativeReals, initialize=0)
+    model.a = pyo.Var(model.E, model.Y, model.D, model.H, domain=pyo.NonNegativeReals, initialize=0)
 
     # Flows
-    model.fin = pyo.Var(model.N, model.FiE, model.Y, model.D, model.H, domain=pyo.NonNegativeReals, initialize=0)
-    model.fout = pyo.Var(model.N, model.FoE, model.Y, model.D, model.H, domain=pyo.NonNegativeReals, initialize=0)
+    model.fin = pyo.Var(model.FiE, model.Y, model.D, model.H, domain=pyo.NonNegativeReals, initialize=0)
+    model.fout = pyo.Var(model.FoE, model.Y, model.D, model.H, domain=pyo.NonNegativeReals, initialize=0)
 
     return model
 
@@ -110,6 +107,6 @@ def init_model() -> pyo.ConcreteModel:
     model = _init_variables(model)
     model = _init_parameters(model)
 
-    model.c_io_balance = pyo.Constraint(model.N, model.F, model.Y, model.D, model.H, rule=_c_io_balance)
+    model.c_io_balance = pyo.Constraint(model.F, model.Y, model.D, model.H, rule=_c_io_balance)
 
     return model

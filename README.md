@@ -7,6 +7,8 @@ RESTORE is based on D-EXPANSE, a stylized national-level power system model used
 - Wen et al.: [Accuracy indicators for evaluating retrospective performance of energy system models](https://doi.org/10.1016/j.apenergy.2022.119906)
 - Wen et al.: [Hindcasting to inform the development of bottom-up electricity system models: The cases of endogenous demand and technology learning](https://doi.org/10.1016/j.apenergy.2023.121035)
 
+**Please note that D-EXPANSE is not the same model as EXPANSE, which is a spatially explicit electricity model with no inter year slicing!**
+
 RESTORE builds on D-EXPANSE by implementing graph-based energy flows, spatial-disaggregation and sector-coupling capabilities (similar to TIMES, TEMOA, OSeMOSYS, etc.). The entire model architecture has been reworked to improve readability, featuring generic constraints that can be easily re-used in sector modules defined by developers.
 
 RESTORE also features a fully standardized prototyping workflow based on [FAIR principles](https://www.go-fair.org/fair-principles/). Model components (called "entities") are defined in single files, where the user can specify parameter names, values, units and sources. These files are rapidly converted into a single configuration file that the model uses as input. Conversion of currencies, energy units and power units is also integrated into this process.
