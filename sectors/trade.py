@@ -159,7 +159,7 @@ def _constraints(model: pyo.ConcreteModel):
     )
     # Capacity, no retirements
     model.trd_c_cap_max_annual = pyo.Constraint(model.Trades, model.Y, rule=gen_con.c_cap_max_annual)
-    model.trd_c_cap_transfer = pyo.Constraint(model.Trades, model.Y, rule=gen_con.c_cap_transfer)
+    model.trd_c_cap_transfer = pyo.Constraint(model.Trades, model.Y-model.Y0, rule=gen_con.c_cap_transfer)
     model.trd_c_cap_buildrate = pyo.Constraint(model.Trades, model.Y, rule=gen_con.c_cap_buildrate)
     # Activity
     model.trd_c_act_setup = pyo.Constraint(model.Trades, model.Y, model.D, model.H, rule=_c_activity_setup)

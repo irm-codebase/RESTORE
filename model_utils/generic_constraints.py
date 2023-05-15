@@ -174,7 +174,7 @@ def c_cap_max_annual(model: pyo.ConcreteModel, e: str, y: int):
 
 def c_cap_transfer(model: pyo.ConcreteModel, e: str, y: int):
     """Transfer installed capacity between year slices."""
-    if DATA.check_cnf(e, "enable_capacity") and y > DATA.check_cnf(e, "enable_year"):
+    if DATA.check_cnf(e, "enable_capacity") and y >= DATA.check_cnf(e, "enable_year"):
         total_capacity = model.ctot[e, y - 1] + model.cnew[e, y] - model.cret[e, y]
         return model.ctot[e, y] == total_capacity
     return pyo.Constraint.Skip
@@ -182,7 +182,7 @@ def c_cap_transfer(model: pyo.ConcreteModel, e: str, y: int):
 
 def c_cap_retirement(model: pyo.ConcreteModel, e: str, y: int):
     """Retire installed capacity if configured or if the lifetime has been exceeded."""
-    if DATA.check_cnf(e, "enable_capacity") and y > DATA.check_cnf(e, "enable_year"):
+    if DATA.check_cnf(e, "enable_capacity") and y >= DATA.check_cnf(e, "enable_year"):
         life = DATA.get_const(e, "lifetime")
         if life is None:  # Instalments last indefinitely
             return model.cret[e, y] == 0
@@ -196,7 +196,7 @@ def c_cap_retirement(model: pyo.ConcreteModel, e: str, y: int):
 
 def c_cap_buildrate(model: pyo.ConcreteModel, e: str, y: int):
     """Limit the speed of annual capacity increase."""
-    if DATA.check_cnf(e, "enable_capacity") and y > DATA.check_cnf(e, "enable_year"):
+    if DATA.check_cnf(e, "enable_capacity") and y >= DATA.check_cnf(e, "enable_year"):
         buildrate = DATA.get(e, "buildrate", y)
         return model.cnew[e, y] <= buildrate if buildrate is not None else pyo.Constraint.Skip
     return pyo.Constraint.Skip
@@ -207,7 +207,7 @@ def c_cap_buildrate(model: pyo.ConcreteModel, e: str, y: int):
 # --------------------------------------------------------------------------- #
 def c_act_ramp_up(model: pyo.ConcreteModel, entity_id: str, y: int, d: int, h: int):
     """Limit the hourly activity increments of an entity."""
-    if DATA.check_cnf(entity_id, "enable_capacity") and y > DATA.check_cnf(entity_id, "enable_year"):
+    if DATA.check_cnf(entity_id, "enable_capacity") and y >= DATA.check_cnf(entity_id, "enable_year"):
         ramp_rate = DATA.get(entity_id, "ramp_rate", y)
         if ramp_rate is None or ramp_rate >= 1:  # No limit and ramping at/above 1 are equivalent
             return pyo.Constraint.Skip
@@ -219,7 +219,7 @@ def c_act_ramp_up(model: pyo.ConcreteModel, entity_id: str, y: int, d: int, h: i
 
 def c_act_ramp_down(model: pyo.ConcreteModel, entity_id: str, y: int, d: int, h: int):
     """Limit the hourly activity decrements of an entity."""
-    if DATA.check_cnf(entity_id, "enable_capacity") and y > DATA.check_cnf(entity_id, "enable_year"):
+    if DATA.check_cnf(entity_id, "enable_capacity") and y >= DATA.check_cnf(entity_id, "enable_year"):
         ramp_rate = DATA.get(entity_id, "ramp_rate", y)
         if ramp_rate is None or ramp_rate >= 1:  # No limit and ramping at/above 1 are equivalent
             return pyo.Constraint.Skip
@@ -240,7 +240,7 @@ def c_act_max_annual(model: pyo.ConcreteModel, entity_id: str, y: int):
 
 def c_act_cf_min_hour(model: pyo.ConcreteModel, entity_id: str, y: int, d: int, h: int):
     """Set the minimum hourly utilisation of an entity's capacity."""
-    if DATA.check_cnf(entity_id, "enable_capacity") and y > DATA.check_cnf(entity_id, "enable_year"):
+    if DATA.check_cnf(entity_id, "enable_capacity") and y >= DATA.check_cnf(entity_id, "enable_year"):
         lf_min = DATA.get(entity_id, "lf_min", y)
         cap_to_act = DATA.get(entity_id, "capacity_to_activity", y) * model.HL / (365 * 24)
         return lf_min * model.ctot[entity_id, y] * cap_to_act <= model.a[entity_id, y, d, h]
@@ -249,7 +249,7 @@ def c_act_cf_min_hour(model: pyo.ConcreteModel, entity_id: str, y: int, d: int, 
 
 def c_act_cf_max_hour(model: pyo.ConcreteModel, entity_id: str, y: int, d: int, h: int):
     """Set the maximum hourly utilisation of an entity's capacity."""
-    if DATA.check_cnf(entity_id, "enable_capacity") and y > DATA.check_cnf(entity_id, "enable_year"):
+    if DATA.check_cnf(entity_id, "enable_capacity") and y >= DATA.check_cnf(entity_id, "enable_year"):
         lf_max = DATA.get(entity_id, "lf_max", y)
         cap_to_act = DATA.get(entity_id, "capacity_to_activity", y) * model.HL / (365 * 24)
         return model.a[entity_id, y, d, h] <= lf_max * model.ctot[entity_id, y] * cap_to_act
@@ -258,7 +258,7 @@ def c_act_cf_max_hour(model: pyo.ConcreteModel, entity_id: str, y: int, d: int, 
 
 def c_act_cf_min_year(model: pyo.ConcreteModel, entity_id: str, y: int):
     """Set the minimum annual utilisation of an entity's capacity."""
-    if DATA.check_cnf(entity_id, "enable_capacity") and y > DATA.check_cnf(entity_id, "enable_year"):
+    if DATA.check_cnf(entity_id, "enable_capacity") and y >= DATA.check_cnf(entity_id, "enable_year"):
         lf_min = DATA.get(entity_id, "lf_min", y)
         cap_to_act = DATA.get(entity_id, "capacity_to_activity", y)
         annual_min = lf_min * model.ctot[entity_id, y] * cap_to_act
@@ -269,7 +269,7 @@ def c_act_cf_min_year(model: pyo.ConcreteModel, entity_id: str, y: int):
 
 def c_act_cf_max_year(model: pyo.ConcreteModel, entity_id: str, y: int):
     """Set the maximum annual utilisation of an entity's capacity."""
-    if DATA.check_cnf(entity_id, "enable_capacity") and y > DATA.check_cnf(entity_id, "enable_year"):
+    if DATA.check_cnf(entity_id, "enable_capacity") and y >= DATA.check_cnf(entity_id, "enable_year"):
         lf_max = DATA.get(entity_id, "lf_max", y)
         cap_to_act = DATA.get(entity_id, "capacity_to_activity", y)
         annual_max = lf_max * model.ctot[entity_id, y] * cap_to_act

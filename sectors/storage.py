@@ -11,15 +11,18 @@
 
 To reduce model complexity, the module re-purposes standard model variables as much as possible.
 For clarity:
-- fin equates to the storage uptake/inflow
+- fin equates to the storage uptake/charge/inflow
 - fout equates to the storage dispatch/discharge/outflow
 - a equates to the storage state-of-charge
 
-# NOTE: for now, the module does not have constraints for SoC ranges (i.e., batteries can reach limits)
+# NOTE: no SoC operational range constraints, for now (i.e., full charge and empty states possible).
 # NOTE: constraints assume capacity is ALWAYS enabled (deactivation does not make sense for this module)
 
 The constraints are based on PyPSA's storage constraints, see:
 https://pypsa.readthedocs.io/en/latest/optimal_power_flow.html#storage-unit-constraints
+
+An option to use Kotzur's seasonal storage method will be added in the future.
+https://doi.org/10.1016/j.apenergy.2018.01.023
 """
 import pyomo.environ as pyo
 
@@ -30,59 +33,85 @@ GROUP_ID = "sto_"
 
 
 # --------------------------------------------------------------------------- #
+# Sector-specific expressions
+# --------------------------------------------------------------------------- #
+def _e_initial_soc(model: pyo.ConcreteModel, e: str):
+    """Return the maximum generation capacity of a entity for a modelled time-slice."""
+    soc_ratio_y0 = cnf.DATA.get_const(e, "initial_soc_ratio")
+    c_rate = cnf.DATA.get_const(e, "c_rate")
+    cap_to_act = cnf.DATA.get(e, "capacity_to_activity", model.Y.first())
+    return soc_ratio_y0 * c_rate * cap_to_act * model.ctot[e, model.Y.first()]
+
+
+def _e_cost_total(model: pyo.ConcreteModel):
+    """Calculate the total cost of Storage entities."""
+    return sum(model.e_CostInv[e] + model.e_CostFixedOM[e] + model.e_CostVarOM[e] for e in model.Stors)
+
+
+# --------------------------------------------------------------------------- #
 # Sector-specific constraints
 # --------------------------------------------------------------------------- #
-def _c_outflow_limit(model: pyo.ConcreteModel, storage_id: str, y: int, h: int):
-    """Limit the storage depletion to the available capacity."""
-    cap_to_act = cnf.DATA.get(storage_id, "capacity_to_activity", y)
-    outflow = sum(model.fout[f, e, y, h] for f, e in model.StorsFoE if e == storage_id)
-    return outflow / model.TS <= model.ctot[storage_id, y] * cap_to_act
+def _c_activity_setup(model: pyo.ConcreteModel, e: str, y: int, d: int, h: int):
+    """Ensure generic and module-specific variables match the model setup.
+
+    For storage, the total activity is equal to the sum of charge and discharge (w/efficiencies).
+    """
+    charge = sum(
+        model.fin[f, ex, y, d, h] * cnf.DATA.get_fxe(e, "input_efficiency", f, y)
+        for f, ex in model.StorsFiE
+        if ex == e
+    )
+    discharge = sum(
+        model.fout[f, ex, y, d, h] / cnf.DATA.get_fxe(e, "output_efficiency", f, y)
+        for f, ex in model.StorsFoE
+        if ex == e
+    )
+    return model.a[e, y, d, h] == charge + discharge
 
 
-def _c_inflow_limit(model: pyo.ConcreteModel, storage_id: str, y: int, h: int):
+def _c_charge_limit(model: pyo.ConcreteModel, e: str, y: int, d: int, h: int):
     """Limit the storage uptake to the available capacity."""
-    cap_to_act = cnf.DATA.get(storage_id, "capacity_to_activity", y)
-    inflow = sum(model.fin[f, e, y, h] for f, e in model.StorsFiE if e == storage_id)
-    return inflow / model.TS <= model.ctot[storage_id, y] * cap_to_act
+    cap_to_act = cnf.DATA.get(e, "capacity_to_activity", y)
+    charge = sum(model.fin[f, ex, y, d, h] for f, ex in model.StorsFiE if ex == e)
+    return charge / model.HL <= model.ctot[e, y] * cap_to_act
 
 
-def _c_soc_limit(model: pyo.ConcreteModel, storage_id: str, y: int, h: int):
+def _c_discharge_limit(model: pyo.ConcreteModel, e: str, y: int, d: int, h: int):
+    """Limit the storage depletion to the available capacity."""
+    discharge = sum(model.fout[f, ex, y, d, h] for f, ex in model.StorsFoE if ex == e)
+    return discharge / model.HL <= model.ctot[e, y] * cnf.DATA.get(e, "capacity_to_activity", y)
+
+
+def _c_soc_limit(model: pyo.ConcreteModel, e: str, y: int, d: int, h: int):
     """Limit the state-of-charge to the available energy capacity."""
-    c_rate = cnf.DATA.get(storage_id, "c_rate", y)
-    cap_to_act = cnf.DATA.get(storage_id, "capacity_to_activity", y)
-    return model.a[storage_id, y, h] <= c_rate * model.ctot[storage_id, y] * cap_to_act
+    c_rate = cnf.DATA.get(e, "c_rate", y)
+    cap_to_act = cnf.DATA.get(e, "capacity_to_activity", y)
+    return model.soc[e, y, d, h] <= c_rate * model.ctot[e, y] * cap_to_act
 
 
-def _c_soc_flow(model: pyo.ConcreteModel, storage_id: str, y: int, h: int):
+def _c_soc_flow(model: pyo.ConcreteModel, e: str, y: int, d: int, h: int):
     """Establish the relation between input-output flows and the state-of-charge."""
     inflow = sum(
-        model.fin[f, e, y, h] * cnf.DATA.get_fxe(storage_id, "input_efficiency", f, y)
-        for f, e in model.StorsFiE
-        if e == storage_id
+        model.fin[f, ex, y, d, h] * cnf.DATA.get_fxe(e, "input_efficiency", f, y)
+        for f, ex in model.StorsFiE
+        if ex == e
     )
     outflow = sum(
-        model.fout[f, e, y, h] / cnf.DATA.get_fxe(storage_id, "output_efficiency", f, y)
-        for f, e in model.StorsFoE
-        if e == storage_id
+        model.fout[f, ex, y, d, h] / cnf.DATA.get_fxe(e, "output_efficiency", f, y)
+        for f, ex in model.StorsFoE
+        if ex == e
     )
     if h == model.H.first():
-        soc_prev = model.TS * (model.a[storage_id, model.Y0.first(), model.H0.first()] + inflow - outflow)
+        soc_prev = model.sto_e_IniSoC[e]
     else:
-        standing_eff = cnf.DATA.get(storage_id, "standing_efficiency", y)
-        soc_prev = model.TS * (standing_eff * model.a[storage_id, y, h - 1] + inflow - outflow)
-    return model.a[storage_id, y, h] == soc_prev
+        standing_eff = cnf.DATA.get(e, "standing_efficiency", y)
+        soc_prev = (standing_eff**model.HL) * model.soc[e, y, d, h - 1]
+    return model.soc[e, y, d, h] == soc_prev + inflow - outflow
 
 
-def _c_soc_intra_year_cyclic(model: pyo.ConcreteModel, storage_id: str, y: int):
+def _c_soc_intra_day_cyclic(model: pyo.ConcreteModel, e: str, y: int, d: int):
     """Make the state-of-charge cyclic within a year."""
-    if cnf.DATA.check_cnf(storage_id, "enable_cyclic") is None:
-        return pyo.Constraint.Skip
-    return model.a[storage_id, y, model.H.first()] == model.a[storage_id, y, model.H.last()]
-
-
-def _c_soc_inter_year(model: pyo.ConcreteModel, storage_id: str, y: int):
-    """Connect the final SoC between years."""
-    return model.a[storage_id, y - 1, model.H.last()] == model.a[storage_id, y, model.H.first()]
+    return model.soc[e, y, d, model.H.first()] == model.soc[e, y, d, model.H.last()]
 
 
 # --------------------------------------------------------------------------- #
@@ -117,31 +146,37 @@ def _sets(model: pyo.ConcreteModel):
     )
 
 
+def _variables(model: pyo.ConcreteModel):
+    """Create any internal variables that differ from standard settings."""
+    model.soc = pyo.Var(model.Stors, model.Y, model.D, model.H, domain=pyo.NonNegativeReals, initialize=0)
+
+
+def _expressions(model: pyo.ConcreteModel):
+    model.sto_e_IniSoC = pyo.Expression(model.Stors, rule=_e_initial_soc)
+    model.sto_e_CostTotal = pyo.Expression(expr=_e_cost_total(model))
+
+
 def _constraints(model: pyo.ConcreteModel):
     """Set sector constraints."""
     # Limits
-    model.sto_c_outflow_limit = pyo.Constraint(model.Stors, model.Y, model.H, rule=_c_outflow_limit)
-    model.sto_c_inflow_limit = pyo.Constraint(model.Stors, model.Y, model.H, rule=_c_inflow_limit)
-    model.sto_c_soc_limit = pyo.Constraint(model.Stors, model.Y, model.H, rule=_c_soc_limit)
+    model.sto_c_charge_limit = pyo.Constraint(model.Stors, model.Y, model.D, model.H, rule=_c_charge_limit)
+    model.sto_c_discharge_limit = pyo.Constraint(model.Stors, model.Y, model.D, model.H, rule=_c_discharge_limit)
+    model.sto_c_soc_limit = pyo.Constraint(model.Stors, model.Y, model.D, model.H, rule=_c_soc_limit)
     # Flow
-    model.sto_c_soc_flow = pyo.Constraint(model.Stors, model.Y, model.H, rule=_c_soc_flow)
+    model.sto_c_soc_flow = pyo.Constraint(model.Stors, model.Y, model.D, model.H, rule=_c_soc_flow)
     # Temporal connections
-    model.sto_c_soc_intra_year_cyclic = pyo.Constraint(
-        model.Stors, model.Y, rule=_c_soc_intra_year_cyclic
-    )
-    model.sto_c_soc_inter_year = pyo.Constraint(model.Stors, model.YOpt, rule=_c_soc_inter_year)
+    model.sto_c_soc_intra_day_cyclic = pyo.Constraint(model.Stors, model.Y, model.D, rule=_c_soc_intra_day_cyclic)
     # Capacity
-    model.sto_c_cap_max_annual = pyo.Constraint(model.Stors, model.YOpt, rule=gen_con.c_cap_max_annual)
-    model.sto_c_cap_transfer = pyo.Constraint(model.Stors, model.YOpt, rule=gen_con.c_cap_transfer)
-    model.sto_c_cap_retirement = pyo.Constraint(model.Stors, model.YOpt, rule=gen_con.c_cap_retirement)
-    model.sto_c_cap_buildrate = pyo.Constraint(model.Stors, model.YOpt, rule=gen_con.c_cap_buildrate)
+    model.sto_c_cap_max_annual = pyo.Constraint(model.Stors, model.Y, rule=gen_con.c_cap_max_annual)
+    model.sto_c_cap_transfer = pyo.Constraint(model.Stors, model.Y-model.Y0, rule=gen_con.c_cap_transfer)
+    model.sto_c_cap_retirement = pyo.Constraint(model.Stors, model.Y-model.Y0, rule=gen_con.c_cap_retirement)
+    model.sto_c_cap_buildrate = pyo.Constraint(model.Stors, model.Y, rule=gen_con.c_cap_buildrate)
     # Activity
-    # model.sto_c_act_max_annual = pyo.Constraint(model.Stors, model.YOpt, rule=gen.c_act_max_annual)
+    model.sto_c_activity_setup = pyo.Constraint(model.Stors, model.Y, model.D, model.H, rule=_c_activity_setup)
 
 
 def _initialise(model: pyo.ConcreteModel):
     """Set initial sector values."""
-    _init_soc(model, model.Stors)
     gen_con.init_capacity(model, model.Stors)
 
 
@@ -159,5 +194,7 @@ def get_cost(model: pyo.ConcreteModel):
 def configure_sector(model):
     """Prepare the sector."""
     _sets(model)
+    _variables(model)
+    _expressions(model)
     _constraints(model)
     _initialise(model)

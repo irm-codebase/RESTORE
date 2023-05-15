@@ -2,7 +2,7 @@
 RESTORE: RetrospEctive SecTor cOupled eneRgy toolsEt
 
 ## Short description
-RESTORE is based on D-EXPANSE, a stylized national-level power system model used in hindcasting studies:
+RESTORE is based on D-EXPANSE, a stylized national-level nodal power system model used in hindcasting studies:
 - Trutnevyte: [Does cost optimization approximate the real-world energy transition?](http://dx.doi.org/10.1016/j.energy.2016.03.038)
 - Wen et al.: [Accuracy indicators for evaluating retrospective performance of energy system models](https://doi.org/10.1016/j.apenergy.2022.119906)
 - Wen et al.: [Hindcasting to inform the development of bottom-up electricity system models: The cases of endogenous demand and technology learning](https://doi.org/10.1016/j.apenergy.2023.121035)
