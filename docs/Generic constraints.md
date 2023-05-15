@@ -25,7 +25,7 @@ $$\forall_{f, y, d, h} \quad \sum\limits_{e \in FOE_{f}} fout_{f,e,y,d,h} = \sum
 
 **flow_out_share_equal**: limit a flow's outflow to be equal a share of the sum of all its outflows. Skipped if $\mathbf{FOUTSREQ}$ is `None`.
 
-$$\forall_{f,e,y,d,h} \quad fout_{f,e,y,d,h} = \mathbf{FOUTSREQ}_{f,e,y} \sum\limits_{ex \in FOE_{f}} fout_{f,ex,y,d,h}$$
+$\forall_{f,e,y,d,h} \quad fout_{f,e,y,d,h} = \mathbf{FOUTSREQ}_{f,e,y} \sum\limits_{ex \in FOE_{f}} fout_{f,ex,y,d,h}$
 
 **flow_out_share_max**: limit a flow's outflow to be below a share of the sum of all its outflows. Skipped if $\mathbf{FOUTSRMAX}$ is `None`.
 
