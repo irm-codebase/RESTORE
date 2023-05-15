@@ -24,7 +24,7 @@ https://pypsa.readthedocs.io/en/latest/optimal_power_flow.html#storage-unit-cons
 import pyomo.environ as pyo
 
 from model_utils import configuration as cnf
-from model_utils import generic as gen
+from model_utils import generic_constraints as gen_con
 
 GROUP_ID = "sto_"
 
@@ -65,7 +65,7 @@ def _c_soc_flow(model: pyo.ConcreteModel, storage_id: str, y: int, h: int):
         for f, e in model.StorsFoE
         if e == storage_id
     )
-    if h == model.Hours.first():
+    if h == model.H.first():
         soc_prev = model.TS * (model.a[storage_id, model.Y0.first(), model.H0.first()] + inflow - outflow)
     else:
         standing_eff = cnf.DATA.get(storage_id, "standing_efficiency", y)
@@ -77,12 +77,12 @@ def _c_soc_intra_year_cyclic(model: pyo.ConcreteModel, storage_id: str, y: int):
     """Make the state-of-charge cyclic within a year."""
     if cnf.DATA.check_cnf(storage_id, "enable_cyclic") is None:
         return pyo.Constraint.Skip
-    return model.a[storage_id, y, model.Hours.first()] == model.a[storage_id, y, model.Hours.last()]
+    return model.a[storage_id, y, model.H.first()] == model.a[storage_id, y, model.H.last()]
 
 
 def _c_soc_inter_year(model: pyo.ConcreteModel, storage_id: str, y: int):
     """Connect the final SoC between years."""
-    return model.a[storage_id, y - 1, model.Hours.last()] == model.a[storage_id, y, model.Hours.first()]
+    return model.a[storage_id, y - 1, model.H.last()] == model.a[storage_id, y, model.H.first()]
 
 
 # --------------------------------------------------------------------------- #
@@ -98,7 +98,7 @@ def _init_soc(model: pyo.ConcreteModel, storage_ids: list[str]):
             cap_y0 = cnf.DATA.get_annual(e, "actual_capacity", y_0)
             c_rate = cnf.DATA.get_const(e, "c_rate")
             cap_to_act = cnf.DATA.get(e, "capacity_to_activity", y_0)
-            model.a[e, y_0, model.Hours.first()].fix(soc_y0 * cap_y0 * c_rate * cap_to_act)
+            model.a[e, y_0, model.H.first()].fix(soc_y0 * cap_y0 * c_rate * cap_to_act)
 
 
 def _sets(model: pyo.ConcreteModel):
@@ -106,12 +106,12 @@ def _sets(model: pyo.ConcreteModel):
     storages = set(cnf.ENTITIES[cnf.ENTITIES.str.startswith(GROUP_ID)])
     model.Stors = pyo.Set(initialize=storages, ordered=False)
     model.StorsFoE = pyo.Set(
-        within=model.Flows * model.Ents,
+        within=model.F * model.E,
         ordered=False,
         initialize={(f, e) for f, e in model.FoE if e in storages},
     )
     model.StorsFiE = pyo.Set(
-        within=model.Flows * model.Ents,
+        within=model.F * model.E,
         ordered=False,
         initialize={(f, e) for f, e in model.FiE if e in storages},
     )
@@ -120,21 +120,21 @@ def _sets(model: pyo.ConcreteModel):
 def _constraints(model: pyo.ConcreteModel):
     """Set sector constraints."""
     # Limits
-    model.sto_c_outflow_limit = pyo.Constraint(model.Stors, model.Years, model.Hours, rule=_c_outflow_limit)
-    model.sto_c_inflow_limit = pyo.Constraint(model.Stors, model.Years, model.Hours, rule=_c_inflow_limit)
-    model.sto_c_soc_limit = pyo.Constraint(model.Stors, model.Years, model.Hours, rule=_c_soc_limit)
+    model.sto_c_outflow_limit = pyo.Constraint(model.Stors, model.Y, model.H, rule=_c_outflow_limit)
+    model.sto_c_inflow_limit = pyo.Constraint(model.Stors, model.Y, model.H, rule=_c_inflow_limit)
+    model.sto_c_soc_limit = pyo.Constraint(model.Stors, model.Y, model.H, rule=_c_soc_limit)
     # Flow
-    model.sto_c_soc_flow = pyo.Constraint(model.Stors, model.Years, model.Hours, rule=_c_soc_flow)
+    model.sto_c_soc_flow = pyo.Constraint(model.Stors, model.Y, model.H, rule=_c_soc_flow)
     # Temporal connections
     model.sto_c_soc_intra_year_cyclic = pyo.Constraint(
-        model.Stors, model.Years, rule=_c_soc_intra_year_cyclic
+        model.Stors, model.Y, rule=_c_soc_intra_year_cyclic
     )
     model.sto_c_soc_inter_year = pyo.Constraint(model.Stors, model.YOpt, rule=_c_soc_inter_year)
     # Capacity
-    model.sto_c_cap_max_annual = pyo.Constraint(model.Stors, model.YOpt, rule=gen.c_cap_max_annual)
-    model.sto_c_cap_transfer = pyo.Constraint(model.Stors, model.YOpt, rule=gen.c_cap_transfer)
-    model.sto_c_cap_retirement = pyo.Constraint(model.Stors, model.YOpt, rule=gen.c_cap_retirement)
-    model.sto_c_cap_buildrate = pyo.Constraint(model.Stors, model.YOpt, rule=gen.c_cap_buildrate)
+    model.sto_c_cap_max_annual = pyo.Constraint(model.Stors, model.YOpt, rule=gen_con.c_cap_max_annual)
+    model.sto_c_cap_transfer = pyo.Constraint(model.Stors, model.YOpt, rule=gen_con.c_cap_transfer)
+    model.sto_c_cap_retirement = pyo.Constraint(model.Stors, model.YOpt, rule=gen_con.c_cap_retirement)
+    model.sto_c_cap_buildrate = pyo.Constraint(model.Stors, model.YOpt, rule=gen_con.c_cap_buildrate)
     # Activity
     # model.sto_c_act_max_annual = pyo.Constraint(model.Stors, model.YOpt, rule=gen.c_act_max_annual)
 
@@ -142,7 +142,7 @@ def _constraints(model: pyo.ConcreteModel):
 def _initialise(model: pyo.ConcreteModel):
     """Set initial sector values."""
     _init_soc(model, model.Stors)
-    gen.init_capacity(model, model.Stors)
+    gen_con.init_capacity(model, model.Stors)
 
 
 # --------------------------------------------------------------------------- #
@@ -150,7 +150,7 @@ def _initialise(model: pyo.ConcreteModel):
 # --------------------------------------------------------------------------- #
 def get_cost(model: pyo.ConcreteModel):
     """Get a cost expression for the sector."""
-    return gen.cost_combined(model, model.Stors, model.Years)
+    return gen_con.cost_combined(model, model.Stors, model.Y)
 
 
 # --------------------------------------------------------------------------- #

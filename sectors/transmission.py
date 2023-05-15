@@ -14,7 +14,7 @@ For now, only electricity transmission/distribution.
 import pyomo.environ as pyo
 
 from model_utils import configuration as cnf
-from model_utils import generic as gen
+from model_utils import generic_constraints as gen_con
 
 GROUP_ID = "conv_transmission"
 
@@ -27,12 +27,12 @@ def _sets(model: pyo.ConcreteModel):
     storages = set(cnf.ENTITIES[cnf.ENTITIES.str.startswith(GROUP_ID)])
     model.ETrans = pyo.Set(initialize=storages, ordered=False)
     model.ETransFoE = pyo.Set(
-        within=model.Flows * model.Ents,
+        within=model.F * model.E,
         ordered=False,
         initialize={(f, e) for f, e in model.FoE if e in storages},
     )
     model.ETransFiE = pyo.Set(
-        within=model.Flows * model.Ents,
+        within=model.F * model.E,
         ordered=False,
         initialize={(f, e) for f, e in model.FiE if e in storages},
     )
@@ -41,13 +41,13 @@ def _sets(model: pyo.ConcreteModel):
 def _constraints(model: pyo.ConcreteModel):
     """Set sector constraints."""
     # Input/output
-    model.etrans_c_flow_in = pyo.Constraint(model.ETrans, model.Years, model.Hours, rule=gen.c_flow_in)
-    model.etrans_c_flow_out = pyo.Constraint(model.ETrans, model.Years, model.Hours, rule=gen.c_flow_out)
+    model.etrans_c_flow_in = pyo.Constraint(model.ETrans, model.Y, model.H, rule=gen_con.c_flow_in)
+    model.etrans_c_flow_out = pyo.Constraint(model.ETrans, model.Y, model.H, rule=gen_con.c_flow_out)
 
 
 def _initialise(model: pyo.ConcreteModel):
     """Set initial sector values."""
-    gen.init_activity(model, model.ETrans)
+    gen_con.init_activity(model, model.ETrans)
 
 
 # --------------------------------------------------------------------------- #
@@ -55,7 +55,7 @@ def _initialise(model: pyo.ConcreteModel):
 # --------------------------------------------------------------------------- #
 def get_cost(model: pyo.ConcreteModel):
     """Get a cost expression for the sector."""
-    return gen.cost_variable_om(model, model.ETrans, model.Years)
+    return gen_con.cost_variable_om(model, model.ETrans, model.Y)
 
 
 # --------------------------------------------------------------------------- #

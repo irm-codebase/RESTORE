@@ -12,7 +12,7 @@ import pyomo.environ as pyo
 
 from model_utils import configuration as cnf
 from model_utils import data_handler
-from model_utils import generic as gen
+from model_utils import generic_constraints as gen_con
 
 GROUP_IDS = ["conv_chp_", "conv_elec_"]
 OUTFLOW_ID = "elecsupply"
@@ -98,12 +98,12 @@ def _sets(model: pyo.ConcreteModel):
     model.ElecsVRE = pyo.Set(initialize=vre_entities, ordered=False)
 
     model.ElecsFoE = pyo.Set(
-        within=model.Flows * model.Ents,
+        within=model.F * model.E,
         ordered=False,
         initialize={(f, e) for f, e in model.FoE if e in elec_entities},
     )
     model.ElecsFiE = pyo.Set(
-        within=model.Flows * model.Ents,
+        within=model.F * model.E,
         ordered=False,
         initialize={(f, e) for f, e in model.FiE if e in elec_entities},
     )
@@ -116,29 +116,29 @@ def _constraints(model: pyo.ConcreteModel):
     """
     # Generics
     # Input/output
-    model.elec_c_flow_in = pyo.Constraint(model.Elecs, model.Years, model.Hours, rule=gen.c_flow_in)
-    model.elec_c_flow_out = pyo.Constraint(model.Elecs, model.Years, model.Hours, rule=gen.c_flow_out)
+    model.elec_c_flow_in = pyo.Constraint(model.Elecs, model.Y, model.H, rule=gen_con.c_flow_in)
+    model.elec_c_flow_out = pyo.Constraint(model.Elecs, model.Y, model.H, rule=gen_con.c_flow_out)
     # Capacity
-    model.elec_c_cap_max_annual = pyo.Constraint(model.Elecs, model.YOpt, rule=gen.c_cap_max_annual)
-    model.elec_c_cap_transfer = pyo.Constraint(model.Elecs, model.YOpt, rule=gen.c_cap_transfer)
-    model.elec_c_cap_retirement = pyo.Constraint(model.Elecs, model.YOpt, rule=gen.c_cap_retirement)
-    model.elec_c_cap_buildrate = pyo.Constraint(model.Elecs, model.YOpt, rule=gen.c_cap_buildrate)
+    model.elec_c_cap_max_annual = pyo.Constraint(model.Elecs, model.YOpt, rule=gen_con.c_cap_max_annual)
+    model.elec_c_cap_transfer = pyo.Constraint(model.Elecs, model.YOpt, rule=gen_con.c_cap_transfer)
+    model.elec_c_cap_retirement = pyo.Constraint(model.Elecs, model.YOpt, rule=gen_con.c_cap_retirement)
+    model.elec_c_cap_buildrate = pyo.Constraint(model.Elecs, model.YOpt, rule=gen_con.c_cap_buildrate)
     # Activity
     model.elec_c_act_ramp_up = pyo.Constraint(
-        model.Elecs, model.YOpt, model.Hours - model.H0, rule=gen.c_act_ramp_up
+        model.Elecs, model.YOpt, model.H - model.H0, rule=gen_con.c_act_ramp_up
     )
     model.elec_c_act_ramp_down = pyo.Constraint(
-        model.Elecs, model.YOpt, model.Hours - model.H0, rule=gen.c_act_ramp_down
+        model.Elecs, model.YOpt, model.H - model.H0, rule=gen_con.c_act_ramp_down
     )
-    model.elec_c_act_max_annual = pyo.Constraint(model.Elecs, model.YOpt, rule=gen.c_act_max_annual)
+    model.elec_c_act_max_annual = pyo.Constraint(model.Elecs, model.YOpt, rule=gen_con.c_act_max_annual)
     model.elec_c_act_cf_min_hour = pyo.Constraint(
-        model.Elecs, model.YOpt, model.Hours, rule=gen.c_act_cf_min_hour
+        model.Elecs, model.YOpt, model.H, rule=gen_con.c_act_cf_min_hour
     )
 
     # Sector specific
     # Max LF per hour
     model.elec_c_act_cf_max_hour = pyo.Constraint(
-        model.Elecs, model.YOpt, model.Hours, rule=_c_act_cf_max_hour
+        model.Elecs, model.YOpt, model.H, rule=_c_act_cf_max_hour
     )
     # Peak and base-load capacity requirements
     model.elec_c_cap_peak = pyo.Constraint(model.YOpt, rule=_c_cap_peak)
@@ -147,8 +147,8 @@ def _constraints(model: pyo.ConcreteModel):
 
 def _initialise(model: pyo.ConcreteModel):
     """Set initial sector values."""
-    gen.init_activity(model, model.Elecs)
-    gen.init_capacity(model, model.Elecs)
+    gen_con.init_activity(model, model.Elecs)
+    gen_con.init_capacity(model, model.Elecs)
 
 
 # --------------------------------------------------------------------------- #
@@ -156,7 +156,7 @@ def _initialise(model: pyo.ConcreteModel):
 # --------------------------------------------------------------------------- #
 def get_cost(model: pyo.ConcreteModel):
     """Get a cost expression for the sector."""
-    return gen.cost_combined(model, model.Elecs, model.Years)
+    return gen_con.cost_combined(model, model.Elecs, model.Y)
 
 
 # --------------------------------------------------------------------------- #

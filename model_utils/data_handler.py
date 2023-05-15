@@ -183,52 +183,51 @@ class DataHandler:
         assert isinstance(value, Number) or np.isnan(value), f"Invalid: {entity_id}, {parameter}, {flow}"
         return None if np.isnan(value) else value
 
-    def get_annual(self, entity_id, parameter, year, err_msg: str = "direct call"):
+    def get_annual(self, entity_id, parameter, year):
         """Return historic values."""
-        try:
-            value = self.params[entity_id]["annual"][(parameter, year)]
-        except KeyError as exc:
-            raise KeyError("Invalid key for", entity_id, parameter, year, err_msg) from exc
+        value = self.params[entity_id]["annual"][(parameter, year)]
 
         assert isinstance(value, Number) or np.isnan(value), f"Invalid: {entity_id}, {parameter}, {year}"
         return None if np.isnan(value) else value
 
-    def get_annual_fxe(self, entity_id, parameter, flow, year, err_msg: str = "direct call"):
+    def get_annual_fxe(self, entity_id, parameter, flow, year):
         """Return flow-specific historic values."""
         # Trying to read empty annual data should cause an error to minimise bugs.
-        try:
-            value = self.params[entity_id]["annual_fxe"][(parameter, flow, year)]
-        except KeyError as exc:
-            raise KeyError("Invalid key for", entity_id, parameter, flow, year, err_msg) from exc
+        value = self.params[entity_id]["annual_fxe"][(parameter, flow, year)]
 
-        assert isinstance(value, Number) or np.isnan(
-            value
-        ), f"Invalid: {entity_id}, {parameter}, {flow}, {year}"
+        assert isinstance(value, Number) or np.isnan(value), f"Invalid: {entity_id}, {parameter}, {flow}, {year}"
         return None if np.isnan(value) else value
 
     # ------------------------------------------------------------- #
-    # Generic gets (lenient) # TODO: should fail if the parameter is not defined!
+    # Generic gets  #TODO: needs rework. Should be a single dictionary with (Type, Param, Entity, Flow, Year)
     # ------------------------------------------------------------- #
-    def get(self, entity_id, parameter, year):
+    def get(self, entity_id, parameter, year, trigger_error=False):
         """Get a parameter, checking constants first."""
         value = None
-        if "constant" in self.params[entity_id]:
-            if parameter in self.params[entity_id]["constant"]:
-                value = self.get_const(entity_id, parameter)
-        if value is None and "annual" in self.params[entity_id]:
-            if (parameter, year) in self.params[entity_id]["annual"]:
-                value = self.get_annual(entity_id, parameter, year, err_msg="generic call")
+        found = False
+        if "annual" in self.params[entity_id] and (parameter, year) in self.params[entity_id]["annual"]:
+            found = True
+            value = self.get_annual(entity_id, parameter, year)
+        if value is None and "constant" in self.params[entity_id] and parameter in self.params[entity_id]["constant"]:
+            found = True
+            value = self.get_const(entity_id, parameter)
+        if not found and trigger_error:
+            raise KeyError("Parameter", parameter, "not found for", entity_id)
         return value
 
-    def get_fxe(self, entity_id, parameter, flow, year):
+    def get_fxe(self, entity_id, parameter, flow, year, trigger_error=False):
         """Get a FxE parameter, checking constants first."""
         value = None
-        if "constant_fxe" in self.params[entity_id]:
-            if (parameter, flow) in self.params[entity_id]["constant_fxe"]:
+        found = False
+        if "annual_fxe" in self.params[entity_id] and (parameter, flow, year) in self.params[entity_id]["annual_fxe"]:
+            found = True
+            value = self.get_annual_fxe(entity_id, parameter, flow, year)
+        if value is None:
+            if "constant_fxe" in self.params[entity_id] and (parameter, flow) in self.params[entity_id]["constant_fxe"]:
+                found = True
                 value = self.get_const_fxe(entity_id, parameter, flow)
-        if value is None and "annual_fxe" in self.params[entity_id]:
-            if (parameter, flow, year) in self.params[entity_id]["annual_fxe"]:
-                value = self.get_annual_fxe(entity_id, parameter, flow, year)
+        if not found and trigger_error:
+            raise KeyError("Parameter", parameter, "not found for", entity_id, "and", flow)
         return value
 
     # Configuration sets

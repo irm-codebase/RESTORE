@@ -25,5 +25,5 @@ Important parameters used throughout the model.
 
 | Name        | Symbol              | Description                                                                 |
 | ----------- | ------------------- | --------------------------------------------------------------------------- |
-| Day length  | $\mathbf{DL}_{y,d}$ | Total number of days represented by each representative day, for each year. |
+| Day length  | $\mathbf{DL_{y,d}}$ | Total number of days represented by each representative day, for each year. |
 | Hour length | $\mathbf{HL}$ | Total number of hours represented by each time-slice. Usually 1.            | 

@@ -11,9 +11,17 @@
 import pyomo.environ as pyo
 
 from model_utils import configuration as cnf
-from model_utils import generic as gen
+from model_utils import generic_constraints as gen_con
 
 GROUP_ID = "ext_"
+
+
+# --------------------------------------------------------------------------- #
+# Sector-specific expressions
+# --------------------------------------------------------------------------- #
+def _e_cost_total(model: pyo.ConcreteModel):
+    """Calculate the total cost of Extraction entities."""
+    return sum(model.e_CostInv[e] + model.e_CostFixedOM[e] + model.e_CostVarOM[e] for e in model.Extrs)
 
 
 # --------------------------------------------------------------------------- #
@@ -24,49 +32,45 @@ def _sets(model: pyo.ConcreteModel):
     extractions = set(cnf.ENTITIES[cnf.ENTITIES.str.startswith(GROUP_ID)])
     model.Extrs = pyo.Set(initialize=extractions, ordered=False)
     model.ExtrsFoE = pyo.Set(
-        within=model.Flows * model.Ents,
+        within=model.F * model.E,
         ordered=False,
         initialize={(f, e) for f, e in model.FoE if e in extractions},
     )
 
 
+def _expressions(model: pyo.ConcreteModel):
+    model.ext_e_CostTotal = pyo.Expression(expr=_e_cost_total(model))
+
+
 def _constraints(model: pyo.ConcreteModel):
     """Set sector constraints."""
     # Output
-    model.ext_c_flow_out = pyo.Constraint(model.Extrs, model.Years, model.Hours, rule=gen.c_flow_out)
+    model.ext_c_flow_out = pyo.Constraint(model.Extrs, model.Y, model.D, model.H, rule=gen_con.c_flow_out)
     # Capacity
-    model.ext_c_cap_max_annual = pyo.Constraint(model.Extrs, model.YOpt, rule=gen.c_cap_max_annual)
-    model.ext_c_cap_transfer = pyo.Constraint(model.Extrs, model.YOpt, rule=gen.c_cap_transfer)
-    model.ext_c_cap_retirement = pyo.Constraint(model.Extrs, model.YOpt, rule=gen.c_cap_retirement)
-    model.ext_c_cap_buildrate = pyo.Constraint(model.Extrs, model.YOpt, rule=gen.c_cap_buildrate)
+    model.ext_c_cap_max_annual = pyo.Constraint(model.Extrs, model.Y, rule=gen_con.c_cap_max_annual)
+    model.ext_c_cap_transfer = pyo.Constraint(model.Extrs, model.Y - model.Y0, rule=gen_con.c_cap_transfer)
+    model.ext_c_cap_retirement = pyo.Constraint(model.Extrs, model.Y - model.Y0, rule=gen_con.c_cap_retirement)
+    model.ext_c_cap_buildrate = pyo.Constraint(model.Extrs, model.Y - model.Y0, rule=gen_con.c_cap_buildrate)
     # Activity
     model.ext_c_act_ramp_up = pyo.Constraint(
-        model.Extrs, model.YOpt, model.Hours - model.H0, rule=gen.c_act_ramp_up
+        model.Extrs, model.Y, model.D, model.H - model.H0, rule=gen_con.c_act_ramp_up
     )
     model.ext_c_act_ramp_down = pyo.Constraint(
-        model.Extrs, model.YOpt, model.Hours - model.H0, rule=gen.c_act_ramp_down
+        model.Extrs, model.Y, model.D, model.H - model.H0, rule=gen_con.c_act_ramp_down
     )
-    model.ext_c_act_max_annual = pyo.Constraint(model.Extrs, model.YOpt, rule=gen.c_act_max_annual)
+    model.ext_c_act_max_annual = pyo.Constraint(model.Extrs, model.Y, rule=gen_con.c_act_max_annual)
     model.ext_c_act_cf_min_hour = pyo.Constraint(
-        model.Extrs, model.YOpt, model.Hours, rule=gen.c_act_cf_min_hour
+        model.Extrs, model.Y, model.D, model.H, rule=gen_con.c_act_cf_min_hour
     )
     model.ext_c_act_cf_max_hour = pyo.Constraint(
-        model.Extrs, model.YOpt, model.Hours, rule=gen.c_act_cf_max_hour
+        model.Extrs, model.Y, model.D, model.H, rule=gen_con.c_act_cf_max_hour
     )
 
 
 def _initialise(model: pyo.ConcreteModel):
     """Set initial sector values."""
     # gen.init_activity(model, model.Extrs)
-    gen.init_capacity(model, model.Extrs)
-
-
-# --------------------------------------------------------------------------- #
-# Cost
-# --------------------------------------------------------------------------- #
-def get_cost(model: pyo.ConcreteModel):
-    """Get a cost expression for the sector."""
-    return gen.cost_combined(model, model.Extrs, model.Years)
+    gen_con.init_capacity(model, model.Extrs)
 
 
 # --------------------------------------------------------------------------- #
@@ -75,5 +79,6 @@ def get_cost(model: pyo.ConcreteModel):
 def configure_sector(model):
     """Prepare the sector."""
     _sets(model)
+    _expressions(model)
     _constraints(model)
     _initialise(model)

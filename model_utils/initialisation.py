@@ -21,6 +21,7 @@ import numpy as np
 import pyomo.environ as pyo
 from model_utils import configuration as cnf
 from model_utils import data_handler
+from model_utils import generic_expressions as gen_expr
 
 
 def _c_io_balance(model: pyo.ConcreteModel, flow_id: str, y: int, d: int, h: int):
@@ -35,7 +36,7 @@ def _discount_rates(model, y):
     return 1 / np.power(1 + discount, (y - model.Y0.first()))
 
 
-def _day_share(model: pyo.ConcreteModel, y, d):  # TODO: this should be obtained from the K-means file
+def _day_share(model: pyo.ConcreteModel, y, d):  # TODO: Placeholder. This should be obtained from the K-means file
     return 365 / len(model.D)
 
 
@@ -90,12 +91,19 @@ def _init_variables(model: pyo.ConcreteModel) -> pyo.ConcreteModel:
 
 def _init_parameters(model: pyo.ConcreteModel) -> pyo.ConcreteModel:
     model.TPERIOD = pyo.Param(initialize=365/cnf.NDAYS, doc="Adjust from representative days to year")
-
     model.HL = pyo.Param(initialize=cnf.TIMESLICE, doc="Length of a time-slice in the model, in hours")
     model.DL = pyo.Param(model.Y, model.D, initialize=_day_share, doc="Length of each representative period")
+    model.DISCRATE = pyo.Param(model.Y, initialize=_discount_rates, doc="Discount Rates")
 
-    model.DISCOUNT_RATE = pyo.Param(model.Y, initialize=_discount_rates, doc="Discount Rates")
+    return model
 
+
+def _init_expressions(model: pyo.ConcreteModel) -> pyo.ConcreteModel:
+    model.e_TotalAnnualActivity = pyo.Expression(model.E, model.Y, rule=gen_expr.e_total_annual_activity)
+    model.e_HourlyC2A = pyo.Expression(model.Caps, model.Y, rule=gen_expr.e_hourly_capacity_to_activity)
+    model.e_CostInv = pyo.Expression(model.E, rule=gen_expr.e_cost_investment)
+    model.e_CostFixedOM = pyo.Expression(model.E, rule=gen_expr.e_cost_fixed_om)
+    model.e_CostVarOM = pyo.Expression(model.E, rule=gen_expr.e_cost_variable_om)
     return model
 
 
@@ -106,6 +114,7 @@ def init_model() -> pyo.ConcreteModel:
     model = _init_sets(model)
     model = _init_variables(model)
     model = _init_parameters(model)
+    model = _init_expressions(model)
 
     model.c_io_balance = pyo.Constraint(model.F, model.Y, model.D, model.H, rule=_c_io_balance)
 

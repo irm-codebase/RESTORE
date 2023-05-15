@@ -16,8 +16,8 @@ from plotting import fig_tools
 
 
 def _add_historical(axis, model: pyo.ConcreteModel, handler: DataHandler, flow: list):
-    historical_data = [handler.get_annual(flow, "actual_flow", y) for y in model.Years]
-    historical_ref = pd.Series(data=historical_data, index=model.Years, name="Historical total")
+    historical_data = [handler.get_annual(flow, "actual_flow", y) for y in model.Y]
+    historical_ref = pd.Series(data=historical_data, index=model.Y, name="Historical total")
     axis = historical_ref.plot.line(ax=axis, color="black", linestyle="-.")
     return axis
 
@@ -28,14 +28,14 @@ def _add_historical(axis, model: pyo.ConcreteModel, handler: DataHandler, flow: 
 def plot_flow_fout(model, handler: DataHandler, flow_ids: list, unit: str = "TWh", hist: str = None):
     """Plot the modelled entity out flows at a flow node."""
     entity_ids = sorted({e for f, e in model.FoE if f in flow_ids})
-    value_df = pd.DataFrame(index=model.Years, columns=entity_ids, data=0)
+    value_df = pd.DataFrame(index=model.Y, columns=entity_ids, data=0)
 
     # Gather values
     for flow in flow_ids:
         for f, e in model.FoE:
             if f == flow:
-                for y in model.Years:
-                    sum_fout = sum(model.fout[f, e, y, h].value for h in model.Hours)
+                for y in model.Y:
+                    sum_fout = sum(model.fout[f, e, y, h].value for h in model.H)
                     value_df.loc[y, e] += sum_fout * model.TPERIOD  # time correction
     # Plotting
     axis = value_df.plot.area(linewidth=0)
@@ -50,13 +50,13 @@ def plot_flow_fout(model, handler: DataHandler, flow_ids: list, unit: str = "TWh
 def plot_flow_fin(model, handler: DataHandler, flow_ids: list, unit: str = "TWh", hist: str = None):
     """Plot the modelled entity in flows at a flow node."""
     entity_ids = sorted({e for f, e in model.FiE if f in flow_ids})
-    value_df = pd.DataFrame(index=model.Years, columns=entity_ids, data=0)
+    value_df = pd.DataFrame(index=model.Y, columns=entity_ids, data=0)
 
     # Gather values
     for f, e in model.FiE:
         if f in flow_ids:
-            for y in model.Years:
-                sum_fout = sum(model.fin[f, e, y, h].value for h in model.Hours)
+            for y in model.Y:
+                sum_fout = sum(model.fin[f, e, y, h].value for h in model.H)
                 value_df.loc[y, e] += sum_fout * model.TPERIOD  # time correction
 
     # Plotting
@@ -74,12 +74,12 @@ def plot_flow_fin(model, handler: DataHandler, flow_ids: list, unit: str = "TWh"
 # --------------------------------------------------------------------------- #
 def plot_group_ctot(model, group_ids: list, unit="GW"):
     """Plot the modelled total capacity of the entities in a group."""
-    entity_ids = sorted({e for group in group_ids for e in model.Ents if group in e and e in model.Caps})
-    cap_df = pd.DataFrame(index=model.Years, columns=entity_ids)
+    entity_ids = sorted({e for group in group_ids for e in model.E if group in e and e in model.Caps})
+    cap_df = pd.DataFrame(index=model.Y, columns=entity_ids)
 
     # Gather values
     for e in entity_ids:
-        for y in model.Years:
+        for y in model.Y:
             cap_df.loc[y, e] = model.ctot[e, y].value
 
     # Plotting
@@ -92,12 +92,12 @@ def plot_group_ctot(model, group_ids: list, unit="GW"):
 
 def plot_group_cnew(model, group_ids: list, unit="GW"):
     """Plot the modelled new capacity of the entities in a group."""
-    entity_ids = sorted({e for group in group_ids for e in model.Ents if group in e and e in model.Caps})
-    cap_df = pd.DataFrame(index=model.Years, columns=entity_ids)
+    entity_ids = sorted({e for group in group_ids for e in model.E if group in e and e in model.Caps})
+    cap_df = pd.DataFrame(index=model.Y, columns=entity_ids)
 
     # Gather values
     for e in entity_ids:
-        for y in model.Years:
+        for y in model.Y:
             cap_df.loc[y, e] = model.cnew[e, y].value
 
     # Plotting
@@ -110,12 +110,12 @@ def plot_group_cnew(model, group_ids: list, unit="GW"):
 
 def plot_group_cret(model, group_ids: list, unit="GW"):
     """Plot the modelled retired capacity of the entities in a group."""
-    entity_ids = sorted({e for group in group_ids for e in model.Ents if group in e and e in model.Caps})
-    cap_df = pd.DataFrame(index=model.Years, columns=entity_ids)
+    entity_ids = sorted({e for group in group_ids for e in model.E if group in e and e in model.Caps})
+    cap_df = pd.DataFrame(index=model.Y, columns=entity_ids)
 
     # Gather values
     for e in entity_ids:
-        for y in model.Years:
+        for y in model.Y:
             cap_df.loc[y, e] = model.cret[e, y].value
 
     # Plotting
@@ -128,13 +128,13 @@ def plot_group_cret(model, group_ids: list, unit="GW"):
 
 def plot_group_act(model, group_ids: list, unit="GW"):
     """Plot the activity of the entities in a group."""
-    entity_ids = sorted({e for group in group_ids for e in model.Ents if group in e})
-    act_df = pd.DataFrame(index=model.Years, columns=entity_ids)
+    entity_ids = sorted({e for group in group_ids for e in model.E if group in e})
+    act_df = pd.DataFrame(index=model.Y, columns=entity_ids)
 
     # Gather values
     for e in entity_ids:
-        for y in model.Years:
-            act_df.loc[y, e] = model.TPERIOD * sum(model.a[e, y, h].value for h in model.Hours)
+        for y in model.Y:
+            act_df.loc[y, e] = model.TPERIOD * sum(model.a[e, y, h].value for h in model.H)
 
     # Plotting
     axis = act_df.plot.area(linewidth=0)

@@ -40,10 +40,11 @@ This is to enable easier tests on the impact on runtime these features will have
 To do list:
 - Rework time slicing by adding a day index and day-indexed representativeness parameter.
 - Lenient gets should fail if the parameter is not defined anywhere.
-- Fix the D-EXPANSE "double retirement" glitch.
+- Improve the retirement constraint by implementing the OSeMOSYS version of it (will enable sigmoid retirement).
 - Fix load profile issues in D-EXPANSE files (incorrect indexes, incompleteness).
+- Import capacities are not correct in the D-EXPANSE files... source them from PyPSA?
 - Add k-means plotting functionality to help identify the ideal number of representative days. See https://realpython.com/k-means-clustering-python/
-- Fix lack of demand/weather synchronicity in pre-runs (inherited from D-EXPANSE).
+- Fix lack of demand/weather synchronicity in pre-runs (bug in D-EXPANSE k-means algorithm, use the verson in the STONES model?).
 - Improve storage by implementing the technique developed by Kotzur et al. (https://doi.org/10.1016/j.apenergy.2018.01.023)
 - Cost functions should be set for each sector module, not in the notebook.
 - Complete the documentation of all modules.

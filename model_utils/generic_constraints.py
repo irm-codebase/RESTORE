@@ -287,7 +287,7 @@ def init_activity(model, entity_list):
     y_0 = model.Y0.first()
     for entity_id in entity_list:
         enable_year = DATA.check_cnf(entity_id, "enable_year")
-        for y in model.Years:
+        for y in model.Y:
             if y == y_0 and y == enable_year:
                 # Activity should only be initialized if both y_0 and the enable year coincide.
                 act = DATA.get_annual(entity_id, "actual_activity", y) / hours_in_year
@@ -307,7 +307,7 @@ def init_capacity(model: pyo.ConcreteModel, entity_list: set):
             enable_year = DATA.check_cnf(entity_id, "enable_year")
             cap_enable = DATA.get_annual(entity_id, "actual_capacity", enable_year)
             # Capacity is zero until enabled.
-            for y in model.Years:
+            for y in model.Y:
                 model.cnew[entity_id, y].fix(0)
                 model.cret[entity_id, y].fix(0)
                 if y == enable_year:
@@ -324,7 +324,7 @@ def cost_investment(model: pyo.ConcreteModel, entity_list, years):
     cost = 0
     for e in entity_list:
         if DATA.check_cnf(e, "enable_capacity"):
-            cost += sum(model.DISCOUNT_RATE[y] * DATA.get(e, "cost_investment", y) * model.cnew[e, y] for y in years)
+            cost += sum(model.DISCRATE[y] * DATA.get(e, "cost_investment", y) * model.cnew[e, y] for y in years)
     return cost
 
 
@@ -334,7 +334,7 @@ def cost_fixed_om(model: pyo.ConcreteModel, entity_list, years):
     for e in entity_list:
         if DATA.check_cnf(e, "enable_capacity"):
             cost += sum(
-                model.DISCOUNT_RATE[y] * DATA.get(e, "cost_fixed_om_annual", y) * model.ctot[e, y] for y in years
+                model.DISCRATE[y] * DATA.get(e, "cost_fixed_om_annual", y) * model.ctot[e, y] for y in years
             )
     return cost
 
@@ -342,7 +342,7 @@ def cost_fixed_om(model: pyo.ConcreteModel, entity_list, years):
 def cost_variable_om(model: pyo.ConcreteModel, entity_list, years):
     """Get variable O&M cost for a set of entity_list."""
     cost = sum(
-        model.DISCOUNT_RATE[y] * DATA.get(e, "cost_variable_om", y) * sum(model.a[e, y, h] for h in model.Hours)
+        model.DISCRATE[y] * DATA.get(e, "cost_variable_om", y) * sum(model.a[e, y, h] for h in model.H)
         for e in entity_list
         for y in years
     )

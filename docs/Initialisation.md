@@ -1,8 +1,8 @@
 **init_activity**: initialize the model's activity. Supports technology deactivation.
 
-$$\forall_{e,y} \quad  \mathrm{TotalAnnualAct}_{e,y} = \begin{cases}
-&0 \quad &\text{if } y < \mathbf{ENABLEYR}_{e} \\
-&\mathbf{ACTUALACT}_{e,y0} \quad &\text{if } y = \mathbf{ENABLEYR}_{e} = Y_{0}\\
+$$\forall_{e,y} \quad  \mathrm{TotalAnnualAct_{e,y}} = \begin{cases}
+&0 \quad &\text{if } y < \mathbf{ENABLEYR_{e}} \\
+&\mathbf{ACTUALACT}_{e,y0} \quad &\text{if } y = \mathbf{ENABLEYR_{e}} = Y_{0}\\
 &\text{Free} & \text{otherwise}
 \end{cases}$$
 
@@ -14,7 +14,7 @@ $$\forall_{e,y} \quad  \mathrm{TotalAnnualAct}_{e,y} = \begin{cases}
 **init_capacity**: initialize the model's capacity in $Y_{0}$. For $Y_{0}$, it can be thought of as a check to ensure the user set the residual capacity ($\mathbf{RESCAP}$) correctly.
 
 $$\forall_{e,y} \quad  ctot_{e,y} = \begin{cases}
-&0 \quad &\text{if } y < \mathbf{ENABLEYR}_{e} \\
-&\mathbf{ACTUALCAP}_{e,y0} \quad &\text{if } y = \mathbf{ENABLEYR}_{e} = Y_{0}\\
+&0 \quad &\text{if } y < \mathbf{ENABLEYR_{e}} \\
+&\mathbf{ACTUALCAP}_{e,y0} \quad &\text{if } y = \mathbf{ENABLEYR_{e}} = Y_{0}\\
 &\text{Free} & \text{otherwise}
 \end{cases}$$

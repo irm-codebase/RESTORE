@@ -52,12 +52,12 @@ def plot_flow_fout(model, handler: DataHandler, flow_ids: list, unit: str = "TWh
     TODO: may not work properly for entities with multiple output efficiencies. Add a warning?
     """
     entity_ids = sorted({e for f, e in model.FoE if f in flow_ids})
-    value_df = pd.DataFrame(index=model.Years, columns=entity_ids, data=0)
+    value_df = pd.DataFrame(index=model.Y, columns=entity_ids, data=0)
 
     # Gather values
     for f in flow_ids:
         for e in entity_ids:
-            for y in model.Years:
+            for y in model.Y:
                 if e in model.Trades:
                     activity = handler.get_annual(e, "actual_import", y)
                 else:
@@ -78,12 +78,12 @@ def plot_flow_fin(model: ConcreteModel, handler: DataHandler, flow_ids: list, un
     TODO: may not work properly for entities with multiple input efficiencies. Add a warning?
     """
     entity_ids = sorted({e for f, e in model.FiE if f in flow_ids})
-    value_df = pd.DataFrame(index=model.Years, columns=entity_ids, data=0)
+    value_df = pd.DataFrame(index=model.Y, columns=entity_ids, data=0)
 
     # Gather values
     for f in flow_ids:
         for e in entity_ids:
-            for y in model.Years:
+            for y in model.Y:
                 if e in model.Trades:
                     activity = handler.get_annual(e, "actual_export", y)
                 else:
@@ -103,12 +103,12 @@ def plot_flow_fin(model: ConcreteModel, handler: DataHandler, flow_ids: list, un
 # --------------------------------------------------------------------------- #
 def plot_group_param(model: ConcreteModel, handler: DataHandler, param: str, group_ids: list, unit: str):
     """Plot the historical new capacity of the entities in a group."""
-    entity_ids = sorted({e for group in group_ids for e in model.Ents if group in e and e in model.Caps})
-    param_df = pd.DataFrame(index=model.Years, columns=entity_ids)
+    entity_ids = sorted({e for group in group_ids for e in model.E if group in e and e in model.Caps})
+    param_df = pd.DataFrame(index=model.Y, columns=entity_ids)
 
     # Gather values
     for e in entity_ids:
-        param_df[e] = {y: handler.get_annual(e, param, y) for y in model.Years}
+        param_df[e] = {y: handler.get_annual(e, param, y) for y in model.Y}
 
     # Plotting
     axis = param_df.plot(kind="bar", stacked=True, width=0.8)
@@ -120,12 +120,12 @@ def plot_group_param(model: ConcreteModel, handler: DataHandler, param: str, gro
 
 def plot_group_ctot(model: ConcreteModel, handler: DataHandler, group_ids: list, unit="GW"):
     """Plot the historical new capacity of the entities in a group."""
-    entity_ids = sorted({e for group in group_ids for e in model.Ents if group in e and e in model.Caps})
-    cap_df = pd.DataFrame(index=model.Years, columns=entity_ids)
+    entity_ids = sorted({e for group in group_ids for e in model.E if group in e and e in model.Caps})
+    cap_df = pd.DataFrame(index=model.Y, columns=entity_ids)
 
     # Gather values
     for e in entity_ids:
-        for y in model.Years:
+        for y in model.Y:
             cap_df.loc[y, e] = handler.get_annual(e, "actual_capacity", y)
 
     # Plotting
@@ -138,12 +138,12 @@ def plot_group_ctot(model: ConcreteModel, handler: DataHandler, group_ids: list,
 
 def plot_group_cnew(model: ConcreteModel, handler: DataHandler, group_ids: list, unit="GW"):
     """Plot the historical new capacity of the entities in a group."""
-    entity_ids = sorted({e for group in group_ids for e in model.Ents if group in e and e in model.Caps})
-    cap_df = pd.DataFrame(index=model.Years, columns=entity_ids)
+    entity_ids = sorted({e for group in group_ids for e in model.E if group in e and e in model.Caps})
+    cap_df = pd.DataFrame(index=model.Y, columns=entity_ids)
 
     # Gather values
     for e in entity_ids:
-        for y in model.Years:
+        for y in model.Y:
             cap_df.loc[y, e] = handler.get_annual(e, "actual_new_capacity", y)
 
     # Plotting
@@ -156,12 +156,12 @@ def plot_group_cnew(model: ConcreteModel, handler: DataHandler, group_ids: list,
 
 def plot_group_cret(model: ConcreteModel, handler: DataHandler, group_ids: list, unit="GW"):
     """Plot the historical retired capacity of the entities in a group."""
-    entity_ids = sorted({e for group in group_ids for e in model.Ents if group in e and e in model.Caps})
-    cap_df = pd.DataFrame(index=model.Years, columns=entity_ids)
+    entity_ids = sorted({e for group in group_ids for e in model.E if group in e and e in model.Caps})
+    cap_df = pd.DataFrame(index=model.Y, columns=entity_ids)
 
     # Gather values
     for e in entity_ids:
-        for y in model.Years:
+        for y in model.Y:
             cap_df.loc[y, e] = handler.get_annual(e, "actual_retired_capacity", y)
 
     # Plotting
@@ -174,12 +174,12 @@ def plot_group_cret(model: ConcreteModel, handler: DataHandler, group_ids: list,
 
 def plot_group_act(model: ConcreteModel, handler: DataHandler, group_ids: list, unit="GW"):
     """Plot the activity of the entities in a group."""
-    entity_ids = sorted({e for group in group_ids for e in model.Ents if group in e})
-    act_df = pd.DataFrame(index=model.Years, columns=entity_ids)
+    entity_ids = sorted({e for group in group_ids for e in model.E if group in e})
+    act_df = pd.DataFrame(index=model.Y, columns=entity_ids)
 
     # Gather values
     for e in entity_ids:
-        for y in model.Years:
+        for y in model.Y:
             act_df.loc[y, e] = handler.get_annual(e, "actual_activity", y)
 
     # Plotting
