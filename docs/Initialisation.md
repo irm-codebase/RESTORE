@@ -2,11 +2,12 @@
 
 $$\forall_{e,y} \quad  \mathrm{TotalAnnualAct_{e,y}} = \begin{cases}
 &0 \quad &\text{if } y < \mathbf{ENABLEYR_{e}} \\
-&\mathbf{ACTUALACT}_{e,y0} \quad &\text{if } y = \mathbf{ENABLEYR_{e}} = Y_{0}\\
+&\mathbf{ACTUALACT_{e,y0}} \quad &\text{if } y = \mathbf{ENABLEYR_{e}} = Y_{0}\\
 &\text{Free} & \text{otherwise}
 \end{cases}$$
 
->[!important] Setting activity levels in $Y_{0}$
+>**Important:** Setting activity levels in $Y_{0}$
+>
 >I do not think this is good practice since it can mislead readers into thinking that the initial year was a model output. I prefer to let the model run for its entire time-span and compare historical observations from the start to ensure users see how adequate the model calibration is (most hindcasting studies do this). 
 >
 >This setting is here for compatibility with D-EXPANSE, and it can be easily deactivated.
@@ -15,6 +16,6 @@ $$\forall_{e,y} \quad  \mathrm{TotalAnnualAct_{e,y}} = \begin{cases}
 
 $$\forall_{e,y} \quad  ctot_{e,y} = \begin{cases}
 &0 \quad &\text{if } y < \mathbf{ENABLEYR_{e}} \\
-&\mathbf{ACTUALCAP}_{e,y0} \quad &\text{if } y = \mathbf{ENABLEYR_{e}} = Y_{0}\\
+&\mathbf{ACTUALCAP_{e,y0}} \quad &\text{if } y = \mathbf{ENABLEYR_{e}} = Y_{0}\\
 &\text{Free} & \text{otherwise}
 \end{cases}$$
