@@ -17,6 +17,7 @@ Rules:
 - No function declarations, not even generic ones.
 """
 import pandas as pd
+import numpy as np
 
 from model_utils import data_handler as _handler
 
@@ -30,7 +31,8 @@ FLOWS = set(pd.merge(DATA.fxe["FiE"], DATA.fxe["FoE"], how='inner').columns)
 
 # User defined parameters
 NDAYS = 2
-YEARS = list(range(1990, 2020))
-DAYS = list(range(NDAYS))
-HOURS = list(range(24))
+YEARSLICE = 1
 TIMESLICE = 1
+YEARS = np.arange(1990, 2020, YEARSLICE)
+DAYS = np.arange(NDAYS)
+HOURS = np.arange(0, 24, TIMESLICE)

@@ -22,6 +22,14 @@ GROUP_ID = "dem_"
 
 
 # --------------------------------------------------------------------------- #
+# Sector-specific expressions
+# --------------------------------------------------------------------------- #
+def _e_cost_total(model: pyo.ConcreteModel):
+    """Calculate the total cost of Extraction entities."""
+    return sum(model.e_CostVarOM[e] for e in model.Dems)
+
+
+# --------------------------------------------------------------------------- #
 # Sector-specific constraints
 # --------------------------------------------------------------------------- #
 def _init_dem_elec(model: pyo.ConcreteModel):
@@ -31,11 +39,11 @@ def _init_dem_elec(model: pyo.ConcreteModel):
     ratio, elec_demand_y_h = k_clustering.get_demand_shape(cnf.ISO3, model.Y, cnf.NDAYS, elec_demand_y)
     # Convert back into TWh and remove the array shape
     # TODO: move the magic value to the demand file to enable conversion regardless of the setting?
-    elec_demand_y_h = {key: value[0] / 1000 for key, value in elec_demand_y_h.items()}
+    elec_demand_y_h = {key: value / 1000 for key, value in elec_demand_y_h.items()}
 
     for y in model.Y:
         for d in model.D:
-            model.DL[y, d].fix(ratio[y, d])
+            model.DL[y, d].value = ratio[y][d]*365
             for h in model.H:
                 model.a["dem_elec", y, d, h].fix(elec_demand_y_h[y][d][h])
 
@@ -93,12 +101,16 @@ def _sets(model: pyo.ConcreteModel):
     )
 
 
+def _expressions(model: pyo.ConcreteModel):
+    model.dem_e_CostTotal = pyo.Expression(expr=_e_cost_total(model))
+
+
 def _constraints(model: pyo.ConcreteModel):
     """Set sector constraints."""
     # Input
-    model.dem_c_flow_in = pyo.Constraint(model.Dems, model.Y, model.H, rule=gen_con.c_flow_in)
+    model.dem_c_flow_in = pyo.Constraint(model.Dems, model.Y, model.D, model.H, rule=gen_con.c_flow_in)
     model.dem_c_input_share_equal = pyo.Constraint(
-        model.DemsFiE, model.YOpt, model.H, rule=gen_con.c_input_share_equal
+        model.DemsFiE, model.Y, model.D, model.H, rule=gen_con.c_input_share_equal
     )
 
 
@@ -114,5 +126,6 @@ def _initialise(model: pyo.ConcreteModel):
 def configure_sector(model):
     """Prepare the sector."""
     _sets(model)
+    _expressions(model)
     _constraints(model)
     _initialise(model)

@@ -35,12 +35,13 @@ GROUP_ID = "sto_"
 # --------------------------------------------------------------------------- #
 # Sector-specific expressions
 # --------------------------------------------------------------------------- #
-def _e_initial_soc(model: pyo.ConcreteModel, e: str):
+def _p_initial_soc(model: pyo.ConcreteModel, e: str):
     """Return the maximum generation capacity of a entity for a modelled time-slice."""
     soc_ratio_y0 = cnf.DATA.get_const(e, "initial_soc_ratio")
     c_rate = cnf.DATA.get_const(e, "c_rate")
     cap_to_act = cnf.DATA.get(e, "capacity_to_activity", model.Y.first())
-    return soc_ratio_y0 * c_rate * cap_to_act * model.ctot[e, model.Y.first()]
+    ctot_0 = cnf.DATA.get(e, "actual_capacity", model.Y.first())
+    return soc_ratio_y0 * c_rate * cap_to_act * ctot_0
 
 
 def _e_cost_total(model: pyo.ConcreteModel):
@@ -102,7 +103,7 @@ def _c_soc_flow(model: pyo.ConcreteModel, e: str, y: int, d: int, h: int):
         if ex == e
     )
     if h == model.H.first():
-        soc_prev = model.sto_e_IniSoC[e]
+        soc_prev = model.sto_p_IniSoC[e]
     else:
         standing_eff = cnf.DATA.get(e, "standing_efficiency", y)
         soc_prev = (standing_eff**model.HL) * model.soc[e, y, d, h - 1]
@@ -119,15 +120,10 @@ def _c_soc_intra_day_cyclic(model: pyo.ConcreteModel, e: str, y: int, d: int):
 # --------------------------------------------------------------------------- #
 def _init_soc(model: pyo.ConcreteModel, storage_ids: list[str]):
     """Set the initial state-of-charge of a storage technology."""
-    y_0 = model.Y0.first()
     for e in storage_ids:
-        enable_year = cnf.DATA.check_cnf(e, "enable_year")
-        if enable_year <= y_0:
-            soc_y0 = cnf.DATA.get_const(e, "initial_soc_ratio")
-            cap_y0 = cnf.DATA.get_annual(e, "actual_capacity", y_0)
-            c_rate = cnf.DATA.get_const(e, "c_rate")
-            cap_to_act = cnf.DATA.get(e, "capacity_to_activity", y_0)
-            model.a[e, y_0, model.H.first()].fix(soc_y0 * cap_y0 * c_rate * cap_to_act)
+        for y in model.Y:
+            for d in model.D:
+                model.soc[e, y, d, model.H.first()].fix(model.sto_p_IniSoC[e])
 
 
 def _sets(model: pyo.ConcreteModel):
@@ -146,13 +142,16 @@ def _sets(model: pyo.ConcreteModel):
     )
 
 
+def _parameters(model: pyo.ConcreteModel):
+    model.sto_p_IniSoC = pyo.Param(model.Stors, initialize=_p_initial_soc)
+
+
 def _variables(model: pyo.ConcreteModel):
     """Create any internal variables that differ from standard settings."""
     model.soc = pyo.Var(model.Stors, model.Y, model.D, model.H, domain=pyo.NonNegativeReals, initialize=0)
 
 
 def _expressions(model: pyo.ConcreteModel):
-    model.sto_e_IniSoC = pyo.Expression(model.Stors, rule=_e_initial_soc)
     model.sto_e_CostTotal = pyo.Expression(expr=_e_cost_total(model))
 
 
@@ -168,8 +167,8 @@ def _constraints(model: pyo.ConcreteModel):
     model.sto_c_soc_intra_day_cyclic = pyo.Constraint(model.Stors, model.Y, model.D, rule=_c_soc_intra_day_cyclic)
     # Capacity
     model.sto_c_cap_max_annual = pyo.Constraint(model.Stors, model.Y, rule=gen_con.c_cap_max_annual)
-    model.sto_c_cap_transfer = pyo.Constraint(model.Stors, model.Y-model.Y0, rule=gen_con.c_cap_transfer)
-    model.sto_c_cap_retirement = pyo.Constraint(model.Stors, model.Y-model.Y0, rule=gen_con.c_cap_retirement)
+    model.sto_c_cap_transfer = pyo.Constraint(model.Stors, model.Y, rule=gen_con.c_cap_transfer)
+    model.sto_c_cap_retirement = pyo.Constraint(model.Stors, model.Y, rule=gen_con.c_cap_retirement)
     model.sto_c_cap_buildrate = pyo.Constraint(model.Stors, model.Y, rule=gen_con.c_cap_buildrate)
     # Activity
     model.sto_c_activity_setup = pyo.Constraint(model.Stors, model.Y, model.D, model.H, rule=_c_activity_setup)
@@ -177,6 +176,7 @@ def _constraints(model: pyo.ConcreteModel):
 
 def _initialise(model: pyo.ConcreteModel):
     """Set initial sector values."""
+    _init_soc(model, model.Stors)
     gen_con.init_capacity(model, model.Stors)
 
 
@@ -194,6 +194,7 @@ def get_cost(model: pyo.ConcreteModel):
 def configure_sector(model):
     """Prepare the sector."""
     _sets(model)
+    _parameters(model)
     _variables(model)
     _expressions(model)
     _constraints(model)

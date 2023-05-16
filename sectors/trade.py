@@ -32,14 +32,14 @@ def _e_total_annual_import(model: pyo.ConcreteModel, e: str, y: int):
     """Return the total annual activity of an entity in a year."""
     if e not in model.TradesImp:
         return pyo.Expression.Skip
-    return sum(model.DL[y, d] * sum(model.HL * model.aimp[e, y, d, h] for h in model.H) for d in model.D)
+    return sum(model.DL[y, d] * sum(model.aimp[e, y, d, h] for h in model.H) for d in model.D)
 
 
 def _e_total_annual_export(model: pyo.ConcreteModel, e: str, y: int):
     """Return the total annual activity of an entity in a year."""
     if e not in model.TradesExp:
         return pyo.Expression.Skip
-    return sum(model.DL[y, d] * sum(model.HL * model.aexp[e, y, d, h] for h in model.H) for d in model.D)
+    return sum(model.DL[y, d] * sum(model.aexp[e, y, d, h] for h in model.H) for d in model.D)
 
 
 def _e_cost_variable_om(model: pyo.ConcreteModel, e: str):
@@ -159,7 +159,7 @@ def _constraints(model: pyo.ConcreteModel):
     )
     # Capacity, no retirements
     model.trd_c_cap_max_annual = pyo.Constraint(model.Trades, model.Y, rule=gen_con.c_cap_max_annual)
-    model.trd_c_cap_transfer = pyo.Constraint(model.Trades, model.Y-model.Y0, rule=gen_con.c_cap_transfer)
+    model.trd_c_cap_transfer = pyo.Constraint(model.Trades, model.Y, rule=gen_con.c_cap_transfer)
     model.trd_c_cap_buildrate = pyo.Constraint(model.Trades, model.Y, rule=gen_con.c_cap_buildrate)
     # Activity
     model.trd_c_act_setup = pyo.Constraint(model.Trades, model.Y, model.D, model.H, rule=_c_activity_setup)

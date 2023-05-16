@@ -48,9 +48,9 @@ def _constraints(model: pyo.ConcreteModel):
     model.ext_c_flow_out = pyo.Constraint(model.Extrs, model.Y, model.D, model.H, rule=gen_con.c_flow_out)
     # Capacity
     model.ext_c_cap_max_annual = pyo.Constraint(model.Extrs, model.Y, rule=gen_con.c_cap_max_annual)
-    model.ext_c_cap_transfer = pyo.Constraint(model.Extrs, model.Y - model.Y0, rule=gen_con.c_cap_transfer)
-    model.ext_c_cap_retirement = pyo.Constraint(model.Extrs, model.Y - model.Y0, rule=gen_con.c_cap_retirement)
-    model.ext_c_cap_buildrate = pyo.Constraint(model.Extrs, model.Y - model.Y0, rule=gen_con.c_cap_buildrate)
+    model.ext_c_cap_transfer = pyo.Constraint(model.Extrs, model.Y, rule=gen_con.c_cap_transfer)
+    model.ext_c_cap_retirement = pyo.Constraint(model.Extrs, model.Y, rule=gen_con.c_cap_retirement)
+    model.ext_c_cap_buildrate = pyo.Constraint(model.Extrs, model.Y, rule=gen_con.c_cap_buildrate)
     # Activity
     model.ext_c_act_ramp_up = pyo.Constraint(
         model.Extrs, model.Y, model.D, model.H - model.H0, rule=gen_con.c_act_ramp_up

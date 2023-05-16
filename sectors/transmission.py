@@ -10,6 +10,8 @@
 """Energy transport sector.
 
 For now, only electricity transmission/distribution.
+Formulation should be the same for other energy sources... and could be made more generic.
+# TODO: This needs to be bidirectional w/only one input and output (add check?)
 """
 import pyomo.environ as pyo
 
@@ -17,6 +19,14 @@ from model_utils import configuration as cnf
 from model_utils import generic_constraints as gen_con
 
 GROUP_ID = "conv_transmission"
+
+
+# --------------------------------------------------------------------------- #
+# Sector-specific expressions
+# --------------------------------------------------------------------------- #
+def _e_cost_total(model: pyo.ConcreteModel):
+    """Calculate the total cost of Extraction entities."""
+    return sum(model.e_CostVarOM[e] for e in model.ETrans)
 
 
 # --------------------------------------------------------------------------- #
@@ -38,11 +48,15 @@ def _sets(model: pyo.ConcreteModel):
     )
 
 
+def _expressions(model: pyo.ConcreteModel):
+    model.etrans_e_CostTotal = pyo.Expression(expr=_e_cost_total(model))
+
+
 def _constraints(model: pyo.ConcreteModel):
     """Set sector constraints."""
     # Input/output
-    model.etrans_c_flow_in = pyo.Constraint(model.ETrans, model.Y, model.H, rule=gen_con.c_flow_in)
-    model.etrans_c_flow_out = pyo.Constraint(model.ETrans, model.Y, model.H, rule=gen_con.c_flow_out)
+    model.etrans_c_flow_in = pyo.Constraint(model.ETrans, model.Y, model.D, model.H, rule=gen_con.c_flow_in)
+    model.etrans_c_flow_out = pyo.Constraint(model.ETrans, model.Y, model.D, model.H, rule=gen_con.c_flow_out)
 
 
 def _initialise(model: pyo.ConcreteModel):
@@ -64,5 +78,6 @@ def get_cost(model: pyo.ConcreteModel):
 def configure_sector(model):
     """Prepare the sector."""
     _sets(model)
+    _expressions(model)
     _constraints(model)
-    _initialise(model)
+    # _initialise(model)

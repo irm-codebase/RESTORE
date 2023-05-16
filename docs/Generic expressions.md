@@ -1,4 +1,4 @@
-These are defined globally, and do not create constraints or additional variables. Specific entity types may override these if necessary.
+These are defined globally, and do not create constraints or additional variables. Specific entity modules may override these if necessary.
 
 # Activity expressions
 

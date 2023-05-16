@@ -35,8 +35,8 @@ def plot_flow_fout(model, handler: DataHandler, flow_ids: list, unit: str = "TWh
         for f, e in model.FoE:
             if f == flow:
                 for y in model.Y:
-                    sum_fout = sum(model.fout[f, e, y, h].value for h in model.H)
-                    value_df.loc[y, e] += sum_fout * model.TPERIOD  # time correction
+                    sum_fout = sum(model.DL[y, d]() * model.fout[f, e, y, d, h].value for d in model.D for h in model.H)
+                    value_df.loc[y, e] += sum_fout  # time correction
     # Plotting
     axis = value_df.plot.area(linewidth=0)
     if hist:
@@ -56,8 +56,8 @@ def plot_flow_fin(model, handler: DataHandler, flow_ids: list, unit: str = "TWh"
     for f, e in model.FiE:
         if f in flow_ids:
             for y in model.Y:
-                sum_fout = sum(model.fin[f, e, y, h].value for h in model.H)
-                value_df.loc[y, e] += sum_fout * model.TPERIOD  # time correction
+                sum_fout = sum(model.DL[y, d]() * model.fin[f, e, y, d, h].value for d in model.D for h in model.H)
+                value_df.loc[y, e] += sum_fout  # time correction
 
     # Plotting
     axis = value_df.plot.area(linewidth=0)
@@ -134,7 +134,7 @@ def plot_group_act(model, group_ids: list, unit="GW"):
     # Gather values
     for e in entity_ids:
         for y in model.Y:
-            act_df.loc[y, e] = model.TPERIOD * sum(model.a[e, y, h].value for h in model.H)
+            act_df.loc[y, e] = sum(model.DL[y, d]() * model.a[e, y, d, h].value for d in model.D for h in model.H)
 
     # Plotting
     axis = act_df.plot.area(linewidth=0)
@@ -142,3 +142,14 @@ def plot_group_act(model, group_ids: list, unit="GW"):
     fig_tools.prettify_plot(axis, title, unit)
 
     return axis
+
+
+def plot_act(model, entity_id, unit="GW"):
+    """Plot the activity of a single entity."""
+    act = [model.e_TotalAnnualActivity[entity_id, y]() for y in model.Y]
+    act_df = pd.Series(index=model.Y, name=entity_id, data=act)
+
+    # Plotting
+    axis = act_df.plot.area(linewidth=0)
+    title = f"Modelled:Activity:{entity_id}"
+    fig_tools.prettify_plot(axis, title, unit)

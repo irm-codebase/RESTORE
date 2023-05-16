@@ -174,7 +174,7 @@ def c_cap_max_annual(model: pyo.ConcreteModel, e: str, y: int):
 
 def c_cap_transfer(model: pyo.ConcreteModel, e: str, y: int):
     """Transfer installed capacity between year slices."""
-    if DATA.check_cnf(e, "enable_capacity") and y >= DATA.check_cnf(e, "enable_year"):
+    if DATA.check_cnf(e, "enable_capacity") and y != model.Y.first():
         total_capacity = model.ctot[e, y - 1] + model.cnew[e, y] - model.cret[e, y]
         return model.ctot[e, y] == total_capacity
     return pyo.Constraint.Skip
@@ -182,7 +182,7 @@ def c_cap_transfer(model: pyo.ConcreteModel, e: str, y: int):
 
 def c_cap_retirement(model: pyo.ConcreteModel, e: str, y: int):
     """Retire installed capacity if configured or if the lifetime has been exceeded."""
-    if DATA.check_cnf(e, "enable_capacity") and y >= DATA.check_cnf(e, "enable_year"):
+    if DATA.check_cnf(e, "enable_capacity") and y != model.Y.first():
         life = DATA.get_const(e, "lifetime")
         if life is None:  # Instalments last indefinitely
             return model.cret[e, y] == 0
@@ -196,7 +196,7 @@ def c_cap_retirement(model: pyo.ConcreteModel, e: str, y: int):
 
 def c_cap_buildrate(model: pyo.ConcreteModel, e: str, y: int):
     """Limit the speed of annual capacity increase."""
-    if DATA.check_cnf(e, "enable_capacity") and y >= DATA.check_cnf(e, "enable_year"):
+    if DATA.check_cnf(e, "enable_capacity"):
         buildrate = DATA.get(e, "buildrate", y)
         return model.cnew[e, y] <= buildrate if buildrate is not None else pyo.Constraint.Skip
     return pyo.Constraint.Skip
@@ -205,75 +205,71 @@ def c_cap_buildrate(model: pyo.ConcreteModel, e: str, y: int):
 # --------------------------------------------------------------------------- #
 # Activity constraints (entity-specific and flow-independent)
 # --------------------------------------------------------------------------- #
-def c_act_ramp_up(model: pyo.ConcreteModel, entity_id: str, y: int, d: int, h: int):
+def c_act_ramp_up(model: pyo.ConcreteModel, e: str, y: int, d: int, h: int):
     """Limit the hourly activity increments of an entity."""
-    if DATA.check_cnf(entity_id, "enable_capacity") and y >= DATA.check_cnf(entity_id, "enable_year"):
-        ramp_rate = DATA.get(entity_id, "ramp_rate", y)
+    if DATA.check_cnf(e, "enable_capacity"):
+        ramp_rate = DATA.get(e, "ramp_rate", y)
         if ramp_rate is None or ramp_rate >= 1:  # No limit and ramping at/above 1 are equivalent
             return pyo.Constraint.Skip
-        cap_to_act = DATA.get(entity_id, "capacity_to_activity", y) * model.HL / (365 * 24)
-        max_activity_change = ramp_rate * model.ctot[entity_id, y] * cap_to_act
-        return model.a[entity_id, y, d, h] - model.a[entity_id, y, d, h - 1] <= max_activity_change
+        max_activity_change = ramp_rate * model.ctot[e, y] * model.e_HourlyC2A[e, y]
+        return model.a[e, y, d, h] - model.a[e, y, d, h - 1] <= max_activity_change
     return pyo.Constraint.Skip
 
 
-def c_act_ramp_down(model: pyo.ConcreteModel, entity_id: str, y: int, d: int, h: int):
+def c_act_ramp_down(model: pyo.ConcreteModel, e: str, y: int, d: int, h: int):
     """Limit the hourly activity decrements of an entity."""
-    if DATA.check_cnf(entity_id, "enable_capacity") and y >= DATA.check_cnf(entity_id, "enable_year"):
-        ramp_rate = DATA.get(entity_id, "ramp_rate", y)
+    if DATA.check_cnf(e, "enable_capacity"):
+        ramp_rate = DATA.get(e, "ramp_rate", y)
         if ramp_rate is None or ramp_rate >= 1:  # No limit and ramping at/above 1 are equivalent
             return pyo.Constraint.Skip
-        cap_to_act = DATA.get(entity_id, "capacity_to_activity", y) * model.HL / (365 * 24)
-        max_activity_change = ramp_rate * model.ctot[entity_id, y] * cap_to_act
-        return model.a[entity_id, y, d, h - 1] - model.a[entity_id, y, d, h] <= max_activity_change
+        max_activity_change = ramp_rate * model.ctot[e, y] * model.e_HourlyC2A[e, y]
+        return model.a[e, y, d, h - 1] - model.a[e, y, d, h] <= max_activity_change
     return pyo.Constraint.Skip
 
 
-def c_act_max_annual(model: pyo.ConcreteModel, entity_id: str, y: int):
+def c_act_max_annual(model: pyo.ConcreteModel, e: str, y: int):
     """Limit the annual activity of an entity."""
-    max_act_annual = DATA.get_const(entity_id, "max_activity_annual")
+    max_act_annual = DATA.get_const(e, "max_activity_annual")
     if max_act_annual is not None:
-        act_annual = sum(model.DL[y, d] * sum(model.a[entity_id, y, d, h] for h in model.H) for d in model.D)
+        act_annual = sum(model.DL[y, d] * sum(model.a[e, y, d, h] for h in model.H) for d in model.D)
         return act_annual <= max_act_annual
     return pyo.Constraint.Skip
 
 
-def c_act_cf_min_hour(model: pyo.ConcreteModel, entity_id: str, y: int, d: int, h: int):
+def c_act_cf_min_hour(model: pyo.ConcreteModel, e: str, y: int, d: int, h: int):
     """Set the minimum hourly utilisation of an entity's capacity."""
-    if DATA.check_cnf(entity_id, "enable_capacity") and y >= DATA.check_cnf(entity_id, "enable_year"):
-        lf_min = DATA.get(entity_id, "lf_min", y)
-        cap_to_act = DATA.get(entity_id, "capacity_to_activity", y) * model.HL / (365 * 24)
-        return lf_min * model.ctot[entity_id, y] * cap_to_act <= model.a[entity_id, y, d, h]
+    if DATA.check_cnf(e, "enable_capacity"):
+        lf_min = DATA.get(e, "lf_min", y)
+        return lf_min * model.ctot[e, y] * model.e_HourlyC2A[e, y] <= model.a[e, y, d, h]
     return pyo.Constraint.Skip
 
 
-def c_act_cf_max_hour(model: pyo.ConcreteModel, entity_id: str, y: int, d: int, h: int):
+def c_act_cf_max_hour(model: pyo.ConcreteModel, e: str, y: int, d: int, h: int):
     """Set the maximum hourly utilisation of an entity's capacity."""
-    if DATA.check_cnf(entity_id, "enable_capacity") and y >= DATA.check_cnf(entity_id, "enable_year"):
-        lf_max = DATA.get(entity_id, "lf_max", y)
-        cap_to_act = DATA.get(entity_id, "capacity_to_activity", y) * model.HL / (365 * 24)
-        return model.a[entity_id, y, d, h] <= lf_max * model.ctot[entity_id, y] * cap_to_act
+    if DATA.check_cnf(e, "enable_capacity"):
+        lf_max = DATA.get(e, "lf_max", y)
+        return model.a[e, y, d, h] <= lf_max * model.ctot[e, y] * model.e_HourlyC2A[e, y]
     return pyo.Constraint.Skip
 
 
-def c_act_cf_min_year(model: pyo.ConcreteModel, entity_id: str, y: int):
+def c_act_cf_min_year(model: pyo.ConcreteModel, e: str, y: int):
     """Set the minimum annual utilisation of an entity's capacity."""
-    if DATA.check_cnf(entity_id, "enable_capacity") and y >= DATA.check_cnf(entity_id, "enable_year"):
-        lf_min = DATA.get(entity_id, "lf_min", y)
-        cap_to_act = DATA.get(entity_id, "capacity_to_activity", y)
-        annual_min = lf_min * model.ctot[entity_id, y] * cap_to_act
-        act_annual = sum(model.DL[y, d] * sum(model.a[entity_id, y, d, h] for h in model.H) for d in model.D)
+    if DATA.check_cnf(e, "enable_capacity"):
+        lf_min = DATA.get(e, "lf_min", y)
+        cap_to_act = DATA.get(e, "capacity_to_activity", y)
+        annual_min = lf_min * model.ctot[e, y] * cap_to_act
+        act_annual = sum(model.DL[y, d] * sum(model.a[e, y, d, h] for h in model.H) for d in model.D)
         return annual_min <= act_annual
     return pyo.Constraint.Skip
 
 
-def c_act_cf_max_year(model: pyo.ConcreteModel, entity_id: str, y: int):
+def c_act_cf_max_year(model: pyo.ConcreteModel, e: str, y: int):
     """Set the maximum annual utilisation of an entity's capacity."""
-    if DATA.check_cnf(entity_id, "enable_capacity") and y >= DATA.check_cnf(entity_id, "enable_year"):
-        lf_max = DATA.get(entity_id, "lf_max", y)
-        cap_to_act = DATA.get(entity_id, "capacity_to_activity", y)
-        annual_max = lf_max * model.ctot[entity_id, y] * cap_to_act
-        act_annual = sum(model.DL[y, d] * sum(model.a[entity_id, y, d, h] for h in model.H) for d in model.D)
+    if DATA.check_cnf(e, "enable_capacity"):
+        lf_max = DATA.get(e, "lf_max", y)
+        cap_to_act = DATA.get(e, "capacity_to_activity", y)
+        annual_max = lf_max * model.ctot[e, y] * cap_to_act
+        act_annual = sum(model.DL[y, d] * sum(model.a[e, y, d, h] for h in model.H) for d in model.D)
         return act_annual <= annual_max
     return pyo.Constraint.Skip
 
@@ -285,35 +281,20 @@ def init_activity(model, entity_list):
     """Set the initial activity in a set of entity_list."""
     hours_in_year = 365 * 24
     y_0 = model.Y0.first()
-    for entity_id in entity_list:
-        enable_year = DATA.check_cnf(entity_id, "enable_year")
-        for y in model.Y:
-            if y == y_0 and y == enable_year:
-                # Activity should only be initialized if both y_0 and the enable year coincide.
-                act = DATA.get_annual(entity_id, "actual_activity", y) / hours_in_year
-            else:
-                act = 0
-            model.a[entity_id, y, :].fix(act)
-
-            if y == enable_year:
-                break
+    for e in entity_list:
+        act = DATA.get_annual(e, "actual_activity", y_0) / hours_in_year
+        model.a[e, y_0, :, :].fix(act)
 
 
 def init_capacity(model: pyo.ConcreteModel, entity_list: set):
     """Set the capacity in the inital year, if enabled."""
-    # TODO: Think of a leaner way to implement temporal enabling/disabling.
+    y_0 = model.Y0.first()
     for entity_id in entity_list:
         if DATA.check_cnf(entity_id, "enable_capacity"):
-            enable_year = DATA.check_cnf(entity_id, "enable_year")
-            cap_enable = DATA.get_annual(entity_id, "actual_capacity", enable_year)
-            # Capacity is zero until enabled.
-            for y in model.Y:
-                model.cnew[entity_id, y].fix(0)
-                model.cret[entity_id, y].fix(0)
-                if y == enable_year:
-                    model.ctot[entity_id, y].fix(cap_enable)
-                    break
-                model.ctot[entity_id, y].fix(0)
+            cap_enable = DATA.get_annual(entity_id, "actual_capacity", y_0)
+            model.cnew[entity_id, y_0].fix(0)
+            model.cret[entity_id, y_0].fix(0)
+            model.ctot[entity_id, y_0].fix(cap_enable)
 
 
 # --------------------------------------------------------------------------- #
