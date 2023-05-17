@@ -33,6 +33,6 @@ FLOWS = set(pd.merge(DATA.fxe["FiE"], DATA.fxe["FoE"], how='inner').columns)
 NDAYS = 1
 YEARSLICE = 1
 TIMESLICE = 1
-YEARS = np.arange(1990, 2020, YEARSLICE)
+YEARS = np.arange(1990, 2019, YEARSLICE)
 DAYS = np.arange(NDAYS)
 HOURS = np.arange(0, 24, TIMESLICE)
