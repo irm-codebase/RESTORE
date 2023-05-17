@@ -32,28 +32,37 @@ def _e_total_annual_import(model: pyo.ConcreteModel, e: str, y: int):
     """Return the total annual activity of an entity in a year."""
     if e not in model.TradesImp:
         return pyo.Expression.Skip
-    return sum(model.DL[y, d] * sum(model.aimp[e, y, d, h] for h in model.H) for d in model.D)
+    return sum(model.DL[y, d] * sum(model.HL * model.aimp[e, y, d, h] for h in model.H) for d in model.D)
 
 
 def _e_total_annual_export(model: pyo.ConcreteModel, e: str, y: int):
     """Return the total annual activity of an entity in a year."""
     if e not in model.TradesExp:
         return pyo.Expression.Skip
-    return sum(model.DL[y, d] * sum(model.aexp[e, y, d, h] for h in model.H) for d in model.D)
+    return sum(model.DL[y, d] * sum(model.HL * model.aexp[e, y, d, h] for h in model.H) for d in model.D)
 
 
 def _e_cost_variable_om(model: pyo.ConcreteModel, e: str):
     """Return the total variable cost due to trade."""
     cost = 0
+    y_last = model.Y.last()
     if e in model.TradesImp:
         cost += sum(
-            model.DISCRATE[y] * (cnf.DATA.get(e, "cost_import", y) * model.trd_e_TotalAnnualImport[e, y])
+            model.DISC[y + i] * (cnf.DATA.get(e, "cost_import", y) * model.trd_e_TotalAnnualImport[e, y])
             for y in model.Y
+            if y != model.Y.last()
+            for i in range(model.YL())
         )
+        cost += model.DISC[y_last] * (cnf.DATA.get(e, "cost_import", y_last) * model.trd_e_TotalAnnualImport[e, y_last])
     if e in model.TradesExp:  # Export gives revenue (negative cost)
         cost -= sum(
-            model.DISCRATE[y] * (cnf.DATA.get(e, "revenue_export", y) * model.trd_e_TotalAnnualExport[e, y])
+            model.DISC[y + i] * (cnf.DATA.get(e, "revenue_export", y) * model.trd_e_TotalAnnualExport[e, y])
             for y in model.Y
+            if y != model.Y.last()
+            for i in range(model.YL())
+        )
+        cost -= model.DISC[y_last] * (
+            cnf.DATA.get(e, "revenue_export", y_last) * model.trd_e_TotalAnnualExport[e, y_last]
         )
     return cost
 

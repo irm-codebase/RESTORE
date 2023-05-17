@@ -74,13 +74,13 @@ def _c_charge_limit(model: pyo.ConcreteModel, e: str, y: int, d: int, h: int):
     """Limit the storage uptake to the available capacity."""
     cap_to_act = cnf.DATA.get(e, "capacity_to_activity", y)
     charge = sum(model.fin[f, ex, y, d, h] for f, ex in model.StorsFiE if ex == e)
-    return charge / model.HL <= model.ctot[e, y] * cap_to_act
+    return charge <= model.ctot[e, y] * cap_to_act
 
 
 def _c_discharge_limit(model: pyo.ConcreteModel, e: str, y: int, d: int, h: int):
     """Limit the storage depletion to the available capacity."""
     discharge = sum(model.fout[f, ex, y, d, h] for f, ex in model.StorsFoE if ex == e)
-    return discharge / model.HL <= model.ctot[e, y] * cnf.DATA.get(e, "capacity_to_activity", y)
+    return discharge <= model.ctot[e, y] * cnf.DATA.get(e, "capacity_to_activity", y)
 
 
 def _c_soc_limit(model: pyo.ConcreteModel, e: str, y: int, d: int, h: int):
@@ -106,8 +106,8 @@ def _c_soc_flow(model: pyo.ConcreteModel, e: str, y: int, d: int, h: int):
         soc_prev = model.sto_p_IniSoC[e]
     else:
         standing_eff = cnf.DATA.get(e, "standing_efficiency", y)
-        soc_prev = (standing_eff**model.HL) * model.soc[e, y, d, h - 1]
-    return model.soc[e, y, d, h] == soc_prev + inflow - outflow
+        soc_prev = (standing_eff**model.HL) * model.soc[e, y, d, h - model.HL]
+    return model.soc[e, y, d, h] == soc_prev + model.HL*(inflow - outflow)
 
 
 def _c_soc_intra_day_cyclic(model: pyo.ConcreteModel, e: str, y: int, d: int):

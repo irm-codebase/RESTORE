@@ -175,7 +175,7 @@ def c_cap_max_annual(model: pyo.ConcreteModel, e: str, y: int):
 def c_cap_transfer(model: pyo.ConcreteModel, e: str, y: int):
     """Transfer installed capacity between year slices."""
     if DATA.check_cnf(e, "enable_capacity") and y != model.Y.first():
-        total_capacity = model.ctot[e, y - 1] + model.cnew[e, y] - model.cret[e, y]
+        total_capacity = model.ctot[e, y - model.YL] + model.cnew[e, y] - model.cret[e, y]
         return model.ctot[e, y] == total_capacity
     return pyo.Constraint.Skip
 
@@ -197,7 +197,7 @@ def c_cap_retirement(model: pyo.ConcreteModel, e: str, y: int):
 def c_cap_buildrate(model: pyo.ConcreteModel, e: str, y: int):
     """Limit the speed of annual capacity increase."""
     if DATA.check_cnf(e, "enable_capacity"):
-        buildrate = DATA.get(e, "buildrate", y)
+        buildrate = DATA.get(e, "buildrate", y) * model.YL
         return model.cnew[e, y] <= buildrate if buildrate is not None else pyo.Constraint.Skip
     return pyo.Constraint.Skip
 
@@ -208,22 +208,22 @@ def c_cap_buildrate(model: pyo.ConcreteModel, e: str, y: int):
 def c_act_ramp_up(model: pyo.ConcreteModel, e: str, y: int, d: int, h: int):
     """Limit the hourly activity increments of an entity."""
     if DATA.check_cnf(e, "enable_capacity"):
-        ramp_rate = DATA.get(e, "ramp_rate", y)
+        ramp_rate = DATA.get(e, "ramp_rate", y) * model.HL
         if ramp_rate is None or ramp_rate >= 1:  # No limit and ramping at/above 1 are equivalent
             return pyo.Constraint.Skip
         max_activity_change = ramp_rate * model.ctot[e, y] * model.e_HourlyC2A[e, y]
-        return model.a[e, y, d, h] - model.a[e, y, d, h - 1] <= max_activity_change
+        return model.a[e, y, d, h] - model.a[e, y, d, h - model.HL] <= max_activity_change
     return pyo.Constraint.Skip
 
 
 def c_act_ramp_down(model: pyo.ConcreteModel, e: str, y: int, d: int, h: int):
     """Limit the hourly activity decrements of an entity."""
     if DATA.check_cnf(e, "enable_capacity"):
-        ramp_rate = DATA.get(e, "ramp_rate", y)
+        ramp_rate = DATA.get(e, "ramp_rate", y) * model.HL
         if ramp_rate is None or ramp_rate >= 1:  # No limit and ramping at/above 1 are equivalent
             return pyo.Constraint.Skip
         max_activity_change = ramp_rate * model.ctot[e, y] * model.e_HourlyC2A[e, y]
-        return model.a[e, y, d, h - 1] - model.a[e, y, d, h] <= max_activity_change
+        return model.a[e, y, d, h - model.HL] - model.a[e, y, d, h] <= max_activity_change
     return pyo.Constraint.Skip
 
 
@@ -305,7 +305,7 @@ def cost_investment(model: pyo.ConcreteModel, entity_list, years):
     cost = 0
     for e in entity_list:
         if DATA.check_cnf(e, "enable_capacity"):
-            cost += sum(model.DISCRATE[y] * DATA.get(e, "cost_investment", y) * model.cnew[e, y] for y in years)
+            cost += sum(model.DISC[y] * DATA.get(e, "cost_investment", y) * model.cnew[e, y] for y in years)
     return cost
 
 
@@ -315,7 +315,7 @@ def cost_fixed_om(model: pyo.ConcreteModel, entity_list, years):
     for e in entity_list:
         if DATA.check_cnf(e, "enable_capacity"):
             cost += sum(
-                model.DISCRATE[y] * DATA.get(e, "cost_fixed_om_annual", y) * model.ctot[e, y] for y in years
+                model.DISC[y] * DATA.get(e, "cost_fixed_om_annual", y) * model.ctot[e, y] for y in years
             )
     return cost
 
@@ -323,7 +323,7 @@ def cost_fixed_om(model: pyo.ConcreteModel, entity_list, years):
 def cost_variable_om(model: pyo.ConcreteModel, entity_list, years):
     """Get variable O&M cost for a set of entity_list."""
     cost = sum(
-        model.DISCRATE[y] * DATA.get(e, "cost_variable_om", y) * sum(model.a[e, y, h] for h in model.H)
+        model.DISC[y] * DATA.get(e, "cost_variable_om", y) * sum(model.a[e, y, h] for h in model.H)
         for e in entity_list
         for y in years
     )

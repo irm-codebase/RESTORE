@@ -44,7 +44,9 @@ def _init_sets(model: pyo.ConcreteModel) -> pyo.ConcreteModel:
     # Temporal (1xN)
     model.Y = pyo.Set(initialize=cnf.YEARS, ordered=True)
     model.Y0 = pyo.Set(initialize=[cnf.YEARS[0]], ordered=True)
+    model.YALL = pyo.Set(initialize=range(model.Y.first(), model.Y.last()+1), ordered=True)
     model.D = pyo.Set(initialize=cnf.DAYS, ordered=True)
+    model.DALL = pyo.Set(initialize=range(365), ordered=True)
     model.H = pyo.Set(initialize=cnf.HOURS, ordered=True)
     model.H0 = pyo.Set(initialize=[cnf.HOURS[0]], ordered=True)
 
@@ -93,7 +95,7 @@ def _init_parameters(model: pyo.ConcreteModel) -> pyo.ConcreteModel:
     model.YL = pyo.Param(initialize=cnf.YEARSLICE, doc="Length of a year-slice in the model, in years")
     model.DL = pyo.Param(model.Y, model.D, initialize=_day_share, mutable=True, doc="Number of days represented")
     model.HL = pyo.Param(initialize=cnf.TIMESLICE, doc="Length of an hour-slice in the model, in hours")
-    model.DISCRATE = pyo.Param(model.Y, initialize=_discount_rates, doc="Discount Rates")
+    model.DISC = pyo.Param(model.YALL, initialize=_discount_rates, doc="Discount Rates")
 
     return model
 

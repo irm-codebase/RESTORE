@@ -53,7 +53,7 @@ $$\forall_{f,e,y,d,h} \quad fin_{f,e,y,d,h} \ge \mathbf{FINSRMIN_{f,e,y}} \sum\l
 
 **input**: balance entity inflows to their activity, where $\boldsymbol{\eta }\mathbf{I}$  is the input efficiency.
 
-$$\forall_{e, y, d, h} \quad \sum\limits_{f \in EIN_{e}}\boldsymbol{\eta }\mathbf{I}_{f, e, y} fin_{f,e,y,d,h} = a_{e,y,d,h}$$
+$$\forall_{e, y, d, h} \quad \sum\limits_{f \in EIN_{e}}\boldsymbol{\eta }\mathbf{I_{f, e, y}} \cdot fin_{f,e,y,d,h} = a_{e,y,d,h}$$
 
 **input_share_equal**: limit an entity's input to be a share of all its inputs. Skipped if $\mathbf{EINSREQ}$ is `None`.
 
@@ -98,28 +98,28 @@ $$\forall_{e,y} \quad ctot_{e,y} \le \mathbf{CMAXANN_{e,y}}$$
 $$\forall_{e,y} \quad ctot_{e,y} =
 \mathbf{RESCAP_{e,y}} + \sum\limits_{\begin{align*}
 yx&= Y_{0} \\
-\text{if } y-yx &< \mathbf{LIFE}_{e}
+\text{if } y-yx &< \mathbf{LIFE_{e}}
 \end{align*}}^{y} cnew_{e,y}$$
 
 **cap_max_new**: limit the maximum new capacity installed per year. Skipped if $\mathbf{CMAXNEW}$ is `None`.
 
-$$\forall_{e,y} \quad cnew_{e,y} \le \mathbf{CMAXNEW_{e,y}}$$
+$$\forall_{e,y} \quad cnew_{e,y} \le \mathbf{YL}\cdot \mathbf{CMAXNEW_{e,y}}$$
 
 **cap_build_rate**: limit the rate of growth of an entity's capacity. Skipped if $\mathbf{BR}$ is `None`.
 
-$$\forall_{e,y} \quad ctot_{y,e} \le \mathbf{BR}\ ctot_{e,y-1}$$
+$$\forall_{e,y} \quad ctot_{y,e} \le \mathbf{BR^{YL}} \cdot ctot_{e,y-\mathbf{YL}}$$
 
 # Activity constraints
 
 Generic constraints related to an entity's activity, unrelated to its inflows and outflows.
 
-**act_ramp_up**: limit the hourly activity increment of a technology. Skipped if $\mathbf{RAMPR} \ge 1$ or if it is `None`.
+**act_ramp_up**: limit the hourly activity increment of a technology. Skipped if $\mathbf{RAMPR \cdot HL} \ge 1$ or if it is `None`.
 
-$$\forall_{e,y,d,h} \quad a_{e,y,d,h}-a_{e,y,d,h-1} \le \mathbf{RAMPR_{e,y}} \ \mathrm{HourlyC2A_{e,y}} * ctot_{e,y}$$
+$$\forall_{e,y,d,h} \quad a_{e,y,d,h}-a_{e,y,d,h-1} \le \mathbf{HL \cdot RAMPR_{e,y}} \cdot \mathrm{HourlyC2A_{e,y}} \cdot ctot_{e,y}$$
 
-**act_ramp_down**: limit the hourly activity decrement of a technology. Skipped if $\mathbf{RAMPR} \ge 1$ or if it is `None`.
+**act_ramp_down**: limit the hourly activity decrement of a technology. Skipped if $\mathbf{RAMPR \cdot HL} \ge 1$ or if it is `None`.
 
-$$\forall_{e,y,d,h} \quad a_{e,y,d,h}-a_{e,y,d,h-1} \le \mathbf{RAMPR_{e,y}} \ \mathrm{HourlyC2A_{e,y}} * ctot_{e,y}$$
+$$\forall_{e,y,d,h} \quad a_{e,y,d,h}-a_{e,y,d,h-1} \le \mathbf{HL \cdot RAMPR_{e,y}} \cdot \mathrm{HourlyC2A_{e,y}} \cdot ctot_{e,y}$$
 
 >**Important:** Representative day linkage
 >
@@ -131,19 +131,19 @@ $$\mathrm{TotalAnnualAct_{e,y}} \le \mathbf{AMAXANN_{e,y}}$$
 
 **act_cf_max_hour**: set the maximum hourly utilization of an entity's capacity.
 
-$$\forall_{e,y,d,h} \quad a_{e,y,d,h} \le \mathbf{CFMAX_{e,y}} \ \mathrm{HourlyC2A_{e,y}} \ ctot_{e,y}$$
+$$\forall_{e,y,d,h} \quad a_{e,y,d,h} \le \mathbf{CFMAX_{e,y}} \cdot \mathrm{HourlyC2A_{e,y}} \cdot ctot_{e,y}$$
 
 **act_cf_min_hour**: set the minimum hourly utilization of an entity's capacity.
 
-$$\forall_{e,y,d,h} \quad \mathbf{CFMIN_{e,y}} \ \mathrm{HourlyC2A_{e,y}} \ ctot_{e,y} \le a_{e,y,d,h}$$
+$$\forall_{e,y,d,h} \quad \mathbf{CFMIN_{e,y}} \cdot \mathrm{HourlyC2A_{e,y}} \cdot ctot_{e,y} \le a_{e,y,d,h}$$
 
 **act_cf_max_annual**: set the maximum annual utilization of an entity's capacity.
 
-$$\forall_{e,y} \quad \mathrm{TotalAnnualAct_{e,y}} \le \mathbf{CFMAX_{e,y}}\mathbf{C2A_{e,y}} \ ctot_{e,y}$$
+$$\forall_{e,y} \quad \mathrm{TotalAnnualAct_{e,y}} \le \mathbf{CFMAX_{e,y}} \cdot \mathbf{C2A_{e,y}} \cdot ctot_{e,y}$$
 
 **act_cf_min_annual**: set the maximum annual utilization of an entity's capacity.
 
-$$\forall_{e,y} \quad \mathbf{CFMIN_{e,y}}\mathbf{C2A_{e,y}} \ ctot_{e,y} \le \mathrm{TotalAnnualAct_{e,y}}$$
+$$\forall_{e,y} \quad \mathbf{CFMIN_{e,y}} \cdot \mathbf{C2A_{e,y}} \cdot ctot_{e,y} \le \mathrm{TotalAnnualAct_{e,y}}$$
 
 >**Important:** Hourly vs annual Capacity Factor constraints
 >

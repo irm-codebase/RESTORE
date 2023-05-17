@@ -23,14 +23,14 @@ from model_utils.configuration import DATA
 # --------------------------------------------------------------------------- #
 # Activity expressions
 # --------------------------------------------------------------------------- #
-def e_hourly_capacity_to_activity(model: pyo.ConcreteModel, e: str, y: int):
+def e_hourly_capacity_to_activity(_, e: str, y: int):
     """Return the maximum generation capacity of a entity for a modelled time-slice."""
     if DATA.check_cnf(e, "enable_capacity"):
-        return DATA.get(e, "capacity_to_activity", y) * model.HL / (365 * 24)
+        return DATA.get(e, "capacity_to_activity", y) / (365 * 24)
     return pyo.Expression.Skip
 
 
-def e_total_annual_activity(model: pyo.ConcreteModel, e, y):
+def e_total_annual_activity(model: pyo.ConcreteModel, e: str, y: int):
     """Return the total annual activity of an entity in a year."""
     return sum(model.DL[y, d] * sum(model.HL * model.a[e, y, d, h] for h in model.H) for d in model.D)
 
@@ -38,22 +38,38 @@ def e_total_annual_activity(model: pyo.ConcreteModel, e, y):
 # --------------------------------------------------------------------------- #
 # Cost expressions
 # --------------------------------------------------------------------------- #
-def e_cost_investment(model: pyo.ConcreteModel, e):
-    """Return the total investment cost of an entity."""
+def e_cost_investment(model: pyo.ConcreteModel, e: str):
+    """Return the total investment cost of an entity. Assumes investments occur at the start of a year slice."""
     if e not in model.Caps:
         return 0
-    return sum(model.DISCRATE[y] * DATA.get(e, "cost_investment", y) * model.cnew[e, y] for y in model.Y)
+    return sum(model.DISC[y] * DATA.get(e, "cost_investment", y) * model.cnew[e, y] for y in model.Y)
 
 
-def e_cost_fixed_om(model: pyo.ConcreteModel, e):
+def e_cost_fixed_om(model: pyo.ConcreteModel, e: str):
     """Return the total fixed operation and maintenance cost of an entity."""
     if e not in model.Caps:
         return 0
-    return sum(model.DISCRATE[y] * DATA.get(e, "cost_fixed_om_annual", y) * model.ctot[e, y] for y in model.Y)
-
-
-def e_cost_variable_om(model: pyo.ConcreteModel, e):
-    """Return the total variable cost of an entity."""
-    return sum(
-        model.DISCRATE[y] * DATA.get(e, "cost_variable_om", y) * model.e_TotalAnnualActivity[e, y] for y in model.Y
+    # For non-modelled years: assume total capacity remains the same as the last modelled year
+    cost_fixed_om = sum(
+        model.DISC[y + i] * DATA.get(e, "cost_fixed_om_annual", y) * model.ctot[e, y]
+        for y in model.Y if y != model.Y.last()
+        for i in range(model.YL())
     )
+    # Add the cost of the last year
+    y = model.Y.last()
+    cost_fixed_om += model.DISC[y] * DATA.get(e, "cost_fixed_om_annual", y) * model.ctot[e, y]
+    return cost_fixed_om
+
+
+def e_cost_variable_om(model: pyo.ConcreteModel, e: str):
+    """Return the total variable cost of an entity."""
+    # For non-modelled years: assume activity remains the same as the last modelled year
+    cost_var_om = sum(
+        model.DISC[y + i] * DATA.get(e, "cost_variable_om", y) * model.e_TotalAnnualActivity[e, y]
+        for y in model.Y if y != model.Y.last()
+        for i in range(model.YL())
+    )
+    # Add the cost of the last year
+    y_last = model.Y.last()
+    cost_var_om += model.DISC[y_last] * DATA.get(e, "cost_variable_om", y_last) * model.e_TotalAnnualActivity[e, y_last]
+    return cost_var_om
