@@ -17,7 +17,7 @@ GROUP_ID = "ext_"
 
 
 # --------------------------------------------------------------------------- #
-# Sector-specific expressions
+# Module-specific expressions
 # --------------------------------------------------------------------------- #
 def _e_cost_total(model: pyo.ConcreteModel):
     """Calculate the total cost of Extraction entities."""

@@ -22,7 +22,7 @@ GROUP_ID = "conv_transmission"
 
 
 # --------------------------------------------------------------------------- #
-# Sector-specific expressions
+# Module-specific expressions
 # --------------------------------------------------------------------------- #
 def _e_cost_total(model: pyo.ConcreteModel):
     """Calculate the total cost of Extraction entities."""

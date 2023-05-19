@@ -23,6 +23,17 @@ from model_utils.configuration import DATA
 # --------------------------------------------------------------------------- #
 # Activity expressions
 # --------------------------------------------------------------------------- #
+def e_total_annual_inflow(model: pyo.ConcreteModel, f: str, e: str, y: int):
+    return sum(model.DL[y, d] * sum(model.HL * model.fin[f, e, y, d, h] for h in model.H) for d in model.D)
+
+
+def e_total_annual_outflow(model: pyo.ConcreteModel, f: str, e: str, y: int):
+    return sum(model.DL[y, d] * sum(model.HL * model.fout[f, e, y, d, h] for h in model.H) for d in model.D)
+
+
+# --------------------------------------------------------------------------- #
+# Activity expressions
+# --------------------------------------------------------------------------- #
 def e_hourly_capacity_to_activity(_, e: str, y: int):
     """Return the maximum generation capacity of a entity for a modelled time-slice."""
     if DATA.check_cnf(e, "enable_capacity"):

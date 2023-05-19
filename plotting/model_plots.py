@@ -37,7 +37,7 @@ def plot_flow_fout(model, handler: DataHandler, flow_ids: list, unit: str = "TWh
             for y_x in model.YALL:
                 if y_x in model.Y:
                     y = y_x
-                sum_fout = sum(model.DL[y, d]() * model.fout[f, e, y, d, h].value for d in model.D for h in model.H)
+                sum_fout = model.e_TotalAnnualOutflow[f, e, y]()
                 value_df.loc[y_x, e] += sum_fout  # time correction
     value_df = abs(value_df)  # Get rid of negative near-zero tolerances
     # Plotting
@@ -62,7 +62,7 @@ def plot_flow_fin(model, handler: DataHandler, flow_ids: list, unit: str = "TWh"
             for y_x in model.YALL:
                 if y_x in model.Y:
                     y = y_x
-                sum_fin = sum(model.DL[y, d]() * model.fin[f, e, y, d, h].value for d in model.D for h in model.H)
+                sum_fin = model.e_TotalAnnualInflow[f, e, y]()
                 value_df.loc[y_x, e] += sum_fin  # time correction
     value_df = abs(value_df)  # Get rid of negative near-zero tolerances
     # Plotting

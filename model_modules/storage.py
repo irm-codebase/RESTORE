@@ -33,7 +33,7 @@ GROUP_ID = "sto_"
 
 
 # --------------------------------------------------------------------------- #
-# Sector-specific expressions
+# Module-specific expressions
 # --------------------------------------------------------------------------- #
 def _p_initial_soc(model: pyo.ConcreteModel, e: str):
     """Return the maximum generation capacity of a entity for a modelled time-slice."""
@@ -50,7 +50,7 @@ def _e_cost_total(model: pyo.ConcreteModel):
 
 
 # --------------------------------------------------------------------------- #
-# Sector-specific constraints
+# Module-specific constraints
 # --------------------------------------------------------------------------- #
 def _c_activity_setup(model: pyo.ConcreteModel, e: str, y: int, d: int, h: int):
     """Ensure generic and module-specific variables match the model setup.

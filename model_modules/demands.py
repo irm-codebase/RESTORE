@@ -22,7 +22,7 @@ GROUP_ID = "dem_"
 
 
 # --------------------------------------------------------------------------- #
-# Sector-specific expressions
+# Module-specific expressions
 # --------------------------------------------------------------------------- #
 def _e_cost_total(model: pyo.ConcreteModel):
     """Calculate the total cost of Extraction entities."""
@@ -30,7 +30,7 @@ def _e_cost_total(model: pyo.ConcreteModel):
 
 
 # --------------------------------------------------------------------------- #
-# Sector-specific constraints
+# Module-specific constraints
 # --------------------------------------------------------------------------- #
 def _init_dem_elec(model: pyo.ConcreteModel):
     """Electricity demand is taken using K-Means, for now."""

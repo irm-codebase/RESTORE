@@ -26,7 +26,7 @@ GROUP_ID = "trd_"
 
 
 # --------------------------------------------------------------------------- #
-# Sector-specific expressions
+# Module-specific expressions
 # --------------------------------------------------------------------------- #
 def _e_total_annual_import(model: pyo.ConcreteModel, e: str, y: int):
     """Return the total annual activity of an entity in a year."""
@@ -73,7 +73,7 @@ def _e_cost_total(model: pyo.ConcreteModel):
 
 
 # --------------------------------------------------------------------------- #
-# Sector-specific constraints
+# Module-specific constraints
 # --------------------------------------------------------------------------- #
 def _c_activity_setup(model: pyo.ConcreteModel, e: str, y: int, d: int, h: int):
     """Ensure generic and trade-specific activity variables match the model setup.

@@ -22,7 +22,7 @@ VRE_DICT = data_handler.get_lf_vre(cnf.ISO2)
 
 
 # --------------------------------------------------------------------------- #
-# Sector-specific expressions
+# Module-specific expressions
 # --------------------------------------------------------------------------- #
 def _e_cost_total(model: pyo.ConcreteModel):
     """Calculate the total cost of Extraction entities."""
@@ -30,7 +30,7 @@ def _e_cost_total(model: pyo.ConcreteModel):
 
 
 # --------------------------------------------------------------------------- #
-# Sector-specific constraints
+# Module-specific constraints
 # --------------------------------------------------------------------------- #
 def _c_act_cf_max_hour(model: pyo.ConcreteModel, e: str, y: int, d: int, h: int):
     """Set the maximum hourly utilisation of an entity's capacity.

@@ -100,8 +100,12 @@ def _init_parameters(model: pyo.ConcreteModel) -> pyo.ConcreteModel:
 
 
 def _init_expressions(model: pyo.ConcreteModel) -> pyo.ConcreteModel:
+    model.e_TotalAnnualInflow = pyo.Expression(model.FiE, model.Y, rule=gen_expr.e_total_annual_inflow)
+    model.e_TotalAnnualOutflow = pyo.Expression(model.FoE, model.Y, rule=gen_expr.e_total_annual_outflow)
+
     model.e_TotalAnnualActivity = pyo.Expression(model.E, model.Y, rule=gen_expr.e_total_annual_activity)
     model.e_HourlyC2A = pyo.Expression(model.Caps, model.Y, rule=gen_expr.e_hourly_capacity_to_activity)
+
     model.e_CostInv = pyo.Expression(model.E, rule=gen_expr.e_cost_investment)
     model.e_CostFixedOM = pyo.Expression(model.E, rule=gen_expr.e_cost_fixed_om)
     model.e_CostVarOM = pyo.Expression(model.E, rule=gen_expr.e_cost_variable_om)
