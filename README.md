@@ -23,7 +23,9 @@ This lets model developers track the sources of their data, and gives users and 
 
 ## IMPORTANT
 
-RESTORE is ***not a model validation tool***. Although hindcasting/retrospective studies are useful to test modeller assumptions, they are subject to a plethora of uncertainties that are difficult to avoid. Essentially, the usefulness of hindcasting is limited by the availability and fineness of historical energy system data, which usually has very limited temporal and spatial resolution. These dimensions matter a lot when it comes to calculating prices, system resilience and the viability of renewable technologies.
+Although hindcasting/retrospective studies are useful to test modeller assumptions, they are subject to a plethora of uncertainties that are difficult to avoid. Essentially, their usefulness is limited by the availability and fineness of historical energy system data, which worsens the further to the past you go and the more specific your data requirements are. Temporal and spatial resolution matter a lot when it comes to calculating prices, system resilience and the viability of renewable technologies. 
+
+Due to this, I would argue that RESTORE is ***not*** a validation tool, but rather a useful test-bench to evaluate features before they are added to more complex models.
 
 For more on the topic of model evaluation and past uncertainty, see the following:
 - Oreskes: [Evaluation (not validation) of quantitative models](https://doi.org/10.1289/ehp.98106s61453)
@@ -41,13 +43,22 @@ For examples of hindcasting studies, see:
 The passenger sector has been deactivated while time resolution, storage and weather synchronicity are fixed.
 This is to enable easier tests on the impact on runtime these features will have, and for quicker testing.
 
-To do list:
-- Rework time slicing by adding a day index and day-indexed representativeness parameter.
-- Improve the retirement constraint by implementing the OSeMOSYS version of it (will enable sigmoid retirement).
+To do:
+- Improve clustering algorithm:
+    - Inputs should be time-series files (see Renewables Ninja).
+    - Include PV and Wind capacity factors.
+    - Create a cnf file standard to avoid running the algorithm at each run.
+    - Add options for switching algorithms (k-means, spectral...).
+    - Implement new k-means into the demand module (or as a model parameter?).
+- Implement seasonal storage using Kotzur's algorithm. See: https://doi.org/10.1016/j.apenergy.2018.01.023
+- Improve transmission module to enable bi-directional flows (see EXPANSE implementation, ask about 1/2 capacity assumption).
+- Update dexpanse_to_restore.py with the new setup:
+    - Standardise names
+    - Diminish overfitting (nice to have?)
+- Connect two countries.
+
+Nice to haves:
+- Add k-means "shoulder" plotting to help identify the ideal number of representative days. See https://realpython.com/k-means-clustering-python/
 - Fix load profile issues in D-EXPANSE files (incorrect indexing/missing days).
 - Import capacities are not correct in the D-EXPANSE files... source them from PyPSA?
-- Fix lack of demand/weather synchronicity in pre-runs (bug in D-EXPANSE k-means algorithm, use the verson in the STONES model?).
-- Add k-means "shoulder" plotting to help identify the ideal number of representative days. See https://realpython.com/k-means-clustering-python/
-- Improve storage by implementing the technique developed by Kotzur et al. (https://doi.org/10.1016/j.apenergy.2018.01.023)
-- Cost functions should be set for each sector module, not in the notebook.
 - Complete the documentation of all modules.
