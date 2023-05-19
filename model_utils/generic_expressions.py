@@ -1,11 +1,11 @@
 # --------------------------------------------------------------------------- #
 # Filename: generic_expressions.py
-# Path: /generic_expressions.py
-# Created Date: Monday, May 15th 2023, 10:45:57 am
+# Created Date: Tuesday, May 16th 2023, 5:39:39 pm
 # Author: Ivan Ruiz Manuel
-# Copyright (c) 2023 University of Geneva
-# GNU General Public License v3.0 or later
-# https://www.gnu.org/licenses/gpl-3.0-standalone.html
+# Email: ivanruizmanuel@gmail.com
+# Copyright (C) 2023 Ivan Ruiz Manuel and University of Geneva
+# Apache License 2.0
+# https://www.apache.org/licenses/LICENSE-2.0
 # --------------------------------------------------------------------------- #
 """
 Holds standard expressions that can be re-used by the model.

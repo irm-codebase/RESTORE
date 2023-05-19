@@ -1,11 +1,11 @@
 # --------------------------------------------------------------------------- #
 # Filename: extraction.py
-# Path: /extraction.py
-# Created Date: Monday, March 13th 2023, 3:48:10 pm
+# Created Date: Monday, May 8th 2023, 11:58:58 am
 # Author: Ivan Ruiz Manuel
-# Copyright (c) 2023 University of Geneva
-# GNU General Public License v3.0 or later
-# https://www.gnu.org/licenses/gpl-3.0-standalone.html
+# Email: ivanruizmanuel@gmail.com
+# Copyright (C) 2023 Ivan Ruiz Manuel and University of Geneva
+# Apache License 2.0
+# https://www.apache.org/licenses/LICENSE-2.0
 # --------------------------------------------------------------------------- #
 """Extraction sector."""
 import pyomo.environ as pyo
@@ -49,7 +49,6 @@ def _constraints(model: pyo.ConcreteModel):
     # Capacity
     model.ext_c_cap_max_annual = pyo.Constraint(model.Extrs, model.Y, rule=gen_con.c_cap_max_annual)
     model.ext_c_cap_transfer = pyo.Constraint(model.Extrs, model.Y, rule=gen_con.c_cap_transfer)
-    model.ext_c_cap_retirement = pyo.Constraint(model.Extrs, model.Y, rule=gen_con.c_cap_retirement)
     model.ext_c_cap_buildrate = pyo.Constraint(model.Extrs, model.Y, rule=gen_con.c_cap_buildrate)
     # Activity
     model.ext_c_act_ramp_up = pyo.Constraint(

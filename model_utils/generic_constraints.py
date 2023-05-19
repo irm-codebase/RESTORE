@@ -1,11 +1,11 @@
 # --------------------------------------------------------------------------- #
-# Filename: generic.py
-# Path: /generic.py
-# Created Date: Thursday, March 9th 2023, 5:03:25 pm
+# Filename: generic_constraints.py
+# Created Date: Tuesday, May 16th 2023, 5:39:39 pm
 # Author: Ivan Ruiz Manuel
-# Copyright (c) 2023 University of Geneva
-# GNU General Public License v3.0 or later
-# https://www.gnu.org/licenses/gpl-3.0-standalone.html
+# Email: ivanruizmanuel@gmail.com
+# Copyright (C) 2023 Ivan Ruiz Manuel and University of Geneva
+# Apache License 2.0
+# https://www.apache.org/licenses/LICENSE-2.0
 # --------------------------------------------------------------------------- #
 """
 Holds standard constraints that can be re-used by sector modules.
@@ -174,23 +174,22 @@ def c_cap_max_annual(model: pyo.ConcreteModel, e: str, y: int):
 
 def c_cap_transfer(model: pyo.ConcreteModel, e: str, y: int):
     """Transfer installed capacity between year slices."""
-    if DATA.check_cnf(e, "enable_capacity") and y != model.Y.first():
-        total_capacity = model.ctot[e, y - model.YL] + model.cnew[e, y] - model.cret[e, y]
-        return model.ctot[e, y] == total_capacity
-    return pyo.Constraint.Skip
+    if DATA.check_cnf(e, "enable_capacity"):
+        initial_capacity = DATA.get_annual(e, "actual_capacity", model.Y.first())
+        lifetime = DATA.get_const(e, "lifetime")
 
-
-def c_cap_retirement(model: pyo.ConcreteModel, e: str, y: int):
-    """Retire installed capacity if configured or if the lifetime has been exceeded."""
-    if DATA.check_cnf(e, "enable_capacity") and y != model.Y.first():
-        life = DATA.get_const(e, "lifetime")
-        if life is None:  # Instalments last indefinitely
-            return model.cret[e, y] == 0
-        if life <= y - model.Y.first():
-            # TODO: I feel like this approach causes double retirements... Another D-EXPANSE issue? Evaluate.
-            return model.cret[e, y] == model.cnew[e, y - life]
-        cnf_retired = DATA.get_annual(e, "initial_retired_capacity", y)
-        return model.cret[e, y] == cnf_retired
+        if lifetime is None:
+            # No lifetime implies added capacity lasts forever
+            new_cap = sum(model.cnew[e, yx] for yx in model.Y if yx <= y)
+            residual_capacity = initial_capacity
+        else:
+            new_cap = sum(model.cnew[e, yx] for yx in model.Y if yx <= y and y - yx < lifetime)
+            if y - model.Y.first() < lifetime:
+                retired = sum(DATA.get_annual(e, "initial_retired_capacity", yx) for yx in model.YALL if yx <= y)
+                residual_capacity = initial_capacity - retired
+            else:
+                residual_capacity = 0
+        return model.ctot[e, y] == residual_capacity + new_cap
     return pyo.Constraint.Skip
 
 
@@ -293,7 +292,7 @@ def init_capacity(model: pyo.ConcreteModel, entity_list: set):
         if DATA.check_cnf(entity_id, "enable_capacity"):
             cap_enable = DATA.get_annual(entity_id, "actual_capacity", y_0)
             model.cnew[entity_id, y_0].fix(0)
-            model.cret[entity_id, y_0].fix(0)
+            # model.cret[entity_id, y_0].fix(0)
             model.ctot[entity_id, y_0].fix(cap_enable)
 
 

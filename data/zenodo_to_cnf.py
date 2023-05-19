@@ -1,11 +1,11 @@
 # --------------------------------------------------------------------------- #
 # Filename: zenodo_to_cnf.py
-# Path: /zenodo_to_cnf.py
-# Created Date: Thursday, October 27th 2022, 3:04:54 pm
-# Author: Marc Jaxa-Rozen, Ivan Ruiz Manuel
-# Copyright (c) 2023 University of Geneva
-# GNU General Public License v3.0 or later
-# https://www.gnu.org/licenses/gpl-3.0-standalone.html
+# Created Date: Monday, May 8th 2023, 10:55:29 am
+# Author: Ivan Ruiz Manuel
+# Email: ivanruizmanuel@gmail.com
+# Copyright (C) 2023 Ivan Ruiz Manuel and University of Geneva
+# Apache License 2.0
+# https://www.apache.org/licenses/LICENSE-2.0
 # --------------------------------------------------------------------------- #
 """Converting Zenodo datafiles to a configuration file.
 
@@ -354,7 +354,7 @@ def create_cnf_file(data_folder_path: str, cnf_file_path: str):
             continue
         try:
             item_path = os.path.join(data_folder_path, item)
-            if os.path.isdir(item_path):  
+            if os.path.isdir(item_path):
                 create_cnf_file(item_path, cnf_file_path)
             elif os.path.isfile(item_path) and ".xlsx" in item and "$" not in item:
                 # Test if the file is named correctly and identify the excel sheet grouping

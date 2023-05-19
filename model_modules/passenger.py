@@ -1,11 +1,11 @@
 # --------------------------------------------------------------------------- #
 # Filename: passenger.py
-# Path: /passenger.py
-# Created Date: Tuesday, March 14th 2023, 11:15:35 am
+# Created Date: Monday, May 8th 2023, 11:59:01 am
 # Author: Ivan Ruiz Manuel
-# Copyright (c) 2023 University of Geneva
-# GNU General Public License v3.0 or later
-# https://www.gnu.org/licenses/gpl-3.0-standalone.html
+# Email: ivanruizmanuel@gmail.com
+# Copyright (C) 2023 Ivan Ruiz Manuel and University of Geneva
+# Apache License 2.0
+# https://www.apache.org/licenses/LICENSE-2.0
 # --------------------------------------------------------------------------- #
 """Passenger transport sector."""
 import pyomo.environ as pyo
@@ -56,7 +56,6 @@ def _constraints(model: pyo.ConcreteModel):
     # Capacity
     model.pass_c_cap_max_annual = pyo.Constraint(model.PassTrans, model.YOpt, rule=gen_con.c_cap_max_annual)
     model.pass_c_cap_transfer = pyo.Constraint(model.PassTrans, model.YOpt, rule=gen_con.c_cap_transfer)
-    model.pass_c_cap_retirement = pyo.Constraint(model.PassTrans, model.YOpt, rule=gen_con.c_cap_retirement)
     model.pass_c_cap_buildrate = pyo.Constraint(model.PassTrans, model.YOpt, rule=gen_con.c_cap_buildrate)
     # Activity
     model.pass_c_act_cf_min_year = pyo.Constraint(model.PassTrans, model.YOpt, rule=gen_con.c_act_cf_min_year)

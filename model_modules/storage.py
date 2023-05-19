@@ -1,11 +1,11 @@
 # --------------------------------------------------------------------------- #
 # Filename: storage.py
-# Path: /storage.py
-# Created Date: Monday, March 13th 2023, 5:03:26 pm
+# Created Date: Monday, May 8th 2023, 11:59:03 am
 # Author: Ivan Ruiz Manuel
-# Copyright (c) 2023 University of Geneva
-# GNU General Public License v3.0 or later
-# https://www.gnu.org/licenses/gpl-3.0-standalone.html
+# Email: ivanruizmanuel@gmail.com
+# Copyright (C) 2023 Ivan Ruiz Manuel and University of Geneva
+# Apache License 2.0
+# https://www.apache.org/licenses/LICENSE-2.0
 # --------------------------------------------------------------------------- #
 """Storage sector.
 
@@ -168,7 +168,6 @@ def _constraints(model: pyo.ConcreteModel):
     # Capacity
     model.sto_c_cap_max_annual = pyo.Constraint(model.Stors, model.Y, rule=gen_con.c_cap_max_annual)
     model.sto_c_cap_transfer = pyo.Constraint(model.Stors, model.Y, rule=gen_con.c_cap_transfer)
-    model.sto_c_cap_retirement = pyo.Constraint(model.Stors, model.Y, rule=gen_con.c_cap_retirement)
     model.sto_c_cap_buildrate = pyo.Constraint(model.Stors, model.Y, rule=gen_con.c_cap_buildrate)
     # Activity
     model.sto_c_activity_setup = pyo.Constraint(model.Stors, model.Y, model.D, model.H, rule=_c_activity_setup)

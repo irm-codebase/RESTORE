@@ -1,11 +1,11 @@
 # --------------------------------------------------------------------------- #
 # Filename: k_clustering.py
-# Path: /k_clustering.py
-# Created Date: Tuesday, November 8th 2022, 10:47:58 am
-# Author: Xin Wen, Ivan Ruiz Manuel
-# Copyright (c) 2022 University of Geneva
-# GNU General Public License v3.0 or later
-# https://www.gnu.org/licenses/gpl-3.0-standalone.html
+# Created Date: Monday, May 8th 2023, 10:55:29 am
+# Author: Ivan Ruiz Manuel
+# Email: ivanruizmanuel@gmail.com
+# Copyright (C) 2023 Ivan Ruiz Manuel and University of Geneva
+# Apache License 2.0
+# https://www.apache.org/licenses/LICENSE-2.0
 # --------------------------------------------------------------------------- #
 """Contains k means clustering functionality used by the D-EXPANSE model."""
 from os import listdir

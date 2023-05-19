@@ -95,11 +95,11 @@ $$\forall_{e,y} \quad ctot_{e,y} \le \mathbf{CMAXANN_{e,y}}$$
 
 **cap_transfer**: transfer installed new capacity and residual capacity between year slices. $\mathbf{RESCAP}$ is the residual capacity installed before the modeled period. Setting $\mathbf{LIFE}$ to `None` implies the technology has infinite lifetime (no retirement).
 
-$$\forall_{e,y} \quad ctot_{e,y} =
-\mathbf{RESCAP_{e,y}} + \sum\limits_{\begin{align*}
-yx&= Y_{0} \\
-\text{if } y-yx &< \mathbf{LIFE_{e}}
-\end{align*}}^{y} cnew_{e,y}$$
+$$\forall_{e,y} \quad ctot_{e,y} =\begin{cases}
+\mathbf{INICAP_{e,y}} + \sum\limits_{yx=Y_{0}}^{y}cnew_{e,y} \quad &\text{if } \mathbf{LIFE_{e}} \text{ is None} \\
+\mathbf{INICAP_{e,y}} - \sum\limits_{yx \in YALL}^{y}\mathbf{INIRET_{e,y}} \quad &\text{if } y-y_{0} < \mathbf{LIFE_e} + \sum\limits_{yx \in Y \ | y-yx < \mathbf{LIFE_{e}}}^{y} cnew_{e,y}\\
+\sum\limits_{yx \in Y \ | y-yx < \mathbf{LIFE_{e}}}^{y} cnew_{e,y} \quad &\text{Otherwise}
+\end{cases}$$
 
 **cap_max_new**: limit the maximum new capacity installed per year. Skipped if $\mathbf{CMAXNEW}$ is `None`.
 

@@ -1,11 +1,11 @@
 # --------------------------------------------------------------------------- #
 # Filename: common_files.py
-# Path: /common_files.py
-# Created Date: Monday, April 17th 2023, 2:17:12 pm
+# Created Date: Monday, May 8th 2023, 10:55:26 am
 # Author: Ivan Ruiz Manuel
-# Copyright (c) 2023 University of Geneva
-# GNU General Public License v3.0 or later
-# https://www.gnu.org/licenses/gpl-3.0-standalone.html
+# Email: ivanruizmanuel@gmail.com
+# Copyright (C) 2023 Ivan Ruiz Manuel and University of Geneva
+# Apache License 2.0
+# https://www.apache.org/licenses/LICENSE-2.0
 # --------------------------------------------------------------------------- #
 """Scripts for creating files in the _common folder."""
 import pandas as pd

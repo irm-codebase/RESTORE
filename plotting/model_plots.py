@@ -1,11 +1,11 @@
 # --------------------------------------------------------------------------- #
-# Filename: restore_plots.py
-# Path: /restore_plots.py
-# Created Date: Sunday, January 15th 2023, 12:37:50 pm
+# Filename: model_plots.py
+# Created Date: Monday, May 8th 2023, 10:55:29 am
 # Author: Ivan Ruiz Manuel
-# Copyright (c) 2023 University of Geneva
-# GNU General Public License v3.0 or later
-# https://www.gnu.org/licenses/gpl-3.0-standalone.html
+# Email: ivanruizmanuel@gmail.com
+# Copyright (C) 2023 Ivan Ruiz Manuel and University of Geneva
+# Apache License 2.0
+# https://www.apache.org/licenses/LICENSE-2.0
 # --------------------------------------------------------------------------- #
 """Graph generating utilities for RESTORE model outputs."""
 import pandas as pd
@@ -16,8 +16,8 @@ from plotting import fig_tools
 
 
 def _add_historical(axis, model: pyo.ConcreteModel, handler: DataHandler, flow: list):
-    historical_data = [handler.get_annual(flow, "actual_flow", y) for y in model.Y]
-    historical_ref = pd.Series(data=historical_data, index=model.Y, name="Historical total")
+    historical_data = [handler.get_annual(flow, "actual_flow", y) for y in model.YALL]
+    historical_ref = pd.Series(data=historical_data, index=model.YALL, name="Historical total")
     axis = historical_ref.plot.line(ax=axis, color="black", linestyle="-.")
     return axis
 
@@ -28,15 +28,18 @@ def _add_historical(axis, model: pyo.ConcreteModel, handler: DataHandler, flow: 
 def plot_flow_fout(model, handler: DataHandler, flow_ids: list, unit: str = "TWh", hist: str = None):
     """Plot the modelled entity out flows at a flow node."""
     entity_ids = sorted({e for f, e in model.FoE if f in flow_ids})
-    value_df = pd.DataFrame(index=model.Y, columns=entity_ids, data=0)
+    value_df = pd.DataFrame(index=model.YALL, columns=entity_ids, data=0)
 
     # Gather values
-    for flow in flow_ids:
-        for f, e in model.FoE:
-            if f == flow:
-                for y in model.Y:
-                    sum_fout = sum(model.DL[y, d]() * model.fout[f, e, y, d, h].value for d in model.D for h in model.H)
-                    value_df.loc[y, e] += sum_fout  # time correction
+    for f, e in model.FoE:
+        if f in flow_ids:
+            y = model.Y.first()
+            for y_x in model.YALL:
+                if y_x in model.Y:
+                    y = y_x
+                sum_fout = sum(model.DL[y, d]() * model.fout[f, e, y, d, h].value for d in model.D for h in model.H)
+                value_df.loc[y_x, e] += sum_fout  # time correction
+    value_df = abs(value_df)  # Get rid of negative near-zero tolerances
     # Plotting
     axis = value_df.plot.area(linewidth=0)
     if hist:
@@ -50,15 +53,18 @@ def plot_flow_fout(model, handler: DataHandler, flow_ids: list, unit: str = "TWh
 def plot_flow_fin(model, handler: DataHandler, flow_ids: list, unit: str = "TWh", hist: str = None):
     """Plot the modelled entity in flows at a flow node."""
     entity_ids = sorted({e for f, e in model.FiE if f in flow_ids})
-    value_df = pd.DataFrame(index=model.Y, columns=entity_ids, data=0)
+    value_df = pd.DataFrame(index=model.YALL, columns=entity_ids, data=0)
 
     # Gather values
     for f, e in model.FiE:
         if f in flow_ids:
-            for y in model.Y:
-                sum_fout = sum(model.DL[y, d]() * model.fin[f, e, y, d, h].value for d in model.D for h in model.H)
-                value_df.loc[y, e] += sum_fout  # time correction
-
+            y = model.Y.first()
+            for y_x in model.YALL:
+                if y_x in model.Y:
+                    y = y_x
+                sum_fin = sum(model.DL[y, d]() * model.fin[f, e, y, d, h].value for d in model.D for h in model.H)
+                value_df.loc[y_x, e] += sum_fin  # time correction
+    value_df = abs(value_df)  # Get rid of negative near-zero tolerances
     # Plotting
     axis = value_df.plot.area(linewidth=0)
     if hist:

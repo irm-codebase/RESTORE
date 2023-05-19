@@ -1,11 +1,11 @@
 # --------------------------------------------------------------------------- #
 # Filename: initialisation.py
-# Path: /initialisation.py
-# Created Date: Friday, March 10th 2023, 2:53:02 pm
+# Created Date: Tuesday, May 16th 2023, 5:39:57 pm
 # Author: Ivan Ruiz Manuel
-# Copyright (c) 2023 University of Geneva
-# GNU General Public License v3.0 or later
-# https://www.gnu.org/licenses/gpl-3.0-standalone.html
+# Email: ivanruizmanuel@gmail.com
+# Copyright (C) 2023 Ivan Ruiz Manuel and University of Geneva
+# Apache License 2.0
+# https://www.apache.org/licenses/LICENSE-2.0
 # --------------------------------------------------------------------------- #
 """Contains all necessary functionality needed to initialise the model.
 
@@ -79,7 +79,6 @@ def _init_sets(model: pyo.ConcreteModel) -> pyo.ConcreteModel:
 def _init_variables(model: pyo.ConcreteModel) -> pyo.ConcreteModel:
     model.ctot = pyo.Var(model.Caps, model.Y, domain=pyo.NonNegativeReals, initialize=0)
     model.cnew = pyo.Var(model.Caps, model.Y, domain=pyo.NonNegativeReals, initialize=0)
-    model.cret = pyo.Var(model.Caps, model.Y, domain=pyo.NonNegativeReals, initialize=0)
 
     # Process activity
     model.a = pyo.Var(model.E, model.Y, model.D, model.H, domain=pyo.NonNegativeReals, initialize=0)

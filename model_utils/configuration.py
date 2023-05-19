@@ -1,11 +1,11 @@
 # --------------------------------------------------------------------------- #
 # Filename: configuration.py
-# Path: /configuration.py
-# Created Date: Friday, March 10th 2023, 2:24:16 pm
+# Created Date: Tuesday, May 16th 2023, 5:39:39 pm
 # Author: Ivan Ruiz Manuel
-# Copyright (c) 2023 University of Geneva
-# GNU General Public License v3.0 or later
-# https://www.gnu.org/licenses/gpl-3.0-standalone.html
+# Email: ivanruizmanuel@gmail.com
+# Copyright (C) 2023 Ivan Ruiz Manuel and University of Geneva
+# Apache License 2.0
+# https://www.apache.org/licenses/LICENSE-2.0
 # --------------------------------------------------------------------------- #
 """Centralised configuration file for the model.
 
@@ -30,9 +30,9 @@ ENTITIES = pd.merge(DATA.fxe["FiE"], DATA.fxe["FoE"], how='outer', left_index=Tr
 FLOWS = set(pd.merge(DATA.fxe["FiE"], DATA.fxe["FoE"], how='inner').columns)
 
 # User defined parameters
-NDAYS = 1
 YEARSLICE = 1
-TIMESLICE = 1
-YEARS = np.arange(1990, 2019, YEARSLICE)
+NDAYS = 1
+TIMESLICE = 2
+YEARS = np.arange(1990, 2020, YEARSLICE)
 DAYS = np.arange(NDAYS)
 HOURS = np.arange(0, 24, TIMESLICE)
