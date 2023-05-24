@@ -24,10 +24,12 @@ from model_utils.configuration import DATA
 # Activity expressions
 # --------------------------------------------------------------------------- #
 def e_total_annual_inflow(model: pyo.ConcreteModel, f: str, e: str, y: int):
+    """Total of a specific inflow/input of an entity, for each year."""
     return sum(model.DL[y, d] * sum(model.HL * model.fin[f, e, y, d, h] for h in model.H) for d in model.D)
 
 
 def e_total_annual_outflow(model: pyo.ConcreteModel, f: str, e: str, y: int):
+    """Total of a specific outflow/output of an entity, for each year."""
     return sum(model.DL[y, d] * sum(model.HL * model.fout[f, e, y, d, h] for h in model.H) for d in model.D)
 
 

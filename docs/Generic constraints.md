@@ -97,7 +97,7 @@ $$\forall_{e,y} \quad ctot_{e,y} \le \mathbf{CMAXANN_{e,y}}$$
 
 $$\forall_{e,y} \quad ctot_{e,y} =\begin{cases}
 \mathbf{INICAP_{e,y}} + \sum\limits_{yx=Y_{0}}^{y}cnew_{e,y} \quad &\text{if } \mathbf{LIFE_{e}} \text{ is None} \\
-\mathbf{INICAP_{e,y}} - \sum\limits_{yx \in YALL}^{y}\mathbf{INIRET_{e,y}} \quad &\text{if } y-y_{0} < \mathbf{LIFE_e} + \sum\limits_{yx \in Y \ | y-yx < \mathbf{LIFE_{e}}}^{y} cnew_{e,y}\\
+\mathbf{INICAP_{e,y}} + \sum\limits_{yx \in Y \ | y-yx < \mathbf{LIFE_{e}}}^{y} cnew_{e,y} - \sum\limits_{yx \in YALL}^{y}\mathbf{INIRET_{e,y}} \quad &\text{if } y-y_{0} < \mathbf{LIFE_e} \\
 \sum\limits_{yx \in Y \ | y-yx < \mathbf{LIFE_{e}}}^{y} cnew_{e,y} \quad &\text{Otherwise}
 \end{cases}$$
 

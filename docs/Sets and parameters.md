@@ -5,7 +5,7 @@
 | Name   | Set | Symbol | Description                                                                                                                                                                                                    |
 | ------ | --- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Flow   | $F$ | $f$    | An energy flow such as electricity, heat, fuel, etc. Can be thought of as an equivalent of a "bus" in power systems.                                                                                           |
-| Entity | $E$ | $e$    | An element that extracts, converts or uses energy. Has several sub-classes. Each entity can have a theoretical infinite number of inputs and/or outputs.                                                       |
+| Entity | $E$ | $e$    | An entity extracts, converts or uses energy. Has several sub-classes. Each entity can have a theoretical infinite number of inputs and/or outputs.                                                       |
 | Year   | $Y$ | $y$    | Year slice within the model run.                                                                                                                                                                                               |
 | Day    | $D$ | $d$    | Representative day of the run. These may not be sequential depending on the representative day aggregation algorithm used. It is also possible to represent periods longer than a day (48 hours, a week, etc). |
 | Hour   | $H$ | $h$    | Time-slice within each representative day. Usually 1 hour, but users can choose finer or coarser lengths (2 hours, 6, 12, etc).                                                                                |
@@ -21,21 +21,21 @@
 
 RESTORE uses a subset of the cartesian product of Flows and Entities to minimise the size of model variables. The model Sets `model.FxE`, `model.FoE` and `model.FiE` are key to this. These sets contain the graph nodes and links exclusively, omitting non-existent connections.
 
-As a brief example, picture a model with 12 Flows, 25 Entities, 30 Years, 2 Days, and 24 Hours. Let's assume that `var` uses all sets:
+As a brief example, imagine a model with 12 Flows, 25 Entities, 30 Years, 2 Days, and 24 Hours. Let's assume that `var` uses all sets:
 
 ```python
 model.var_bad = pyo.Var(model.F, model.E, model.Y, model.D, model.H)
 model.var_good = pyo.Var(model.FxE, model.Y, model.D, model.H)
 ```
 
-Both variables have the same function, but their sizes differ significantly:
+Both variables serve the same function, but their sizes differ significantly!
 
 ```
 var_bad : Size=432000, Index=var_bad_index
 var_good : Size=53280, Index=var_good_index
 ```
 
-For more information, see the following:
+For more information, see the following repository:
 
 https://github.com/brentertainer/pyomo-tutorials/blob/master/intermediate/05-indexed-sets.ipynb
 

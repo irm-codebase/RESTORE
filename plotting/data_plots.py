@@ -24,22 +24,16 @@ def plot_io_network(handler: DataHandler, labels=True):
     Args:
         labels (bool, optional): Whether to include labels in the plot. Defaults to True.
     """
-    # TODO: Fix missing entities
     # TODO: add colours?
     # TODO: fix labels?
-    in_flow_df = handler.fxe["FiE"]
-    out_flow_df = handler.fxe["FoE"]
-    network_df = pd.DataFrame()
-    for i, io_df in enumerate([in_flow_df, out_flow_df]):
-        if i == 0:
-            network_df = io_df.copy()
-        else:
-            network_df.update(io_df)
-    edges = network_df.index.to_list() + network_df.columns.to_list()
-    adjacency_df = pd.DataFrame(index=edges, columns=edges, dtype=float)
-    adjacency_df.update(network_df)
-    adjacency_df = adjacency_df.notnull().astype(int)
-    network = nx.from_pandas_adjacency(adjacency_df)
+    inflow = handler.fxe["FiE"]
+    outflow = handler.fxe["FoE"]
+    nodes = set(inflow.index) | set(inflow.columns) | set(outflow.index) | set(outflow.columns)
+    adjacency = pd.DataFrame(index=nodes, columns=nodes)
+    adjacency.update(inflow)
+    adjacency.update(outflow.T)
+    adjacency.fillna(0, inplace=True)
+    network = nx.from_pandas_adjacency(adjacency)
     nx.draw_networkx(network, node_size=100, font_size=6, with_labels=labels)
 
 
