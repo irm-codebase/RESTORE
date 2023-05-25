@@ -1,13 +1,18 @@
 # The RESTORE model
-RESTORE: RetrospEctive SecTor cOupled eneRgy toolsEt
+RESTORE: RetrospEctive SecTor cOupled eneRgy toolsEt (tentative name)
 
-## Brief history description
+## A bit of history
 RESTORE is based on D-EXPANSE, a stylized national-level nodal power system model used in hindcasting studies:
 - Trutnevyte: [Does cost optimization approximate the real-world energy transition?](http://dx.doi.org/10.1016/j.energy.2016.03.038)
 - Wen et al.: [Accuracy indicators for evaluating retrospective performance of energy system models](https://doi.org/10.1016/j.apenergy.2022.119906)
 - Wen et al.: [Hindcasting to inform the development of bottom-up electricity system models: The cases of endogenous demand and technology learning](https://doi.org/10.1016/j.apenergy.2023.121035)
 
-**Please note that D-EXPANSE is not the same model as EXPANSE, which is a spatially explicit electricity model with no inter year slicing!**
+**Important:** 
+D-EXPANSE is not the same model as EXPANSE, which is a spatially explicit electricity model with no inter year slicing!
+You can learn more about EXPANSE in these studies:
+- Sasse et al.: [Distributional trade-offs between regionally equitable and cost-efficient allocation of renewable electricity generation](https://doi.org/10.1016/j.apenergy.2019.113724)
+- Sasse et al.: [Regional impacts of electricity system transition in Central Europe until 2035](https://doi.org/10.1038/s41467-020-18812-y)
+- Sasse et al.: [A low-carbon electricity sector in Europe risks sustaining regional inequalities in benefits and vulnerabilities](https://doi.org/10.1038/s41467-023-37946-3)
 
 ## New features in RESTORE
 RESTORE builds on D-EXPANSE by implementing:
@@ -21,7 +26,7 @@ RESTORE also features a fully standardized prototyping workflow based on [FAIR p
 
 This lets model developers track the sources of their data, and gives users and other researchers full transparency into the model's operation and assumptions.
 
-## IMPORTANT
+<!-- ## IMPORTANT
 
 Although hindcasting/retrospective studies are useful to test modeller assumptions, they are subject to a plethora of uncertainties that are difficult to avoid. Essentially, their usefulness is limited by the availability and fineness of historical energy system data, which worsens the further to the past you go and the more specific your data requirements are. Temporal and spatial resolution matter a lot when it comes to calculating prices, system resilience and the viability of renewable technologies. 
 
@@ -37,28 +42,22 @@ For examples of hindcasting studies, see:
 - Chaturvedi et al.: [Model evaluation and hindcasting: An experiment with an integrated assessment model](https://doi.org/10.1016/j.energy.2013.08.061)
 - Glotin et al.: [Prediction is difficult, even when it's about the past: A hindcast experiment using Res-IRF, an integrated energy-economy model](https://doi.org/10.1016/j.eneco.2019.07.012)
 - Fujimori et al.: [Global energy model hindcasting](http://dx.doi.org/10.1016/j.energy.2016.08.008)
-
+ -->
 
 # Features currently in development
-The passenger sector has been deactivated while time resolution, storage and weather synchronicity are fixed.
-This is to enable easier tests on the impact on runtime these features will have, and for quicker testing.
 
-To do:
-- Improve clustering algorithm:
-    - Inputs should be time-series files (see Renewables Ninja).
-    - Include PV and Wind capacity factors.
-    - Create a cnf file standard to avoid running the algorithm at each run.
-    - Add options for switching algorithms (k-means, spectral...).
-    - Implement new k-means into the demand module (or as a model parameter?).
-- Implement seasonal storage using Kotzur's algorithm. See: https://doi.org/10.1016/j.apenergy.2018.01.023
-- Improve transmission module to enable bi-directional flows (see EXPANSE implementation, ask about 1/2 capacity assumption).
-- Update dexpanse_to_restore.py with the new setup:
-    - Standardise names
-    - Diminish overfitting (nice to have?)
-- Connect two countries.
-
-Nice to haves:
-- Add k-means "shoulder" plotting to help identify the ideal number of representative days. See https://realpython.com/k-means-clustering-python/
-- Fix load profile issues in D-EXPANSE files (incorrect indexing/missing days).
-- Import capacities are not correct in the D-EXPANSE files... source them from PyPSA?
-- Complete the documentation of all modules.
+- Implement an option for imperfect foresight.
+    - Variable foresight length.
+    - Variable length of years saved in each run.
+- Cycle flow constraints in the energy transmission module.
+    - Based on Kirchhoff formulation developed by Hörsch et al.
+    - Also implemented in EXPANSE.
+    - See https://doi.org/10.1016/j.epsr.2017.12.034
+- Seasonal storage capacity expansion.
+    - Implement the algorithm developed by Kotzur et al.
+    - Allow users to choose between cyclic storage and seasonal storage constraints.
+    - See https://doi.org/10.1016/j.apenergy.2018.01.023
+- Improve representative day algorithm.
+    - Ensure weather synchronicity (PV, Wind and Hydro run-off).
+    - Create cnf file standard for hourly data series in representative days. Must be searchable by entity_id.
+    - Add options for different types of clustering algorithm (k-means, spectral, etc).
