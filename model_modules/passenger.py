@@ -11,7 +11,7 @@
 import pyomo.environ as pyo
 
 from model_utils import configuration as cnf
-from model_utils import generic_constraints as gen_con
+from model_generic import generic_constraints as gen_con
 
 GROUP_ID = "conv_pass_"
 

@@ -194,10 +194,19 @@ def c_cap_transfer(model: pyo.ConcreteModel, e: str, y: int):
 
 
 def c_cap_buildrate(model: pyo.ConcreteModel, e: str, y: int):
-    """Limit the speed of annual capacity increase."""
+    """Limit maximum new capacity installed."""
     if DATA.check_cnf(e, "enable_capacity"):
         buildrate = DATA.get(e, "buildrate", y) * model.YL
         return model.cnew[e, y] <= buildrate if buildrate is not None else pyo.Constraint.Skip
+    return pyo.Constraint.Skip
+
+
+def c_cap_growthrate(model: pyo.ConcreteModel, e: str, y: int):
+    """Limit the growth rate of total capacity."""
+    if DATA.check_cnf(e, "enable_capacity"):
+        growthrate = DATA.get(e, "growthrate", y) ** model.YL
+        if growthrate is not None:
+            return model.ctot[e, y] == growthrate * model.ctot[e, y - model.YL]
     return pyo.Constraint.Skip
 
 

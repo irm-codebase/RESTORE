@@ -27,7 +27,7 @@ https://doi.org/10.1016/j.apenergy.2018.01.023
 import pyomo.environ as pyo
 
 from model_utils import configuration as cnf
-from model_utils import generic_constraints as gen_con
+from model_generic import generic_constraints as gen_con
 
 GROUP_ID = "sto_"
 

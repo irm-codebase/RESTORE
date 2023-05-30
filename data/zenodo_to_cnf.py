@@ -11,7 +11,6 @@
 
 Unit conversion and currency conversion functions were adapted from D-EXPANSE.
 Linearisation and configuration data aggregation are new to RESTORE.
-# TODO: standardize the common files.
 # TODO: add unit checker (trigger error if unknown unit is detected)
 # TODO: cleanup, too many globals
 """

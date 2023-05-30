@@ -15,7 +15,7 @@ functions separate from the rest of the code.
 import pyomo.environ as pyo
 
 from model_utils import configuration as cnf
-from model_utils import generic_constraints as gen_con
+from model_generic import generic_constraints as gen_con
 from gen_utils import k_clustering
 
 GROUP_ID = "dem_"
@@ -35,11 +35,10 @@ def _e_cost_total(model: pyo.ConcreteModel):
 def _init_dem_elec(model: pyo.ConcreteModel):
     """Electricity demand is taken using K-Means, for now."""
     # Set electricity demand
-    elec_demand_y = [cnf.DATA.get_annual("dem_elec", "actual_demand", y) for y in model.Y]
+    elec_demand_y = {y: cnf.DATA.get_annual("dem_elec", "actual_demand", y) for y in model.Y}
     ratio, elec_demand_y_h = k_clustering.get_demand_shape(cnf.ISO3, model.Y, cnf.NDAYS, elec_demand_y)
-    # Convert back into TWh and remove the array shape
-    # TODO: move the magic value to the demand file to enable conversion regardless of the setting?
-    elec_demand_y_h = {key: value / 1000 for key, value in elec_demand_y_h.items()}
+    # Reshape into year, day, hour
+    elec_demand_y_h = {key: value for key, value in elec_demand_y_h.items()}
 
     for y in model.Y:
         for d in model.D:

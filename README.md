@@ -26,25 +26,7 @@ RESTORE also features a fully standardized prototyping workflow based on [FAIR p
 
 This lets model developers track the sources of their data, and gives users and other researchers full transparency into the model's operation and assumptions.
 
-<!-- ## IMPORTANT
-
-Although hindcasting/retrospective studies are useful to test modeller assumptions, they are subject to a plethora of uncertainties that are difficult to avoid. Essentially, their usefulness is limited by the availability and fineness of historical energy system data, which worsens the further to the past you go and the more specific your data requirements are. Temporal and spatial resolution matter a lot when it comes to calculating prices, system resilience and the viability of renewable technologies. 
-
-Due to this, I would argue that RESTORE is ***not*** a validation tool, but rather a useful test-bench to evaluate features before they are added to more complex models.
-
-For more on the topic of model evaluation and past uncertainty, see the following:
-- Oreskes: [Evaluation (not validation) of quantitative models](https://doi.org/10.1289/ehp.98106s61453)
-- Oreskes et al.: [Verification, Validation, and Confirmation of Numerical Models in the Earth Sciences](https://www.jstor.org/stable/2883078)
-- Wilson et al.: [Evaluating process-based integrated assessment models of climate change mitigation](https://doi.org/10.1007/s10584-021-03099-9)
-- Rowe: [Understanding Uncertainty](https://doi.org/10.1111/j.1539-6924.1994.tb00284.x)
-
-For examples of hindcasting studies, see:
-- Chaturvedi et al.: [Model evaluation and hindcasting: An experiment with an integrated assessment model](https://doi.org/10.1016/j.energy.2013.08.061)
-- Glotin et al.: [Prediction is difficult, even when it's about the past: A hindcast experiment using Res-IRF, an integrated energy-economy model](https://doi.org/10.1016/j.eneco.2019.07.012)
-- Fujimori et al.: [Global energy model hindcasting](http://dx.doi.org/10.1016/j.energy.2016.08.008)
- -->
-
-# Features currently in development
+## Features currently in development
 
 - Implement an option for imperfect foresight.
     - Variable foresight length.
@@ -61,3 +43,20 @@ For examples of hindcasting studies, see:
     - Ensure weather synchronicity (PV, Wind and Hydro run-off).
     - Create cnf file standard for hourly data series in representative days. Must be searchable by entity_id.
     - Add options for different types of clustering algorithm (k-means, spectral, etc).
+
+# IMPORTANT
+
+Although hindcasting/retrospective studies are useful to test modeller assumptions, they are subject to a plethora of uncertainties that are difficult to avoid. Essentially, their usefulness is limited by the availability and fineness of historical energy system data, which worsens the further to the past you go and the more specific your data requirements are. Temporal and spatial resolution matter a lot when it comes to calculating prices, system resilience and the viability of renewable technologies. 
+
+Due to this, I would argue that RESTORE is ***not*** a validation tool, but rather a useful test-bench to evaluate features before they are added to more complex models.
+
+For more on the topic of model evaluation and past uncertainty, see the following:
+- Oreskes: [Evaluation (not validation) of quantitative models](https://doi.org/10.1289/ehp.98106s61453)
+- Oreskes et al.: [Verification, Validation, and Confirmation of Numerical Models in the Earth Sciences](https://www.jstor.org/stable/2883078)
+- Wilson et al.: [Evaluating process-based integrated assessment models of climate change mitigation](https://doi.org/10.1007/s10584-021-03099-9)
+- Rowe: [Understanding Uncertainty](https://doi.org/10.1111/j.1539-6924.1994.tb00284.x)
+
+For examples of hindcasting studies, see:
+- Chaturvedi et al.: [Model evaluation and hindcasting: An experiment with an integrated assessment model](https://doi.org/10.1016/j.energy.2013.08.061)
+- Glotin et al.: [Prediction is difficult, even when it's about the past: A hindcast experiment using Res-IRF, an integrated energy-economy model](https://doi.org/10.1016/j.eneco.2019.07.012)
+- Fujimori et al.: [Global energy model hindcasting](http://dx.doi.org/10.1016/j.energy.2016.08.008)

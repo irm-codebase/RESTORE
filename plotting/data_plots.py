@@ -24,8 +24,6 @@ def plot_io_network(handler: DataHandler, labels=True):
     Args:
         labels (bool, optional): Whether to include labels in the plot. Defaults to True.
     """
-    # TODO: add colours?
-    # TODO: fix labels?
     inflow = handler.fxe["FiE"]
     outflow = handler.fxe["FoE"]
     nodes = set(inflow.index) | set(inflow.columns) | set(outflow.index) | set(outflow.columns)

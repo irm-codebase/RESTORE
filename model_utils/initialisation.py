@@ -21,7 +21,7 @@ import numpy as np
 import pyomo.environ as pyo
 from model_utils import configuration as cnf
 from model_utils import data_handler
-from model_utils import generic_expressions as gen_expr
+from model_generic import generic_expressions as gen_expr
 
 
 def _c_io_balance(model: pyo.ConcreteModel, flow_id: str, y: int, d: int, h: int):
@@ -67,11 +67,9 @@ def _init_sets(model: pyo.ConcreteModel) -> pyo.ConcreteModel:
     # See https://github.com/brentertainer/pyomo-tutorials/blob/master/intermediate/05-indexed-sets.ipynb
     f_in = data_handler.get_flow_entity_dict(cnf.DATA.fxe["FiE"])  # Must not contain Extractions
     f_out = data_handler.get_flow_entity_dict(cnf.DATA.fxe["FoE"])  # Must not contain Demands
-    f_inout_e = data_handler.merge_dicts(f_out, f_in)
     fxe = model.F * model.E
     model.FiE = pyo.Set(within=fxe, ordered=False, initialize={(f, e) for f in flows for e in f_in[f]})
     model.FoE = pyo.Set(within=fxe, ordered=False, initialize={(f, e) for f in flows for e in f_out[f]})
-    model.FxE = pyo.Set(within=fxe, ordered=False, initialize={(f, e) for f in flows for e in f_inout_e[f]})
 
     return model
 
@@ -122,5 +120,22 @@ def init_model() -> pyo.ConcreteModel:
     model = _init_expressions(model)
 
     model.c_io_balance = pyo.Constraint(model.F, model.Y, model.D, model.H, rule=_c_io_balance)
+
+    return model
+
+
+def run(model: pyo.ConcreteModel, objective: pyo.Expression):
+    """Run the model with a given objective function."""
+    model.cost = pyo.Objective(expr=objective, sense=pyo.minimize)
+    model.dual = pyo.Suffix(direction=pyo.Suffix.IMPORT)
+
+    opt = pyo.SolverFactory("gurobi", solver_io="python")
+    opt.options["MIPGap"] = 1e-2
+    opt.options["Timelimit"] = 1800
+    try:
+        opt_result = opt.solve(model, tee=False)
+        print(opt_result)
+    except ValueError:
+        model.write("debug.lp", format="lp", io_options={"symbolic_solver_labels": True})
 
     return model

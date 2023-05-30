@@ -101,13 +101,13 @@ $$\forall_{e,y} \quad ctot_{e,y} =\begin{cases}
 \sum\limits_{yx \in Y \ | y-yx < \mathbf{LIFE_{e}}}^{y} cnew_{e,y} \quad &\text{Otherwise}
 \end{cases}$$
 
-**cap_max_new**: limit the maximum new capacity installed per year. Skipped if $\mathbf{CMAXNEW}$ is `None`.
+**cap_max_new**: limit the maximum new capacity installed per year. Skipped if $\mathbf{BUILDRATE}$ is `None`.
 
-$$\forall_{e,y} \quad cnew_{e,y} \le \mathbf{YL}\cdot \mathbf{CMAXNEW_{e,y}}$$
+$$\forall_{e,y} \quad cnew_{e,y} \le \mathbf{YL}\cdot \mathbf{BUILDRATE_{e,y}}$$
 
-**cap_build_rate**: limit the rate of growth of an entity's capacity. Skipped if $\mathbf{BR}$ is `None`.
+**cap_build_rate**: limit the rate of growth of an entity's total capacity. Skipped if $\mathbf{GROWTHRATE}$ is `None`.
 
-$$\forall_{e,y} \quad ctot_{y,e} \le \mathbf{BR^{YL}} \cdot ctot_{e,y-\mathbf{YL}}$$
+$$\forall_{e,y} \quad ctot_{y,e} \le \mathbf{GROWTHRATE^{YL}} \cdot ctot_{e,y-\mathbf{YL}}$$
 
 # Activity constraints
 

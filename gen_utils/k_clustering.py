@@ -20,7 +20,6 @@ from sklearn.metrics import silhouette_samples
 DATA_FOLDER = "data/zenodo"
 
 
-# TODO: handle units here? Big problem!
 def get_k_means_hourly_demand(n_days: int, load_prof_yr: list) -> tuple[np.ndarray, np.ndarray]:
     """Obtain a number of representative daily load profiles using k-means clustering.
 
@@ -35,7 +34,7 @@ def get_k_means_hourly_demand(n_days: int, load_prof_yr: list) -> tuple[np.ndarr
     """
     k_means_model = KMeans(n_clusters=n_days, random_state=0).fit(load_prof_yr)  # Deterministic clustering
     cluster_labels = k_means_model.fit_predict(load_prof_yr)
-    hourly_dem = k_means_model.cluster_centers_ / 1000
+    hourly_dem = k_means_model.cluster_centers_
 
     if n_days > 1:
         # The silhouette_score gives the average value for all the samples.
@@ -57,36 +56,14 @@ def get_k_means_hourly_demand(n_days: int, load_prof_yr: list) -> tuple[np.ndarr
     return cluster_ratios, hourly_dem
 
 
-def get_supplied_ratio_y_d(demand_y_d_h: dict, k_ratio_y_d: dict, days: list, year: int) -> list:
-    """Obtain the total energy supplied by each representative day in a year.
-
-    Args:
-        demand_y_d_h (dict): Demand profile in [year, day, hour]
-        k_ratio_y_d (dict): Distribution of representative day in [year day]
-        days (list): list of representative days
-        year (int): year for which the total energy supplied per day will be obtained.
-
-    Returns:
-        (list): Amount of energy supplied in each representative day, per year.
-    """
-    # Get cumulative demand of each representative day in a year (accounting for occurrence).
-    demand_d = np.zeros(len(days))
-    for d in days:
-        demand_d[d] = sum(demand_y_d_h[year][d]) * 365 * k_ratio_y_d[year][d] / 1000
-
-    # Get the total yearly demand of each representative day
-    ratio_total_supplied_y_d = np.zeros(len(days))
-    for d in days:
-        ratio_total_supplied_y_d[d] = demand_d[d] / sum(demand_d)
-    return ratio_total_supplied_y_d
-
-
-def get_demand_shape(country: str, years: list, days: int, hist_elec_demand: pd.Series) -> tuple[dict, dict]:
+def get_demand_shape(country: str, years: list, days: int, hist_elec_demand: dict) -> tuple[dict, dict]:
     """Get k-means cluster shapes for the electricity demand in certain years."""
+    # TODO: this function only works if the day length is 24 hours.
     k_ratio_y_d = dict.fromkeys(years)
     demand_y_d_h = dict.fromkeys(years)
 
-    for i, y in enumerate(years):
+    for y in years:
+        # Fetch the load profile, in the order of country (year) -> country (earliest year) -> generic
         try:
             path = f"{DATA_FOLDER}/_profiles/elec_supply/{country}_{y}.csv"
             load_prof = pd.read_csv(path, index_col=0)
@@ -107,10 +84,13 @@ def get_demand_shape(country: str, years: list, days: int, hist_elec_demand: pd.
 
         # Apply a correction to the hourly profiles using historical data.
         # Necessary since demand profiles may not be available for every year.
+        # TODO: this should be simplified so that the demand profile IN THE FILE is normalized against the yearly total.
+        # That way, you just multiply by the yearly total.
+        # Since this is not done, there is a slight error because the total is calculated using the rep. days!
         elec_supplied_y = 0
         for d in range(days):
-            elec_supplied_y += sum(prof_demand_d_h[d, :]) * 365 * k_ratio_y_d[y][d] / 1000
-        hist_prof_ratio_y = hist_elec_demand[i] / elec_supplied_y
+            elec_supplied_y += sum(prof_demand_d_h[d, :]) * 365 * k_ratio_y_d[y][d]  # mistake!
+        hist_prof_ratio_y = hist_elec_demand[y] / elec_supplied_y
         demand_y_d_h[y] = prof_demand_d_h * hist_prof_ratio_y
 
     return k_ratio_y_d, demand_y_d_h
