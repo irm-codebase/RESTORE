@@ -21,21 +21,11 @@ F --> |inflow/input| E3
 
 $$\forall_{f, y, d, h} \quad \sum\limits_{e \in FOE_{f}} fout_{f,e,y,d,h} = \sum\limits_{e \in FIE_{f}}fin_{f,e,y,d,h}$$
 
-## Outflow limits
-
-**flow_out_share_equal**: limit a flow's outflow to be equal a share of the sum of all its outflows. Skipped if $\mathbf{FOUTSREQ}$ is `None`.
-
-$$\forall_{f,e,y,d,h} \quad fout_{f,e,y,d,h}=\mathbf{FOUTSREQ_{f,e,y}}\sum\limits_{ex \in FOE_{f}}fout_{f,ex,y,d,h}$$
-
-**flow_out_share_max**: limit a flow's outflow to be below a share of the sum of all its outflows. Skipped if $\mathbf{FOUTSRMAX}$ is `None`.
-
-$$\forall_{f,e,y,d,h} \quad fout_{f,e,y,d,h} \le \mathbf{FOUTSRMAX_{f,e,y}} \sum\limits_{ex \in FOE_{f}} fout_{f,ex,y,d,h} $$
-
-**flow_out_share_min**: limit a flow's outflow to be below a share of the sum of all its outflows. Skipped if $\mathbf{FOUTSRMIN}$ is `None`.
-
-$$\forall_{f,e,y,d,h} \quad fout_{f,e,y,d,h} \ge \mathbf{FOUTSRMIN_{f,e,y}} \sum\limits_{ex \in FOE_{f}} fout_{f,ex,y,d,h} $$
-
 ## Inflow limits
+
+**flow_in**: balance entity inflows to their activity, where $\boldsymbol{\eta }\mathbf{I}$  is the input efficiency.
+
+$$\forall_{e, y, d, h} \quad \sum\limits_{f \in EIN_{e}}\boldsymbol{\eta }\mathbf{I_{f, e, y}} \cdot fin_{f,e,y,d,h} = a_{e,y,d,h}$$
 
 **flow_in_share_equal**: limit a flow's inflow to be equal a share of the sum of all its inflows. Skipped if $\mathbf{FINSREQ}$ is `None`.
 
@@ -49,11 +39,25 @@ $$\forall_{f,e,y,d,h} \quad fin_{f,e,y,d,h} \le \mathbf{FINSRMAX_{f,e,y}} \sum\l
 
 $$\forall_{f,e,y,d,h} \quad fin_{f,e,y,d,h} \ge \mathbf{FINSRMIN_{f,e,y}} \sum\limits_{ex \in FIE_{f}} fin_{f,ex,y,d,h} $$
 
+## Outflow limits
+
+**flow_out**: balance entity outflow to the activity, where $\boldsymbol{\eta }\mathbf{O}$  is the output efficiency.
+
+$$\forall_{e, y, d, h} \quad a_{e,y,d,h} = \sum\limits_{f \in EOUT_{e}} \frac{fout_{f,e,y,d,h}}{\boldsymbol{\eta }\mathbf{O_{f, e, y}}}$$
+
+**flow_out_share_equal**: limit a flow's outflow to be equal a share of the sum of all its outflows. Skipped if $\mathbf{FOUTSREQ}$ is `None`.
+
+$$\forall_{f,e,y,d,h} \quad fout_{f,e,y,d,h}=\mathbf{FOUTSREQ_{f,e,y}}\sum\limits_{ex \in FOE_{f}}fout_{f,ex,y,d,h}$$
+
+**flow_out_share_max**: limit a flow's outflow to be below a share of the sum of all its outflows. Skipped if $\mathbf{FOUTSRMAX}$ is `None`.
+
+$$\forall_{f,e,y,d,h} \quad fout_{f,e,y,d,h} \le \mathbf{FOUTSRMAX_{f,e,y}} \sum\limits_{ex \in FOE_{f}} fout_{f,ex,y,d,h} $$
+
+**flow_out_share_min**: limit a flow's outflow to be below a share of the sum of all its outflows. Skipped if $\mathbf{FOUTSRMIN}$ is `None`.
+
+$$\forall_{f,e,y,d,h} \quad fout_{f,e,y,d,h} \ge \mathbf{FOUTSRMIN_{f,e,y}} \sum\limits_{ex \in FOE_{f}} fout_{f,ex,y,d,h} $$
+
 ## Inputs
-
-**input**: balance entity inflows to their activity, where $\boldsymbol{\eta }\mathbf{I}$  is the input efficiency.
-
-$$\forall_{e, y, d, h} \quad \sum\limits_{f \in EIN_{e}}\boldsymbol{\eta }\mathbf{I_{f, e, y}} \cdot fin_{f,e,y,d,h} = a_{e,y,d,h}$$
 
 **input_share_equal**: limit an entity's input to be a share of all its inputs. Skipped if $\mathbf{EINSREQ}$ is `None`.
 
@@ -68,10 +72,6 @@ $$\forall_{f,e,y,d,h} \quad fin_{f,e,y,d,h} \le \mathbf{EINSRMAX_{f,e,y}} \sum\l
 $$\forall_{f,e,y,d,h} \quad fin_{f,e,y,d,h} \ge \mathbf{EINSRMIN_{f,e,y}} \sum\limits_{fx \in EIN_{e}} fin_{fx,e,y,d,h}$$
 
 ## Outputs
-
-**output**: balance entity outputs to their activity, where $\boldsymbol{\eta }\mathbf{O}$  is the output efficiency.
-
-$$\forall_{e, y, d, h} \quad a_{e,y,d,h} = \sum\limits_{f \in EOUT_{e}} \frac{fout_{f,e,y,d,h}}{\boldsymbol{\eta }\mathbf{O_{f, e, y}}}$$
 
 **output_share_equal**: limit an entity's output to be a share of all its outputs. Skipped if $\mathbf{EOUTSREQ}$ is `None`.
 
@@ -127,7 +127,7 @@ $$\forall_{e,y,d,h} \quad a_{e,y,d,h}-a_{e,y,d,h-1} \le \mathbf{HL \cdot RAMPR_{
 
 **act_max_annual**: limit the maximum annual activity a specific entity. Skipped if $\mathbf{AMAXANN}$ is `None`.
 
-$$\mathrm{TotalAnnualAct_{e,y}} \le \mathbf{AMAXANN_{e,y}}$$
+$$\forall_{e,y} \quad \mathrm{TotalAnnualAct_{e,y}} \le \mathbf{AMAXANN_{e,y}}$$
 
 **act_cf_max_hour**: set the maximum hourly utilization of an entity's capacity.
 
