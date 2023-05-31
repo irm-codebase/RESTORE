@@ -1,5 +1,7 @@
 Group identifier: `_sto_`
 
+>**Important**: this file describes unique functions in the module. To see the generic constraints used by the module, please see the code.
+
 Storage entities are characterised by their charge/discharge and state-of-charge.
 
 ```mermaid

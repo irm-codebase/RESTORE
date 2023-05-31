@@ -71,15 +71,15 @@ def _c_cap_base(model, y):
         for fx, e in model.FoE
         if fx == f and e in (model.Caps - model.Trades)
     )
-    imports = sum(
-        model.ctot[e, y] * cnf.DATA.get_fxe(e, "output_efficiency", fx, y)
+    export_capacity = sum(
+        model.ctot[e, y] * cnf.DATA.get_fxe(e, "input_efficiency", fx, y)
         for fx, e in model.FoE
         if fx == f and e in (model.Trades & model.Caps)
     )
     if isinstance(base_cap_sys, int):
         print(f"Warning: Skipped base capacity requirement of {base_cap_sys} for {y}. Check LF data.")
         return pyo.Constraint.Skip
-    constraint = base_power >= base_cap_sys - imports
+    constraint = base_power >= base_cap_sys - export_capacity
     return constraint  # System must be able to go lower than the lowest expected demand
 
 

@@ -1,5 +1,7 @@
 Group identifier: `_trd_`
 
+>**Important**: this file describes unique functions in the module. To see the generic constraints used by the module, please see the code.
+
 Trade entities are able to produce or buy a flows for specific prices. Users can enable/disable if a specific trade entity is able to import or export via configuration commands.
 
 For now, trade prices are constant through the year, but it would be ideal to make them time-series since it would lead to more realistic behaviour.
@@ -24,7 +26,7 @@ $$\forall_{e,y} \quad \mathrm{TotalAnnualExport_{e,y}} = \sum\limits_{d \in D} \
 **cost_variable_om**: total variable cost due to trade. The Import or Export portion might be skipped depending on the configuration.
 
 $$
-\forall_{e}\quad \mathrm{CostVarOM} = \sum\limits_{y}\mathbf{DR}_{y}( \mathbf{CIMP}_{e,y} \mathrm{TotalAnnualImport}_{e,y} - \mathbf{REXP}_{e,y} \ \mathrm{TotalAnnualExport}_{e,y})
+\forall_{e}\quad \mathrm{CostVarOM_{e}} = \sum\limits_{y}\mathbf{DR_{y}}( \mathbf{CIMP_{e,y}} \mathrm{TotalAnnualImport_{e,y}} - \mathbf{REXP_{e,y}} \ \mathrm{TotalAnnualExport_{e,y}})
 $$
 
 # Constraints  
