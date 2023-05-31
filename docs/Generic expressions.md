@@ -12,7 +12,7 @@ $$\forall_{f,e,y} \quad \mathrm{TotalAnnualInflow_{f,e,y}} = \sum\limits_{d \in 
 
 **Total annual outflow**: the total annual sum of an entity's outflow.
 
-$$\forall_{f,e,y} \quad \mathrm{TotalAnnualOutflow_{f,e,y}} = \sum\limits_{d \in D} \mathbf{DL_{y,d}} \sum\limits_{h \in H} \mathbf{HL}\ fin_{f,e,y,d,h}$$
+$$\forall_{f,e,y} \quad \mathrm{TotalAnnualOutflow_{f,e,y}} = \sum\limits_{d \in D} \mathbf{DL_{y,d}} \sum\limits_{h \in H} \mathbf{HL}\ fout_{f,e,y,d,h}$$
 
 **Hourly capacity to activity**: defines maximum hourly nominal activity. Skipped if an entity has no capacity.
 

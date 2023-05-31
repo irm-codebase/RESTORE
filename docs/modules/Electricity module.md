@@ -1,6 +1,8 @@
 Group identifier: `_convchp_` and `_convelec_`
 
-The electricity sector represents energy conversion facilities for both combustion-based technologies and non-combustion renewables (PV, Wind, Hydro).
+>**Important**: this file describes unique functions in the module. To see the generic constraints used by the module, please see the code.
+
+The electricity sector represents energy conversion facilities for both combustion/nuclear based technologies and non-combustion renewables (PV, Wind, Hydro).
 
 Variable costs must not include fuel costs, since that is handled by either the trade or the extraction modules.
 
