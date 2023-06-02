@@ -66,7 +66,7 @@ def c_flow_in_share_min(model: pyo.ConcreteModel, flow_id: str, entity_id: str, 
 def c_flow_out(model: pyo.ConcreteModel, entity_id: str, y: int, d: int, h: int):
     """Balance entity outflows to its activity."""
     outflows = sum(
-        model.fout[f, e, y, d, h] * DATA.get_fxe(e, "output_efficiency", f, y)
+        model.fout[f, e, y, d, h] / DATA.get_fxe(e, "output_efficiency", f, y)
         for (f, e) in model.FoE
         if e == entity_id
     )
@@ -239,8 +239,7 @@ def c_act_max_annual(model: pyo.ConcreteModel, e: str, y: int):
     """Limit the annual activity of an entity."""
     max_act_annual = DATA.get_const(e, "max_activity_annual")
     if max_act_annual is not None:
-        act_annual = sum(model.DL[y, d] * sum(model.a[e, y, d, h] for h in model.H) for d in model.D)
-        return act_annual <= max_act_annual
+        return model.e_TotalAnnualActivity[e, y] <= max_act_annual
     return pyo.Constraint.Skip
 
 
@@ -265,9 +264,7 @@ def c_act_cf_min_year(model: pyo.ConcreteModel, e: str, y: int):
     if DATA.check_cnf(e, "enable_capacity"):
         lf_min = DATA.get(e, "lf_min", y)
         cap_to_act = DATA.get(e, "capacity_to_activity", y)
-        annual_min = lf_min * model.ctot[e, y] * cap_to_act
-        act_annual = sum(model.DL[y, d] * sum(model.a[e, y, d, h] for h in model.H) for d in model.D)
-        return annual_min <= act_annual
+        return lf_min * model.ctot[e, y] * cap_to_act <= model.e_TotalAnnualActivity[e, y]
     return pyo.Constraint.Skip
 
 
@@ -276,9 +273,7 @@ def c_act_cf_max_year(model: pyo.ConcreteModel, e: str, y: int):
     if DATA.check_cnf(e, "enable_capacity"):
         lf_max = DATA.get(e, "lf_max", y)
         cap_to_act = DATA.get(e, "capacity_to_activity", y)
-        annual_max = lf_max * model.ctot[e, y] * cap_to_act
-        act_annual = sum(model.DL[y, d] * sum(model.a[e, y, d, h] for h in model.H) for d in model.D)
-        return act_annual <= annual_max
+        return model.e_TotalAnnualActivity[e, y] <= lf_max * model.ctot[e, y] * cap_to_act
     return pyo.Constraint.Skip
 
 
@@ -301,7 +296,6 @@ def init_capacity(model: pyo.ConcreteModel, entity_list: set):
         if DATA.check_cnf(entity_id, "enable_capacity"):
             cap_enable = DATA.get_annual(entity_id, "actual_capacity", y_0)
             model.cnew[entity_id, y_0].fix(0)
-            # model.cret[entity_id, y_0].fix(0)
             model.ctot[entity_id, y_0].fix(cap_enable)
 
 

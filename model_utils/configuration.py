@@ -25,13 +25,13 @@ ISO2 = "CH"
 ISO3 = "CHE"
 
 # Build model configuration
-DATA = _handler.DataHandler("data/cnf_files/test.xlsx")
+DATA = _handler.DataHandler("data/cnf_files/test_elec_pass.xlsx")
 ENTITIES = pd.merge(DATA.fxe["FiE"], DATA.fxe["FoE"], how='outer', left_index=True, right_index=True).index
 FLOWS = set(pd.merge(DATA.fxe["FiE"], DATA.fxe["FoE"], how='inner').columns)
 
 # User defined parameters
-YEARSLICE = 1
-NDAYS = 4
+YEARSLICE = 2
+NDAYS = 6
 TIMESLICE = 3
 YEARS = np.arange(1990, 2020, YEARSLICE)
 DAYS = np.arange(NDAYS)

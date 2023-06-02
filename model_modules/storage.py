@@ -45,7 +45,7 @@ def _p_initial_soc(model: pyo.ConcreteModel, e: str):
 
 
 def _e_cost_total(model: pyo.ConcreteModel):
-    """Calculate the total cost of Storage entities."""
+    """Calculate the total cost of this module."""
     return sum(model.e_CostInv[e] + model.e_CostFixedOM[e] + model.e_CostVarOM[e] for e in model.Stors)
 
 

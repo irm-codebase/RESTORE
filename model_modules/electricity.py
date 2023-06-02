@@ -25,7 +25,7 @@ VRE_DICT = data_handler.get_lf_vre(cnf.ISO2)
 # Module-specific expressions
 # --------------------------------------------------------------------------- #
 def _e_cost_total(model: pyo.ConcreteModel):
-    """Calculate the total cost of Extraction entities."""
+    """Calculate the total cost of this module."""
     return sum(model.e_CostInv[e] + model.e_CostFixedOM[e] + model.e_CostVarOM[e] for e in model.Elecs)
 
 

@@ -25,7 +25,7 @@ GROUP_ID = "dem_"
 # Module-specific expressions
 # --------------------------------------------------------------------------- #
 def _e_cost_total(model: pyo.ConcreteModel):
-    """Calculate the total cost of Extraction entities."""
+    """Calculate the total cost of this module."""
     return sum(model.e_CostVarOM[e] for e in model.Dems)
 
 
@@ -79,11 +79,11 @@ def _init_dem_passenger(model: pyo.ConcreteModel):
     ]
 
     for y in model.Y:
-        for h in model.H:
-            model.a["dem_passenger", y, h].fix(True)
-            dem_y = cnf.DATA.get_annual("dem_passenger", "actual_demand", y)
-            hourly_dem = pass_demand_shape[h] * dem_y / 365
-            model.a["dem_passenger", y, h].set_value(hourly_dem)
+        dem_y = cnf.DATA.get_annual("dem_passenger", "actual_demand", y)
+        for d in model.D:
+            for h in model.H:
+                hourly_dem = pass_demand_shape[h] * dem_y / 365
+                model.a["dem_passenger", y, d, h].fix(hourly_dem)
 
 
 # --------------------------------------------------------------------------- #
@@ -116,7 +116,7 @@ def _constraints(model: pyo.ConcreteModel):
 def _initialise(model: pyo.ConcreteModel):
     """Set initial sector values."""
     _init_dem_elec(model)
-    # _init_dem_passenger(model)
+    _init_dem_passenger(model)
 
 
 # --------------------------------------------------------------------------- #
