@@ -4,7 +4,7 @@ Group identifier: `_trd_`
 
 Trade entities are able to produce or buy a flows for specific prices. Users can enable/disable if a specific trade entity is able to import or export via configuration commands.
 
-For now, trade prices are constant through the year, but it would be ideal to make them time-series since it would lead to more realistic behaviour.
+For now, trade prices are constant through the year, but it would be ideal to make them time-series since it would lead to more realistic behaviour!
 
 ```mermaid
 graph TD
